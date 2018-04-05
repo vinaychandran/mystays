@@ -1,0 +1,29 @@
+//Color
+$default-color: #000;
+$primary-color: #ccc;
+$secondary-color: #fff;
+$default-bg: #fff;
+$primary-bg:#000;
+
+//Font
+$default-font: 'Lato';
+$primary-font:'georgia';
+$secondary-font: 'aial';
+$font-size: 15px;
+$line-height: $font-size * 1.5;
+
+// Font-faceregular
+$light: 300;
+$regular: 400;
+$semi-bold: 600;
+$bold: 700;
+
+// Breakpoint
+$lg-width: 1200px;
+$md-width: 1024px;
+$sm-width: 768px;
+$xs-width: 481px;
+$xxs-width: 360px;
+
+//container width
+$container-width: 980px;

@@ -1,9 +1,7 @@
-$icon-font-path: '../fonts/';
-
-// bower:scss
-@import "bower_components/slick-carousel/slick/slick.scss";
-// endbower
-
 
 // Core
-@import "variables";
+@import "base/variables";
+@import "base/normalize";
+@import "base/mixins";
+@import "base/base";
+@import "base/helpers"; 
