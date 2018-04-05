@@ -1,0 +1,12 @@
+{
+  "name": "trungld",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "modernizr": "~2.8.1",
+    "jquery-ui": "1.12.1",
+    "babel-polyfill": "^0.0.1",
+    "slick-carousel": "^1.6.0",
+    "jquery_lazyload": "jquery.lazyload#^1.9.7"
+  }
+}

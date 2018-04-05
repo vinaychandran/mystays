@@ -1,0 +1,38 @@
+doctype html
+html.no-js(lang='')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='shortcut icon', href='assets/images/favicon.ico?v=1.0')
+    title OE web scaffolding
+
+    // build:css assets/styles/vendor.css
+    // bower:css
+    // endbower
+    // endbuild
+
+    // build:css assets/styles/main.css
+    link(rel='stylesheet', href='assets/styles/main.css')
+    // endbuild
+  body
+    .container
+      include ../includes/header.pug
+
+      block content
+
+      include ../includes/footer.pug
+
+    // build:js assets/scripts/vendor.js
+    // bower:js
+    script(src='/bower_components/jquery/dist/jquery.js')
+    // endbower
+    // endbuild
+
+    // build:js assets/scripts/plugins.js
+    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js')
+    // endbuild
+
+    // build:js assets/scripts/main.js
+    script(src='assets/scripts/main.js')
+    // endbuild
