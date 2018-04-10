@@ -14,10 +14,66 @@ html.no-js(lang='')
 
     // build:css assets/styles/main.css
     link(rel='stylesheet', href='assets/styles/main.css')
+    link(rel='stylesheet', href='assets/styles/components/modal.css')
+    <!-- link(rel='stylesheet', href='https://cdn.jsdelivr.net/foundation/5.5.0/css/foundation.css') -->
+    link(rel='stylesheet', href='https://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css')
     // endbuild
   body
     .container
       include ../includes/header.pug
+      include ../components/button.pug
+
+      p.heading Popup
+      button(data-toggle='modal', data-target='modal1')  Modal
+
+      p.heading Slider
+      .slider-container
+          // MAIN SLIDES
+          .slider
+            div
+              img(src='assets/images/slide1.jpg', alt='One')
+              figcaption
+                | Caption for image one.
+            div
+              img(src='assets/images/slide2.jpg', alt='Two')
+              figcaption
+                | Caption for image two.
+            div
+              img(src='assets/images/slide3.jpg', alt='Three')
+              figcaption
+                | Caption for image three.
+            div
+              img(src='assets/images/slide4.jpg', alt='Four')
+              figcaption
+                | Caption for image four.
+            div
+              img(src='assets/images/slide5.jpg', alt='Five')
+              figcaption
+                | Caption for image five.
+          // THUMBNAILS
+          .slider-nav-thumbnails
+            div
+              img(src='assets/images/slide1.jpg', alt='One')
+            div
+              img(src='assets/images/slide2.jpg', alt='Two')
+            div
+              img(src='assets/images/slide3.jpg', alt='Three')
+            div
+              img(src='assets/images/slide4.jpg', alt='Four')
+            div
+              img(src='assets/images/slide5.jpg', alt='Five')
+
+      br
+      p.heading lazyload (scroll to see)
+      .row
+        .col.col-1-2
+            img.lazy(src='http://placehold.it/1200x600&text=one', data-src="assets/images/slide1.jpg", alt='')
+        .col.col-1-2
+            img.lazy(src='http://placehold.it/1200x600&text=one', data-src="assets/images/slide2.jpg", alt='')
+        .col.col-1-2
+            img.lazy(src='http://placehold.it/1200x600&text=one', data-src="assets/images/slide3.jpg", alt='')
+        .col.col-1-2
+            img.lazy(src='http://placehold.it/1200x600&text=one', data-src="assets/images/slide4.jpg", alt='')
 
       block content
 
@@ -34,5 +90,12 @@ html.no-js(lang='')
     // endbuild
 
     // build:js assets/scripts/main.js
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/8.7.1/lazyload.min.js')
     script(src='assets/scripts/main.js')
+    script(src='assets/scripts/modal.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+
+    // Will be reomved
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation.min.js')
+    script(src='https://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js')
     // endbuild
