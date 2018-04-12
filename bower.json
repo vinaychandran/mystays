@@ -7,6 +7,6 @@
     "jquery-ui": "1.12.1",
     "babel-polyfill": "^0.0.1",
     "slick-carousel": "^1.6.0",
-    "jquery_lazyload": "jquery.lazyload#^1.9.7"
+    "vanilla-lazyload": "^10.0.1"
   }
 }
