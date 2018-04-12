@@ -23,6 +23,29 @@ html.no-js(lang='')
       include ../includes/header.pug
       include ../components/button.pug
 
+  
+      p.heading Video player
+      #light
+        a#boxclose.boxclose
+        video#VisaChipCardVideo(width='600', controls='')
+          source(src='https://www.w3schools.com/html/mov_bbb.mp4', type='video/mp4')
+      #fade
+
+      div
+        ul
+          li
+            img(src='assets/images/video1.jpeg', alt='Video 1')
+            a.thiru(href='#') Restorants
+          li
+            img(src='assets/images/video2.jpeg', alt='Video 1')
+            a(href='#' onclick='video.lightbox_open()') Rooms
+          li
+            img(src='assets/images/video3.jpeg', alt='Video 1')
+            a(onclick='') Banquets
+          li
+            img(src='assets/images/video4.jpeg', alt='Video 1')
+            a.thiru(href='#') Onsea and Spa
+
       p.heading Popup
       button(data-toggle='modal', data-target='modal1')  Modal
 
@@ -93,6 +116,8 @@ html.no-js(lang='')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/8.7.1/lazyload.min.js')
     script(src='assets/scripts/main.js')
     script(src='assets/scripts/modal.js')
+    script(src='assets/scripts/videoplayer.js')
+
     script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
 
     // Will be reomved
