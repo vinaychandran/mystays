@@ -1,16 +1,13 @@
 
-class videothiru {
+class videoplayer {
     constructor() {
-        console.log("const videoplayer");
         
     }
 
     init() {
-        console.log("init videoplayer");
     }
 
     lightbox_open(src) {
-        console.log("video loading open");
         var lightBoxVideo = document.getElementById("VisaChipCardVideo");
         lightBoxVideo.src = src;
         window.scrollTo(0, 0);

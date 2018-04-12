@@ -28,24 +28,23 @@ html.no-js(lang='')
       #light
         a#boxclose.boxclose
         video#VisaChipCardVideo(width='600', controls='')
-         
       #fade
 
-      div
+      div.videoImgContainer
         ul
-          li
-            img(src='assets/images/video1.jpeg', alt='Video 1')
-            a.thiru(href='#') Restorants
-          li
-            img(src='assets/images/video2.jpeg', alt='Video 1')
-            a(href='#' onclick='FE.global.videoPlayer("https://www.w3schools.com/html/mov_bbb.mp4")') Rooms
-          li
-            img(src='assets/images/video3.jpeg', alt='Video 1')
-            a(onclick='FE.global.videoPlayer("http://res.cloudinary.com/david-wash-blog/video/upload/sample-video.mp4")') Banquets
-          li
-            img(src='assets/images/video4.jpeg', alt='Video 1')
-            a.thiru(href='#') Onsea and Spa
-
+          li.slide1
+            //img(src='assets/images/video1.jpeg', alt='Video 1')
+            a.imgRestorants(href='#' onclick='FE.global.videoPlayer("https://www.w3schools.com/html/mov_bbb.mp4")') Restorants
+          li.slide2
+            //img(src='assets/images/video2.jpeg', alt='Video 1')
+            a.thumbImg(href='#' onclick='FE.global.videoPlayer("http://res.cloudinary.com/david-wash-blog/video/upload/sample-video.mp4")') Rooms
+          li.slide3
+            //img(src='assets/images/video3.jpeg', alt='Video 1')
+            a.thumbImg(onclick='FE.global.videoPlayer("https://www.w3schools.com/html/mov_bbb.mp4")') Banquets
+          li.slide4
+            //img(src='assets/images/video4.jpeg', alt='Video 1')
+            a.thumbImg(href='#' onclick='FE.global.videoPlayer("http://res.cloudinary.com/david-wash-blog/video/upload/sample-video.mp4")')  Onsea & Spa
+      br
       p.heading Popup
       button(data-toggle='modal', data-target='modal1')  Modal
 

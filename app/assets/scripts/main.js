@@ -50,20 +50,13 @@ const FE = {
             const myLazyLoad = new LazyLoad();
         },
         videoPlayer: (src) => {
-            console.log(src);
-            const video = new videothiru();
+   
+            const video = new videoplayer();
             video.lightbox_open(src);
-            // //video.lightbox_close();
-            let btns = document.getElementsByClassName('thiru');
+
             let btnsClose = document.getElementById('fade');
             let btnsCloseBtn = document.getElementById('boxclose');
-
-            for (let btn of btns) {
-                btn.onclick = function () {
-                    video.lightbox_open();
-
-                }
-            }
+ 
 
             btnsClose.onclick = function () {
                 video.lightbox_close();

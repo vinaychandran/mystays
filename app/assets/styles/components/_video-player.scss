@@ -1,3 +1,52 @@
+.videoImgContainer{
+   &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+  ul{
+    li{
+      display: inline;
+      float:left;
+  }
+  }
+}
+
+.videoImgContainer li.slide1{
+  background: red;
+  width: 200px;
+  height: 396px;
+  text-align: center;
+  padding-top: 176px;
+}
+.videoImgContainer li.slide2{
+  background: green;
+  width: 200px;
+  height: 396px;
+  text-align: center;
+  padding-top: 176px;
+}
+.videoImgContainer li.slide3{
+  background: blue;
+  width: 200px;
+  height: 396px;
+  text-align: center;
+  padding-top: 176px;
+}
+.videoImgContainer li.slide4{
+  background: red;
+  width: 200px;
+  height: 396px;
+  text-align: center;
+  padding-top: 176px;
+}
+
+.videoImgContainer li a{
+    background: #f5f5f5;
+  }
+
 #fade {
   display: none;
   position: fixed;
