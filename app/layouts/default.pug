@@ -28,7 +28,7 @@ html.no-js(lang='')
       #light
         a#boxclose.boxclose
         video#VisaChipCardVideo(width='600', controls='')
-          source(src='https://www.w3schools.com/html/mov_bbb.mp4', type='video/mp4')
+         
       #fade
 
       div
@@ -38,10 +38,10 @@ html.no-js(lang='')
             a.thiru(href='#') Restorants
           li
             img(src='assets/images/video2.jpeg', alt='Video 1')
-            a(href='#' onclick='video.lightbox_open()') Rooms
+            a(href='#' onclick='FE.global.videoPlayer("https://www.w3schools.com/html/mov_bbb.mp4")') Rooms
           li
             img(src='assets/images/video3.jpeg', alt='Video 1')
-            a(onclick='') Banquets
+            a(onclick='FE.global.videoPlayer("http://res.cloudinary.com/david-wash-blog/video/upload/sample-video.mp4")') Banquets
           li
             img(src='assets/images/video4.jpeg', alt='Video 1')
             a.thiru(href='#') Onsea and Spa

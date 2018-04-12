@@ -9,9 +9,10 @@ class videothiru {
         console.log("init videoplayer");
     }
 
-    lightbox_open() {
+    lightbox_open(src) {
         console.log("video loading open");
         var lightBoxVideo = document.getElementById("VisaChipCardVideo");
+        lightBoxVideo.src = src;
         window.scrollTo(0, 0);
         document.getElementById('light').style.display = 'block';
         document.getElementById('fade').style.display = 'block';

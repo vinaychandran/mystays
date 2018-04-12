@@ -49,10 +49,10 @@ const FE = {
         lazyLoad: () => {
             const myLazyLoad = new LazyLoad();
         },
-        videoplayer: () => {
-
+        videoPlayer: (src) => {
+            console.log(src);
             const video = new videothiru();
-           // video.lightbox_open();
+            video.lightbox_open(src);
             // //video.lightbox_close();
             let btns = document.getElementsByClassName('thiru');
             let btnsClose = document.getElementById('fade');
@@ -105,7 +105,7 @@ const FE = {
 
 $(function () {
     FE.global.init();
-    FE.global.videoplayer();
+   
 
 
 });
