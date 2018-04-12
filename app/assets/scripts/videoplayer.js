@@ -1,5 +1,10 @@
-class videoplayer {
+ 
+
+class videoPlayer {
     constructor() {
+    }
+
+    init() {
 
     }
 

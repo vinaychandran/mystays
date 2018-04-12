@@ -13,8 +13,10 @@ const FE = {
             const myLazyLoad = new LazyLoad();
         },
         videoPlayer: (src) => {
+ 
 
-            const video = new videoplayer();
+            const video = new videoPlayer();
+
             video.lightbox_open(src);
 
             let btnsClose = document.getElementById('fade');
@@ -48,7 +50,9 @@ const FE = {
                 for (let id in FE.global.tabs.tabLinks) {
 
                     FE.global.tabs.tabLinks[id].addEventListener('click', FE.global.tabs.showTab);
-                    FE.global.tabs.tabLinks[id].onfocus = function() {
+
+                    FE.global.tabs.tabLinks[id].onfocus = function () {
+
                         this.blur()
                     };
                     if (i == 0) FE.global.tabs.tabLinks[id].className = 'selected';
