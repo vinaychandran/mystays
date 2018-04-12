@@ -98,6 +98,32 @@ html.no-js(lang='')
         .col.col-1-2
             img.lazy(src='http://placehold.it/1200x600&text=one', data-src="assets/images/slide4.jpg", alt='')
 
+      br
+      p.heading Tabs
+      ul#tabs
+        li
+          a(href='#about') About JavaScript tabs
+        li
+          a(href='#advantages') Advantages of tabs
+        li
+          a(href='#usage') Using tabs
+      #about.tabContent
+        h2 About JavaScript tabs
+        div
+          p
+            | JavaScript tabs partition your Web page content into tabbed sections. Only one section at a time is visible.
+          p
+            | The code is written in such a way that the page degrades gracefully in browsers that don&apos;t support JavaScript or CSS.
+      #advantages.tabContent
+        h2 Advantages of tabs
+        div
+          p JavaScript tabs are great if your Web page contains a large amount of content.
+          p They&apos;re also good for things like multi-step Web forms.
+      #usage.tabContent
+        h2 Using tabs
+        div
+          p Click a tab to view the tab&apos;s content. Using tabs couldn&apos;t be easier!
+
       block content
 
       include ../includes/footer.pug

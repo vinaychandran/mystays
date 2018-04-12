@@ -72,31 +72,69 @@ const FE = {
                 video.lightbox_close();
 
             }
-
-            // loadVid: () {
-    
-            //     var videourl = 'https://www.w3schools.com/html/mov_bbb.mp4'; // set the url to your video file here
-            //     var videocontainer = '#thiru'; // set the ID of the container that you want to insert the video in
-            //     var parameter = new Date().getMilliseconds();  //  generate variable based on current date/time
-
-            //     var video = '<video width="1102" height="720" id="intro-video" autoplay loop src="' + videourl + '?t=' + parameter + '"></video>'; // setup the video element
-
-            //     $(videocontainer).append(video); // insert the video element into its container
-
-            //     video = $(document).find('#intro-video')[0]; // find the newly inserterd video
-
-            //     video.load(); // load the video (it will autoplay because we've set it as a parameter of the video)
-
-            // }
-
-
-
         },
+        tabs: {
+            tabLinks : new Array(),
+            contentDivs : new Array(),
+            tabs: () => {
+                let tabListItems = document.getElementById('tabs').childNodes;
+                for (let i = 0; i < tabListItems.length; i++) {
+                    if (tabListItems[i].nodeName == 'LI') {
+                        let tabLink = FE.global.tabs.getFirstChildWithTagName(tabListItems[i], 'A');
+                        let id = FE.global.tabs.getHash(tabLink.getAttribute('href'));
+                        FE.global.tabs.tabLinks[id] = tabLink;
+                        FE.global.tabs.contentDivs[id] = document.getElementById(id);
+                    }
+                }
+
+                let i = 0;
+    
+                for (let id in FE.global.tabs.tabLinks) {
+
+                    FE.global.tabs.tabLinks[id].addEventListener('click',FE.global.tabs.showTab);
+                    FE.global.tabs.tabLinks[id].onfocus = function() {
+                        this.blur()
+                    };
+                    if (i == 0) FE.global.tabs.tabLinks[id].className = 'selected';
+                    i++;
+                }
+                let j = 0;
+    
+                for (let id in FE.global.tabs.contentDivs) {
+                    if (j != 0) FE.global.tabs.contentDivs[id].className = 'tabContent hide';
+                    j++;
+                }                                                
+            },
+            showTab: (e) => {
+                const that = e.target;
+                let selectedId = FE.global.tabs.getHash(that.getAttribute('href'));
+
+                for (let id in FE.global.tabs.contentDivs) {
+                    if (id == selectedId) {
+                        FE.global.tabs.tabLinks[id].className = 'selected';
+                        FE.global.tabs.contentDivs[id].className = 'tabContent';
+                        } else {
+                            FE.global.tabs.tabLinks[id].className = '';
+                            FE.global.tabs.contentDivs[id].className = 'tabContent hide';
+                        }
+                    }
+                    return false;
+            },
+            getFirstChildWithTagName: (element, tagName) => {
+                for (let i = 0; i < element.childNodes.length; i++) {
+                  if (element.childNodes[i].nodeName == tagName) return element.childNodes[i];
+                }
+            },              
+            getHash: (url) => {
+                var hashPos = url.lastIndexOf('#');
+                return url.substring(hashPos + 1);
+            },  
+        },        
         init: () => {
             //initialling modal
             FE.global.loginModal('modal1', false, false);
             FE.global.lazyLoad();
-
+            FE.global.tabs.tabs();
 
         }
     }
@@ -105,9 +143,6 @@ const FE = {
 
 $(function () {
     FE.global.init();
-   
-
-
 });
 
 window.onload = function () {
