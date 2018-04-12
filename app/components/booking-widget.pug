@@ -1,0 +1,31 @@
+section
+  h2 Contact information
+  fieldset
+    legend Title
+    ul
+      li
+        label(for='title_1')
+          input#title_1(type='radio', name='title', value='M.')
+          |               Mister
+      li
+        label(for='title_2')
+          input#title_2(type='radio', name='title', value='Ms.')
+          |               Miss
+  p
+    label(for='name')
+      span Name:
+      strong
+        abbr(title='required') *
+    input#name(type='text', name='username')
+  p
+    label(for='mail')
+      span E-mail:
+      strong
+        abbr(title='required') *
+    input#mail(type='email', name='usermail')
+  p
+    label(for='pwd')
+      span Password:
+      strong
+        abbr(title='required') *
+    input#pwd(type='password', name='password')
