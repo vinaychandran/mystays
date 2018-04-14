@@ -12,8 +12,8 @@ const FE = {
         lazyLoad: () => {
             const myLazyLoad = new LazyLoad();
         },
-        videoPlayer: (src) => {
-
+        videoPlayer: (event) => {
+            let src = event.target.attributes.getNamedItem('data-src').value;
             const video = new videoplayer();
             video.lightbox_open(src);
 
