@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-
-
->>>>>>> be11df6815140eba9c11488ced621646047f8d09
 class videoPlayer {
     constructor() {}
     init() {
