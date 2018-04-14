@@ -100,6 +100,7 @@
 
   .tagline {
     padding-top: 30px;
+    //border-bottom: 1px solid #000000;
   }
 
   p {
@@ -145,6 +146,17 @@
 .video-banner {
   text-align: center;
 
+  .video-popup video{
+    display: none;
+  }
+
+  #video{
+    position: absolute;
+    left: 18%;
+    width: 720px;
+    margin: 0 auto;
+  }
+
   .video-banner-title {
     font-size: 34px;
     font-weight: $semi-bold;
@@ -178,6 +190,7 @@
       color: #000000;
       background-color: #fafafa;
       padding: 3px 16px;
+      cursor: pointer;
 
       &:hover {
         opacity: 1;
@@ -204,4 +217,8 @@
       margin-right: 0;
     }
   }
+}
+
+.footer{
+  background: #232e48;
 }
