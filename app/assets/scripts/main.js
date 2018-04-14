@@ -13,7 +13,7 @@ const FE = {
             const myLazyLoad = new LazyLoad();
         },
         videoPlayer: (src) => {
- 
+
 
             const video = new videoPlayer();
 
@@ -92,7 +92,7 @@ const FE = {
         },
         init: () => {
             //initialling modal
-            FE.global.loginModal('modal1', false, false);
+            FE.global.loginModal('modal1', true, true);
             FE.global.lazyLoad();
             FE.global.tabs.tabs();
 

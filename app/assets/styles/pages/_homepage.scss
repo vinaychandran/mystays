@@ -1,0 +1,50 @@
+.main-banner {
+  background: url("/assets/images/banner.jpg");
+}
+
+.slider-widget {
+  p {
+    font-family: OpenSans;
+    font-size: 16px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 6.69;
+    letter-spacing: 3.1px;
+    text-align: center;
+    color: #141414;
+  }
+}
+
+.video-banner {
+  .video-banner-title {
+    font-family: OpenSans;
+    font-size: 34px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.47;
+    letter-spacing: 2.6px;
+    text-align: center;
+    color: #141414;
+    border-bottom: 2px solid #1a1a1a;
+    display: inline-block;
+  }
+
+  ul li {
+ 
+    a {
+
+      font-family: OpenSans;
+      font-size: 14px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 2.14;
+      letter-spacing: 1.4px;
+      text-align: center;
+      color: #000000;
+      background-color: #fafafa;
+    }
+  }
+}
