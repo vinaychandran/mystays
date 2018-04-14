@@ -84,8 +84,8 @@ const FE = {
                 asNavFor: '.slider-for',
                 dots: false,
                 arrows: false,
-                focusOnSelect: true,
-                autoplay: true
+                focusOnSelect: true
+                //autoplay: true
             });
             $('.slick-left').click(function() {
                 $('.slider-nav').slick('slickPrev');

@@ -6,11 +6,11 @@
   height: 660px;
   background: url("/assets/images/banner.jpg");
 
-  .main-navigation {
+  .main-header {
     @extend %clearfix;
     background-color: rgba(192,192,192,0.3);
 
-    ul {
+    .main-navigation ul {
       li {
         a {
           font-family: $primary-font;
@@ -83,6 +83,25 @@
 }
 
 .slider-widget {
+  margin-bottom: 130px;
+
+  .slide {
+    position: relative;
+  }
+
+  .date {
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    text-align: center;
+    background: #fff;
+    padding: 17px 22px 20px;
+  }
+
+  .tagline {
+    padding-top: 30px;
+  }
+
   p {
     font-size: 16px;
     font-weight: $semi-bold;
@@ -92,6 +111,11 @@
     letter-spacing: 3.1px;
     text-align: center;
     color: #141414;
+  }
+
+  .slick-left,
+  .slick-right {
+    font-size: 10px;
   }
 
   .action {
