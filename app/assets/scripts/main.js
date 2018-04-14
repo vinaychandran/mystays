@@ -26,7 +26,6 @@ const FE = {
             }
             btnsCloseBtn.onclick = function() {
                 video.lightbox_close();
-
             }
         },
         tabs: {
@@ -92,6 +91,12 @@ const FE = {
             FE.global.lazyLoad();
             FE.global.tabs.tabs();
 
+        },
+        loaded: function loaded() {
+            //Functions inside loaded execute when window loaded
+        },
+        resize: function resize() {
+            //Functions inside loaded execute when window resize
         }
     }
 }
@@ -102,5 +107,5 @@ $(function() {
 });
 
 window.onload = function() {
-    // FE.global.slider('.slider', '.slider-nav-thumbnails');
+
 };
