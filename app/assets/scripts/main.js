@@ -14,19 +14,8 @@ const FE = {
         },
         videoPlayer: (event) => {
             let src = event.target.attributes.getNamedItem('data-src').value;
-            const video = new videoplayer();
-            video.lightbox_open(src);
-
-            let btnsClose = document.getElementById('fade');
-            let btnsCloseBtn = document.getElementById('boxclose');
-
-
-            btnsClose.onclick = function() {
-                video.lightbox_close();
-            }
-            btnsCloseBtn.onclick = function() {
-                video.lightbox_close();
-            }
+            const video = new videoPlayer();
+            video.openVideo(src);
         },
         tabs: {
             tabLinks: new Array(),
@@ -87,9 +76,10 @@ const FE = {
         },
         init: () => {
             //initialling modal
-            FE.global.loginModal('modal1', false, false);
-            FE.global.lazyLoad();
-            FE.global.tabs.tabs();
+            // TODO page level setting for init
+            //FE.global.loginModal('modal1', false, false);
+            //FE.global.lazyLoad();
+            //FE.global.tabs.tabs();
 
         },
         loaded: function loaded() {
