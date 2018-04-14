@@ -1,12 +1,91 @@
+.container {
+  padding: 0;
+}
+
 .main-banner {
+  height: 660px;
   background: url("/assets/images/banner.jpg");
+
+  .main-navigation {
+    @extend %clearfix;
+    background-color: rgba(192,192,192,0.3);
+
+    ul {
+      li {
+        a {
+          font-family: $primary-font;
+          font-size: 12px;
+          font-weight: bold;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 2.5;
+          letter-spacing: 0.7px;
+          text-align: left;
+          color: #ffffff;
+        }
+      }
+    }
+
+    .language {
+      font-family: $primary-font;
+      font-size: 12px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 2.5;
+      letter-spacing: 0.7px;
+      text-align: left;
+      color: #ffffff;
+      float: left;
+    }
+
+    .login {
+      font-family: $primary-font;
+      font-size: 14px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 2.14;
+      letter-spacing: 1.4px;
+      text-align: left;
+      color: #ffffff;
+    }
+  }
+
+  .banner-text {
+    text-align: center;
+    font-family: $secondary-font;
+    font-size: 32px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.63;
+    letter-spacing: 3.8px;
+    color: #ffffff;
+
+    span {
+      display: block;
+      font-size: 14px;
+      font-weight: $semi-bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 4.32;
+      letter-spacing: 5.3px;
+      color: #ffffff;
+    }
+  }
+
+  .guestPhotos,
+  .hotelPhotos {
+    @extend %clearfix;
+    text-align: right;
+  }
 }
 
 .slider-widget {
   p {
-    font-family: OpenSans;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: $semi-bold;
     font-style: normal;
     font-stretch: normal;
     line-height: 6.69;
@@ -14,13 +93,36 @@
     text-align: center;
     color: #141414;
   }
+
+
+.action{
+display:block;
+margin:100px auto;
+width:100%;
+text-align:center;
+}
+.action a {
+display:inline-block;
+padding:5px 10px;
+background:#f30;
+color:#fff;
+text-decoration:none;
+}
+.action a:hover{
+background:#000;
+}
+}
+
+.banner-middle {
+  padding-bottom: 140px;
 }
 
 .video-banner {
+  text-align: center;
+
   .video-banner-title {
-    font-family: OpenSans;
     font-size: 34px;
-    font-weight: 600;
+    font-weight: $semi-bold;
     font-style: normal;
     font-stretch: normal;
     line-height: 1.47;
@@ -29,15 +131,20 @@
     color: #141414;
     border-bottom: 2px solid #1a1a1a;
     display: inline-block;
+    margin-bottom: 86px;
   }
 
   ul li {
- 
-    a {
+    height: 396px;
+    width: 254px;
+    float: left;
+    margin-right: 42px;
+    padding-top: 181px;
+    text-align: center;
 
-      font-family: OpenSans;
+    a {
       font-size: 14px;
-      font-weight: 600;
+      font-weight: $semi-bold;
       font-style: normal;
       font-stretch: normal;
       line-height: 2.14;
@@ -45,6 +152,31 @@
       text-align: center;
       color: #000000;
       background-color: #fafafa;
+      padding: 3px 16px;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    &.restaurants {
+      background: url("/assets/images/video1.jpg") no-repeat;
+    }
+
+    &.rooms {
+      background: url("/assets/images/video2.jpg") no-repeat;
+    }
+
+    &.banquets {
+      background: url("/assets/images/video1.jpg") no-repeat;
+    }
+
+    &.onsen {
+      background: url("/assets/images/video2.jpg") no-repeat;
+    }
+
+    &:last-child {
+      margin-right: 0;
     }
   }
 }
