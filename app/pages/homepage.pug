@@ -2,8 +2,58 @@ extends ../layouts/default
 
 block append content
 
+
+  .main-banner
+      .main-navigation
+        h4.logo.col.col-1-4 Logo
+        ul.col.col-1-2
+          li
+            a(href='pages/homepage.html') オファー
+            a(href='#') ギャラリー
+            a(href='#') ルーム
+            a(href='#') アクセス
+            a(href='#') レストラン
+            a(href='#') 会議・宴会
+            a(href='#') 設備
+            a(href='#') 観光名所
+            a(href='#') 温泉&スパ
+        div.col.col-1-4
+          .language Language
+          a.login(href='#') マイページ
+      .banner-text.col.col-1-1 空港と寺社を臨む
+        span RISE ABOVE THE BAY
+        span.guestPhotos Guest Photos
+        span.hotelPhotos Hotel Photos
+  .booking-widget
+  .slider-widget
+    p HILIGHTS
+    span もっと見る
+    .slider.slider-nav
+      div
+        img(src='/assets/images/1.jpg')
+      div
+        img(src='/assets/images/2.jpg')
+      div
+        img(src='/assets/images/3.jpg')
+  .banner-middle
+    img(src='/assets/images/banner-middle.jpg')
   .container
-    h1 Index
-    ul
-      li
-      a(href="pages/homepage.html") 01. This is homepage -
+    .video-banner
+      .video-banner-title ART HOTEL OSAKA BAY TOWER
+      ul
+        li.restaurants
+          a RESTAURANTS
+        li.rooms
+          a ROOMS
+        li.banquets
+          a BANQUETS
+        li.onsen
+          a ONSEN & SPA
+  .guest-review
+    .h5 LIVE GALLERY
+  .art-concept
+    .h5 ART CONCEPT
+  .gallery
+  .location
+    .h5 OSAKA ON YOUR DOORSTEP
+  .footer
