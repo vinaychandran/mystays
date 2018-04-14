@@ -54,9 +54,11 @@ block append content
       i.slick-right.fa.fa-long-arrow-right.arrow1(aria-hidden='true')
   .banner-middle
     img(src='/assets/images/banner-middle.jpg')
-  .container
-    .video-banner
+  .video-banner
+    .container
       .video-banner-title ART HOTEL OSAKA BAY TOWER
+      #video-container.video-popup
+      video#video(preload='auto')
       ul(onclick='FE.global.videoPlayer(event)')
         li.restaurants
           a(data-src='https://www.w3schools.com/html/mov_bbb.mp4') RESTAURANTS
