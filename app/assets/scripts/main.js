@@ -85,7 +85,7 @@ const FE = {
                 dots: false,
                 arrows: false,
                 focusOnSelect: true
-                //autoplay: true
+                    //autoplay: true
             });
             $('.slick-left').click(function() {
                 $('.slider-nav').slick('slickPrev');
@@ -100,7 +100,8 @@ const FE = {
             //FE.global.loginModal('modal1', false, false);
             FE.global.lazyLoad();
             //FE.global.tabs.tabs();
-
+            $('#fromDate').datepicker();
+            $('#toDate').datepicker();
         },
         loaded: function loaded() {
             //Functions inside loaded execute when window loaded
@@ -117,6 +118,5 @@ $(function() {
 });
 
 window.onload = function() {
-
     FE.global.slider();
 };

@@ -3,14 +3,15 @@ extends ../layouts/default
 block append content
 
     include ../components/modal-popup.pug
-    include ../components/booking-widget.pug
-
+    
     .container
-    p.heading Video player
+    p.heading
       #light
         a#boxclose.boxclose
         video#VisaChipCardVideo(width='600', controls='')
       #fade
+
+      include ../components/booking-widget.pug
 
       div.videoImgContainer
         ul(onclick='FE.global.videoPlayer(event)')
@@ -23,7 +24,7 @@ block append content
           li.slide4
             a.thumbImg(href='#' data-src='https://www.w3schools.com/html/mov_bbb.mp4')  Onsea & Spa
       br
-
+    
     p.heading Popup
       button(data-toggle='modal', data-target='modal1')  Modal
       
