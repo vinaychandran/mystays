@@ -12,7 +12,7 @@ const reload = browserSync.reload;
 var dev = true;
 
 gulp.task('views', () => {
-  return gulp.src('app/*.pug')
+  return gulp.src('app/**/*.pug')
     .pipe($.plumber())
     .pipe($.pug({pretty: true}))
     .pipe(gulp.dest('.tmp'))
@@ -62,7 +62,7 @@ gulp.task('lint:test', () => {
 });
 
 gulp.task('html', ['views', 'styles', 'scripts'], () => {
-  return gulp.src(['app/*.html', '.tmp/*.html'])
+  return gulp.src(['app/**/*.html', '.tmp/**/*.html'])
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
@@ -108,7 +108,7 @@ gulp.task('serve', () => {
     });
 
     gulp.watch([
-      'app/*.html',
+      'app/**/*.html',
       'app/assets/images/**/*',
       '.tmp/assets/fonts/**/*'
     ]).on('change', reload);
@@ -159,9 +159,9 @@ gulp.task('wiredep', () => {
     }))
     .pipe(gulp.dest('app/assets/styles'));
 
-  gulp.src('app/layouts/*.pug')
+  gulp.src('app/layouts/default.pug')
     .pipe(wiredep({
-      exclude: ['bootstrap-sass'],
+      exclude: ['vanilla-lazyload'],
       ignorePath: /^(\.\.\/)*\.\./
     }))
     .pipe(gulp.dest('app/layouts'));

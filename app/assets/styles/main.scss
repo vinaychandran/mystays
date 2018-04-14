@@ -1,13 +1,11 @@
-
 // Core
 @import "base/variables";
 @import "base/normalize";
 @import "base/mixins";
 @import "base/base";
-@import "base/helpers"; 
-
+@import "base/helpers";
 // Components
-
-@import "components/lazyload"; 
-@import "components/tabs"; 
-@import "components/video-player"; 
+@import "components/lazyload";
+@import "components/modal-popup";
+@import "components/tabs";
+@import "components/video-player";
