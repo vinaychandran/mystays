@@ -94,23 +94,24 @@
     color: #141414;
   }
 
+  .action {
+    display: block;
+    margin: 100px auto;
+    width: 100%;
+    text-align: center;
 
-.action{
-display:block;
-margin:100px auto;
-width:100%;
-text-align:center;
-}
-.action a {
-display:inline-block;
-padding:5px 10px;
-background:#f30;
-color:#fff;
-text-decoration:none;
-}
-.action a:hover{
-background:#000;
-}
+    a {
+      display: inline-block;
+      padding: 5px 10px;
+      background: #f30;
+      color: #fff;
+      text-decoration: none;
+
+      &:hover {
+        background: #000;
+      }
+    }
+  }
 }
 
 .banner-middle {

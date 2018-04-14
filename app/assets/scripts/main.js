@@ -12,6 +12,7 @@ const FE = {
         lazyLoad: () => {
             const myLazyLoad = new LazyLoad();
         },
+
         videoPlayer: (event) => {
             let src = event.target.attributes.getNamedItem('data-src').value;
             const video = new videoPlayer();
@@ -36,7 +37,9 @@ const FE = {
                 for (let id in FE.global.tabs.tabLinks) {
 
                     FE.global.tabs.tabLinks[id].addEventListener('click', FE.global.tabs.showTab);
+
                     FE.global.tabs.tabLinks[id].onfocus = function() {
+
                         this.blur()
                     };
                     if (i == 0) FE.global.tabs.tabLinks[id].className = 'selected';
@@ -74,11 +77,28 @@ const FE = {
                 return url.substring(hashPos + 1);
             },
         },
+        slider: () => {
+            $('.slider-nav').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                asNavFor: '.slider-for',
+                dots: false,
+                arrows: false,
+                focusOnSelect: true,
+                autoplay: true
+            });
+            $('.slick-left').click(function() {
+                $('.slider-nav').slick('slickPrev');
+            })
+
+            $('.slick-right').click(function() {
+                $('.slider-nav').slick('slickNext');
+            })
+        },
         init: () => {
             //initialling modal
-            // TODO page level setting for init
             //FE.global.loginModal('modal1', false, false);
-            //FE.global.lazyLoad();
+            FE.global.lazyLoad();
             //FE.global.tabs.tabs();
 
         },
@@ -98,4 +118,5 @@ $(function() {
 
 window.onload = function() {
 
+    FE.global.slider();
 };

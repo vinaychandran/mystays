@@ -25,21 +25,39 @@ block append content
         span.guestPhotos Guest Photos
         span.hotelPhotos Hotel Photos
   .booking-widget
-  .slider-widget
+  .container
+    .slider-widget
     p HILIGHTS
     span もっと見る
+    i.slick-left.fa.fa-long-arrow-left.arrow1(aria-hidden='true')
+    i.slick-right.fa.fa-long-arrow-right.arrow1(aria-hidden='true')
     .slider.slider-nav
       div
+        p 2017/10/04 ~ 2018/02/03
         img(src='/assets/images/1.jpg')
+        p あのイーハトーヴォのすきとおった風、夏でも底に。
       div
+        p 2017/10/04 ~ 2018/02/03
         img(src='/assets/images/2.jpg')
+        p あのイーハトーヴォのすきとおった風、夏でも底に。
       div
+        p 2017/10/04 ~ 2018/02/03
         img(src='/assets/images/3.jpg')
+        p あのイーハトーヴォのすきとおった風、夏でも底に。
+      div
+        p 2017/10/04 ~ 2018/02/03
+        img(src='/assets/images/1.jpg')
+        p あのイーハトーヴォのすきとおった風、夏でも底に。
+      div
+        p 2017/10/04 ~ 2018/02/03
+        img(src='/assets/images/2.jpg')
+        p あのイーハトーヴォのすきとおった風、夏でも底に。
   .banner-middle
     img(src='/assets/images/banner-middle.jpg')
   .container
     .video-banner
       .video-banner-title ART HOTEL OSAKA BAY TOWER
+<<<<<<< HEAD
       ul(onclick='FE.global.videoPlayer(event)')
         li.restaurants
           a(data-src='https://www.w3schools.com/html/mov_bbb.mp4') RESTAURANTS
@@ -49,6 +67,21 @@ block append content
           a(data-src='https://www.w3schools.com/html/mov_bbb.mp4') BANQUETS
         li.onsen
           a(data-src='https://www.w3schools.com/html/mov_bbb.mp4') ONSEN & SPA
+=======
+      #light
+        a#boxclose.boxclose
+        video#VisaChipCardVideo(width='600', controls='')
+      #fade
+      ul(onclick='FE.global.videoPlayer(event)')
+        li.restaurants
+          a(href='#' data-src='https://www.w3schools.com/html/mov_bbb.mp4') RESTAURANTS
+        li.rooms
+          a(href='#' data-src='https://www.w3schools.com/html/mov_bbb.mp4') ROOMS
+        li.banquets
+          a(href='#' data-src='https://www.w3schools.com/html/mov_bbb.mp4') BANQUETS
+        li.onsen
+          a(href='#' data-src='https://www.w3schools.com/html/mov_bbb.mp4') ONSEN & SPA
+>>>>>>> be11df6815140eba9c11488ced621646047f8d09
   .guest-review
     .h5 LIVE GALLERY
   .art-concept
