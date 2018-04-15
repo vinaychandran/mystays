@@ -136,7 +136,7 @@ const FE = {
     },
     init: () => {
       //initialling modal
-      //FE.global.loginModal('modal1', false, false);
+      FE.global.loginModal('modal1', false, false);
       FE.global.lazyLoad();
 
     },
