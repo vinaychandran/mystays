@@ -1,74 +1,76 @@
 extends ../layouts/default
 
 block append content
-
   .main-banner
-      .main-header
-        .logo.col.col-1-4 Logo
-        .main-navigation
-          ul.col.col-1-2
-            li
-              a(href='pages/homepage.html') オファー
-              a(href='#') ギャラリー
-              a(href='#') ルーム
-              a(href='#') アクセス
-              a(href='#') レストラン
-              a(href='#') 会議・宴会
-              a(href='#') 設備
-              a(href='#') 観光名所
-              a(href='#') 温泉&スパ
-        div.col.col-1-4
-          .language Language
-          a.login(href='#') マイページ
-      .banner-text.col.col-1-1 空港と寺社を臨む
-        span RISE ABOVE THE BAY
-        span.guestPhotos Guest Photos
-        span.hotelPhotos Hotel Photos
+    .main-header
+      .logo.col.col-1-4 Logo
+      .main-navigation
+        ul.col.col-1-2
+          li
+            a(href='pages/homepage.html') オファー
+            a(href='#') ギャラリー
+            a(href='#') ルーム
+            a(href='#') アクセス
+            a(href='#') レストラン
+            a(href='#') 会議・宴会
+            a(href='#') 設備
+            a(href='#') 観光名所
+            a(href='#') 温泉&スパ
+      div.col.col-1-4
+        .language Language
+        a.login(href='#') マイページ
+    .banner-text.col.col-1-1 空港と寺社を臨む
+      span RISE ABOVE THE BAY
+      span.guestPhotos Guest Photos
+      span.hotelPhotos Hotel Photos
   .booking-widget
   .slider-widget
     .container
       p HILIGHTS
       span もっと見る
-      i.slick-left.fa.fa-long-arrow-left.arrow1(aria-hidden='true')
-      .slider.slider-nav
-        .slide
-          img(src='/assets/images/1.jpg')
-          .date 2017/10/04 ~ 2018/02/03
-          .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
-        .slide
-          img(src='/assets/images/2.jpg')
-          .date 2017/10/04 ~ 2018/02/03
-          .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
-        .slide
-          img(src='/assets/images/3.jpg')
-          .date 2017/10/04 ~ 2018/02/03
-          .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
-        .slide
-          img(src='/assets/images/1.jpg')
-          .date 2017/10/04 ~ 2018/02/03
-          .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
-        .slide
-          img(src='/assets/images/2.jpg')
-          .date 2017/10/04 ~ 2018/02/03
-          .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
-      i.slick-right.fa.fa-long-arrow-right.arrow1(aria-hidden='true')
+      .slider-container
+        img.arrow.slick-left(src='/assets/images/left-arrow.svg')
+        .slider.slider-nav(data-slick='{"slidesToShow": 3, "slidesToScroll": 3}')
+          .slide
+            img(src='/assets/images/1.jpg')
+            .date 2017/10/04 ~ 2018/02/03
+            .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
+          .slide
+            img(src='/assets/images/2.jpg')
+            .date 2017/10/04 ~ 2018/02/03
+            .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
+          .slide
+            img(src='/assets/images/3.jpg')
+            .date 2017/10/04 ~ 2018/02/03
+            .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
+          .slide
+            img(src='/assets/images/1.jpg')
+            .date 2017/10/04 ~ 2018/02/03
+            .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
+          .slide
+            img(src='/assets/images/2.jpg')
+            .date 2017/10/04 ~ 2018/02/03
+            .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
+        img.arrow.slick-right(src='/assets/images/right-arrow.svg')
   .banner-middle
     img(src='/assets/images/banner-middle.jpg')
   .video-banner
     .container
       .section-title
         h2 ART HOTEL OSAKA BAY TOWER
-      #video-container.video-popup
-      video#video(preload='auto')
-      ul(onclick='FE.global.videoPlayer(event)')
-        li.restaurants
-          a(data-src='https://www.w3schools.com/html/mov_bbb.mp4') RESTAURANTS
-        li.rooms
-          a(data-src='https://www.w3schools.com/html/mov_bbb.mp4') ROOMS
-        li.banquets
-          a(data-src='https://www.w3schools.com/html/mov_bbb.mp4') BANQUETS
-        li.onsen
-          a(data-src='https://www.w3schools.com/html/mov_bbb.mp4') ONSEN & SPA
+      .container-video
+        .gallery-container(onclick='FE.global.videoPlayer(event)')
+          #video-container.video-popup(data-target='close')
+           video#video(preload='auto' poster='/assets/images/Loading.gif')(data-target='close')
+          ul
+            li.restaurants
+              a(data-src='https://www.w3schools.com/html/mov_bbb.mp4') RESTAURANTS
+            li.rooms
+              a(data-src='http://techslides.com/demos/sample-videos/small.mp4') ROOMS
+            li.banquets
+              a(data-src='https://coverr.co/s3/mp4/Porto_View.mp4') BANQUETS
+            li.onsen
+              a(data-src='//vjs.zencdn.net/v/oceans.mp4') ONSEN & SPA
   .guest-review
     .h5 Gust Review
   .art-concept

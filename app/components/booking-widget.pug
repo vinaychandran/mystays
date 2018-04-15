@@ -1,12 +1,23 @@
-section
-  div.col.col-1-4 
-    input#fromDate(type='text')
-  div.col.col-1-4 
-    input#toDate(type='text')
-  div.col.col-1-4 
-    input(type='text')
-  div.col.col-1-4 
-    input(type='text')
- 
-  
-
+.booking-widget Booking Widget
+  form#form(method='get')
+    #date_range_picker.date_range_picker.col.col-1-4
+      .values
+        .datelabel 
+          span.checkin-date When
+          span.checkout-date Optional Date
+        .value.date_at      
+          span.date_at
+          input#date_at.date_at(type='hidden')
+        .to
+        .value.date_to
+          
+          span.date_to
+          input#date_to.date_to(type='hidden')
+        .clear
+      .calendar
+        .button.button-prev
+        .button.button-next
+        .calendarContainer
+  .clearfix
+    
+    

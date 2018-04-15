@@ -9,5 +9,8 @@
     "babel-polyfill": "^0.0.1",
     "slick-carousel": "^1.6.0",
     "vanilla-lazyload": "^10.0.1"
+  },
+  "devDependencies": {
+    "slick-carousel": "1.5.9"
   }
 }

@@ -14,10 +14,17 @@ const FE = {
         },
 
         videoPlayer: (event) => {
-            let src = event.target.attributes.getNamedItem('data-src').value;
             const video = new videoPlayer();
-            video.openVideo(src);
-        },
+              if(event.target.attributes.getNamedItem('data-target')){
+                video.closeVideo();
+              }
+      
+            if(event.target.attributes.getNamedItem('data-src')){
+                 let src = event.target.attributes.getNamedItem('data-src').value;
+      
+              video.openVideo(src);
+           }
+          },
         tabs: {
             tabLinks: new Array(),
             contentDivs: new Array(),
@@ -73,24 +80,38 @@ const FE = {
                 return url.substring(hashPos + 1);
             },
         },
-        slider: () => {
-            $('.slider-nav').slick({
-                slidesToShow: 3,
+        sliderImage: (slider, slideToShow, dots, arrows) => {
+            $(slider).each(function() {
+              let imgIndex, sliderImageCount;
+              sliderImageCount = $(this).children().length;
+              $(this).slick({
+                infinite: true,
+                slidesToShow: slideToShow,
                 slidesToScroll: 1,
-                asNavFor: '.slider-for',
-                dots: false,
-                arrows: false,
-                focusOnSelect: true
-                    //autoplay: true
+                arrows: arrows,
+                speed: 400,
+                dots: dots,
+                lazyLoad: 'progressive'
+              });
+              imgIndex = $(this).find('.slider-content').index();
+              $(this).on('init reInit afterChange', function(event, slick, currentSlide, nextSlide) {
+                imgIndex = (currentSlide ? currentSlide : 0) + 1;
+              });
             });
+      
+            $(window).resize(function() {
+              $(slider).slick('resize');
+              $(slider).slick('refresh');
+            });
+      
             $('.slick-left').click(function() {
-                $('.slider-nav').slick('slickPrev');
+              $('.slider-nav').slick('slickPrev');
             })
-
+      
             $('.slick-right').click(function() {
-                $('.slider-nav').slick('slickNext');
+              $('.slider-nav').slick('slickNext');
             })
-        },
+          },
         instaFeed: () => {
             var feed = new Instafeed({
                 get: 'tagged',
@@ -127,13 +148,15 @@ const FE = {
         },
         resize: function resize() {
             //Functions inside loaded execute when window resize
+ 
         }
     }
 }
 
 
 $(function() {
-    FE.global.init();
+  FE.global.init();
+
 });
 
 window.onload = function() {
