@@ -78,27 +78,21 @@ const FE = {
             },
         },
         slider: () => {
-            $('.slider-nav').slick({
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                asNavFor: '.slider-for',
-                dots: false,
-                arrows: false,
-                focusOnSelect: true
-                    //autoplay: true
+            $(".slider-nav").slick({
+                infinite: true,
+                responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        dots: true
+                    }
+                }]
             });
-            $('.slick-left').click(function() {
-                $('.slider-nav').slick('slickPrev');
-            })
-
-            $('.slick-right').click(function() {
-                $('.slider-nav').slick('slickNext');
-            })
         },
         init: () => {
             //initialling modal
-            FE.global.loginModal('modal1', false, false);
-            FE.global.lazyLoad();
+            // FE.global.loginModal('modal1', false, false);
+            // FE.global.lazyLoad();
             FE.global.lazyLoad();
         },
         loaded: function loaded() {

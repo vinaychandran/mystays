@@ -30,7 +30,7 @@ block append content
       p HILIGHTS
       span もっと見る
       i.slick-left.fa.fa-long-arrow-left.arrow1(aria-hidden='true')
-      .slider.slider-nav
+      .slider.slider-nav(data-slick='{"slidesToShow": 3, "slidesToScroll": 3}')
         .slide
           img(src='/assets/images/1.jpg')
           .date 2017/10/04 ~ 2018/02/03
@@ -51,7 +51,6 @@ block append content
           img(src='/assets/images/2.jpg')
           .date 2017/10/04 ~ 2018/02/03
           .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
-      i.slick-right.fa.fa-long-arrow-right.arrow1(aria-hidden='true')
   .banner-middle
     img(src='/assets/images/banner-middle.jpg')
   .video-banner

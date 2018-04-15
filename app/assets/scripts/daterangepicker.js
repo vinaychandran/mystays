@@ -228,7 +228,6 @@
                     containerCalendar.find('td.valid').removeClass('end');
                     containerCalendar.find('td.valid').removeClass('start');
                     container.find('.value.date_to').addClass('active');
-
                     $(this).addClass('start');
                     $(this).removeClass('end');
 
@@ -366,8 +365,8 @@
             label: 'Close',
             at: 'Check-in',
             to: 'Check-out',
-            days: ["MON", "TUE", "WED", "THUR", "FRI", "SAT", "SUN"],
-            months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            days: ['MON', 'TUE', 'WED', 'THUR', 'FRI', 'SAT', 'SUN'],
+            months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         }
     };
 })(jQuery);
