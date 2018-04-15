@@ -80,6 +80,7 @@ const FE = {
         slider: () => {
             $(".slider-nav").slick({
                 infinite: true,
+                autoplay: true,
                 responsive: [{
                     breakpoint: 768,
                     settings: {
@@ -90,10 +91,9 @@ const FE = {
             });
         },
         init: () => {
-            //initialling modal
             // FE.global.loginModal('modal1', false, false);
-            // FE.global.lazyLoad();
             FE.global.lazyLoad();
+            FE.global.tabs.tabs();
         },
         loaded: function loaded() {
             //Functions inside loaded execute when window loaded
