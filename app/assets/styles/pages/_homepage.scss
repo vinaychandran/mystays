@@ -290,6 +290,15 @@
 
 .footer{
   background: $footer-bg;
+
+  .footer-left{
+    @extend %clearfix;
+  }
+  .footer-right{
+    float: left;
+
+  }
+
 }
 
 .arrow {
