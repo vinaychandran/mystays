@@ -1,5 +1,7 @@
 class videoPlayer {
-    constructor() {}
+    constructor() {
+
+    }
     init() {
 
     }
@@ -8,13 +10,15 @@ class videoPlayer {
     openVideo(src) {
         var lightBoxVideo = document.getElementById('video');
         document.getElementById('video-container').style.display = 'block';
+        document.getElementById('video').style.display = 'block';
         lightBoxVideo.src = src;
         lightBoxVideo.play();
     };
 
-    closeVideo(src) {
+    closeVideo() {
         var lightBoxVideo = document.getElementById('video');
         document.getElementById('video-container').style.display = 'none';
+        document.getElementById('video').style.display = 'none';
         lightBoxVideo.pause();
     };
 }

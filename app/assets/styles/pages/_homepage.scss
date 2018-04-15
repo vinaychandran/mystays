@@ -146,17 +146,27 @@
 .video-banner {
   text-align: center;
 
-  .video-popup video{
-    display: none;
-  }
-
-  #video{
-    position: absolute;
-    left: 18%;
-    width: 720px;
-    margin: 0 auto;
-  }
-
+   #video-container, #video{
+     display: none;
+     z-index: 99998;
+   }
+   #video{
+     position: absolute;
+     display: none;
+     z-index: 99999;
+     height: 302px;
+     left: 296px;
+     bottom: 44px;
+   }
+   #video-container{
+     @extend %clearfix;
+     //display: block;
+     height: 396px;
+     width: 100%;
+     position: absolute;
+     background: #000;
+     opacity: 0.8;
+   }
   .video-banner-title {
     font-size: 34px;
     font-weight: $semi-bold;
@@ -169,6 +179,10 @@
     border-bottom: 2px solid #1a1a1a;
     display: inline-block;
     margin-bottom: 86px;
+  }
+
+  .container-video{
+    @extend %clearfix;
   }
 
   ul li {
