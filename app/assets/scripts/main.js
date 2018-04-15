@@ -97,7 +97,8 @@ const FE = {
         },
         init: () => {
             //initialling modal
-            //FE.global.loginModal('modal1', false, false);
+            FE.global.loginModal('modal1', false, false);
+            FE.global.lazyLoad();
             FE.global.lazyLoad();
         },
         loaded: function loaded() {
@@ -115,12 +116,9 @@ $(function() {
 
 });
 
-// window.onload = function() {
-//     FE.global.slider();
-// };
-
-$(window).load(function() {
+window.onload = function() {
+    FE.global.slider();
     $.DateRangePicker({
         container: '#date_range_picker'
     });
-});
+};
