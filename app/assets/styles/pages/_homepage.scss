@@ -151,21 +151,22 @@
      z-index: 99998;
    }
    #video{
-     position: absolute;
+     //position: absolute;
      display: none;
      z-index: 99999;
-     height: 302px;
-     left: 296px;
-     bottom: 44px;
+     height: 95%;
+     padding-top: 2%;
+     margin: 0 auto;
    }
    #video-container{
      @extend %clearfix;
      //display: block;
      height: 396px;
      width: 100%;
+
      position: absolute;
-     background: #000;
-     opacity: 0.8;
+  background: rgba(black, 0.8);
+     //opacity: 0.8;
    }
   .video-banner-title {
     font-size: 34px;
