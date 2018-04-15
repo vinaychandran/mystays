@@ -28,29 +28,30 @@ block append content
     .container
       p HILIGHTS
       span もっと見る
-      i.slick-left.fa.fa-long-arrow-left.arrow1(aria-hidden='true')
-      .slider.slider-nav(data-slick='{"slidesToShow": 3, "slidesToScroll": 3}')
-        .slide
-          img(src='/assets/images/1.jpg')
-          .date 2017/10/04 ~ 2018/02/03
-          .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
-        .slide
-          img(src='/assets/images/2.jpg')
-          .date 2017/10/04 ~ 2018/02/03
-          .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
-        .slide
-          img(src='/assets/images/3.jpg')
-          .date 2017/10/04 ~ 2018/02/03
-          .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
-        .slide
-          img(src='/assets/images/1.jpg')
-          .date 2017/10/04 ~ 2018/02/03
-          .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
-        .slide
-          img(src='/assets/images/2.jpg')
-          .date 2017/10/04 ~ 2018/02/03
-          .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
-      i.slick-right.fa.fa-long-arrow-right.arrow1(aria-hidden='true')
+      .slider-container
+        img.arrow.slick-left(src='/assets/images/left-arrow.svg')
+        .slider.slider-nav(data-slick='{"slidesToShow": 3, "slidesToScroll": 3}')
+          .slide
+            img(src='/assets/images/1.jpg')
+            .date 2017/10/04 ~ 2018/02/03
+            .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
+          .slide
+            img(src='/assets/images/2.jpg')
+            .date 2017/10/04 ~ 2018/02/03
+            .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
+          .slide
+            img(src='/assets/images/3.jpg')
+            .date 2017/10/04 ~ 2018/02/03
+            .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
+          .slide
+            img(src='/assets/images/1.jpg')
+            .date 2017/10/04 ~ 2018/02/03
+            .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
+          .slide
+            img(src='/assets/images/2.jpg')
+            .date 2017/10/04 ~ 2018/02/03
+            .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
+        img.arrow.slick-right(src='/assets/images/right-arrow.svg')
   .banner-middle
     img(src='/assets/images/banner-middle.jpg')
   .video-banner
@@ -59,7 +60,7 @@ block append content
       .container-video
         .gallery-container(onclick='FE.global.videoPlayer(event)')
           #video-container.video-popup(data-target='close')
-           video#video(preload='auto')(data-target='close')
+           video#video(preload='auto' poster='/assets/images/Loading.gif')(data-target='close')
           ul
             li.restaurants
               a(data-src='https://www.w3schools.com/html/mov_bbb.mp4') RESTAURANTS
@@ -68,7 +69,7 @@ block append content
             li.banquets
               a(data-src='https://coverr.co/s3/mp4/Porto_View.mp4') BANQUETS
             li.onsen
-              a(data-src='https://www.w3schools.com/html/mov_bbb.mp4') ONSEN & SPA
+              a(data-src='//vjs.zencdn.net/v/oceans.mp4') ONSEN & SPA
   .guest-review
     .h5 LIVE GALLERY
   .art-concept
