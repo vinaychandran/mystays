@@ -26,7 +26,7 @@ const FE = {
                 for (let i = 0; i < tabListItems.length; i++) {
                     if (tabListItems[i].nodeName == 'LI') {
                         let tabLink = FE.global.tabs.getFirstChildWithTagName(tabListItems[i], 'A');
-                        let id = FE.global.tabs.getHash(tabLink.getAttribute('href'));
+                        let id = FE.global.tabs.getHash(tabLink.attributes.getNamedItem('data-href').value);
                         FE.global.tabs.tabLinks[id] = tabLink;
                         FE.global.tabs.contentDivs[id] = document.getElementById(id);
                     }
@@ -38,10 +38,6 @@ const FE = {
 
                     FE.global.tabs.tabLinks[id].addEventListener('click', FE.global.tabs.showTab);
 
-                    FE.global.tabs.tabLinks[id].onfocus = function() {
-
-                        this.blur()
-                    };
                     if (i == 0) FE.global.tabs.tabLinks[id].className = 'selected';
                     i++;
                 }
@@ -53,8 +49,8 @@ const FE = {
                 }
             },
             showTab: (e) => {
-                const that = e.target;
-                let selectedId = FE.global.tabs.getHash(that.getAttribute('href'));
+                const that = event.target.attributes.getNamedItem('data-href').value;
+                let selectedId = FE.global.tabs.getHash(that);
 
                 for (let id in FE.global.tabs.contentDivs) {
                     if (id == selectedId) {
@@ -65,7 +61,7 @@ const FE = {
                         FE.global.tabs.contentDivs[id].className = 'tabContent hide';
                     }
                 }
-                return false;
+                e.preventDefault();
             },
             getFirstChildWithTagName: (element, tagName) => {
                 for (let i = 0; i < element.childNodes.length; i++) {
@@ -95,16 +91,39 @@ const FE = {
                 $('.slider-nav').slick('slickNext');
             })
         },
+        instaFeed: () => {
+            var feed = new Instafeed({
+                get: 'tagged',
+                tagName: 'awesome',
+                clientId: '1459052068',
+                accessToken: '1459052068.3a81a9f.656faf6eb84044cea80572ed44299e2e',
+                limit: 7,
+                resolution: 'low_resolution',
+                after: function() {
+                    var node = document.createElement('A');     
+                    var span = document.createElement('SPAN');            
+                    var textnode = document.createTextNode('67 Hotel Photos VIEW GALLERY');
+                    span.appendChild(textnode); 
+                    node.appendChild(span);
+                    node.id = 'more-link';
+                    node.href = '#';
+                    var feed = document.getElementById('instafeed');
+                    feed.appendChild(node);
+                }
+            });
+            feed.run();
+        },
         init: () => {
             //initialling modal
             //FE.global.loginModal('modal1', false, false);
-            FE.global.lazyLoad();
-            //FE.global.tabs.tabs();
+            FE.global.lazyLoad();            
             $('#fromDate').datepicker();
             $('#toDate').datepicker();
         },
         loaded: function loaded() {
             //Functions inside loaded execute when window loaded
+            FE.global.tabs.tabs();
+            FE.global.instaFeed();
         },
         resize: function resize() {
             //Functions inside loaded execute when window resize
@@ -119,4 +138,5 @@ $(function() {
 
 window.onload = function() {
     FE.global.slider();
+    FE.global.loaded();
 };

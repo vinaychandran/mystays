@@ -4,12 +4,19 @@
 @import "base/mixins";
 @import "base/base";
 @import "base/helpers";
+
 // Components
+
 @import "components/lazyload";
 @import "components/modal-popup";
 @import "components/tabs";
 @import "components/video-player";
 
-@import "pages/homepage";
+// Common
 
+@import "base/common";
 @import "en-EN";
+
+// Pages
+
+@import "pages/homepage";

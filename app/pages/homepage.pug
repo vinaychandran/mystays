@@ -56,7 +56,8 @@ block append content
     img(src='/assets/images/banner-middle.jpg')
   .video-banner
     .container
-      .video-banner-title ART HOTEL OSAKA BAY TOWER
+      .section-title
+        h2 ART HOTEL OSAKA BAY TOWER
       #video-container.video-popup
       video#video(preload='auto')
       ul(onclick='FE.global.videoPlayer(event)')
@@ -69,36 +70,35 @@ block append content
         li.onsen
           a(data-src='https://www.w3schools.com/html/mov_bbb.mp4') ONSEN & SPA
   .guest-review
-    .h5 LIVE GALLERY
+    .h5 Gust Review
   .art-concept
     .h5 ART CONCEPT
   .gallery
     .container
-      h6.gallery-title LIVE GALLERY
-      ul#tabs
+      .section-title
+        h2 LIVE GALLERY
+      ul.tabs#tabs
         li
-          a(href='#tab1') ホテル写真　　　　
+          a(href='', data-href='#tab1') ホテル写真
         li
-          a(href='#tab2') ゲスト写真
+          a(href='', data-href='#tab2') ゲスト写真
         li
-          a(href='#tab3') ライブフィード
+          a(href='', data-href='#tab3') ライブフィード
         li
-          a(href='#tab4') ブランドビデオ
+          a(href='', data-href='#tab4') ブランドビデオ
       #tab1.tabContent
-        div Images
-        p 67 Hotel Photos
-          span VIEW GALLERY
+        div#instafeed     
       #tab2.tabContent
         div Images
-        p 67 Hotel Photos
+        p Tab2
           span VIEW GALLERY
       #tab3.tabContent
         div Images
-        p 67 Hotel Photos
+        p Tab3
           span VIEW GALLERY
       #tab4.tabContent
         div Images
-        p 67 Hotel Photos
+        p Tab4
           span VIEW GALLERY
   .location
     .h5 OSAKA ON YOUR DOORSTEP
