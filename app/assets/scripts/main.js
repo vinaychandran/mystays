@@ -160,6 +160,6 @@ $(function() {
 });
 
 window.onload = function() {
-    FE.global.slider();
+    FE.global.sliderImage();
     FE.global.loaded();
 };
