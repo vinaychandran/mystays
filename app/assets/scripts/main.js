@@ -1,6 +1,7 @@
 'use strict';
 
 const FE = {
+ 
   global: {
     loginModal: (id, transition, backdropclose) => {
       const loginModal = new popup(id, {
@@ -71,6 +72,7 @@ const FE = {
             FE.global.tabs.tabLinks[id].className = '';
             FE.global.tabs.contentDivs[id].className = 'tabContent hide';
           }
+
         }
         return false;
       },
