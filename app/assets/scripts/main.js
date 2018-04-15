@@ -99,9 +99,6 @@ const FE = {
             //initialling modal
             //FE.global.loginModal('modal1', false, false);
             FE.global.lazyLoad();
-            //FE.global.tabs.tabs();
-            $('#fromDate').datepicker();
-            $('#toDate').datepicker();
         },
         loaded: function loaded() {
             //Functions inside loaded execute when window loaded
@@ -115,8 +112,15 @@ const FE = {
 
 $(function() {
     FE.global.init();
+
 });
 
-window.onload = function() {
-    FE.global.slider();
-};
+// window.onload = function() {
+//     FE.global.slider();
+// };
+
+$(window).load(function() {
+    $.DateRangePicker({
+        container: '#date_range_picker'
+    });
+});
