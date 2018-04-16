@@ -159,7 +159,7 @@ $(function() {
 });
 
 window.onload = function() {
-  FE.global.sliderImage('.slider-nav', 3, false, false);
+  FE.global.sliderImage('.slider-nav', 3, false, true);
   FE.global.loaded();
 };
 

@@ -25,11 +25,10 @@ block append content
       span.hotelPhotos Hotel Photos
   .booking-widget
   .slider-widget
-    .container
-      p HILIGHTS
-      span もっと見る
+    .container      
       .slider-container
-        img.arrow.slick-left(src='/assets/images/left-arrow.svg')
+        h4 HILIGHTS
+        a(href="#") もっと見る
         .slider.slider-nav(data-slick='{"slidesToShow": 3, "slidesToScroll": 3}')
           .slide
             img(src='/assets/images/1.jpg')
@@ -51,7 +50,6 @@ block append content
             img(src='/assets/images/2.jpg')
             .date 2017/10/04 ~ 2018/02/03
             .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
-        img.arrow.slick-right(src='/assets/images/right-arrow.svg')
   .banner-middle
     img(src='/assets/images/banner-middle.jpg')
   .video-banner

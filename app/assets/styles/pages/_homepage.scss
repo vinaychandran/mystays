@@ -83,77 +83,57 @@
 }
 
 .slider-widget {
-  margin-bottom: 130px;
+  margin-bottom: 130px;    
 
-  .slider-container {
-    position: relative;
+  .slider-container{
+    max-width: 1018px;
+    margin: 0 auto;
   }
 
-  .slick-left,
-  .slick-right {
-    position: absolute;
-    z-index: 999;
-    left: -93px;
-    top: 90px;
-  }
-
-  .slick-right {
-    right: -40px;
-    left: auto;
-  }
-
-  .slide {
-    position: relative;
+  .slide{
+    max-width: 320px;
+    margin: 0 15px;
+    text-align: center;
   }
 
   .date {
-    position: absolute;
-    bottom: 20px;
-    left: 50px;
     text-align: center;
     background: #fff;
-    padding: 17px 22px 20px;
-  }
+    padding: 15px 22px;
+    display: block;     
+    @include font-size(12px);
+    line-height: 1; 
+    max-width: 213px;
+    margin: -24px auto 0;
+    position: relative;
+  }  
 
   .tagline {
-    padding-top: 30px;
-    //border-bottom: 1px solid #000000;
-  }
-
-  p {
-    font-size: 16px;
     font-weight: $semi-bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 6.69;
-    letter-spacing: 3.1px;
-    text-align: center;
     color: #141414;
-  }
+    text-align: left;
+    @include font-size(14px);
+    text-decoration: underline; 
+    padding:10px 20px 0 0;
+  }  
+  // .action {
+  //   display: block;
+  //   margin: 100px auto;
+  //   width: 100%;
+  //   text-align: center;
 
-  .slick-left,
-  .slick-right {
-    font-size: 10px;
-  }
+  //   a {
+  //     display: inline-block;
+  //     padding: 5px 10px;
+  //     background: #f30;
+  //     color: #fff;
+  //     text-decoration: none;
 
-  .action {
-    display: block;
-    margin: 100px auto;
-    width: 100%;
-    text-align: center;
-
-    a {
-      display: inline-block;
-      padding: 5px 10px;
-      background: #f30;
-      color: #fff;
-      text-decoration: none;
-
-      &:hover {
-        background: #000;
-      }
-    }
-  }
+  //     &:hover {
+  //       background: #000;
+  //     }
+  //   }
+  // }
 }
 
 .banner-middle {
@@ -302,9 +282,9 @@
 }
 
 .arrow {
-  width: 56px;
+ 
   /* border: 1px solid; */
-  padding: 22px;
+  
   /* background: #f5f5f5; */
-  border: 1px solid black;
+  
 }
