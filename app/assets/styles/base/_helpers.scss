@@ -49,6 +49,11 @@
             width: 25%;
         }
     }
+    &.col-1-5 {
+        @include sm {
+            width: 20%;
+        }
+    }
     &.col-2-3 {
         @include sm {
             width: calc(100% - 100% / 3);
