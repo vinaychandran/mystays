@@ -234,38 +234,38 @@
   }
 }
 
-#instafeed {
-  a {
+#instafeed {      
+  .insta-bg {
+    width: 285px;
+    height: 285px;
     display: block;
     float: left;
-    img {
-      width: 285px;
-      height: 285px;
-      display: block;
-    }
-    &#more-link {
-      background-color: #232e48;
-      position: relative;
-      color: $secondary-color;
-      span {
-        @include font-size(24px);
-        font-family: 'OpenSans';
-        width: 285px;
-        display: table-cell;
-        height: 285px;
-        text-align: center;
-        vertical-align: middle;
-        font-size: 24px;
-        font-weight: 600;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.38;
-        letter-spacing: -0.6px;
-        text-align: center;
-      }
-
-    }
+    background-size: cover;
+    background-position: center center;
   }
+  #more-link {
+    background-color: #232e48;
+    position: relative;
+    color: $secondary-color;
+    display: block;
+    float: left;
+    span {
+      @include font-size(24px);
+      font-family: 'OpenSans';
+      width: 285px;
+      display: table-cell;
+      height: 285px;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 24px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.38;
+      letter-spacing: -0.6px;
+      text-align: center;
+    }
+  }  
 }
 
 .footer{

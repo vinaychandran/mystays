@@ -102,24 +102,17 @@ const FE = {
       $(window).resize(function() {
         $(slider).slick('resize');
         $(slider).slick('refresh');
-      });
-
-      $('.slick-left').click(function() {
-        $('.slider-nav').slick('slickPrev');
-      })
-
-      $('.slick-right').click(function() {
-        $('.slider-nav').slick('slickNext');
-      })
+      });     
     },
     instaFeed: () => {
       var feed = new Instafeed({
         get: 'tagged',
-        tagName: 'awesome',
+        tagName: 'hotelmystays',
         clientId: '1459052068',
         accessToken: '1459052068.3a81a9f.656faf6eb84044cea80572ed44299e2e',
         limit: 7,
         resolution: 'low_resolution',
+        template: '<div class="insta-bg" style="background-image:url({{image}})"></div>',
         after: function() {
           var node = document.createElement('A');
           var span = document.createElement('SPAN');
