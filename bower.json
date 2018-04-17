@@ -11,6 +11,7 @@
     "vanilla-lazyload": "^10.0.1"
   },
   "devDependencies": {
-    "slick-carousel": "1.5.9"
+    "slick-carousel": "1.5.9",
+    "instafeed.js": "^1.4.1"
   }
 }
