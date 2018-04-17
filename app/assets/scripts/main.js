@@ -85,24 +85,51 @@ const FE = {
         let imgIndex, sliderImageCount;
         sliderImageCount = $(this).children().length;
         $(this).slick({
-          infinite: true,
           slidesToShow: slideToShow,
           slidesToScroll: 1,
-          arrows: arrows,
-          speed: 400,
           dots: dots,
-          lazyLoad: 'progressive'
+          arrows: arrows,
+          responsive: [{
+              breakpoint: 2000,
+              settings: {
+                infinite: true,
+              },
+            },
+            {
+              breakpoint: 1080,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+              },
+            },
+            {
+              breakpoint: 800,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                infinite: true,
+              },
+            },
+            {
+              breakpoint: 468,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 2,
+                infinite: true,
+              },
+            },
+          ],
         });
         imgIndex = $(this).find('.slider-content').index();
         $(this).on('init reInit afterChange', function(event, slick, currentSlide, nextSlide) {
           imgIndex = (currentSlide ? currentSlide : 0) + 1;
         });
       });
-
       $(window).resize(function() {
         $(slider).slick('resize');
         $(slider).slick('refresh');
-      });     
+      });
     },
     instaFeed: () => {
       var feed = new Instafeed({
@@ -152,7 +179,7 @@ $(function() {
 });
 
 window.onload = function() {
-  FE.global.sliderImage('.slider-nav', 3, false, true);
+  FE.global.sliderImage('.home-slider-nav', 3, false, true);
   FE.global.loaded();
 };
 

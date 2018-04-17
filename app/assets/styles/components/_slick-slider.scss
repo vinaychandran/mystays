@@ -1,42 +1,53 @@
-.slick-slide{
-    position: relative;
+.slick-slide {
+  position: relative;
 }
 
-.slick-prev,
-.slick-next {
-    font-size: 0;
-    z-index: 1;
-    width: 56px;
-    height: 56px;
-    border: 1px solid black;
-    background: none;
-    margin: 0;
-    padding: 0;
-    @include center(vertical);
-    &:after {
-        content: "";
-        display: block;
-        width: 16px;
-        height: 7px;
-        @include center(both);
+.slick-next,
+.slick-prev {
+  font-size: 0;
+  z-index: 1;
+  width: 56px;
+  height: 56px;
+  border: 1px solid black;
+  background: none;
+  margin: 0;
+  padding: 0;
+  @include center(vertical);
+
+  &:after {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 7px;
+    @include center(both);
+  }
+
+  &:hover {
+    :after {
+      color: #7e7e7e;
     }
-    &:hover{
-        :after {
-            color: #7e7e7e;
-        }
-    }
+  }
 }
 
 .slick-prev {
-    left: -70px;     
-    &:after {
-        background: url("/assets/images/right-arrow.svg") no-repeat;
-    }
+  left: -70px;
+
+  &:after {
+    background: url("/assets/images/arrow-left.svg") no-repeat;
+  }
 }
 
 .slick-next {
-    right: -70px;
-    &:after {
-       background: url("/assets/images/right-arrow.svg") no-repeat; 
-    }
+  right: -70px;
+
+  &:after {
+    background: url("/assets/images/arrow-right.svg") no-repeat;
+  }
+}
+
+.slick-slide img {
+  border-left: 15px solid #FFF;
+  border-right: 15px solid #FFF;
+  display: block;
+  width: 100%;
 }

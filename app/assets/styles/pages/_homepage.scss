@@ -82,58 +82,33 @@
   }
 }
 
-.slider-widget {
-  margin-bottom: 130px;    
+.booking-widget {
+  padding-bottom: 100px;
+}
 
-  .slider-container{
-    max-width: 1018px;
-    margin: 0 auto;
-  }
-
-  .slide{
-    max-width: 320px;
-    margin: 0 15px;
-    text-align: center;
-  }
+.home-slider {
+  margin-bottom: 130px;
 
   .date {
     text-align: center;
     background: #fff;
     padding: 15px 22px;
-    display: block;     
+    display: block;
     @include font-size(12px);
-    line-height: 1; 
+    line-height: 1;
     max-width: 213px;
     margin: -24px auto 0;
     position: relative;
-  }  
+  }
 
   .tagline {
     font-weight: $semi-bold;
     color: #141414;
     text-align: left;
     @include font-size(14px);
-    text-decoration: underline; 
-    padding:10px 20px 0 0;
-  }  
-  // .action {
-  //   display: block;
-  //   margin: 100px auto;
-  //   width: 100%;
-  //   text-align: center;
-
-  //   a {
-  //     display: inline-block;
-  //     padding: 5px 10px;
-  //     background: #f30;
-  //     color: #fff;
-  //     text-decoration: none;
-
-  //     &:hover {
-  //       background: #000;
-  //     }
-  //   }
-  // }
+    text-decoration: underline;
+    padding: 10px 20px 0 0;
+  }
 }
 
 .banner-middle {
@@ -234,7 +209,7 @@
   }
 }
 
-#instafeed {      
+#instafeed {
   .insta-bg {
     width: 285px;
     height: 285px;
@@ -243,12 +218,14 @@
     background-size: cover;
     background-position: center center;
   }
+
   #more-link {
     background-color: #232e48;
     position: relative;
     color: $secondary-color;
     display: block;
     float: left;
+
     span {
       @include font-size(24px);
       font-family: 'OpenSans';
@@ -265,26 +242,22 @@
       letter-spacing: -0.6px;
       text-align: center;
     }
-  }  
+  }
 }
 
-.footer{
+.footer {
   background: $footer-bg;
 
-  .footer-left{
+  .footer-left {
     @extend %clearfix;
   }
-  .footer-right{
+
+  .footer-right {
     float: left;
-
   }
-
 }
 
 .arrow {
- 
   /* border: 1px solid; */
-  
   /* background: #f5f5f5; */
-  
 }

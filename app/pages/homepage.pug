@@ -24,32 +24,7 @@ block append content
       span.guestPhotos Guest Photos
       span.hotelPhotos Hotel Photos
   .booking-widget
-  .slider-widget
-    .container      
-      .slider-container
-        h4 HILIGHTS
-        a(href="#") もっと見る
-        .slider.slider-nav(data-slick='{"slidesToShow": 3, "slidesToScroll": 3}')
-          .slide
-            img(src='/assets/images/1.jpg')
-            .date 2017/10/04 ~ 2018/02/03
-            .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
-          .slide
-            img(src='/assets/images/2.jpg')
-            .date 2017/10/04 ~ 2018/02/03
-            .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
-          .slide
-            img(src='/assets/images/3.jpg')
-            .date 2017/10/04 ~ 2018/02/03
-            .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
-          .slide
-            img(src='/assets/images/1.jpg')
-            .date 2017/10/04 ~ 2018/02/03
-            .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
-          .slide
-            img(src='/assets/images/2.jpg')
-            .date 2017/10/04 ~ 2018/02/03
-            .tagline あのイーハトーヴォのすきとおった風、夏でも底に。
+  include ../components/home-slider.pug
   .banner-middle
     img(src='/assets/images/banner-middle.jpg')
   .video-banner
