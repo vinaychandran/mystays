@@ -99,23 +99,23 @@ const FE = {
               breakpoint: 1080,
               settings: {
                 slidesToShow: 3,
-                slidesToScroll: 3,
+                slidesToScroll: 1,
                 infinite: true,
               },
             },
             {
-              breakpoint: 800,
+              breakpoint: 767,
               settings: {
                 slidesToShow: 2,
-                slidesToScroll: 2,
+                slidesToScroll: 1,
                 infinite: true,
               },
             },
             {
-              breakpoint: 468,
+              breakpoint: 481,
               settings: {
                 slidesToShow: 1,
-                slidesToScroll: 2,
+                slidesToScroll: 1,
                 infinite: true,
               },
             },
@@ -180,6 +180,7 @@ $(function() {
 
 window.onload = function() {
   FE.global.sliderImage('.home-slider-nav', 3, false, true);
+   FE.global.sliderImage('.home-video-slider-nav', 4, false, true);
   FE.global.loaded();
 };
 

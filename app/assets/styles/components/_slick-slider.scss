@@ -12,8 +12,12 @@
   background: none;
   margin: 0;
   padding: 0;
-  @include center(vertical);
 
+  @include center(vertical);
+  top:40%;
+  @include xs{
+    @include center(vertical);
+  };
   &:after {
     content: "";
     display: block;
@@ -30,7 +34,11 @@
 }
 
 .slick-prev {
-  left: -70px;
+  left: 25px;
+
+  @include xs{
+    left: -70px;
+  };
 
   &:after {
     background: url("/assets/images/arrow-left.svg") no-repeat;
@@ -38,7 +46,11 @@
 }
 
 .slick-next {
-  right: -70px;
+  right: 25px;
+
+  @include xs{
+    right: -70px;
+  };
 
   &:after {
     background: url("/assets/images/arrow-right.svg") no-repeat;
@@ -46,8 +58,12 @@
 }
 
 .slick-slide img {
-  border-left: 15px solid #FFF;
-  border-right: 15px solid #FFF;
+  border-left: 50px solid #FFF;
+  border-right: 50px solid #FFF;
+  @include xs{
+    border-left: 15px solid #FFF;
+    border-right: 15px solid #FFF;
+  };
   display: block;
   width: 100%;
 }
