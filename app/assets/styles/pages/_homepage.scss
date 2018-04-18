@@ -245,19 +245,3 @@
   }
 }
 
-.footer {
-  background: $footer-bg;
-
-  .footer-left {
-    @extend %clearfix;
-  }
-
-  .footer-right {
-    float: left;
-  }
-}
-
-.arrow {
-  /* border: 1px solid; */
-  /* background: #f5f5f5; */
-}
