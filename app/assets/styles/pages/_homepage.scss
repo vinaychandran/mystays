@@ -93,23 +93,29 @@
     font-family: $default-font;
     @include font-size(16px);
     font-weight: 600;
-    line-height: 6.69;
     letter-spacing: 3.1px;
     text-align: center;
     color: #141414;
-  }
+    padding-bottom: 36px;
+    padding-left: 0;
+    @include sm {
+      padding-left: 80px;
+    };
 
-  .home-slider-subtitle {
-    font-family: $primary-font;
-    @include font-size(14px);
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 2.14;
-    letter-spacing: 1.1px;
-    text-align: right;
-    color: #141414;
-    float: right;
+    span {
+      display: inline-block;
+      float: right;
+      font-family: $primary-font;
+      @include font-size(14px);
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      letter-spacing: 1.1px;
+      text-align: right;
+      color: #141414;
+      padding-right: 30px;
+      background: url('/assets/images/arrow-right.svg') right center no-repeat;
+    }
   }
 
   .date {
@@ -139,6 +145,10 @@
 
 .banner-middle {
   padding-bottom: 140px;
+
+  img {
+    width: 100%;
+  }
 }
 
 .slider-video-widget {

@@ -24,7 +24,11 @@ block append content
       span.guestPhotos Guest Photos
       span.hotelPhotos Hotel Photos
   .booking-widget
-  include ../components/home-slider.pug
+  .home-slider
+    .container
+      .home-slider-title HILIGHTS
+        span.hidden-xs もっと見る
+      include ../components/home-slider.pug
   .banner-middle
     img(src='/assets/images/banner-middle.jpg')
   .guest-review
