@@ -33,12 +33,10 @@ block append content
     img(src='/assets/images/banner-middle.jpg')
   .guest-review
     .h5 Gust Review
-  .home-video-slider
-    .container
-      .home-video-slider-title ART HOTEL OSAKA BAY TOWER
-      include ../components/home-video-slider.pug
-  .art-concept
-    .h5 ART CONCEPT
+ 
+  include ../components/home-video-slider.pug
+  include ../components/home-concept.pug
+
   .gallery
     .container
       .section-title
@@ -66,5 +64,4 @@ block append content
         div Images
         p Tab4
           span VIEW GALLERY
-  .location
-    .h5 OSAKA ON YOUR DOORSTEP
+  include ../components/google-map.pug
