@@ -188,7 +188,8 @@
     overflow: hidden;
   }
 
-  .home-video-slider-nav p {
+  .home-video-slider-nav p,
+  .home-video-slider-nav-mobile p {
     font-size: 14px;
     font-weight: $semi-bold;
     font-style: normal;
@@ -225,40 +226,72 @@
     display: block;
     width: 100%;
   }
-}
 
-#instafeed {
-  .insta-bg {
-    width: 285px;
-    height: 285px;
-    display: block;
-    float: left;
-    background-size: cover;
-    background-position: center center;
-  }
+  .home-video-slider-nav-mobile {
+    .first {
+      margin-right: 40px;
+    }
 
-  #more-link {
-    background-color: #232e48;
-    position: relative;
-    color: $secondary-color;
-    display: block;
-    float: left;
+    .first,
+    .fourth,
+    .sec,
+    .third {
+      float: left;
+      position: relative;
+    }
 
-    span {
-      @include font-size(24px);
-      font-family: 'OpenSans';
-      width: 285px;
-      display: table-cell;
-      height: 285px;
-      text-align: center;
-      vertical-align: middle;
+    .sec {
+      padding: 61px 0;
+    }
+
+    .third {
+      margin-right: 40px;
+      top: -60px;
+    }
+
+    p span {
+      font-family: $default-font;
       font-size: 24px;
       font-weight: 600;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: 1.38;
-      letter-spacing: -0.6px;
-      text-align: center;
+      line-height: 1.25;
+      letter-spacing: 2.4px;
+      color: #000000;
+    }
+  }
+
+  #instafeed {
+    .insta-bg {
+      width: 285px;
+      height: 285px;
+      display: block;
+      float: left;
+      background-size: cover;
+      background-position: center center;
+    }
+
+    #more-link {
+      background-color: #232e48;
+      position: relative;
+      color: $secondary-color;
+      display: block;
+      float: left;
+
+      span {
+        @include font-size(24px);
+        font-family: 'OpenSans';
+        width: 285px;
+        display: table-cell;
+        height: 285px;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 24px;
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.38;
+        letter-spacing: -0.6px;
+        text-align: center;
+      }
     }
   }
 }

@@ -12,12 +12,12 @@
   background: none;
   margin: 0;
   padding: 0;
-
   @include center(vertical);
-  top:40%;
-  @include xs{
-    @include center(vertical);
+  top: 40%;
+  @include xs {
+     @include center(vertical);
   };
+
   &:after {
     content: "";
     display: block;
@@ -35,8 +35,7 @@
 
 .slick-prev {
   left: 25px;
-
-  @include xs{
+  @include xs {
     left: -70px;
   };
 
@@ -47,8 +46,7 @@
 
 .slick-next {
   right: 25px;
-
-  @include xs{
+  @include xs {
     right: -70px;
   };
 
@@ -60,7 +58,7 @@
 .slick-slide img {
   border-left: 50px solid #FFF;
   border-right: 50px solid #FFF;
-  @include xs{
+  @include xs {
     border-left: 15px solid #FFF;
     border-right: 15px solid #FFF;
   };

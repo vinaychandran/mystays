@@ -101,6 +101,7 @@ const FE = {
                 slidesToShow: 3,
                 slidesToScroll: 1,
                 infinite: true,
+                arrows: false,
               },
             },
             {
@@ -109,6 +110,7 @@ const FE = {
                 slidesToShow: 2,
                 slidesToScroll: 1,
                 infinite: true,
+                arrows: false,
               },
             },
             {
@@ -117,6 +119,7 @@ const FE = {
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 infinite: true,
+                arrows: true,
               },
             },
           ],
