@@ -12,7 +12,8 @@
   clear: both;
   margin-bottom: 60px;  
   position: relative;
-  float: left;
+  float: left; 
+  width: 100%; 
   .concept-info  {
     position: absolute;
     bottom: -54px;
@@ -49,7 +50,7 @@
     }
     .concept-info  {
       @include md {
-        left: 10%;
+        left: 10%; 
       }
     }
   }
