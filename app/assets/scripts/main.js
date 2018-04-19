@@ -154,6 +154,26 @@ const FE = {
       });
       feed.run();
     },
+
+    googleMap: () => {
+      let selectorMapElement = document.getElementById('gmap_canvas');
+      if (typeof(selectorMapElement) != 'undefined' && selectorMapElement != null){
+        let latlng = new google.maps.LatLng(35.784248, 140.351513);
+        
+        let myOptions = {
+          zoom: 16,
+          center: latlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        let map = new google.maps.Map(selectorMapElement,myOptions); 
+        let marker = new google.maps.Marker({
+            position: latlng,
+            title: "Title",
+            map: map
+        });
+      }
+    },
+
     init: () => {
       //initialling modal
       FE.global.loginModal('modal1', false, false);
@@ -164,6 +184,7 @@ const FE = {
       //Functions inside loaded execute when window loaded
       FE.global.tabs.tabs();
       FE.global.instaFeed();
+      FE.global.googleMap();
     },
     resize: function resize() {
       //Functions inside loaded execute when window resize
