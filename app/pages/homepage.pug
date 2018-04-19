@@ -24,28 +24,16 @@ block append content
       span.guestPhotos Guest Photos
       span.hotelPhotos Hotel Photos
   .booking-widget
-  include ../components/home-slider.pug
+  .home-slider
+    .container
+      .home-slider-title HILIGHTS
+        span.hidden-xs もっと見る
+      include ../components/home-slider.pug
   .banner-middle
     img(src='/assets/images/banner-middle.jpg')
-  .video-banner
-    .container
-      .section-title
-        h2 ART HOTEL OSAKA BAY TOWER
-      .container-video
-        .gallery-container(onclick='FE.global.videoPlayer(event)')
-          #video-container.video-popup(data-target='close')
-           video#video(preload='auto' poster='/assets/images/Loading.gif')(data-target='close')
-          ul
-            li.restaurants
-              a(data-src='https://www.w3schools.com/html/mov_bbb.mp4') RESTAURANTS
-            li.rooms
-              a(data-src='http://techslides.com/demos/sample-videos/small.mp4') ROOMS
-            li.banquets
-              a(data-src='https://coverr.co/s3/mp4/Porto_View.mp4') BANQUETS
-            li.onsen
-              a(data-src='//vjs.zencdn.net/v/oceans.mp4') ONSEN & SPA
   .guest-review
     .h5 Gust Review
+  include ../components/home-video-slider.pug
   .art-concept
     .h5 ART CONCEPT
   .gallery
@@ -77,81 +65,3 @@ block append content
           span VIEW GALLERY
   .location
     .h5 OSAKA ON YOUR DOORSTEP
-  .footer.col
-    .footer-left.col.col-1-3
-      p logo
-      div © 2018 MYSTAYS HOTEL MANAGEMENT Co., Ltd.
-    .footer-right.col.col-2-3
-      .footer-navigation.col
-        ul
-          li
-            a オファー
-          li
-            a ギャラリー
-          li
-            a ルーム
-          li
-            a アクセス
-          li
-            a レストラン
-          li
-            a 会議・宴会
-          li
-            a 設備
-          li
-            a 観光名所
-          li
-            a 温泉&スパ
-      .footer-tabs
-        .footer-tab1.col.col-1-5
-          ul
-            li
-              a マイステイズ公式サイト
-            li
-              a ホテル＆リゾート
-            li
-              a 目的地
-            li
-              a 人気な観光名所
-            li
-              a サイトマップ
-        .footer-tab2.col.col-1-5
-          ul
-            li
-              a ご意見・ご要望
-            li
-              a チャットする
-            li
-              a お問い合わせ
-            li
-              a ご宿泊予約のキャンセル
-            li
-              a お電話：03-3434-3939
-        .footer-tab3.col.col-1-5
-          ul
-            li
-              a 企業概要
-            li
-              a 企業情報
-            li
-              a 開発
-            li
-              a 採用情報
-            li
-              a メディア連絡先
-        .footer-tab4.col.col-1-5
-          ul
-            li
-              a 方針
-            li
-              a 個人情報保護方針
-            li
-              a ご宿泊予約のキャンセルポリシー
-        .footer-tab5.col.col-1-5
-          ul
-            li
-              a クッキーの設定
-            li
-              a よくあるご質問
-            li
-              a  最低価格保証
