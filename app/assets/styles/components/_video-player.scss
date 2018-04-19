@@ -1,15 +1,37 @@
 .animations {
-  animation-duration: 0.3s;
+  animation-duration: 0.5s;
   animation-name: slidein;
 }
 @keyframes slidein {
-  from {
+  0% {
     opacity: 0;
-    width: 60%;
+    width: 10%;
   }
 
-  to {
-    opacity: 1;
-    width: 100%;
+  25% {
+      opacity: 1;
+      width: 25%;
   }
+
+  50% {
+     width: 50%;
+  }
+
+  75% {
+       width: 75%;
+  }
+
+  100% {
+     width: 100%;
+  }
+  //
+  // from {
+  //   opacity: 0;
+  //   width: 60%;
+  // }
+  //
+  // to {
+  //   opacity: 1;
+  //   width: 100%;
+  // }
 }

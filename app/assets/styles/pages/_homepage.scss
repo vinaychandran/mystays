@@ -151,8 +151,13 @@
   }
 }
 
-.slider-video-widget {
+.home-slider-video{
   text-align: center;
+  margin-bottom: 40px;
+
+  .home-slider-video-title{
+    text-align: center;
+  }
 
   #video {
     display: none;
@@ -295,5 +300,3 @@
     }
   }
 }
-
-
