@@ -4,22 +4,22 @@
       h2 ART HOTEL OSAKA BAY TOWER
       .slider-video-widget.hidden-xs
         .container
-          .slider-video-container(onclick='FE.global.videoPlayer(event)')
+          .slider-video-container
               video#video(preload='auto' poster='/assets/images/Loading.gif')(data-target='close')
               .home-video-slider-nav
-                .div
+                .div(onmouseover="FE.global.videoPlayer(event)" onmouseout="FE.global.clearTimer(event)" onclick="FE.global.navigatePage('rooms.html')")
                   img(src='/assets/images/video1.jpg' data-src='https://www.w3schools.com/html/mov_bbb.mp4')
                   p
                     span Restaurants
-                .div
-                  img(src='/assets/images/video2.jpg' data-src='https://www.w3schools.com/html/mov_bbb.mp4')
+                .div(onmouseover="FE.global.videoPlayer(event)" onmouseout="FE.global.clearTimer(event)" onclick="FE.global.navigatePage('rooms.html')")
+                  img(src='/assets/images/video2.jpg' data-src='https://www.w3schools.com/html/mov_bbb.mp4' data-link='/rooms.html')
                   p
                     span Rooms
-                .div
+                .div(onmouseover="FE.global.videoPlayer(event)" onmouseout="FE.global.clearTimer(event)" onclick="FE.global.navigatePage('rooms.html')")
                   img(src='/assets/images/video3.jpg' data-src='https://www.w3schools.com/html/mov_bbb.mp4')
                   p
                     span Banquets
-                .div
+                .div(onmouseover="FE.global.videoPlayer(event)" onmouseout="FE.global.clearTimer(event)" onclick="FE.global.navigatePage('rooms.html')")
                   img(src='/assets/images/video4.jpg' data-src='https://www.w3schools.com/html/mov_bbb.mp4')
                   p
                     span Onsen & Spa
