@@ -186,7 +186,15 @@ const FE = {
                 let map = new google.maps.Map(selectorMapElement, myOptions);
                 let marker = new google.maps.Marker({
                     position: latlng,
-                    title: 'Title',
+                    title: 'Hotel Mystays',
+                    labelAnchor: new google.maps.Point(500, 500),
+                    label: {
+                        text: 'Hotel Mystays testing',
+                        color: "#a69224",
+                        fontSize: "16px",
+                        fontWeight: "bold",
+                    },
+                    icon: '../assets/images/marker-icon.png',
                     map: map
                 });
             }
