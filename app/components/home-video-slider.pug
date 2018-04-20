@@ -5,7 +5,7 @@
       .slider-video-widget.hidden-xs
         .container
           .slider-video-container
-              video#video(preload='auto' poster='/assets/images/Loading.gif')(data-target='close')
+              #video(preload='auto' poster='/assets/images/Loading.gif' data-target='close')
               .home-video-slider-nav
                 .div(onmouseover="FE.global.videoPlayer(event)" onmouseout="FE.global.clearTimer(event)" onclick="FE.global.navigatePage('rooms.html')")
                   img(src='/assets/images/video1.jpg' data-src='https://www.w3schools.com/html/mov_bbb.mp4')
