@@ -23,19 +23,20 @@ block append content
       span RISE ABOVE THE BAY
       span.guestPhotos Guest Photos
       span.hotelPhotos Hotel Photos
-  .booking-widget
-  .home-slider
-    .container
-      .home-slider-title HILIGHTS
-        span.hidden-xs もっと見る
-      include ../components/home-slider.pug
+  include ../components/booking-widget.pug
+  include ../components/home-slider.pug
   .banner-middle
+<<<<<<< HEAD
     img.lazy(data-src='/assets/images/banner-middle.jpg')
   .home-slider-video
     .container
       .section-title
         h2 ART HOTEL OSAKA BAY TOWER
         include ../components/home-video-slider.pug
+=======
+    img(src='/assets/images/banner-middle.jpg')
+  include ../components/home-video-slider.pug
+>>>>>>> 6d69a918373d7e773d0dfa77689010ca4d525ce7
   .guest-review
     .h5 Gust Review
   include ../components/home-concept.pug

@@ -5,6 +5,8 @@ const browserSync = require('browser-sync').create();
 const del = require('del');
 const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
+var svgSprite = require("gulp-svg-sprites");
+
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -18,6 +20,9 @@ gulp.task('views', () => {
     .pipe(gulp.dest('.tmp'))
     .pipe(reload({stream: true}));
 });
+
+
+
 
 gulp.task('styles', () => {
   return gulp.src('app/assets/styles/**/*.scss')
@@ -76,6 +81,15 @@ gulp.task('images', () => {
     .pipe(gulp.dest('dist/assets/images'));
 });
 
+
+gulp.task('sprite', function () {
+    return gulp.src('app/assets/icons/*.svg')
+        .pipe(svgSprite({
+            selector: "sprite-%f",
+            cssFile: "styles/base/_sprite.scss"
+        }))
+        .pipe(gulp.dest("app/assets/"));
+});
 gulp.task('fonts', () => {
   return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {})
     .concat('app/assets/fonts/**/*'))
@@ -95,10 +109,10 @@ gulp.task('extras', () => {
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', () => {
-  runSequence(['clean', 'wiredep'], ['views', 'styles', 'scripts', 'fonts'], () => {
+  runSequence(['clean', 'wiredep'], ['views', 'styles', 'scripts', 'fonts', 'sprite'], () => {
     browserSync.init({
       notify: false,
-      port: 9000,
+      port: 9001,
       server: {
         baseDir: ['.tmp', 'app'],
         routes: {
@@ -124,7 +138,7 @@ gulp.task('serve', () => {
 gulp.task('serve:dist', ['default'], () => {
   browserSync.init({
     notify: false,
-    port: 9000,
+    port: 9001,
     server: {
       baseDir: ['dist']
     }
@@ -134,7 +148,7 @@ gulp.task('serve:dist', ['default'], () => {
 gulp.task('serve:test', ['scripts'], () => {
   browserSync.init({
     notify: false,
-    port: 9000,
+    port: 9001,
     ui: false,
     server: {
       baseDir: 'test',
