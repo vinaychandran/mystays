@@ -10,7 +10,11 @@ const FE = {
       loginModal.init();
     },
     lazyLoad: () => {
-      const myLazyLoad = new LazyLoad();
+      const myLazyLoad = new LazyLoad({
+        elements_selector: '.lazy',
+        threshold: -100
+      });  
+      myLazyLoad.update();    
     },
 
     videoPlayer: (event) => {
@@ -19,8 +23,8 @@ const FE = {
         video.closeVideo();
       }
 
-      if (event.target.attributes.getNamedItem('data-src')) {
-        let src = event.target.attributes.getNamedItem('data-src').value;
+      if (event.target.attributes.getNamedItem('data-video-src')) {
+        let src = event.target.attributes.getNamedItem('data-video-src').value;
 
         video.openVideo(src);
       }
@@ -142,7 +146,7 @@ const FE = {
         accessToken: '1459052068.3a81a9f.656faf6eb84044cea80572ed44299e2e',
         limit: 7,
         resolution: 'low_resolution',
-        template: '<div class="insta-bg" style="background-image:url({{image}})"></div>',
+        template: '<a href="{{link}}" target="_blank"><div class="lazy insta-bg" data-src="{{image}}"><div class="insta-mask"><div class="insta-content"><span class="insta-date">10 april 2018</span><span class="insta-likes">{{likes}}</span><span class="insta-comments">{{comments}}</span></div></div></div></a>',
         after: function() {
           var node = document.createElement('A');
           var span = document.createElement('SPAN');
@@ -153,9 +157,10 @@ const FE = {
           node.href = '#';
           var feed = document.getElementById('instafeed');
           feed.appendChild(node);
+          FE.global.lazyLoad();
         }
       });
-      feed.run();
+      feed.run();      
     },
 
     googleMap: () => {
@@ -171,7 +176,7 @@ const FE = {
         let map = new google.maps.Map(selectorMapElement,myOptions); 
         let marker = new google.maps.Marker({
             position: latlng,
-            title: "Title",
+            title: 'Title',
             map: map
         });
       }
@@ -179,8 +184,8 @@ const FE = {
 
     init: () => {
       //initialling modal
-      FE.global.loginModal('modal1', false, false);
-      FE.global.lazyLoad();
+      //FE.global.loginModal('modal1', false, false);
+      
 
     },
     loaded: function loaded() {
@@ -188,6 +193,7 @@ const FE = {
       FE.global.tabs.tabs();
       FE.global.instaFeed();
       FE.global.googleMap();
+      FE.global.lazyLoad();
     },
     resize: function resize() {
       //Functions inside loaded execute when window resize

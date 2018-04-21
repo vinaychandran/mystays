@@ -1,7 +1,7 @@
 extends ../layouts/default
 
 block append content
-  .main-banner
+  .main-banner.lazy(data-src="/assets/images/banner.jpg")
     .main-header
       .logo.col.col-1-4 Logo
       .main-navigation
@@ -30,7 +30,7 @@ block append content
         span.hidden-xs もっと見る
       include ../components/home-slider.pug
   .banner-middle
-    img(src='/assets/images/banner-middle.jpg')
+    img.lazy(data-src='/assets/images/banner-middle.jpg')
   .home-slider-video
     .container
       .section-title
@@ -39,31 +39,5 @@ block append content
   .guest-review
     .h5 Gust Review
   include ../components/home-concept.pug
-  .gallery
-    .container
-      .section-title
-        h2 LIVE GALLERY
-      ul.tabs#tabs
-        li
-          a(href='', data-href='#tab1') ホテル写真
-        li
-          a(href='', data-href='#tab2') ゲスト写真
-        li
-          a(href='', data-href='#tab3') ライブフィード
-        li
-          a(href='', data-href='#tab4') ブランドビデオ
-      #tab1.tabContent
-        div#instafeed
-      #tab2.tabContent
-        div Images
-        p Tab2
-          span VIEW GALLERY
-      #tab3.tabContent
-        div Images
-        p Tab3
-          span VIEW GALLERY
-      #tab4.tabContent
-        div Images
-        p Tab4
-          span VIEW GALLERY
+  include ../components/home-gallery.pug
   include ../components/google-map.pug

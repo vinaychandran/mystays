@@ -11,6 +11,3 @@ img.loaded,
 img.error {
     opacity: 1;
 }
-img:not([src]) {
-    visibility: hidden;
-}
