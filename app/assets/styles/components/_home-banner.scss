@@ -1,0 +1,50 @@
+.main-banner {
+    height: 660px;
+    position: relative;
+    top: 94px;
+
+    .banner-text {
+        @include center(both);
+        text-align: center;
+        color: $secondary-color;
+        h1 {
+            @include font-size(32px);
+            font-weight: 500;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 2;
+            letter-spacing: 3.8px;
+            text-align: center;
+            font-family: $secondary-font;
+        }
+        span {
+            display: block;
+            font-size: 14px;
+            font-weight: $semi-bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.5;
+            letter-spacing: 5.3px
+        }
+    }
+    .photos-link {
+        @include center(vertical);
+            right: 0; 
+        a {
+            @include font-size(10px);
+            background: $default-bg;
+            font-family: $default-font;
+            font-weight: 600;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1;
+            letter-spacing: 0.1px;
+            text-transform: uppercase;
+            padding: 20px;
+            display: block;
+            margin-bottom: 1px;
+            text-align: left;
+            color: rgba(0, 0, 0, 0.6);
+        }
+    }
+}

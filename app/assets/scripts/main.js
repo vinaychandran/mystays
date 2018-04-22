@@ -197,7 +197,7 @@ const FE = {
               var feed = document.getElementById('instafeed');
               feed.appendChild(node);
               FE.global.lazyLoad();
-            }
+            },
           });
           feed.run();      
         },
