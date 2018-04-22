@@ -376,8 +376,8 @@
         locale: 'en-US',
         l: {
             label: 'Close',
-            at: 'Check-in',
-            to: 'Check-out',
+            at: '2018年00月00日',
+            to: '2018年00月00日',
             days: ['MON', 'TUE', 'WED', 'THUR', 'FRI', 'SAT', 'SUN'],
             months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         }
