@@ -171,8 +171,13 @@ header{
 	bottom: 0;
 	z-index: 9999;
 	right: -100%;
+	transition: .5s;
 	&.active{
 		right: 0;
+	}
+	@include md {
+		width: 300px;
+		top: 94px; 
 	}
 	ul{
 		padding-bottom: 40px;
