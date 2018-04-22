@@ -13,8 +13,8 @@ const FE = {
           const myLazyLoad = new LazyLoad({
             elements_selector: '.lazy',
             threshold: -100
-          });  
-          myLazyLoad.update();    
+          });
+          myLazyLoad.update();
         },
 
         playVideo: (evt) => {
@@ -175,7 +175,7 @@ const FE = {
               FE.global.lazyLoad();
             }
           });
-          feed.run();      
+          feed.run();
         },
         showBookingTab: (evt, tabName) => {
             var i, tabcontent, tablinks;
@@ -223,7 +223,7 @@ const FE = {
                 this.classList.add('active');
             };
             for (var i = 0; i < lang.length; i++) {
-               lang[i].addEventListener('click', showDropDown); 
+               lang[i].addEventListener('click', showDropDown);
             }
         },
         sideNavigation: () => {
@@ -231,14 +231,14 @@ const FE = {
             let sideNav = document.getElementById('sideNav');
             hamburger.addEventListener('click', function () {
                 if (this.classList.contains('active')) {
-                    this.classList.remove('active'); 
+                    this.classList.remove('active');
                     sideNav.classList.remove('active');
                 } else {
                     this.classList.add('active');
-                    sideNav.classList.add('active');                     
+                    sideNav.classList.add('active');
                 }
             });
-        },  
+        },
         clickOutside: (method, box, targetElement) => {
             $('html').on('click', 'body', function (e) {
                 var container = $(box);
@@ -255,13 +255,221 @@ const FE = {
                             break;
                     }
                     $('body').removeClass('noScrollBody');
-                }               
+                }
             });
+        },
+        autocomplatePopup: () => {
+            $(document).on('click', '.input-showtext input', function () {
+                if($(this).parents('#header-search-popup').length == 1){
+                    $(this).parents('.input-showtext').find('.popup-menu-header').fadeIn('500');
+                    $('.header-search-destinations').hide();
+                    $('.header-show-destinations').show();
+                }
+                else{
+                    $(this).parents('.input-showtext').find('.popup-menu').fadeIn();
+                }
+            });
+            $(document).on('focus', '.input-showtext input', function () {
+                $(this).select();
+                $(this).next().find('li span').on('click', function () {
+                    $(this).parents('.input-showtext').find('input').val($(this).text());
+                   // $(this).parents('.input-showtext').find('input').focus();
+                });
+                $(this).next().find('li span').each(function () {
+                    if ($(this).text().toLowerCase() === $(this).parents('.input-showtext').find('input').val().toLowerCase()) {
+                        $(this).addClass('active');
+                    }
+                });
+                let hotelChild = $(this).next().find('ul').children().length,
+                    _self = $(this),
+                    itemI = $(this).next().find('ul li span');
+                if ($(this).next().find('ul li span.active').length) {
+                    return;
+                } else {
+                    for (let i = 0; i < hotelChild; i++) {
+                        if (itemI.eq(i).is(':visible')) {
+                            itemI.eq(i).addClass('active');
+                            _self.attr('href', itemI.eq(i).parent().attr('data-link'));
+                            break;
+                        }
+                    }
+                }
+            });
+            $(document).on('keyup', '.input-showtext input', function (e) {
+                if($(this).parents('#header-search-popup').length == 1){
+                    $(this).parents('.input-showtext').find('.popup-menu-header').fadeIn('500');
+                    $('.header-search-destinations').hide();
+                    $('.header-show-destinations').show();
+                }
+                setTimeout(() => {
+                    let keyTxt = $(this).val().toLowerCase();
+                    $(this).next().find('ul li span').each(function () {
+                        let string = $(this).text().toLowerCase();
+                        let names = $(this).attr('names').toLowerCase();
+                        let hotel;
+                         $(this).parent('li').removeClass('hide-hotel');
+                        if (typeof ($(this).attr('city')) !== 'undefined') {
+                            hotel = $(this).attr('city').toLowerCase();
+                            if ((string.search(keyTxt) >= 0) || (hotel.search(keyTxt) >= 0) || (names.search(keyTxt) >= 0)) {
+                                $(this).parent('li').addClass('show-hotel');
+                                $(this).parent('li').removeClass('hide-hotel');
+                            } else {
+                                $(this).parent('li').removeClass('show-hotel');
+                                $(this).parent('li').removeClass('hide-hotel');
+                            }
+                        } else {
+                            if (string.search(keyTxt) >= 0) {
+                                $(this).parent('li').addClass('show-hotel');
+                                $(this).parent('li').removeClass('hide-hotel');
+                            } else {
+                                $(this).parent('li').removeClass('show-hotel');
+                                $(this).parent('li').removeClass('hide-hotel');
+                            }
+                        }
+                        $(this).removeClass('active');
+                        $(this).parent('li').removeClass('top0').removeClass('top1').removeClass('top2');
+                    });
+
+                    if (keyTxt.length <= 0) {
+                        $(this).next().find('ul li').show();
+                    }
+                    let hotelChild = $(this).next().find('ul').children().length,
+                        _self = $(this),
+                        itemI = $(this).next().find('ul li span');
+                    for (let i = 0; i < hotelChild; i++) {
+                        if (itemI.eq(i).is(':visible')) {
+                            itemI.eq(i).addClass('active');
+                            _self.attr('href', itemI.eq(i).parent().attr('data-link'));
+                            break;
+                        }
+                    }
+                    if (e.which == 13) {
+                        if (typeof ($(this).attr('href')) !== 'undefined') {
+                            document.location = $(this).attr('href');
+                        } else {
+                            $(this).val($(this).next().find('ul li span.active').text());
+                        }
+                    }
+
+                    FE.global.resultSortOrder();
+
+                }, 300);
+
+
+            });
+            $(document).on('keydown', '.input-showtext input', function (e) {
+                if(e.which == 9 || e.which == 40){ // tab
+                    e.preventDefault();
+                    $(this).next().find('ul li span').first().addClass('active');
+                    $(this).next().find('ul li span').first().focus();
+                    $(this).blur();
+                }
+            });
+
+
+
+            $(document).on('keydown', '.popup-menu ul li span', function (e) {
+                $(this).parents('.input-showtext').addClass('focus');
+                var linkH = $(this).parent().attr('data-link');
+                if(e.which == 9 || e.which == 40){ // tab
+                    $('.popup-menu ul li span').removeClass('active');
+                    $(this).parent('li').next().find('span').focus().addClass('active');
+                }
+                if (e.which == 13) {
+                    var win = window.open(linkH,'_self');
+                }
+                if(e.which == 38){ // tab
+                    $('.popup-menu ul li span').removeClass('active');
+                    $(this).parent('li').prev().find('span').focus().addClass('active');
+                }
+            });
+
+            $(document).on('keydown', '.popup-menu-header ul li span', function (e) {
+                    let keyTxt = $('.input-showtext input').val().toLowerCase();
+                    console.log(keyTxt);
+                    $(this).parents('.input-showtext').addClass('focus');
+                    console.log($(this).parent('li'));
+                    var linkH = $(this).parent().attr('data-link');
+                    if(e.which == 40){
+                            $('.popup-menu-header ul li span').removeClass('active');
+                            $(this).parent('li').next('li').find('span').focus().addClass('active');
+                    }
+                    if (e.which == 13) {
+                        var win = window.open(linkH,'_self');
+                    }
+                    if(e.which == 38){ // tab
+                        $('.popup-menu-header ul li span').removeClass('active');
+                        $(this).parent('li').prev().find('span').focus().addClass('active');
+                    }
+            });
+
+
+            $(document).on('click', '.input-showtext .popup-content-input ul li span', function () {
+                $(this).parents('.input-showtext').find(' .popup-content-input ul li span').removeClass('active');
+                $(this).addClass('active');
+                $(this).parents('.input-showtext').find('input').attr('href', $(this).parent().attr('data-link')).focus();
+                $(this).parents('.input-showtext').find('.popup-menu').fadeOut();
+                $(this).parents('.input-showtext').removeClass('focus');
+            });
+            $(document).on('click', '.input-showtext .popup-content-input ul.cities li span', function () {
+                let cities = $(this).attr('target');
+                $(this).parents('.input-showtext').find(' .popup-content-input ul.hotels li span').each(function () {
+                    let hotelCity = $(this).attr('city');
+                    if (cities === hotelCity) {
+                        $(this).parent('li').show();
+                    } else {
+                        $(this).parent('li').hide();
+                    }
+                });
+            });
+            $(document).on('click', '.input-showtext .popup-content-input ul.hotels li span', function () {
+                let cities = $(this).attr('city'),
+                    linkH = $(this).parent().attr('data-link');
+                $(this).parents('.input-showtext').find(' .popup-content-input ul.cities li span').each(function () {
+                    let hotelCity = $(this).attr('target');
+                    if (cities === hotelCity) {
+                        $(this).parent('li').show();
+                    } else {
+                        $(this).parent('li').hide();
+                    }
+                });
+                if ($(this).parents('.search-box').length) {
+                    $(this).parents('.input-showtext').attr('href', linkH);
+                    var win = window.open(linkH,'_self');
+                  //  win.focus();
+                }
+            });
+
+            $(document).on('click', '.input-showtext-header input', function () {
+                $('#header-search-popup').slideDown();
+                $('body').addClass('overlay-wrapper');
+                $('.nav-sidebar').removeClass('show-sidebar');
+                $('.backdrop').removeClass('in');
+                $('#header-search-popup .search-hotel').focus();
+            });
+
+            $(document).on('click','.header-search-close',function(){
+                $('#header-search-popup').stop().slideUp();
+                $('body').removeClass('overlay-wrapper');
+            });
+
+            $(document).on('click','.header-show-destinations',function(){
+                $('.popup-menu-header').slideUp();
+                $('.header-search-destinations').show(200);
+                $(this).hide();
+            });
+
+            $(document).on('click', '.cancel-form .input-showtext input', function () {
+                $('html, body').animate({
+                    scrollTop: $(this).offset().top - 30
+                }, 500);
+            });
+
         },
 
         init: () => {
             //initialling modal
-            FE.global.loginModal('modal1', false, false);
+            //FE.global.loginModal('modal1', false, false);
             FE.global.lazyLoad();
         },
         loaded: function loaded() {
@@ -272,8 +480,10 @@ const FE = {
             FE.global.googleMap();
             FE.global.changeLanguage();
             FE.global.sideNavigation();
-            FE.global.clickOutside('active', '.selected-lang', '.selected-lang');            
+            FE.global.clickOutside('active', '.selected-lang', '.selected-lang');
+            FE.global.clickOutside('fade', '.input-showtext .form-control', '.input-showtext .popup-menu');
             FE.global.sliderImage('.home-video-slider-nav', 4, false, true);
+            FE.global.autocomplatePopup();
         },
         resize: function resize() {
             //Functions inside loaded execute when window resize
@@ -287,7 +497,7 @@ $(function() {
     FE.global.init();
 });
 
-$(window).load(function() {    
+$(window).load(function() {
     FE.global.loaded();
     $.DateRangePicker({
         container: '#date_range_picker'

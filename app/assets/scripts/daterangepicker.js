@@ -9,7 +9,16 @@
             containerCalendarContainer = container.find('.calendarContainer');
 
         function getDateLocale(value) {
-            var year = value.getFullYear().toString().substring(2),
+
+          var months    = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+          var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+          var day =   value.getDay();
+          var thisMonth = months[value.getMonth()];
+          var dayName = days[value.getDay()];
+
+            var year = value.getFullYear() ,
                 month = value.getMonth() + 1,
                 day = value.getDate();
             if (opts.locale == 'ru-RU') {
@@ -17,8 +26,10 @@
                 if (day < 10) day = '0' + day;
                 var dateText = day + '.' + month + '.' + year;
             } else if (opts.locale == 'en-US') {
-                var dateText = month + '/' + day + '/' + year;
+                var dateText = thisMonth + ' ' + day + ' ' + year + ' '+ dayName  ;
             }
+
+
             return dateText;
         }
 
@@ -272,6 +283,9 @@
             containerValues.find('span.date_at').text(opts.l.at);
             containerValues.find('span.date_to').text(opts.l.to);
 
+            containerValues.find('span.date_startDay').text(opts.l.startDay);
+            containerValues.find('span.date_endDay').text(opts.l.endDay);
+
             opts.date_at = '';
             opts.date_to = '';
 
@@ -359,7 +373,6 @@
 
         date_at: '',
         date_to: '',
-
         locale: 'en-US',
         l: {
             label: 'Close',

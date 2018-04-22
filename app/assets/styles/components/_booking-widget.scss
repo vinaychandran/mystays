@@ -1,4 +1,46 @@
 @charset "utf-8";
+
+.booking-widget{
+  background: $secondary-color;
+}
+
+.rooms-container{
+  //width: 200px;
+  //float: left;
+}
+
+.form-group{
+  margin: 0;
+}
+
+#find-button{
+
+  label{
+    background: url(../images/forma-1.svg) left center;
+    background-repeat: no-repeat;
+  }
+
+   button{
+  background: #c5ad6c;
+  color: #fefefe;
+  border: none;
+  padding: 26px 53px;
+}
+
+
+}
+
+
+#room-locations, #date_range_picker,   #rooms-locations, #people, #find-button{
+ float: left;
+ width: 200px;
+}
+
+.tabcontent{
+  @extend %clearfix;
+  display: block;
+}
+
 .date_range_picker {
     position: relative;
     z-index: 1;
@@ -29,12 +71,12 @@
             line-height: 24px;
         }
         .to {
-            width: 20px;
-            height: 1px;
-            margin: 0 calc( 13px - 0.285em) 0 7px;
-            background: #DDDDDD;
-            display: inline-block;
-            vertical-align: middle;
+            // width: 20px;
+            // height: 1px;
+            // margin: 0 calc( 13px - 0.285em) 0 7px;
+            // background: #DDDDDD;
+            // display: inline-block;
+            // vertical-align: middle;
         }
         .clear {
             float: right;
@@ -193,10 +235,15 @@
 
 .tab {
     overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    //border: 1px solid #ccc;
+
+    height: 40px;
+    //float: left;
+    position: relative;
+    top: -40px;
     button {
-        background-color: inherit;
+      background-color: #f1f1f1;
+      //  background-color: inherit;
         float: left;
         border: none;
         outline: none;
@@ -214,5 +261,88 @@
 }
 
 .tabcontent {
+
+    //display: none;
+}
+
+.input-showtext input{
+  background: url(../images/drop-down-arrow.svg) 90% center;
+    background-size: 10px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin:0;
+}
+
+
+.popup-menu {
+    top: 65px;
+    left: 0;
+    width: 100%;
+    padding: 0;
     display: none;
+    @include sm {
+        top: 75px;
+    }
+    &.popup-menu-venue {
+        @include xs {
+            width: calc(100% - 20px);
+        }
+    }
+
+    li {
+        span {
+            cursor: pointer;
+            display: block;
+            font-size: 12px;
+            line-height: 1.4;
+            padding: 8px 20px;
+            color:#000;
+            font-weight: 700;
+            &:hover,
+            &:focus,
+            &.active {
+                background-color: rgba(255, 210, 93, 0.55);
+            }
+        }
+        ul li{
+            span{
+                padding-left: 30px;
+                font-weight: 400;
+            }
+        }
+        // &:hover,
+        // &:focus,
+        // &.active {
+        //     span{
+        //         background-color: rgba(255, 210, 93, 0.55);
+        //     }
+        // }
+    }
+    .popup-content-input {
+        overflow-y: auto;
+        //max-height: 332px;
+        //padding: 20px 0;
+        position: absolute;
+        background: #f5f5f5;
+        z-index: 999;
+    }
+    .title-category-input {
+        font-family: 'Lato-Black';
+        font-size: 16px;
+        line-height: 1.38;
+        position: relative;
+        padding-bottom: 20px;
+        margin-bottom: 10px;
+        margin: 0 20px 10px;
+        font-weight: normal;
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #f5f5f5;
+        }
+    }
 }
