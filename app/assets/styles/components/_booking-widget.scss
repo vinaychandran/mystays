@@ -21,6 +21,10 @@
     }
   }
 
+  #people label{
+    padding: 5px 10px;
+  }
+
   #find-button {
     width: 182px;
   }
@@ -529,3 +533,598 @@
     }
   }
 }
+$white : #000;
+$white-smoke-dark : #000;
+$color-border : #fff;
+$yellow : #000;
+$gray-light: #000;
+$text-color:#fff;
+$black:#fff;
+.guest-rooms-popup {
+    .popup-container{
+      position: absolute;
+      z-index: 99;
+      background: #f5f5f5;
+    }
+    .form-content {
+        position: relative;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid $white-smoke-dark;
+        @include sm {
+            border-bottom: none;
+            margin-bottom: 0px;
+        }
+        .head-title {
+            font-size: 14px;
+            font-weight: 900;
+            font-family: 'Lato-Black';
+            margin: 20px 0;
+        }
+        .left-content {
+            float: left;
+            margin-right: 0px;
+            width: 214px;
+            @include sm {
+                width: 44%;
+            }
+        }
+        .right-content {
+            float: left;
+            margin-right: 0px;
+            position: relative;
+            display: none;
+            width: 214px;
+            @include sm {
+                width: 44%;
+                margin-left: 20px;
+                &:after {
+                    content: "";
+                    width: 1px;
+                    height: 99px;
+                    position: absolute;
+                    top: 24px;
+                    display: block;
+                    background: $white-smoke-dark;
+                    left: -20px;
+                }
+            }
+        }
+        .rooms {
+            float: left;
+            width: 50%;
+            padding-right: 20px;
+            margin-bottom: 5px;
+            .form-group {
+                margin: 0;
+                .form-label {
+                    padding: 0px;
+                    text-align: left;
+                    font-size: 12px;
+                    opacity: 0.75;
+                    @include sm {
+                        position: static;
+                    }
+                }
+                .form-select {
+                    width: 100%;
+                    .txt-day {
+                        left: 50%;
+                        //@include translateX(-50%);
+                        padding-right: 15px;
+                        margin: 0;
+                        top: 8px;
+                        font-size: 14px;
+                    }
+                    .txt-rooms {
+                        display: none;
+                        @include sm {
+                            top: 43px;
+                            left: 40%;
+                          //  @include translateX(-50%);
+                            font-size: 12px;
+                        }
+                    }
+                    .have-icon-select:after {
+                        position: absolute;
+                        content: "";
+                        display: block;
+                        background: url("../images/svg-icons.svg");
+                        background-repeat: no-repeat;
+                        background-position: left -452px;
+                        width: 12px;
+                        height: 18px;
+                        right: 10px;
+                        top: 10px;
+                    }
+                    .dropdown-menu {
+                        top: 0;
+                    }
+                }
+                .form-control {
+                    margin-bottom: 0;
+                    height: 38px;
+                    border: 1px solid $white-smoke-dark;
+                    @include sm {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .icon-delete {
+            display: none;
+            @include sm {
+                float: left;
+                margin-top: 92px;
+            }
+        }
+    }
+    .footer {
+        .btn {
+            width: 100%;
+            display: block;
+            padding-left: 20px;
+            padding-right: 20px;
+            font-size: 13px;
+            height: 45px;
+            line-height: 45px;
+            border: 1px solid $color-border;
+            @include sm {
+                width: auto!important;
+                display: inline-block;
+                height: 40px;
+                line-height: 40px;
+                margin-right: 20px;
+            }
+        }
+        .btn-primary {
+            border: 1px solid $yellow;
+            @include sm {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+// .homepage-form {
+//     &.choose-rooms-search {
+//         .search-form {
+//             @include sm {
+//                 padding: 25px 47px;
+//             }
+//             @include md {
+//                 padding: 25px 15px;
+//             }
+//             .row {
+//                 margin-left: -10px;
+//                 margin-right: -10px;
+//             }
+//             .col {
+//                 padding: 0 10px;
+//             }
+//             .date {
+//                 width: 50%;
+//                 .form-select {
+//                     .form-control {
+//                         padding-left: 15px;
+//                         @include sm {
+//                             padding-left: 0;
+//                         }
+//                     }
+//                     .txt-day {
+//                         margin-left: 30px;
+//                         font-size: 16px;
+//                         top: 13px;
+//                         @include sm {
+//                             font-size: 15px;
+//                             margin-left: 0;
+//                             top: 10px;
+//                         }
+//                     }
+//                     .txt-month-year {
+//                         margin-left: 45px;
+//                         width: 80px;
+//                         top: 13px;
+//                         @include sm {
+//                             margin-left: 0;
+//                             width: 100%;
+//                             top: 33px;
+//                         }
+//                     }
+//                 }
+//                 @include sm {
+//                     width: 110px;
+//                 }
+//                 @include md {
+//                     width: 137px;
+//                 }
+//             }
+//             @include sm {
+//                 height: 160px;
+//                 margin-top: 25px;
+//                 top: auto;
+//             }
+//             @include md {
+//                 padding: 35px 65px;
+//             }
+//             .btn-search {
+//                 padding-top: 20px;
+//                 .btn {
+//                     font-family: 'Lato-Black';
+//                     font-size: 17px;
+//                     height: 50px;
+//                     @include sm {
+//                         font-size: 15px;
+//                         height: 60px;
+//                     }
+//                 }
+//                 @include sm {
+//                     width: 218px;
+//                     padding-top: 0;
+//                 }
+//                 @include md {
+//                     width: 266px;
+//                 }
+//                 label {
+//                     font-family: 'Lato-Light';
+//                     font-weight: 300;
+//                     margin-bottom: 7px;
+//                 }
+//             }
+//             .form-group {
+//                 .form-label {
+//                     font-weight: 500;
+//                     font-size: 15px;
+//                     padding-bottom: 7px;
+//                     text-align: center;
+//                     @include sm {
+//                         font-size: 14px;
+//                         padding-bottom: 0;
+//                     }
+//                 }
+//                 .form-select {
+//                     padding: 0 10px;
+//                     .form-control {
+//                         opacity: 1;
+//                         border: 2px solid $gray-light;
+//                     }
+//                     .have-icon-yellow {
+//                         background: url('../images/svg-icons.svg');
+//                         background-repeat: no-repeat;
+//                         background-position: right -635px;
+//                         @include sm {
+//                             background-position: right -625px;
+//                         }
+//                     }
+//                 }
+//                 .popup-menu {
+//                     .form-label {
+//                         text-align: left;
+//                     }
+//                     .form-select {
+//                         padding: 0;
+//                     }
+//                 }
+//             }
+//             .guests {
+//                 width: 100%;
+//                 padding-top: 18px;
+//                 @include sm {
+//                     width: 226px;
+//                     padding-top: 0;
+//                 }
+//                 @include md {
+//                     width: 289px;
+//                 }
+//                 .form-label {
+//                     text-align: center;
+//                     padding: 0 10px 7px;
+//                     @include sm {
+//                         padding: 0;
+//                     }
+//                 }
+//                 .select-guest {
+//                     padding-left: 0;
+//                     padding-right: 15px;
+//                     padding-top: 34px;
+//                     @include sm {
+//                         padding-right: 0;
+//                         padding-top: 30px;
+//                     }
+//                     .box-select {
+//                         padding-right: 20px;
+//                         &:last-child {
+//                             padding-right: 0;
+//                         }
+//                         @include sm {
+//                             padding-right: 0;
+//                         }
+//                         .txt-day {
+//                             font-size: 16px;
+//                             float: right;
+//                             left: auto;
+//                             top: -22px;
+//                             position: relative;
+//                             margin-left: 6px;
+//                             @include sm {
+//                                 top: -4px;
+//                                 left: 0;
+//                                 float: none;
+//                                 position: absolute;
+//                                 margin-left: 0;
+//                                 font-size: 15px;
+//                             }
+//                         }
+//                         .box-result {
+//                             float: right;
+//                             margin-left: -10px;
+//                             @include sm {
+//                                 float: none;
+//                                 margin-left: 0;
+//                             }
+//                         }
+//                     }
+//                 }
+//                 .popup-menu {
+//                     top: 105px;
+//                     right: 10px;
+//                     &:before,
+//                     &:after {
+//                         left: 45%;
+//                     }
+//                     .footer {
+//                         @include ie {
+//                             padding-bottom: 20px;
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//         .ribbon.green.p-absolute {
+//             padding: 9px 0;
+//             margin-top: 20px;
+//             margin-bottom: 0;
+//             display: none;
+//             @include sm {
+//                 display: block;
+//             }
+//             .text-content {
+//                 p {
+//                     margin-left: 25px;
+//                     margin-bottom: 0;
+//                     font-size: 15px;
+//                 }
+//                 a {
+//                     font-size: 15px;
+//                     color: $text-color;
+//                     font-family: 'Lato-Black';
+//                     text-decoration: underline;
+//                     margin-left: 10px;
+//                 }
+//             }
+//         }
+//         .item-detail {
+//             @extend %clearfix;
+//             &.hide {
+//                 display: none;
+//             }
+//             &.active {
+//                 display: block;
+//             }
+//             .room-detail {
+//                 @include mobile {
+//                     float: left;
+//                     width: 40%;
+//                 }
+//                 h6 {
+//                     margin-bottom: 0;
+//                     a {
+//                         font-size: 16px;
+//                         font-family: "Lato-Black";
+//                         line-height: 1.25;
+//                         color: $text-color;
+//                         margin-bottom: 3px;
+//                         @include sm {
+//                             font-family: "Lato";
+//                             font-size: 18px;
+//                             font-weight: 500;
+//                             line-height: 1.22;
+//                             color: $black;
+//                         }
+//                     }
+//                 }
+//                 .address {
+//                     font-size: 16px;
+//                     font-family: 'Lato-Light';
+//                     line-height: 1.27;
+//                     color: #7b7b85;
+//                 }
+//                 .list-1 {
+//                     padding: 0;
+//                     @include sm {
+//                         padding: 0 10px 0 10px;
+//                     }
+//                 }
+//                 .room-img {
+//                     img {
+//                         @include sm {
+//                             max-height: 134px;
+//                         }
+//                     }
+//                 }
+//             }
+//             .ratings {
+//                 margin-top: 0;
+//                 @include sm {
+//                     margin-top: 10px;
+//                 }
+//                 .number-view {
+//                     font-size: 11px;
+//                     font-family: 'Lato-Light';
+//                     letter-spacing: 0.3px;
+//                     color: #a0a0a0;
+//                     line-height: 1.8;
+//                     padding-left: 0;
+//                     display: inline-block;
+//                 }
+//                 .ratings-star {
+//                     font-size: 13px;
+//                     margin-right: 5px;
+//                     padding-left: 0;
+//                     display: inline-block;
+//                     .fa {
+//                         color: #ff880c;
+//                     }
+//                 }
+//             }
+//         }
+//         .item-result {
+//             margin-bottom: 0;
+//             padding-bottom: 20px;
+//             @include sm {
+//                 padding-bottom: 60px;
+//             }
+//             .item {
+//                 position: relative;
+//                 margin-top: 20px;
+//                 background-color: transparent;
+//                 .item-content {
+//                     background-color: $white;
+//                 }
+//                 .room-img {
+//                     @include mobile {
+//                         float: none;
+//                         width: auto;
+//                     }
+//                     @include sm {
+//                         width: 40%;
+//                     }
+//                 }
+//                 .room-item {
+//                     @include mobile {
+//                         float: none;
+//                         width: auto;
+//                     }
+//                     @include sm {
+//                         width: 60%;
+//                     }
+//                     li {
+//                         .ico {
+//                             margin-right: 5px;
+//                         }
+//                     }
+//                 }
+//                 .item-title {
+//                     p {
+//                         padding-bottom: 15px;
+//                     }
+//                 }
+//                 .room-price {
+//                     @include mobile {
+//                         width: auto;
+//                         display: block;
+//                     }
+//                     .price-from {
+//                         font-size: 14px;
+//                         font-family: "Lato-Light";
+//                         line-height: 1.43;
+//                         margin-bottom: 0;
+//                     }
+//                     .home-price {
+//                         padding-top: 10px;
+//                         padding-bottom: 5px;
+//                         @include sm {
+//                             padding-bottom: 0;
+//                             padding-top: 15px;
+//                         }
+//                         .old-price {
+//                             margin-bottom: 0;
+//                             margin-top: 2px;
+//                             @include sm {
+//                                 margin-top: 0;
+//                             }
+//                         }
+//                         .new-price {
+//                             font-size: 18px;
+//                             margin-bottom: 0;
+//                             margin-right: 5px;
+//                             @include sm {
+//                                 font-size: 20px;
+//                                 margin-bottom: 4px;
+//                             }
+//                         }
+//                     }
+//                     .save {
+//                         display: block;
+//                         line-height: 1;
+//                     }
+//                 }
+//             }
+//         }
+//         .room-booking {
+//             @include mobile {
+//                 float: right;
+//                 width: 60%;
+//                 padding-left: 17px;
+//             }
+//             .room-price {
+//                 &:before {
+//                     display: none;
+//                 }
+//                 >div.new-price {
+//                     font-size: 20px;
+//                     font-weight: 500;
+//                     margin-top: 10px;
+//                 }
+//                 >div.old-price {
+//                     margin-bottom: 0;
+//                 }
+//             }
+//             .date {
+//                 padding: 5px 0 0;
+//                 span {
+//                     font-size: 14px;
+//                     line-height: 1.5;
+//                     font-family: 'Lato-Light';
+//                     padding-right: 10px;
+//                 }
+//             }
+//             .room-reserve {
+//                 position: static;
+//                 @include mobile {
+//                     width: auto;
+//                     display: block;
+//                     text-align: left;
+//                 }
+//                 @include sm {
+//                     position: relative;
+//                     padding-top: 45px;
+//                 }
+//                 .btn-homepage-close {
+//                     cursor: pointer;
+//                     position: absolute;
+//                     top: 15px;
+//                     right: 15px;
+//                     background-image: url('../images/svg-icons.svg');
+//                     background-repeat: no-repeat;
+//                     background-position: 0 -1447px;
+//                     width: 21px;
+//                     height: 21px;
+//                     @include sm {
+//                         right: 0;
+//                         top: 0;
+//                     }
+//                     &:hover {
+//                         background-position: 0 -1477px;
+//                     }
+//                 }
+//                 p.people-looking {
+//                     margin-top: 0;
+//                 }
+//                 button {
+//                     margin-bottom: 0;
+//                 }
+//             }
+//         }
+//     }
+// }

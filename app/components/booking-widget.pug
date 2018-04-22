@@ -53,12 +53,99 @@
             .nights 10泊
             .button.closePopup 完了
       #people
-        label(for='taste_1') ご利用人数
-        select(name='cars' placeholder='出発空港')
-          option(value='1') 1
-          option(value='2') 2
-          option(value='3') 3
-          option(value='4') 4
+        .homepage-form.choose-rooms-search
+            .search-form.datetime-picker
+                .row
+                    .col.guests
+                        .row.clearfix.form-group
+                            label.form-label(for="") Rooms detail
+                            .form-select
+                                .select-guest.form-control.clearfix
+                                    .box-select
+                                        span.txt-day.choose-rooms-detail 1
+                                        span.tac.box-result Rooms
+                                    .box-select
+                                        span.txt-day.choose-adults-detail 1
+                                        span.tac.box-result Adults
+                                    .box-select
+                                        span.txt-day.choose-children-detail 1
+                                        span.tac.box-result Children
+                            .popup-menu.guest-rooms-popup.choose-room-search
+                                .popup-container
+                                    .header.clearfix
+                                        a.icon-guests.icon-close(href="javascript:void(0);")
+                                        .text Rooms
+                                    .content
+                                        .form-content.form-content-first.clearfix
+                                            .left-content
+                                                .head-title Room 1
+                                                .clearfix.ages-content
+                                                    .rooms
+                                                        .form-group
+                                                            label.form-label(for="") Adults
+                                                            .form-select
+                                                                select.form-control.tac.cup.visible-xs
+                                                                    option(disabled="" selected="" value="")
+                                                                    - for (var i = 1; i <= 10; i++) {
+                                                                        option
+                                                                            | #{i}
+                                                                    - }
+                                                                span.txt-rooms  Rooms
+                                                                span.txt-day 0
+                                                                span.form-control.tac.select-rooms.have-icon-select.select-adult.cup.hidden-xs
+                                                                ul.dropdown-menu.no-bullet
+                                                                    - for (var i = 1; i <= 10; i++) {
+                                                                        li
+                                                                            a(href="javascript:void(0);") #{i}
+                                                                    - }
+                                                    .rooms
+                                                        .form-group
+                                                            label.form-label(for="") Children
+                                                            .form-select
+                                                                select.form-control.have-icon-select.tac.cup.visible-xs.select-child
+                                                                    option(disabled="" selected="" value="")
+                                                                    - for (var i = 0; i <= 10; i++) {
+                                                                        option
+                                                                            | #{i}
+                                                                    - }
+                                                                span.txt-rooms  Rooms
+                                                                span.txt-day 0
+                                                                span.form-control.tac.select-rooms.have-icon-select.select-child.cup.hidden-xs
+                                                                ul.dropdown-menu.no-bullet
+                                                                    - for (var i = 0; i <= 10; i++) {
+                                                                        li
+                                                                            a(href="javascript:void(0);") #{i}
+                                                                    - }
+                                            .right-content
+                                                .head-title Ages
+                                                .clearfix.ages-content
+                                                    .rooms
+                                                        .form-group
+                                                            label.form-label(for="") Child 1
+                                                            .form-select
+                                                                select.form-control.tac.cup.visible-xs
+                                                                    option(disabled="" selected="" value="Age")
+                                                                    - for (var i = 1; i <= 15; i++) {
+                                                                        option
+                                                                            | #{i}
+                                                                    - }
+                                                                span.txt-rooms
+                                                                span.txt-day Age
+                                                                span.form-control.have-icon-select.tac.have-icon-select.select-rooms.cup.hidden-xs
+                                                                ul.dropdown-menu.no-bullet
+                                                                    - for (var i = 1; i <= 15; i++) {
+                                                                        li
+                                                                            a(href="javascript:void(0);") #{i}
+                                                                    - }
+                                            a.icon-guests.icon-delete(href="javascript:void(0);")
+                                    .footer
+                                        .btn.btn-default
+                                            | Add room
+                                            i.ico.ico-plus.mgl10
+                                        .btn.btn-primary
+                                            | Confirm here
+                                            i.ico.ico-check.mgl10
+
       #find-button
         label 最低価格保証
         button(name='submit', type='submit', value='空室を検索') 空室を検索

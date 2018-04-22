@@ -467,6 +467,171 @@ const FE = {
 
         },
 
+        guestRoomsPopup: (idPopup) => {
+            let rooms = 1,
+                heightPopup = $(idPopup).outerHeight(),
+                formContent = $(idPopup).find('.form-content-first').html(),
+                roomcontent = $(idPopup + ' .form-content-first').find('.right-content .rooms').html();
+            $(document).on('click', '.form-select .select-guest', function () {
+                $(this).parents('.guests').find('.guest-rooms-popup').fadeIn();
+                // if (($(this).offset().top - $(window).scrollTop() + heightPopup) > $(window).height()) {
+                //     $(this).parents('.guests').find('.guest-rooms-popup').css('top', -heightPopup);
+                // } else {
+                //     $(this).parents('.guests').find('.guest-rooms-popup').css('top', '65px');
+                // }
+            });
+            $(document).on('click', '.form-select .select-guests', function () {
+                $(this).parents('.guests').find('.guest-rooms-popup').fadeIn();
+                // if (($(this).offset().top - $(window).scrollTop() + heightPopup) > $(window).height()) {
+                //     $(this).parents('.guests').find('.guest-rooms-popup').css('top', -heightPopup);
+                // } else {
+                //     $(this).parents('.guests').find('.guest-rooms-popup').css('top', '65px');
+                // }
+            });
+            $(document).on('click', '.guest-rooms-popup .header .icon-close', function () {
+                $(this).parents('.guest-rooms-popup').fadeOut();
+            });
+            $(document).on('click', idPopup + ' .footer .btn-default', function () {
+                rooms++;
+                $(this).parents(idPopup).find('.content').append('<div class="form-content clearfix">' + formContent + '</div>');
+                $(this).parents(idPopup).find('.form-content:last-child').find('.left-content .head-title').text('Room ' + rooms);
+                $(idPopup + ' .content .select-child').next().find('a').on('click', function () {
+                    setTimeout(() => {
+                        let childrenNumber = $(this).parents('.dropdown-menu').prev().prev().text();
+                        // if (childrenNumber > 0) {
+                        //     let rightContent = $(this).parents('.left-content').next(),
+                        //         childYearOld = 0;
+                        //     rightContent.show();
+                        //     rightContent.find('.ages-content').empty();
+                        //     for (let i = 0; i < childrenNumber; i++) {
+                        //         rightContent.find('.ages-content').append('<div class="rooms">' + roomcontent + '</div>');
+                        //     }
+                        //     rightContent.find('.rooms').each(function () {
+                        //         childYearOld++;
+                        //         $(this).find('.form-label').text('child ' + childYearOld);
+                        //     });
+                        // } else {
+                        //     $(this).parents('.left-content').next().hide();
+                        // };
+                    }, 100);
+                });
+                $(idPopup + ' .content select.select-child').on('change', function () {
+                    setTimeout(() => {
+                        let childrenNumber = $(this).next().next('.txt-day').text();
+                        // if (childrenNumber > 0) {
+                        //     let rightContent = $(this).parents('.left-content').next(),
+                        //         childYearOld = 0;
+                        //     rightContent.show();
+                        //     rightContent.find('.ages-content').empty();
+                        //     for (let i = 0; i < childrenNumber; i++) {
+                        //         rightContent.find('.ages-content').append('<div class="rooms">' + roomcontent + '</div>');
+                        //     }
+                        //     rightContent.find('.rooms').each(function () {
+                        //         childYearOld++;
+                        //         $(this).find('.form-label').text('child ' + childYearOld);
+                        //     });
+                        // } else {
+                        //     $(this).parents('.left-content').next().hide();
+                        // };
+                    }, 100);
+                });
+                if (rooms > 1) {
+                    $(idPopup).find('.icon-delete').css('display', 'block');
+                } else {
+                    $(idPopup).find('.icon-delete').css('display', 'none');
+                };
+            });
+            $(idPopup + ' .content .select-child').next().find('a').on('click', function () {
+                setTimeout(() => {
+                    let childrenNumber = $(this).parents('.dropdown-menu').prev().prev().text();
+                    // if (childrenNumber > 0) {
+                    //     let rightContent = $(this).parents('.left-content').next(),
+                    //         childYearOld = 0;
+                    //     rightContent.show();
+                    //     rightContent.find('.ages-content').empty();
+                    //     for (let i = 0; i < childrenNumber; i++) {
+                    //         rightContent.find('.ages-content').append('<div class="rooms">' + roomcontent + '</div>');
+                    //     }
+                    //     rightContent.find('.rooms').each(function () {
+                    //         childYearOld++;
+                    //         $(this).find('.form-label').text('child ' + childYearOld);
+                    //     });
+                    // } else {
+                    //     $(this).parents('.left-content').next().hide();
+                    // };
+                }, 100);
+            });
+            $(idPopup + ' .content select.select-child').on('change', function () {
+                setTimeout(() => {
+                    let childrenNumber = $(this).next().next('.txt-day').text();
+                    // if (childrenNumber > 0) {
+                    //     let rightContent = $(this).parents('.left-content').next(),
+                    //         childYearOld = 0;
+                    //     rightContent.show();
+                    //     rightContent.find('.ages-content').empty();
+                    //     for (let i = 0; i < childrenNumber; i++) {
+                    //         rightContent.find('.ages-content').append('<div class="rooms">' + roomcontent + '</div>');
+                    //     }
+                    //     rightContent.find('.rooms').each(function () {
+                    //         childYearOld++;
+                    //         $(this).find('.form-label').text('child ' + childYearOld);
+                    //     });
+                    // } else {
+                    //     $(this).parents('.left-content').next().hide();
+                    // };
+                }, 100);
+            });
+            $(document).on('click', idPopup + ' .content .icon-delete', function () {
+                let rerooms = 0;
+                let formContent = $(this).parents(idPopup);
+                $(this).parent().remove();
+                formContent.find('.form-content').each(function () {
+                    rerooms++;
+                    $(this).find('.left-content .head-title').text('Room ' + rerooms);
+                });
+                rooms = rerooms;
+                if (rooms > 1) {
+                    $(idPopup).find('.icon-delete').css('display', 'block');
+                } else {
+                    $(idPopup).find('.icon-delete').css('display', 'none');
+                };
+            });
+            $(document).on('click', idPopup + ' .footer .btn-primary', function () {
+                let allPeople = 0,
+                    adults = 0,
+                    children = 0;
+                $(idPopup + ' .form-content').each(function () {
+                    allPeople = allPeople + Number($(this).find('.select-adult').prev().text()) + Number($(this).find('.select-child').prev().text());
+                    adults = adults + Number($(this).find('.select-adult').prev().text());
+                    children = children + Number($(this).find('.select-child').prev().text())
+                });
+                if (!$(this).closest('.choose-rooms-search').length) {
+                    if (isMobile) {
+                        if (allPeople <= 1) {
+                            $(this).parents(idPopup).parent().find('.select-guest').css('display', 'block');
+                            $(this).parents(idPopup).parent().find('.select-guests').css('display', 'none');
+                        } else {
+                            $(this).parents(idPopup).parent().find('.select-guest').css('display', 'none');
+                            $(this).parents(idPopup).parent().find('.select-guests').css('display', 'block');
+                        }
+                    } else {
+                        if (allPeople <= 1) {
+                            $(this).parents(idPopup).parent().find('.select-guest').css('display', 'block');
+                            $(this).parents(idPopup).parent().find('.select-guests').css('display', 'none');
+                        } else {
+                            $(this).parents(idPopup).parent().find('.select-guest').css('display', 'none');
+                            $(this).parents(idPopup).parent().find('.select-guests').css('display', 'block');
+                        }
+                    }
+                }
+                $(this).parents(idPopup).parent().find('.choose-people-detail').text(allPeople);
+                $(this).parents(idPopup).parent().find('.choose-rooms-detail').text(rooms);
+                $(this).parents(idPopup).parent().find('.choose-adults-detail').text(adults);
+                $(this).parents(idPopup).parent().find('.choose-children-detail').text(children);
+                $(idPopup).fadeOut();
+            });
+        },
+
         init: () => {
             //initialling modal
             //FE.global.loginModal('modal1', false, false);
@@ -484,7 +649,11 @@ const FE = {
             FE.global.clickOutside('fade', '.input-showtext .form-control', '.input-showtext .popup-menu');
             FE.global.sliderImage('.home-video-slider-nav', 4, false, true);
             FE.global.autocomplatePopup();
+            FE.global.guestRoomsPopup('#guestHomepageSearch');
+            FE.global.clickOutside('fade', '.guest-rooms-popup', '.guest-rooms-popup');
+            FE.global.guestRoomsPopup('.choose-rooms-search .choose-room-search');
         },
+
         resize: function resize() {
             //Functions inside loaded execute when window resize
 
