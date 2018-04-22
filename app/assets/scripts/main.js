@@ -177,30 +177,6 @@ const FE = {
           });
           feed.run();      
         },
-        instaFeed: () => {
-          var feed = new Instafeed({
-            get: 'tagged',
-            tagName: 'hotelmystays',
-            clientId: '1459052068',
-            accessToken: '1459052068.3a81a9f.656faf6eb84044cea80572ed44299e2e',
-            limit: 7,
-            resolution: 'low_resolution',
-            template: '<a href="{{link}}" target="_blank"><div class="lazy insta-bg" data-src="{{image}}"><div class="insta-mask"><div class="insta-content"><span class="insta-date">10 april 2018</span><span class="insta-likes">{{likes}}</span><span class="insta-comments">{{comments}}</span></div></div></div></a>',
-            after: function() {
-              var node = document.createElement('A');
-              var span = document.createElement('SPAN');
-              var textnode = document.createTextNode('67 Hotel Photos VIEW GALLERY');
-              span.appendChild(textnode);
-              node.appendChild(span);
-              node.id = 'more-link';
-              node.href = '#';
-              var feed = document.getElementById('instafeed');
-              feed.appendChild(node);
-              FE.global.lazyLoad();
-            }
-          });
-          feed.run();      
-        },
         showBookingTab: (evt, tabName) => {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
@@ -241,18 +217,63 @@ const FE = {
                 });
             }
         },
+        changeLanguage: () => {
+            let lang = document.getElementsByClassName('selected-lang');
+            function showDropDown(e){
+                this.classList.add('active');
+            };
+            for (var i = 0; i < lang.length; i++) {
+               lang[i].addEventListener('click', showDropDown); 
+            }
+        },
+        sideNavigation: () => {
+            let hamburger = document.getElementById('hamburger');
+            let sideNav = document.getElementById('sideNav');
+            hamburger.addEventListener('click', function () {
+                if (this.classList.contains('active')) {
+                    this.classList.remove('active'); 
+                    sideNav.classList.remove('active');
+                } else {
+                    this.classList.add('active');
+                    sideNav.classList.add('active');                     
+                }
+            });
+        },  
+        clickOutside: (method, box, targetElement) => {
+            $('html').on('click', 'body', function (e) {
+                var container = $(box);
+                if (!container.is(e.target) && container.has(e.target).length === 0) {
+                    switch (method) {
+                        case 'fade':
+                            $(targetElement).stop().fadeOut(500);
+                            break;
+                        case 'slide':
+                            $(targetElement).stop().slideUp();
+                            break;
+                        case 'active':
+                            $(targetElement).stop().removeClass('active');
+                            break;
+                    }
+                    $('body').removeClass('noScrollBody');
+                }               
+            });
+        },
 
         init: () => {
             //initialling modal
             FE.global.loginModal('modal1', false, false);
             FE.global.lazyLoad();
-
         },
         loaded: function loaded() {
             //Functions inside loaded execute when window loaded
+            FE.global.sliderImage('.home-slider-nav', 3, false, true);
             FE.global.tabs.tabs();
             FE.global.instaFeed();
             FE.global.googleMap();
+            FE.global.changeLanguage();
+            FE.global.sideNavigation();
+            FE.global.clickOutside('active', '.selected-lang', '.selected-lang');            
+            FE.global.sliderImage('.home-video-slider-nav', 4, false, true);
         },
         resize: function resize() {
             //Functions inside loaded execute when window resize
@@ -266,9 +287,7 @@ $(function() {
     FE.global.init();
 });
 
-$(window).load(function() {
-    FE.global.sliderImage('.home-slider-nav', 3, false, true);
-    FE.global.sliderImage('.home-video-slider-nav', 4, false, true);
+$(window).load(function() {    
     FE.global.loaded();
     $.DateRangePicker({
         container: '#date_range_picker'

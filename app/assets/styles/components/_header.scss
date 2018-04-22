@@ -1,26 +1,34 @@
 header{
   width: 100%;
-  height: 94px;
+  height: 56px;
   background: $footer-bg;
   position: fixed;
   z-index: 9999;
+  @include md {
+  	height: 94px;
+  }
   .header-left{
   	float: left;
   	.logo{
-  		margin:30px 50px; 
+  		margin:17px 18px; 
+  		max-width: 148px;  		
+  		@include md {
+  			margin:30px 50px; 
+
+  		}
   	}
   }
   .header-right{
   	float: right;
   	@include font-size(12px);
 	font-weight: $bold;
-	color: $secondary-color;
+	color: $secondary-color; 
   }
 }
 
 .top-menu{
 	@include center(horizontal);
-	padding: 40px 20px 0;
+	padding: 40px 20px 0;	
 	ul{
 		li{
 			display: block;
@@ -47,7 +55,8 @@ header{
 		}
 	}
 	.choose-lang{
-		margin-top: 15px; 		
+		margin-top: 15px; 	
+		cursor: pointer;	
 	}
 	ul{
 		display: none;
@@ -66,13 +75,29 @@ header{
 			border-right: 4px solid transparent;
 			border-top: 4px solid $default-bg; 
 		}
+		&.active{
+			+ ul{
+				display: block;
+			}
+		}
 	}
+}
+
+.mobile-phone{
+	float: left;
+	padding:18px 19px;
+	border-right:1px solid rgba(255,255,255,0.2);
 }
 
 .sign-in{
 	float: left;
-	padding: 25px 15px 25px;
+	padding:17px 20px; 
+	border-left:1px solid rgba(255,255,255,0.2);
 	border-right:1px solid rgba(255,255,255,0.2);
+	@include md {
+		padding: 25px 15px 25px;
+		border-left:0; 
+	}
 	.icon{
 		width: 20px;
     	margin: 0 auto;
@@ -87,9 +112,12 @@ header{
 	width: 24px;
 	height: 20px;
 	position: relative;
-	margin: 38px 35px;
+	margin: 20px 15px;
 	cursor: pointer;
 	float: left;
+	@include md {
+		margin: 38px 35px;
+	}
     span {
 		display: block;
 		position: absolute;
@@ -113,7 +141,7 @@ header{
 		  	transform-origin: left center;
 		}
 	}
-	&:hover{
+	&.active{
 		span{
 			&:nth-child(1) {
 			  	transform: rotate(45deg);
@@ -130,7 +158,79 @@ header{
 				left: 2px;   
 			}
 		}
+	} 
+}
+
+.side-navigation{
+	position: fixed;
+	width: 100%;
+	background: $footer-bg; 
+	padding: 20px 25px;
+	top: 56px;
+	border-top:1px solid rgba(255,255,255,0.2); 
+	bottom: 0;
+	z-index: 9999;
+	right: -100%;
+	&.active{
+		right: 0;
+	}
+	ul{
+		padding-bottom: 40px;
+		margin-bottom: 0;
+		li{ 
+			a{
+				@include font-size(14px);
+				display: block;			
+				color: $secondary-color;
+				font-weight: $medium;
+				padding: 20px 0;
+				border-bottom:1px solid rgba(255,255,255,0.2);
+				position: relative;
+				&:before{
+				    content: "";
+				    @include center(vertical);	
+				    box-sizing: border-box;
+				    right: 10px;				    		    
+				    width: 8px;
+					height: 8px; 
+					border-width: 2px 2px 0 0;
+					border-style: solid;
+					transform: rotate(45deg);   
+				}
+			}
+		}
+	}
+	.choose-lang{
+		.selected-lang{
+			@include font-size(14px);
+			position: relative;
+			background-color: #4b5469;
+			padding: 12px 45px;
+			display: inline-block;			
+			color: $secondary-color;
+			font-weight: $bold;
+			border:1px solid rgba(255,255,255,0.2);
+			border-radius:30px;
+			&:before{
+				content:"";
+				right: 15px;
+				@include center(vertical);	
+				width: 0; 
+				height: 0; 
+				border-left: 4px solid transparent;
+				border-right: 4px solid transparent;
+				border-top: 4px solid $default-bg; 
+			}				
+			&.active{
+				+ ul{
+					display: block;
+				}
+			}
+		}
+		ul{
+			display: none; 
+		}
 	}
 }
 
-
+ 
