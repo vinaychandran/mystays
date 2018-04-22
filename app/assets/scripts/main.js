@@ -1,5 +1,12 @@
 'use strict';
-var triggerVideo;
+const isDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+    isAndroid = /Android/i.test(navigator.userAgent),
+    isIos = /iPhone|iPad|iPod/i.test(navigator.userAgent),
+    mobileWidth = 767,
+    deviceWidth = 1024,
+    isIE11 = !!(navigator.userAgent.match(/Trident/) && navigator.userAgent.match(/rv[ :]11/)),
+    iOS11 = /OS 11_0_1|OS 11_0_2|OS 11_0_3|OS 11_1|OS 11_1_1|OS 11_1_2|OS 11_2|OS 11_2_1|OS 11_2_2|OS 11_2_3|OS 11_2_4|OS 11_2_5/.test(navigator.userAgent);
+const isMobile = $(window).width() <= mobileWidth;
 const FE = {
     global: {
         loginModal: (id, transition, backdropclose) => {
@@ -108,12 +115,7 @@ const FE = {
                     slidesToScroll: 1,
                     dots: dots,
                     arrows: arrows,
-                    responsive: [{
-                            breakpoint: 2000,
-                            settings: {
-                                infinite: true,
-                            },
-                        },
+                    responsive: [
                         {
                             breakpoint: 1080,
                             settings: {
@@ -258,7 +260,6 @@ const FE = {
                 }               
             });
         },
-
         init: () => {
             //initialling modal
             FE.global.loginModal('modal1', false, false);
@@ -272,12 +273,13 @@ const FE = {
             FE.global.googleMap();
             FE.global.changeLanguage();
             FE.global.sideNavigation();
-            FE.global.clickOutside('active', '.selected-lang', '.selected-lang');            
-            FE.global.sliderImage('.home-video-slider-nav', 4, false, true);
+            FE.global.clickOutside('active', '.selected-lang', '.selected-lang');  
+            FE.global.lazyLoad();          
+            //FE.global.sliderImage('.home-video-slider-nav', 4, false, true);
         },
         resize: function resize() {
             //Functions inside loaded execute when window resize
-
+            FE.global.lazyLoad();
         }
     }
 }

@@ -54,7 +54,7 @@ ul {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 h1{
-    @include font-size(28px); 
+    @include font-size(24px); 
 }
 
 h2{
@@ -89,7 +89,7 @@ h6{
 
 @include sm {
     h1 {
-        @include font-size(42px);
+        @include font-size(32px);
     }
     h2 {
         @include font-size(34px);
