@@ -149,6 +149,20 @@
 
         // Open the calendar
         containerValues.on('click', 'span', function() {
+
+          containerValues.find('.clear').hide();
+
+          containerValues.find('span.date_at').text(opts.l.at);
+          containerValues.find('span.date_to').text(opts.l.to);
+
+
+          opts.date_at = '';
+          opts.date_to = '';
+          containerCalendar.find('td').removeClass('start intermediate end');
+
+          containerValues.find('.value').find('input').val('').change();
+
+          console.log("ddgds");
             if (containerCalendar.is(':hidden')) {
                 if (opts.date_at != '') {
                     var list = opts.date_at.split('-');
