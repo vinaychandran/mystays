@@ -55,7 +55,7 @@
         // Initialize
         init();
 
-        function createCalendar(year, month, direction, max_m = 4) {
+        function createCalendar(year, month, direction, max_m = 3) {
 
             var html;
 
@@ -83,9 +83,9 @@
                 for (var i = 1; i <= Dlast; i++) {
 
                     if (new Date(D.getFullYear(), D.getMonth(), i + 1) < new Date() && opts.inactive == true) {
-                        html += '<td class="inactive' + checkDates(D.getFullYear(), D.getMonth(), i) + '">' + i + '</td>';
+                        html += '<td class="inactive' + checkDates(D.getFullYear(), D.getMonth(), i) + '"><span>' + i + '</span></td>';
                     } else {
-                        html += '<td class="valid' + checkDates(D.getFullYear(), D.getMonth(), i) + '" data-year="' + D.getFullYear() + '" data-month="' + (D.getMonth() + 1) + '">' + i + '</td>';
+                        html += '<td class="valid' + checkDates(D.getFullYear(), D.getMonth(), i) + '" data-year="' + D.getFullYear() + '" data-month="' + (D.getMonth() + 1) + '"><span>' + i + '</span></td>';
                     }
                     if (new Date(D.getFullYear(), D.getMonth(), i).getDay() == 0) {
                         html += '<tr>';
@@ -94,7 +94,7 @@
 
                 html = '<table data-year="' + D.getFullYear() + '" data-month="' + D.getMonth() + '"><caption>' + opts.l.months[D.getMonth()] + ' ' + D.getFullYear() + '</caption>' + html + '</table>';
                 if (direction == 'prev') {
-                    var width = containerCalendarContainer.find('table').innerWidth() + 10;
+                    var width = containerCalendarContainer.find('table').innerWidth() + -10;
                     containerCalendar.find('table:last').remove();
                     containerCalendarContainer.animate({
                         left: '10px',
@@ -102,7 +102,7 @@
                         containerCalendarContainer.css('left', '-' + width + 'px').prepend(html);
                     });
                 } else if (direction == 'next') {
-                    var width = containerCalendarContainer.find('table').innerWidth() + 10;
+                    var width = containerCalendarContainer.find('table').innerWidth() + -10;
                     containerCalendarContainer.animate({
                         left: '-' + (width * 2 + 10) + 'px',
                     }, 200, function() {
@@ -178,6 +178,10 @@
             createCalendar(year, month, 'prev', m_max);
         });
 
+        containerCalendar.on('click', '.closePopup', function() {
+          closeCalendarAndEmpty();
+        });
+
 
         // Turn over the calendar next
         containerCalendar.on('click', '.button-next', function() {
@@ -247,7 +251,7 @@
                 }
                 checkHover(containerCalendar.find('td.valid.start'), 'click');
                 if (opts.date_at != '' && opts.date_to) {
-                    closeCalendarAndEmpty();
+                    //closeCalendarAndEmpty();
                 } else if (opts.date_at == '') {
                     opts.inputActive = 'date_at';
                     container.find('.value').removeClass('active');
@@ -306,7 +310,7 @@
         });
         // function of Highlights the range when hovering
         function checkHover(element, method) {
-            containerCalendar.find('td').removeClass('intermediate-hover intermediate');
+          //  containerCalendar.find('td').removeClass('intermediate-hover intermediate');
 
             var year = Number(element.data('year')),
                 month = Number(element.data('month')),
