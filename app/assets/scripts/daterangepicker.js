@@ -283,8 +283,6 @@
             containerValues.find('span.date_at').text(opts.l.at);
             containerValues.find('span.date_to').text(opts.l.to);
 
-            containerValues.find('span.date_startDay').text(opts.l.startDay);
-            containerValues.find('span.date_endDay').text(opts.l.endDay);
 
             opts.date_at = '';
             opts.date_to = '';
