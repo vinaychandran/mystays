@@ -7,6 +7,7 @@ const isDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/
     isIE11 = !!(navigator.userAgent.match(/Trident/) && navigator.userAgent.match(/rv[ :]11/)),
     iOS11 = /OS 11_0_1|OS 11_0_2|OS 11_0_3|OS 11_1|OS 11_1_1|OS 11_1_2|OS 11_2|OS 11_2_1|OS 11_2_2|OS 11_2_3|OS 11_2_4|OS 11_2_5/.test(navigator.userAgent);
 const isMobile = $(window).width() <= mobileWidth;
+const isIpad = $(window).width() <= deviceWidth;
 const FE = {
     global: {
         loginModal: (id, transition, backdropclose) => {
@@ -114,36 +115,7 @@ const FE = {
                     slidesToShow: slideToShow,
                     slidesToScroll: 1,
                     dots: dots,
-                    arrows: arrows,
-                    responsive: [
-                        {
-                            breakpoint: 1080,
-                            settings: {
-                                slidesToShow: 3,
-                                slidesToScroll: 1,
-                                infinite: true,
-                                arrows: false,
-                            },
-                        },
-                        {
-                            breakpoint: 767,
-                            settings: {
-                                slidesToShow: 2,
-                                slidesToScroll: 1,
-                                infinite: true,
-                                arrows: false,
-                            },
-                        },
-                        {
-                            breakpoint: 481,
-                            settings: {
-                                slidesToShow: 1,
-                                slidesToScroll: 1,
-                                infinite: true,
-                                arrows: true,
-                            },
-                        },
-                    ],
+                    arrows: arrows                    
                 });
                 imgIndex = $(this).find('.slider-content').index();
                 $(this).on('init reInit afterChange', function(event, slick, currentSlide, nextSlide) {
@@ -267,7 +239,13 @@ const FE = {
         },
         loaded: function loaded() {
             //Functions inside loaded execute when window loaded
-            FE.global.sliderImage('.home-slider-nav', 3, false, true);
+            if(isMobile){
+                FE.global.sliderImage('.home-slider-nav', 1, true, false);
+            }            
+            else{
+                FE.global.sliderImage('.home-slider-nav', 3, false, true);
+            }
+            
             FE.global.tabs.tabs();
             FE.global.instaFeed();
             FE.global.googleMap();
