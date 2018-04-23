@@ -180,7 +180,7 @@
       $(this).parent('.value').addClass('active');
       opts.inputActive = $(this).attr('class');
 
-      containerCalendar.css('top', '100%');
+      //containerCalendar.css('top', '100%');
     });
 
 
@@ -245,13 +245,13 @@
           container.find('input.date_to').val('');
           container.find('.value').removeClass('active');
           container.find('span.date_at').html(getDateLocale(date_at_));
-          container.find('span.daysFromTo').html(getDateLocale(date_at_) + ' to ' + getDateLocale(date_to_));
+          //container.find('span.daysFromTo').html(getDateLocale(date_at_) + ' to ' + getDateLocale(date_to_));
           containerValues.find('span.date_to').text(opts.l.to);
           containerCalendar.find('td.valid').removeClass('end');
           container.find('.value.date_to').addClass('active');
         } else {
           container.find('span.date_at').html(getDateLocale(date_at_));
-          container.find('span.daysFromTo').html(getDateLocale(date_at_) + ' to ' + getDateLocale(date_to_));
+          //container.find('span.daysFromTo').html(getDateLocale(date_at_) + ' to ' + getDateLocale(date_to_));
           opts.inputActive = 'date_to';
           container.find('.value').removeClass('active');
           container.find('.value.date_to').addClass('active');
@@ -276,7 +276,7 @@
           opts.date_at = date_to_;
           //date_at_ = date_to_;
           container.find('span.date_at').html(getDateLocale(date_to_));
-          container.find('span.daysFromTo').html(getDateLocale(date_at_) + ' to ' + getDateLocale(date_to_));
+          //container.find('span.daysFromTo').html(getDateLocale(date_at_) + ' to ' + getDateLocale(date_to_));
           opts.date_to = '';
           opts.inputActive = 'date_to';
           date_to_ = '';
@@ -306,6 +306,11 @@
           container.find('span.date_to').html(getDateLocale(date_to_));
           container.find('span.daysFromTo').html(getDateLocale(date_at_) + ' to ' + getDateLocale(date_to_));
 
+          var date1 = new Date(date_at_);
+  var date2 = new Date(date_to_);
+  var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+  var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+  container.find('.nights').html(diffDays + ' nights');
 
         }
         checkHover(containerCalendar.find('td.valid.start'), 'click');

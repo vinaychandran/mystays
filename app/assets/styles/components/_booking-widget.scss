@@ -15,6 +15,7 @@
 
   #date_range_picker {
     width: 372px;
+    position: relative;
 
     label {
       padding: 5px 10px;
@@ -164,9 +165,9 @@
     text-align: center;
     overflow: hidden;
     position: absolute;
-    top: 100%;
+    top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 9;
     -webkit-user-select: none;
     -moz-user-select: none;
     box-sizing: border-box;
