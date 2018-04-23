@@ -212,7 +212,18 @@
             var year = Number($(this).data('year')),
                 month = Number($(this).data('month'));
 
+                if(opts.inputActive == 'date_at'){
+                  clearAll();
+
+                }
+
             if (opts.inputActive == 'date_at') {
+
+
+                containerCalendar.find('td.valid').removeClass('hovered');
+
+
+                console.log('first '+ opts.inputActive)
                 var start = $(this).text();
                 containerCalendar.find('td.valid').removeClass('start');
                 $(this).addClass('start');
@@ -237,44 +248,55 @@
                     container.find('.value.date_to').addClass('active');
                 }
                 checkHover(containerCalendar.find('td.valid.end'), 'click');
-            } else {
+            } else   {
 
+
+              //clearAll();
                 var end = $(this).text();
                 containerCalendar.find('td.valid').removeClass('end');
                 $(this).addClass('end');
+                opts.inputActive = 'date_at';
 
                 opts.date_to = year + '-' + ('0' + month).slice(-2) + '-' + ('0' + $(this).text()).slice(-2);
                 var date_at_ = new Date(opts.date_at),
                     date_to_ = new Date(opts.date_to);
+
+
                 if (date_at_ > date_to_) {
-                    date_at_ = date_to_;
+                    console.log('greater ')
+                    opts.date_at = date_to_;
+                    //date_at_ = date_to_;
                     container.find('span.date_at').html(getDateLocale(date_to_));
                     opts.date_to = '';
                     opts.inputActive = 'date_to';
+                    date_to_ = '';
+
                     container.find('input.date_to').val('');
                     container.find('.value').removeClass('active');
                     containerValues.find('span.date_to').text(opts.l.to);
                     containerCalendar.find('td.valid').removeClass('end');
                     containerCalendar.find('td.valid').removeClass('start');
+
                     container.find('.value.date_to').addClass('active');
                     $(this).addClass('start');
                     $(this).removeClass('end');
 
                 } else {
+                    console.log('second ' + opts.inputActive)
                     container.find('span.date_to').html(getDateLocale(date_to_));
                 }
                 checkHover(containerCalendar.find('td.valid.start'), 'click');
-                if (opts.date_at != '' && opts.date_to) {
-                    //closeCalendarAndEmpty();
-                } else if (opts.date_at == '') {
-                    opts.inputActive = 'date_at';
-                    container.find('.value').removeClass('active');
-                    container.find('.value.date_at').addClass('active');
-                } else {
-                    opts.inputActive = 'date_to';
-                    container.find('.value').removeClass('active');
-                    container.find('.value.date_to').addClass('active');
-                }
+                // if (opts.date_at != '' && opts.date_to) {
+                //     //closeCalendarAndEmpty();
+                // } else if (opts.date_at == '') {
+                //     opts.inputActive = 'date_at';
+                //     container.find('.value').removeClass('active');
+                //     container.find('.value.date_at').addClass('active');
+                // } else {
+                //     opts.inputActive = 'date_to';
+                //     container.find('.value').removeClass('active');
+                //     container.find('.value.date_to').addClass('active');
+                // }
             }
 
             if (opts.date_at != '' && opts.date_to != '' && containerCalendar.is(':hidden')) {
@@ -292,6 +314,21 @@
             checkButtonClear();
 
         });
+
+        function clearAll() {
+          containerValues.find('.clear').hide();
+
+          containerValues.find('span.date_at').text(opts.l.at);
+          containerValues.find('span.date_to').text(opts.l.to);
+
+
+          opts.date_at = '';
+          opts.date_to = '';
+
+          containerCalendar.find('td').removeClass('start intermediate end');
+
+          containerValues.find('.value').find('input').val('').change();
+        }
 
 
         // Clear values
