@@ -86,7 +86,8 @@ gulp.task('sprite', function () {
     return gulp.src('app/assets/icons/*.svg')
         .pipe(svgSprite({
             selector: "sprite-%f",
-            cssFile: "styles/base/_sprite.scss"
+            cssFile: "styles/base/_sprite.scss",
+            padding:10
         }))
         .pipe(gulp.dest("app/assets/"));
 });

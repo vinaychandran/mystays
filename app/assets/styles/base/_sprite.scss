@@ -8,7 +8,7 @@
     display: inline-block;
     background-image: url("../svg/sprite.svg");
     background-repeat: no-repeat;
-    background-size: 23.6em 8.7em;
+    background-size: 25.6em 132.4em;
 }
 
 .no-svg .icon:before {
@@ -17,8 +17,8 @@
 
 
 
-  .icon.sprite-login:before {
-      background-position: 0em 0em;
+  .icon.sprite-account_pc:before {
+      background-position: -1em -1em;
       width: 2em;
       height: 2.3em;
   }
@@ -26,8 +26,215 @@
 
 
 
+  .icon.sprite-account_sp:before {
+      background-position: -1em -5.3em;
+      width: 1.3em;
+      height: 1.6159999999999997em;
+  }
+
+
+
+
+  .icon.sprite-arw_black_pc:before {
+      background-position: -1em -9em;
+      width: 1.7em;
+      height: 0.8em;
+  }
+
+
+
+
+  .icon.sprite-arw_white_pc:before {
+      background-position: -1em -11.8em;
+      width: 1.7em;
+      height: 0.8em;
+  }
+
+
+
+
+  .icon.sprite-calender_pc:before {
+      background-position: -1em -14.6em;
+      width: 1.8em;
+      height: 1.8em;
+  }
+
+
+
+
+  .icon.sprite-close_black_sp:before {
+      background-position: -1em -18.4em;
+      width: 1.4em;
+      height: 1.4em;
+  }
+
+
+
+
+  .icon.sprite-close_white_sp:before {
+      background-position: -1em -21.8em;
+      width: 1.4em;
+      height: 1.4em;
+  }
+
+
+
+
+  .icon.sprite-fb_pc:before {
+      background-position: -1em -25.2em;
+      width: 3.6em;
+      height: 3.6em;
+  }
+
+
+
+
+  .icon.sprite-fb_sp:before {
+      background-position: -1em -30.8em;
+      width: 4.6em;
+      height: 4.6em;
+  }
+
+
+
+
+  .icon.sprite-hotel_photo_sp:before {
+      background-position: -1em -37.4em;
+      width: 1.8em;
+      height: 1.5em;
+  }
+
+
+
+
+  .icon.sprite-hotelphoto_pc:before {
+      background-position: -1em -40.9em;
+      width: 2.2em;
+      height: 1.8em;
+  }
+
+
+
+
+  .icon.sprite-info_sp:before {
+      background-position: -1em -44.7em;
+      width: 1.5219999999999998em;
+      height: 1.5259999999999998em;
+  }
+
+
+
+
+  .icon.sprite-infomation_pc:before {
+      background-position: -1em -48.3em;
+      width: 1.6em;
+      height: 1.6em;
+  }
+
+
+
+
+  .icon.sprite-insta_pc:before {
+      background-position: -1em -51.9em;
+      width: 2.1em;
+      height: 2.1em;
+  }
+
+
+
+
+  .icon.sprite-insta_sp:before {
+      background-position: -1em -56em;
+      width: 1.7em;
+      height: 1.7em;
+  }
+
+
+
+
+  .icon.sprite-like_pc:before {
+      background-position: -1em -59.7em;
+      width: 1.9em;
+      height: 2.2em;
+  }
+
+
+
+
+  .icon.sprite-like_sp:before {
+      background-position: -1em -63.9em;
+      width: 1.4em;
+      height: 1.6120000000000005em;
+  }
+
+
+
+
+  .icon.sprite-login:before {
+      background-position: -1em -67.6em;
+      width: 2em;
+      height: 2.3em;
+  }
+
+
+
+
+  .icon.sprite-logo_pc:before {
+      background-position: -1em -71.9em;
+      width: 23.6em;
+      height: 3.4em;
+  }
+
+
+
+
+  .icon.sprite-map_pin_pc:before {
+      background-position: -1em -77.3em;
+      width: 4em;
+      height: 5.8em;
+  }
+
+
+
+
+  .icon.sprite-map_pin_sp:before {
+      background-position: -1em -85.1em;
+      width: 3em;
+      height: 4.4em;
+  }
+
+
+
+
+  .icon.sprite-menu_sp:before {
+      background-position: -1em -91.5em;
+      width: 2.5em;
+      height: 1.5em;
+  }
+
+
+
+
+  .icon.sprite-people_pc:before {
+      background-position: -1em -95em;
+      width: 2.3em;
+      height: 1.81em;
+  }
+
+
+
+
+  .icon.sprite-people_sp:before {
+      background-position: -1em -98.9em;
+      width: 2.8em;
+      height: 2em;
+  }
+
+
+
+
   .icon.sprite-phone:before {
-      background-position: 0em -2.3em;
+      background-position: -1em -102.9em;
       width: 1.2em;
       height: 1.2em;
   }
@@ -36,7 +243,7 @@
 
 
   .icon.sprite-phone-mobile:before {
-      background-position: 0em -3.5em;
+      background-position: -1em -106.1em;
       width: 1.7em;
       height: 1.8em;
   }
@@ -44,10 +251,46 @@
 
 
 
+  .icon.sprite-tel_pc:before {
+      background-position: -1em -109.9em;
+      width: 1.2em;
+      height: 1.2em;
+  }
+
+
+
+
+  .icon.sprite-tel_sp:before {
+      background-position: -1em -113.1em;
+      width: 1.64em;
+      height: 1.6299999999999997em;
+  }
+
+
+
+
   .icon.sprite-top-logo:before {
-      background-position: 0em -5.3em;
+      background-position: -1em -116.8em;
       width: 23.6em;
       height: 3.4em;
+  }
+
+
+
+
+  .icon.sprite-tw_pc:before {
+      background-position: -1em -122.2em;
+      width: 3.6em;
+      height: 3.6em;
+  }
+
+
+
+
+  .icon.sprite-tw_sp:before {
+      background-position: -1em -127.8em;
+      width: 3.6em;
+      height: 3.6em;
   }
 
 
