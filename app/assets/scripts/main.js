@@ -17,6 +17,15 @@ const FE = {
             });
             loginModal.init();
         },
+        lightbox: () => {
+            var lb = new Lightbox({
+                selector: '[data-rel="aiLightbox"]', // string
+                lazyload: true, // boolean
+                arrows: true, // boolean
+                counter: false, // boolean
+                slideSpeed: 500 
+            });
+        },
         lazyLoad: () => {
             const myLazyLoad = new LazyLoad({
                 elements_selector: '.lazy',
@@ -259,8 +268,9 @@ const FE = {
         },
         init: () => {
             //initialling modal
-            FE.global.loginModal('modal1', false, false);
+            //FE.global.loginModal('modal1', false, false);
             FE.global.lazyLoad();
+            FE.global.lightbox();
         },
         loaded: function loaded() {
             //Functions inside loaded execute when window loaded
