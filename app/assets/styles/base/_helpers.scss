@@ -22,7 +22,7 @@
     width: 100%;
     max-width: $container-width-large;
     margin: 0 auto;
-    padding: 0 10px;
+    padding: 0 15px;
     box-sizing: border-box;
     @include md {
         padding: 0 20px;
@@ -122,7 +122,8 @@
     @include font-size(14px);
     text-decoration:none;    
     cursor: pointer;    
-    padding: 20px 50px;   
+    padding: 20px 50px; 
+    text-align: center;  
     @include md {
         padding: 30px 50px;
     }
@@ -135,7 +136,7 @@
        content: "";
        width: 7px;
       height: 7px; 
-      border-width: 2px 2px 0 0;
+      border-width: 1px 1px 0 0;
       border-style: solid;
       border-color: #000;
       vertical-align: middle;
@@ -147,14 +148,19 @@
         content: "";
         box-sizing: border-box;
         right: 0;
-        top: 2px;
+        top: 3px;
         position: absolute;
         height: 2px;
-        border-width: 2px 2px 0 0;
+        border-width: 1px 1px 0 0;
         border-style: solid;
         width: 16px;
         border-color: #000;
-    }       
+    }  
+    &.white{
+        &:before, &:after {
+            border-color: #fff;
+        }        
+    }     
 } 
  
 
@@ -164,7 +170,7 @@
        content: "";
        width: 7px;
       height: 7px; 
-      border-width: 0 0 2px 2px;
+      border-width: 0 0 1px 1px;
       border-style: solid;
       border-color: #000;
       vertical-align: middle;
@@ -176,12 +182,21 @@
         content: "";
         box-sizing: border-box;
         left: 0;
-        top: 2px;
+        top: 3px;
         position: absolute;
-        height: 2px;
-        border-width: 2px 2px 0 0;
+        height: 1px;
+        border-width: 1px 1px 0 0;
         border-style: solid;
         width: 16px;
         border-color: #000;
-    }       
+    }    
+    &.white{
+        &:before, &:after {
+            border-color: #fff;
+        }
+    }    
 } 
+
+
+
+
