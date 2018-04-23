@@ -18,11 +18,11 @@ const FE = {
             loginModal.init();
         },
         lazyLoad: () => {
-          const myLazyLoad = new LazyLoad({
-            elements_selector: '.lazy',
-            threshold: 50
-          });  
-          myLazyLoad.update();    
+            const myLazyLoad = new LazyLoad({
+                elements_selector: '.lazy',
+                threshold: 50
+            });
+            myLazyLoad.update();
         },
 
         playVideo: (evt) => {
@@ -56,7 +56,7 @@ const FE = {
             tabLinks: new Array(),
             contentDivs: new Array(),
             tabs: () => {
-                if(document.getElementById('tabs')) {
+                if (document.getElementById('tabs')) {
                     let tabListItems = document.getElementById('tabs').childNodes;
                     for (let i = 0; i < tabListItems.length; i++) {
                         if (tabListItems[i].nodeName == 'LI') {
@@ -88,7 +88,7 @@ const FE = {
 
                     let tabLink = document.getElementById('tablink');
                     tabLink.addEventListener('click', FE.global.tabs.openTab);
-                }                            
+                }
 
             },
             showTab: (e) => {
@@ -106,15 +106,15 @@ const FE = {
                     }
                 }
 
-                if(window.innerWidth <= 768) {
+                if (window.innerWidth <= 768) {
                     document.getElementById('tabs').style.display = 'none';
                 }
 
                 e.preventDefault();
             },
-            openTab : (e) => {
-                document.getElementById('tabs').style.display = 'block';   
-                e.preventDefault();             
+            openTab: (e) => {
+                document.getElementById('tabs').style.display = 'block';
+                e.preventDefault();
             },
             getFirstChildWithTagName: (element, tagName) => {
                 for (let i = 0; i < element.childNodes.length; i++) {
@@ -124,7 +124,7 @@ const FE = {
             getHash: (url) => {
                 var hashPos = url.lastIndexOf('#');
                 return url.substring(hashPos + 1);
-            },            
+            },
         },
         sliderImage: (slider, slideToShow, dots, arrows) => {
             $(slider).each(function() {
@@ -134,7 +134,7 @@ const FE = {
                     slidesToShow: slideToShow,
                     slidesToScroll: 1,
                     dots: dots,
-                    arrows: arrows                    
+                    arrows: arrows
                 });
                 imgIndex = $(this).find('.slider-content').index();
                 $(this).on('init reInit afterChange', function(event, slick, currentSlide, nextSlide) {
@@ -148,28 +148,28 @@ const FE = {
         },
         instaFeed: () => {
             let limit = document.getElementById('instafeed').attributes.getNamedItem('data-limit').value;
-          var feed = new Instafeed({
-            get: 'tagged',
-            tagName: 'hotelmystays',
-            clientId: '1459052068',
-            accessToken: '1459052068.3a81a9f.656faf6eb84044cea80572ed44299e2e',
-            limit: limit,
-            resolution: 'standard_resolution',
-            template: '<a href="{{link}}" target="_blank"><div class="insta-image"><div class="insta-mask"><div class="insta-content"><span class="insta-likes">{{likes}}</span><span class="insta-comments">{{comments}}</span></div></div><img class="lazy insta-bg" data-src="{{image}}" /></div></a>',
-            after: function() {
-              var node = document.createElement('A');
-              var span = document.createElement('SPAN');
-              var textnode = document.createTextNode('67 Hotel Photos VIEW GALLERY');
-              span.appendChild(textnode);
-              node.appendChild(span);
-              node.id = 'more-link';
-              node.href = 'gallery.html';
-              var feed = document.getElementById('instafeed');
-              feed.appendChild(node);
-              FE.global.lazyLoad();
-            },
-          });
-          feed.run();      
+            var feed = new Instafeed({
+                get: 'tagged',
+                tagName: 'hotelmystays',
+                clientId: '1459052068',
+                accessToken: '1459052068.3a81a9f.656faf6eb84044cea80572ed44299e2e',
+                limit: limit,
+                resolution: 'standard_resolution',
+                template: '<a href="{{link}}" target="_blank"><div class="insta-image"><div class="insta-mask"><div class="insta-content"><span class="insta-likes">{{likes}}</span><span class="insta-comments">{{comments}}</span></div></div><img class="lazy insta-bg" data-src="{{image}}" /></div></a>',
+                after: function() {
+                    var node = document.createElement('A');
+                    var span = document.createElement('SPAN');
+                    var textnode = document.createTextNode('67 Hotel Photos VIEW GALLERY');
+                    span.appendChild(textnode);
+                    node.appendChild(span);
+                    node.id = 'more-link';
+                    node.href = 'gallery.html';
+                    var feed = document.getElementById('instafeed');
+                    feed.appendChild(node);
+                    FE.global.lazyLoad();
+                },
+            });
+            feed.run();
         },
         showBookingTab: (evt, tabName) => {
             var i, tabcontent, tablinks;
@@ -213,33 +213,34 @@ const FE = {
         },
 
         scroll: () => {
-            const scroll = new SmoothScroll('a[href*="#"]',{speed: 2000});
+            const scroll = new SmoothScroll('a[href*="#"]', { speed: 2000 });
         },
 
         changeLanguage: () => {
             let lang = document.getElementsByClassName('selected-lang');
-            function showDropDown(e){
+
+            function showDropDown(e) {
                 this.classList.add('active');
             };
             for (var i = 0; i < lang.length; i++) {
-               lang[i].addEventListener('click', showDropDown); 
+                lang[i].addEventListener('click', showDropDown);
             }
         },
         sideNavigation: () => {
             let hamburger = document.getElementById('hamburger');
             let sideNav = document.getElementById('sideNav');
-            hamburger.addEventListener('click', function () {
+            hamburger.addEventListener('click', function() {
                 if (this.classList.contains('active')) {
-                    this.classList.remove('active'); 
+                    this.classList.remove('active');
                     sideNav.classList.remove('active');
                 } else {
                     this.classList.add('active');
-                    sideNav.classList.add('active');                     
+                    sideNav.classList.add('active');
                 }
             });
-        },  
+        },
         clickOutside: (method, box, targetElement) => {
-            $('html').on('click', 'body', function (e) {
+            $('html').on('click', 'body', function(e) {
                 var container = $(box);
                 if (!container.is(e.target) && container.has(e.target).length === 0) {
                     switch (method) {
@@ -254,7 +255,7 @@ const FE = {
                             break;
                     }
                     $('body').removeClass('noScrollBody');
-                }               
+                }
             });
         },
         init: () => {
@@ -264,21 +265,20 @@ const FE = {
         },
         loaded: function loaded() {
             //Functions inside loaded execute when window loaded
-            if(isMobile){
+            if (isMobile) {
                 FE.global.sliderImage('.home-slider-nav', 1, true, false);
-            }            
-            else{
+            } else {
                 FE.global.sliderImage('.home-slider-nav', 3, false, true);
             }
-            
+
             FE.global.tabs.tabs();
             FE.global.instaFeed();
             FE.global.googleMap();
             FE.global.scroll();
             FE.global.changeLanguage();
             FE.global.sideNavigation();
-            FE.global.clickOutside('active', '.selected-lang', '.selected-lang');  
-            FE.global.lazyLoad();          
+            FE.global.clickOutside('active', '.selected-lang', '.selected-lang');
+            FE.global.lazyLoad();
             //FE.global.sliderImage('.home-video-slider-nav', 4, false, true);
         },
         resize: function resize() {
@@ -293,9 +293,15 @@ $(function() {
     FE.global.init();
 });
 
-$(window).load(function() {    
+$(window).load(function() {
     FE.global.loaded();
-    $.DateRangePicker({
-        container: '#date_range_picker'
+    $('#checkin_date').datepicker({
+        numberOfMonths: 2,
+        minDate: new Date()
     });
+    $('#checkout_date').datepicker();
+    $.datepicker.setDefaults($.datepicker.regional["ko"]);
+    // $.DateRangePicker({
+    //     container: '#date_range_picker'
+    // });
 });
