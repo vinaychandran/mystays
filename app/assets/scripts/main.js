@@ -1,5 +1,13 @@
 'use strict';
-var triggerVideo;
+const isDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+    isAndroid = /Android/i.test(navigator.userAgent),
+    isIos = /iPhone|iPad|iPod/i.test(navigator.userAgent),
+    mobileWidth = 767,
+    deviceWidth = 1024,
+    isIE11 = !!(navigator.userAgent.match(/Trident/) && navigator.userAgent.match(/rv[ :]11/)),
+    iOS11 = /OS 11_0_1|OS 11_0_2|OS 11_0_3|OS 11_1|OS 11_1_1|OS 11_1_2|OS 11_2|OS 11_2_1|OS 11_2_2|OS 11_2_3|OS 11_2_4|OS 11_2_5/.test(navigator.userAgent);
+const isMobile = $(window).width() <= mobileWidth;
+const isIpad = $(window).width() <= deviceWidth;
 const FE = {
     global: {
         loginModal: (id, transition, backdropclose) => {
@@ -126,41 +134,7 @@ const FE = {
                     slidesToShow: slideToShow,
                     slidesToScroll: 1,
                     dots: dots,
-                    arrows: arrows,
-                    responsive: [{
-                            breakpoint: 2000,
-                            settings: {
-                                infinite: true,
-                            },
-                        },
-                        {
-                            breakpoint: 1080,
-                            settings: {
-                                slidesToShow: 3,
-                                slidesToScroll: 1,
-                                infinite: true,
-                                arrows: false,
-                            },
-                        },
-                        {
-                            breakpoint: 767,
-                            settings: {
-                                slidesToShow: 2,
-                                slidesToScroll: 1,
-                                infinite: true,
-                                arrows: false,
-                            },
-                        },
-                        {
-                            breakpoint: 481,
-                            settings: {
-                                slidesToShow: 1,
-                                slidesToScroll: 1,
-                                infinite: true,
-                                arrows: true,
-                            },
-                        },
-                    ],
+                    arrows: arrows                    
                 });
                 imgIndex = $(this).find('.slider-content').index();
                 $(this).on('init reInit afterChange', function(event, slick, currentSlide, nextSlide) {
@@ -242,22 +216,74 @@ const FE = {
             const scroll = new SmoothScroll('a[href*="#"]',{speed: 2000});
         },
 
+        changeLanguage: () => {
+            let lang = document.getElementsByClassName('selected-lang');
+            function showDropDown(e){
+                this.classList.add('active');
+            };
+            for (var i = 0; i < lang.length; i++) {
+               lang[i].addEventListener('click', showDropDown); 
+            }
+        },
+        sideNavigation: () => {
+            let hamburger = document.getElementById('hamburger');
+            let sideNav = document.getElementById('sideNav');
+            hamburger.addEventListener('click', function () {
+                if (this.classList.contains('active')) {
+                    this.classList.remove('active'); 
+                    sideNav.classList.remove('active');
+                } else {
+                    this.classList.add('active');
+                    sideNav.classList.add('active');                     
+                }
+            });
+        },  
+        clickOutside: (method, box, targetElement) => {
+            $('html').on('click', 'body', function (e) {
+                var container = $(box);
+                if (!container.is(e.target) && container.has(e.target).length === 0) {
+                    switch (method) {
+                        case 'fade':
+                            $(targetElement).stop().fadeOut(500);
+                            break;
+                        case 'slide':
+                            $(targetElement).stop().slideUp();
+                            break;
+                        case 'active':
+                            $(targetElement).stop().removeClass('active');
+                            break;
+                    }
+                    $('body').removeClass('noScrollBody');
+                }               
+            });
+        },
         init: () => {
             //initialling modal
             FE.global.loginModal('modal1', false, false);
             FE.global.lazyLoad();
-
         },
         loaded: function loaded() {
             //Functions inside loaded execute when window loaded
+            if(isMobile){
+                FE.global.sliderImage('.home-slider-nav', 1, true, false);
+            }            
+            else{
+                FE.global.sliderImage('.home-slider-nav', 3, false, true);
+            }
+            
             FE.global.tabs.tabs();
             FE.global.instaFeed();
             FE.global.googleMap();
             FE.global.scroll();
+            FE.global.changeLanguage();
+            FE.global.sideNavigation();
+            FE.global.clickOutside('active', '.selected-lang', '.selected-lang');  
+            FE.global.lazyLoad();          
+            //FE.global.sliderImage('.home-video-slider-nav', 4, false, true);
         },
         resize: function resize() {
             //Functions inside loaded execute when window resize
-
+            FE.global.lazyLoad();
         }
     }
 }
@@ -267,9 +293,7 @@ $(function() {
     FE.global.init();
 });
 
-$(window).load(function() {
-    FE.global.sliderImage('.home-slider-nav', 3, false, true);
-    FE.global.sliderImage('.home-video-slider-nav', 4, false, true);
+$(window).load(function() {    
     FE.global.loaded();
     $.DateRangePicker({
         container: '#date_range_picker'

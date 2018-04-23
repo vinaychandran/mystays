@@ -1,31 +1,41 @@
 .main-banner {
-    background-image: url('/assets/images/banner.jpg');
-    height: 660px;
     position: relative;
-    top: 94px;
-
+    padding-top: 54px;
+    @include md {
+        padding-top: 94px;
+    }
+    .banner-image{
+        img{
+            width: 100%;
+            height: auto; 
+        }
+    }
     .banner-text {
-        @include center(both);
+        @include center(vertical);
         text-align: center;
-        color: $secondary-color;
+        color: $secondary-color; 
+        width: 100%;
+        text-align: center;
         h1 {
-            @include font-size(32px);
             font-weight: 500;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 2;
+            line-height: 1;
             letter-spacing: 3.8px;
             text-align: center;
             font-family: $secondary-font;
+            margin: 0 0 15px;
+            @include md {
+                margin: 0 0 20px; 
+            }
         }
-        span {
+        span {            
+            @include font-size(10px);
             display: block;
-            font-size: 14px;
             font-weight: $semi-bold;
-            font-style: normal;
-            font-stretch: normal;
             line-height: 1.5;
-            letter-spacing: 5.3px
+            letter-spacing: 5.3px;
+            @include md {
+                @include font-size(14px);
+            }
         }
     }
     .photos-link {

@@ -1,7 +1,10 @@
 section.main-banner
-    .banner-text
-      h1 空港と寺社を臨む
-        span RISE ABOVE THE BAY
-    .photos-link
-      a.guestPhotos(href="#tab1") Guest Photos
-      a.hotelPhotos(href="#tab2") Hotel Photos
+	picture.banner-image
+		source(media='(min-width: 768px)', srcset='/assets/images/homebanner.jpg')
+		img(src='/assets/images/homebanner.jpg')
+	.banner-text
+		h1 空港と寺社を臨む
+		span RISE ABOVE THE BAY
+	.photos-link
+		a.guestPhotos(href="#tabs") Guest Photos
+		a.hotelPhotos(href="#tabs") Hotel Photos
