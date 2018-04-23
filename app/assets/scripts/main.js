@@ -37,6 +37,11 @@ const FE = {
             FE.global.loginModal('modal1', false, false);
         },
 
+        saveDetails: () => {
+            var data = $('bookingDetails').serialize();
+            alert(data);
+        },
+
         videoPlayer: (event) => {
             let evt = event;
             triggerVideo = setTimeout(function() {
