@@ -218,7 +218,7 @@
       } else if (opts.date_at == '' && opts.inputActive == 'date_to') {
         opts.inputActive = 'date_at'
 
-      }
+      } 
       console.log("opts.inputActive " + opts.inputActive)
       if (opts.inputActive == 'date_at') {
 
@@ -458,8 +458,8 @@
     locale: 'en-US',
     l: {
       label: 'Close',
-      at: '2018年00月00日',
-      to: '2018年00月00日',
+      at: 'Checkin',
+      to: 'Checkout',
       days: ['MON', 'TUE', 'WED', 'THUR', 'FRI', 'SAT', 'SUN'],
       months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
     }
