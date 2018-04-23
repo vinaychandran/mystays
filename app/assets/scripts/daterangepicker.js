@@ -150,21 +150,21 @@
         // Open the calendar
         containerValues.on('click', 'span', function() {
 
-          containerValues.find('.clear').hide();
+          // containerValues.find('.clear').hide();
+          //
+          // containerValues.find('span.date_at').text(opts.l.at);
+          // containerValues.find('span.date_to').text(opts.l.to);
+          //
+          //
+          // opts.date_at = '';
+          // opts.date_to = '';
+          // containerCalendar.find('td').removeClass('start intermediate end');
+          //
+          // containerValues.find('.value').find('input').val('').change();
 
-          containerValues.find('span.date_at').text(opts.l.at);
-          containerValues.find('span.date_to').text(opts.l.to);
-
-
-          opts.date_at = '';
-          opts.date_to = '';
-          containerCalendar.find('td').removeClass('start intermediate end');
-
-          containerValues.find('.value').find('input').val('').change();
-
-          console.log("ddgds");
             if (containerCalendar.is(':hidden')) {
                 if (opts.date_at != '') {
+                    console.log(opts.date_at)
                     var list = opts.date_at.split('-');
                     var year = Number(list[0]),
                         month = Number(list[1]) - 2;
@@ -216,7 +216,7 @@
                   clearAll();
 
                 }
-
+                console.log("opts.inputActive "+opts.inputActive)
             if (opts.inputActive == 'date_at') {
 
 
@@ -282,7 +282,17 @@
                     $(this).removeClass('end');
 
                 } else {
-                    console.log('second ' + opts.inputActive)
+
+                  if(opts.inputActive == 'date_at'){
+
+                          containerCalendar.find('td.valid').removeClass('intermediate');
+                          checkHover(containerCalendar.find('td.valid.end'), 'click');
+
+
+
+
+                  }
+
                     container.find('span.date_to').html(getDateLocale(date_to_));
                 }
                 checkHover(containerCalendar.find('td.valid.start'), 'click');
@@ -361,6 +371,7 @@
         });
         // function of Highlights the range when hovering
         function checkHover(element, method) {
+
           //  containerCalendar.find('td').removeClass('intermediate-hover intermediate');
 
             var year = Number(element.data('year')),
