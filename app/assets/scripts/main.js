@@ -297,11 +297,10 @@ $(window).load(function() {
     FE.global.loaded();
     $('#checkin_date').datepicker({
         numberOfMonths: 2,
-        minDate: new Date()
+        minDate: new Date(),
+        showButtonPanel: true,
+        autoclose: false
     });
     $('#checkout_date').datepicker();
-    $.datepicker.setDefaults($.datepicker.regional["ko"]);
-    // $.DateRangePicker({
-    //     container: '#date_range_picker'
-    // });
+    $.datepicker.setDefaults($.datepicker.regional["kr"]);
 });
