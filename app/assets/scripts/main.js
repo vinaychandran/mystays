@@ -12,7 +12,7 @@ const FE = {
         lazyLoad: () => {
           const myLazyLoad = new LazyLoad({
             elements_selector: '.lazy',
-            threshold: -100
+            threshold: 50
           });  
           myLazyLoad.update();    
         },
@@ -48,31 +48,40 @@ const FE = {
             tabLinks: new Array(),
             contentDivs: new Array(),
             tabs: () => {
-                let tabListItems = document.getElementById('tabs').childNodes;
-                for (let i = 0; i < tabListItems.length; i++) {
-                    if (tabListItems[i].nodeName == 'LI') {
-                        let tabLink = FE.global.tabs.getFirstChildWithTagName(tabListItems[i], 'A');
-                        let id = FE.global.tabs.getHash(tabLink.attributes.getNamedItem('data-href').value);
-                        FE.global.tabs.tabLinks[id] = tabLink;
-                        FE.global.tabs.contentDivs[id] = document.getElementById(id);
+                if(document.getElementById('tabs')) {
+                    let tabListItems = document.getElementById('tabs').childNodes;
+                    for (let i = 0; i < tabListItems.length; i++) {
+                        if (tabListItems[i].nodeName == 'LI') {
+                            let tabLink = FE.global.tabs.getFirstChildWithTagName(tabListItems[i], 'A');
+                            let id = FE.global.tabs.getHash(tabLink.attributes.getNamedItem('data-href').value);
+                            FE.global.tabs.tabLinks[id] = tabLink;
+                            FE.global.tabs.contentDivs[id] = document.getElementById(id);
+                        }
                     }
-                }
 
-                let i = 0;
+                    let i = 0;
 
-                for (let id in FE.global.tabs.tabLinks) {
+                    for (let id in FE.global.tabs.tabLinks) {
 
-                    FE.global.tabs.tabLinks[id].addEventListener('click', FE.global.tabs.showTab);
+                        FE.global.tabs.tabLinks[id].addEventListener('click', FE.global.tabs.showTab);
 
-                    if (i == 0) FE.global.tabs.tabLinks[id].className = 'selected';
-                    i++;
-                }
-                let j = 0;
+                        if (i == 0) {
+                            FE.global.tabs.tabLinks[id].className = 'selected';
+                            document.getElementById('tablink').innerText = FE.global.tabs.tabLinks[id].text;
+                        }
+                        i++;
+                    }
+                    let j = 0;
 
-                for (let id in FE.global.tabs.contentDivs) {
-                    if (j != 0) FE.global.tabs.contentDivs[id].className = 'tabContent hide';
-                    j++;
-                }
+                    for (let id in FE.global.tabs.contentDivs) {
+                        if (j != 0) FE.global.tabs.contentDivs[id].className = 'tabContent hide';
+                        j++;
+                    }
+
+                    let tabLink = document.getElementById('tablink');
+                    tabLink.addEventListener('click', FE.global.tabs.openTab);
+                }                            
+
             },
             showTab: (e) => {
                 const that = event.target.attributes.getNamedItem('data-href').value;
@@ -81,13 +90,23 @@ const FE = {
                 for (let id in FE.global.tabs.contentDivs) {
                     if (id == selectedId) {
                         FE.global.tabs.tabLinks[id].className = 'selected';
+                        document.getElementById('tablink').innerText = FE.global.tabs.tabLinks[id].text;
                         FE.global.tabs.contentDivs[id].className = 'tabContent';
                     } else {
                         FE.global.tabs.tabLinks[id].className = '';
                         FE.global.tabs.contentDivs[id].className = 'tabContent hide';
                     }
                 }
+
+                if(window.innerWidth <= 768) {
+                    document.getElementById('tabs').style.display = 'none';
+                }
+
                 e.preventDefault();
+            },
+            openTab : (e) => {
+                document.getElementById('tabs').style.display = 'block';   
+                e.preventDefault();             
             },
             getFirstChildWithTagName: (element, tagName) => {
                 for (let i = 0; i < element.childNodes.length; i++) {
@@ -97,7 +116,7 @@ const FE = {
             getHash: (url) => {
                 var hashPos = url.lastIndexOf('#');
                 return url.substring(hashPos + 1);
-            },
+            },            
         },
         sliderImage: (slider, slideToShow, dots, arrows) => {
             $(slider).each(function() {
@@ -154,14 +173,15 @@ const FE = {
             });
         },
         instaFeed: () => {
+            let limit = document.getElementById('instafeed').attributes.getNamedItem('data-limit').value;
           var feed = new Instafeed({
             get: 'tagged',
             tagName: 'hotelmystays',
             clientId: '1459052068',
             accessToken: '1459052068.3a81a9f.656faf6eb84044cea80572ed44299e2e',
-            limit: 7,
-            resolution: 'low_resolution',
-            template: '<a href="{{link}}" target="_blank"><div class="lazy insta-bg" data-src="{{image}}"><div class="insta-mask"><div class="insta-content"><span class="insta-date">10 april 2018</span><span class="insta-likes">{{likes}}</span><span class="insta-comments">{{comments}}</span></div></div></div></a>',
+            limit: limit,
+            resolution: 'standard_resolution',
+            template: '<a href="{{link}}" target="_blank"><div class="insta-image"><div class="insta-mask"><div class="insta-content"><span class="insta-likes">{{likes}}</span><span class="insta-comments">{{comments}}</span></div></div><img class="lazy insta-bg" data-src="{{image}}" /></div></a>',
             after: function() {
               var node = document.createElement('A');
               var span = document.createElement('SPAN');
@@ -169,31 +189,7 @@ const FE = {
               span.appendChild(textnode);
               node.appendChild(span);
               node.id = 'more-link';
-              node.href = '#';
-              var feed = document.getElementById('instafeed');
-              feed.appendChild(node);
-              FE.global.lazyLoad();
-            }
-          });
-          feed.run();      
-        },
-        instaFeed: () => {
-          var feed = new Instafeed({
-            get: 'tagged',
-            tagName: 'hotelmystays',
-            clientId: '1459052068',
-            accessToken: '1459052068.3a81a9f.656faf6eb84044cea80572ed44299e2e',
-            limit: 7,
-            resolution: 'low_resolution',
-            template: '<a href="{{link}}" target="_blank"><div class="lazy insta-bg" data-src="{{image}}"><div class="insta-mask"><div class="insta-content"><span class="insta-date">10 april 2018</span><span class="insta-likes">{{likes}}</span><span class="insta-comments">{{comments}}</span></div></div></div></a>',
-            after: function() {
-              var node = document.createElement('A');
-              var span = document.createElement('SPAN');
-              var textnode = document.createTextNode('67 Hotel Photos VIEW GALLERY');
-              span.appendChild(textnode);
-              node.appendChild(span);
-              node.id = 'more-link';
-              node.href = '#';
+              node.href = 'gallery.html';
               var feed = document.getElementById('instafeed');
               feed.appendChild(node);
               FE.global.lazyLoad();
@@ -242,6 +238,10 @@ const FE = {
             }
         },
 
+        scroll: () => {
+            const scroll = new SmoothScroll('a[href*="#"]',{speed: 2000});
+        },
+
         init: () => {
             //initialling modal
             FE.global.loginModal('modal1', false, false);
@@ -253,6 +253,7 @@ const FE = {
             FE.global.tabs.tabs();
             FE.global.instaFeed();
             FE.global.googleMap();
+            FE.global.scroll();
         },
         resize: function resize() {
             //Functions inside loaded execute when window resize

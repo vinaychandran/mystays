@@ -44,5 +44,8 @@
         "single"
       ]
     }
+  },
+  "dependencies": {
+    "gulp-svg-sprites": "^4.1.2"
   }
 }

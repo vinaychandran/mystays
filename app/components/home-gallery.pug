@@ -2,7 +2,8 @@ section.gallery
 	.container
 		.section-title
 			h2 LIVE GALLERY
-		ul.tabs#tabs
+		a#tablink(href='') open
+		ul.tabs.open#tabs
 			li
 				a(href='', data-href='#tab1') ホテル写真
 			li
@@ -12,7 +13,7 @@ section.gallery
 			li
 				a(href='', data-href='#tab4') ブランドビデオ
 		#tab1.tabContent
-			div#instafeed.instafeed
+			div#instafeed.instafeed(data-limit='7')
 		#tab2.tabContent
 			div Images
 			p Tab2
