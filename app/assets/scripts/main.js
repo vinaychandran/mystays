@@ -140,31 +140,37 @@ const FE = {
                 $(this).on('init reInit afterChange', function(event, slick, currentSlide, nextSlide) {
                     imgIndex = (currentSlide ? currentSlide : 0) + 1;
                 });
-            });
-            $(window).resize(function() {
-                $(slider).slick('resize');
-                $(slider).slick('refresh');
-            });
+            });            
         },
         instaFeed: () => {
-            let limit = document.getElementById('instafeed').attributes.getNamedItem('data-limit').value;
-            var feed = new Instafeed({
+            let instabox = document.getElementById('instafeed');
+            let limit =  instabox.attributes.getNamedItem('data-limit').value;
+            let moreText = instabox.attributes.getNamedItem('data-more').value;
+            let moreTextSecond = instabox.attributes.getNamedItem('data-morespan').value;
+            let feed = new Instafeed({
                 get: 'tagged',
                 tagName: 'hotelmystays',
                 clientId: '1459052068',
                 accessToken: '1459052068.3a81a9f.656faf6eb84044cea80572ed44299e2e',
                 limit: limit,
                 resolution: 'standard_resolution',
-                template: '<a href="{{link}}" target="_blank"><div class="insta-image"><div class="insta-mask"><div class="insta-content"><span class="insta-likes">{{likes}}</span><span class="insta-comments">{{comments}}</span></div></div><img class="lazy insta-bg" data-src="{{image}}" /></div></a>',
+                template: '<a href="{{link}}" target="_blank" class="insta-image lazy" data-src="{{image}}"><div class="insta-mask"><div class="insta-content"><span class="insta-likes">{{likes}}</span><span class="insta-comments">{{comments}}</span></div></div></a>',
                 after: function() {
-                    var node = document.createElement('A');
-                    var span = document.createElement('SPAN');
-                    var textnode = document.createTextNode('67 Hotel Photos VIEW GALLERY');
-                    span.appendChild(textnode);
-                    node.appendChild(span);
+                    let node = document.createElement('A');
+                    let div = document.createElement('DIV');
+                    let span = document.createElement('SPAN');
+                    let arrow = document.createElement('I');
+                    let textNode = document.createTextNode(moreText);
+                    let textNodeSecond = document.createTextNode(moreTextSecond);
+                    arrow.className = 'mys-arrow-left white';
+                    span.appendChild(textNodeSecond);
+                    div.appendChild(textNode);
+                    div.appendChild(span);
+                    div.appendChild(arrow);
+                    node.appendChild(div);
                     node.id = 'more-link';
                     node.href = 'gallery.html';
-                    var feed = document.getElementById('instafeed');
+                    let feed = document.getElementById('instafeed');
                     feed.appendChild(node);
                     FE.global.lazyLoad();
                 },
@@ -172,7 +178,7 @@ const FE = {
             feed.run();
         },
         showBookingTab: (evt, tabName) => {
-            var i, tabcontent, tablinks;
+            let i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
@@ -199,13 +205,6 @@ const FE = {
                 let marker = new google.maps.Marker({
                     position: latlng,
                     title: 'Hotel Mystays',
-                    labelAnchor: new google.maps.Point(500, 500),
-                    label: {
-                        text: 'Hotel Mystays testing',
-                        color: "#a69224",
-                        fontSize: "16px",
-                        fontWeight: "bold",
-                    },
                     icon: '../assets/images/marker-icon.png',
                     map: map
                 });
@@ -241,7 +240,7 @@ const FE = {
         },
         clickOutside: (method, box, targetElement) => {
             $('html').on('click', 'body', function(e) {
-                var container = $(box);
+                let container = $(box);
                 if (!container.is(e.target) && container.has(e.target).length === 0) {
                     switch (method) {
                         case 'fade':
@@ -270,7 +269,6 @@ const FE = {
             } else {
                 FE.global.sliderImage('.home-slider-nav', 3, false, true);
             }
-
             FE.global.tabs.tabs();
             FE.global.instaFeed();
             FE.global.googleMap();
