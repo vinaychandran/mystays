@@ -2,10 +2,31 @@
     .modal-dialog
         .modal-content
             .modal-header
-                h5.modal-title Title
                 button.modal-close(type='button', data-dismiss='modal', aria-label='Close')
                     svg(width='16', height='16', viewbox='0 0 40 40')
                         path.close-x(stroke-linecap='round', d='M 10,10 L 30,30 M 30,10 L 10,30', stroke='#000', fill='transparent', stroke-width='5')
-            .modal-body Description
+            .modal-body
+                form
+                    select(name='1')
+                        option(value='1') 大人1名様に対し。
+                        option(value='2') 大人1名様に対し、
+                        option(value='3') 大人1名様に対し、
+                        option(value='4') 大人1名様に対し、
+
+                    select(name='2')
+                        option(value='1') 大人1名様に対し、
+                        option(value='2') 大人1名様に対し、
+                        option(value='3') 大人1名様に対し、
+                        option(value='4') 大人1名様に対し、
+
+                    select(name='3')
+                        option(value='1') 大人1名様に対し、
+                        option(value='2') 大人1名様に対し、
+                        option(value='3') 大人1名様に対し、
+                        option(value='4') 大人1名様に対し
+                p 小学生の添い寝について
+                ul
+                    li 大人1名様に対し、添い寝のお子様1名までとします。
+                    li 大人1名様に対し、添い寝のお子様1名までとします。
             .modal-footer
                 button(data-dismiss='modal', aria-label='Close') Close
