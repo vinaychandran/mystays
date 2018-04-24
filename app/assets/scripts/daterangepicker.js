@@ -26,7 +26,7 @@
         if (day < 10) day = '0' + day;
         var dateText = day + '.' + month + '.' + year;
       } else if (opts.locale == 'en-US') {
-        var dateText = thisMonth + ' ' + day + ' ' + year + ' ' + dayName;
+        var dateText = year + ' ' + thisMonth + ' ' + day + ' ' + dayName;
       }
 
 
@@ -218,7 +218,7 @@
       } else if (opts.date_at == '' && opts.inputActive == 'date_to') {
         opts.inputActive = 'date_at'
 
-      } 
+      }
       console.log("opts.inputActive " + opts.inputActive)
       if (opts.inputActive == 'date_at') {
 
