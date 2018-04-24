@@ -8,7 +8,7 @@
     z-index: 1;
     opacity: 0;
     -webkit-transform: scale(0.8);
-            transform: scale(0.8);
+    transform: scale(0.8);
     -webkit-transition: opacity 0.3s ease-out, -webkit-transform 0.3s ease-out;
     transition: opacity 0.3s ease-out, -webkit-transform 0.3s ease-out;
     transition: opacity 0.3s ease-out, transform 0.3s ease-out;
@@ -38,19 +38,14 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    justify-content: center;
+    align-items: center;
   }
   .m-lightbox__slide img {
     display: block;
     max-width: calc(100vw - 2em);
     max-height: 90vh;
     opacity: 0;
-    -webkit-transition: opacity 0.3s ease;
     transition: opacity 0.3s ease;
   }
   @media (min-width: 768px) {
@@ -70,18 +65,23 @@
     margin: 0;
     padding: 0;
     z-index: 102;
-    background: transparent;
     border: none;
     cursor: pointer;
   }
   .m-lightbox__close {
     top: 1em;
     right: 1em;
+    background: transparent;
+    span{
+      color: #fff;
+      font-size: 30px;
+      font-weight: 300;
+    }
   }
   .m-lightbox__nextPrev {
     top: 50%;
     -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+    transform: translateY(-50%);
     width: 42px;
     height: 42px;
     visibility: hidden;
@@ -92,6 +92,9 @@
     transition: opacity 0.3s ease-out, -webkit-transform 0.3s ease-out;
     transition: opacity 0.3s ease-out, transform 0.3s ease-out;
     transition: opacity 0.3s ease-out, transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+    width: 66px;
+    height: 66px; 
+    background: $default-bg;
   }
   .m-lightbox__nextPrev.is-active {
     visibility: hidden;
@@ -103,17 +106,15 @@
     .m-lightbox__nextPrev.is-active {
       visibility: visible;
     }
-  }
-  .m-lightbox__nextPrev svg {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
+  }  
   .m-lightbox__nextPrev--next {
     right: 1em;
   }
   .m-lightbox__nextPrev--prev {
     left: 1em;
+    .sprite-arw_black_pc:before{
+      transform: rotate(180deg);
+    }
   }
   .m-lightbox__nextPrev:hover {
     cursor: pointer;

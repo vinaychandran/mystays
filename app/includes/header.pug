@@ -26,13 +26,28 @@ header
 				.selected-lang
 					| Language
 				ul 
-					li English
-					li Japanese	
-					li Korean
-					li Chinese
-					li Taiwanese
+					li 
+						a.active(href="#") 
+							i.icon.sprite-flag_en
+							| 日本語
+					li 
+						a(href="#") 
+							i.icon.sprite-flag_jp 
+							| English 	
+					li
+						a(href="#")
+							i.icon.sprite-flag_kr 
+							| 한국어
+					li 
+						a(href="#")
+							i.icon.sprite-flag_ch
+							| 簡体中文
+					li 
+						a(href="#")
+							i.icon.sprite-flag_ch
+							| 簡体中文
 		.sign-in
-			.icon.sprite-login
+			.icon.sprite-account_pc
 			p.hidden-xs アカウント
 		a.mobile-phone.visible-xs(href="#") 
 			i.icon.sprite-phone-mobile
@@ -41,7 +56,7 @@ header
 			<span></span>
 			<span></span>
 nav#sideNav.side-navigation
-	ul.hidden-xs
+	ul.side-menu.hidden-xs
 		li 
 			a(href="#") オファー
 		li 
@@ -54,7 +69,7 @@ nav#sideNav.side-navigation
 			a(href="#") レストラン
 		li 
 			a(href="#") 会議・宴会
-	ul.visible-xs
+	ul.side-menu.visible-xs
 		li 
 			a(href="#") オファー
 		li 
@@ -67,13 +82,28 @@ nav#sideNav.side-navigation
 			a(href="#") レストラン
 		li 
 			a(href="#") 会議・宴会
-	.choose-lang
+	.choose-lang.visible-xs
 		.selected-lang
 			| Language
 		ul 
-			li English
-			li Japanese	
-			li Korean
-			li Chinese
-			li Taiwanese
+			li 
+				a.active(href="#") 
+					i.icon.sprite-flag_en
+					| 日本語
+			li 
+				a(href="#") 
+					i.icon.sprite-flag_jp 
+					| English 	
+			li
+				a(href="#")
+					i.icon.sprite-flag_kr 
+					| 한국어
+			li 
+				a(href="#")
+					i.icon.sprite-flag_ch
+					| 簡体中文
+			li 
+				a(href="#")
+					i.icon.sprite-flag_ch
+					| 簡体中文
 	

@@ -18,21 +18,21 @@
     width: 56px;
     height: 56px;
     top: 40%;
-  };
-
-  &:after {
-    content: "";
-    display: block;
-    width: 16px;
-    height: 7px;
-    @include center(both);
-  }
-
-  &:hover {
-    :after {
-      color: #7e7e7e;
-    }
-  }
+  }; 
+  &:before{
+    content:' ';
+    vertical-align:middle;
+    background-image: url("../svg/sprite.svg");
+    background-repeat: no-repeat;
+    background-size: 25.6em 155.4em;
+    background-position: -1em -9em;
+    width: 1.7em;
+    height: 0.8em;
+    position: absolute;
+    right: 20px;
+    top: 45%;
+    font-size: 10px;
+  } 
 }
 
 .slick-prev {
@@ -42,69 +42,16 @@
   };
 
   &:before{ 
-       content: "";
-       width: 7px;
-      height: 7px; 
-      border-width: 0 0 1px 1px;
-      border-style: solid;
-      border-color: #000;
-      vertical-align: middle;
-      box-sizing: border-box; 
-      transform: rotate(45deg);  
-      left: 50%;
-        top: 50%;
-        position: absolute;
-            margin-top: -3px;
-            margin-left: -8px;
-    }  
-    &:after{        
-        content: "";
-        box-sizing: border-box;
-        left: 50%;
-        top: 50%;
-        position: absolute;
-        height: 1px;
-        border-width: 1px 1px 0 0;
-        border-style: solid;
-        width: 13px;
-        border-color: #000;  
-    }   
+    transform: rotate(180deg);
+  } 
+       
 }
 
 .slick-next {
  right: 0;
   @include desktop {
    right: -70px;
-  };
-
-  &:before{ 
-       content: "";
-       width: 7px;
-      height: 7px; 
-      border-width: 1px 1px 0 0;
-      border-style: solid;
-      border-color: #000;
-      vertical-align: middle;
-      box-sizing: border-box; 
-      transform: rotate(45deg);  
-      left: 50%;
-        top: 50%;
-        position: absolute;
-            margin-top: -3px;
-    }  
-    &:after{        
-        content: "";
-        box-sizing: border-box;
-        right: 0;
-        left: 50%;
-        top: 50%;
-        position: absolute;
-        height: 1px;
-        border-width: 1px 1px 0 0;
-        border-style: solid;
-        width: 13px;
-        border-color: #000;
-    }   
+  };  
 }
 
 

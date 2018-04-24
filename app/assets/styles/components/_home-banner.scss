@@ -17,11 +17,11 @@
         width: 100%;
         text-align: center;
         h1 {
+            font-family: $secondary-font;
             font-weight: 500;
             line-height: 1;
             letter-spacing: 3.8px;
-            text-align: center;
-            font-family: $secondary-font;
+            text-align: center;            
             margin: 0 0 15px;
             @include md {
                 margin: 0 0 20px; 
@@ -40,22 +40,34 @@
     }
     .photos-link {
         @include center(vertical);
-            right: 0; 
+        right: 0; 
         a {
             @include font-size(10px);
             background: $default-bg;
             font-family: $default-font;
             font-weight: 600;
-            font-style: normal;
-            font-stretch: normal;
             line-height: 1;
             letter-spacing: 0.1px;
             text-transform: uppercase;
-            padding: 20px;
+            padding: 15px 20px;
             display: block;
             margin-bottom: 1px;
             text-align: left;
             color: rgba(0, 0, 0, 0.6);
         }
+        span{
+            margin-right: 5px;
+        }
+    }
+    .photos-link-mobile {
+        position: absolute;
+        top: 54px;
+        right: 0; 
+        a {
+            @include font-size(10px);
+            background: $default-bg;
+            padding: 8px; 
+            display: inline-block;
+        }         
     }
 }
