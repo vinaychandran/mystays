@@ -1,21 +1,19 @@
 (function($) {
   $.DateRangePicker = function(options) {
+
     var opts = $.extend({}, $.DateRangePicker.defaults, options),
       mobile = false;
 
     var container = $(opts.container),
       containerValues = container.find('.values'),
       containerCalendar = container.find('.calendar'),
-      containerCalendarContainer = container.find('.calendarContainer');
+      containerCalendarContainer = container.find('.calendarContainer'),
+      backdrop = container.find('.calendar-backdrop');
 
     function getDateLocale(value) {
-
-      var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-      var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
       var day = value.getDay();
-      var thisMonth = months[value.getMonth()];
+      var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      var thisMonth = opts.l.months[value.getMonth()];
       var dayName = days[value.getDay()];
 
       var year = value.getFullYear(),
@@ -26,7 +24,7 @@
         if (day < 10) day = '0' + day;
         var dateText = day + '.' + month + '.' + year;
       } else if (opts.locale == 'en-US') {
-        var dateText = year + ' ' + thisMonth + ' ' + day + ' ' + dayName;
+        var dateText = year + ' ' + thisMonth + ' ' + day + '<div class="dayoftheweek">' + dayName + '</div>';
       }
 
 
@@ -35,6 +33,9 @@
 
     function init() {
       checkButtonClear();
+       var now = getDateLocale(new Date());
+      containerValues.find('span.date_at').html(now);
+      containerValues.find('span.date_to').html(now);
 
       if (opts.date_at == '') {
         containerValues.find('span.date_at').text(opts.l.at);
@@ -180,7 +181,7 @@
       $(this).parent('.value').addClass('active');
       opts.inputActive = $(this).attr('class');
 
-      //containerCalendar.css('top', '100%');
+      backdrop.css('display', 'block');
     });
 
 
@@ -304,13 +305,13 @@
           }
 
           container.find('span.date_to').html(getDateLocale(date_to_));
-          container.find('span.daysFromTo').html(getDateLocale(date_at_) + ' to ' + getDateLocale(date_to_));
+          container.find('span.daysFromTo').html(getDateLocale(date_at_) + ' (Month) ~ ' + getDateLocale(date_to_) + ' (Month)');
 
           var date1 = new Date(date_at_);
-  var date2 = new Date(date_to_);
-  var timeDiff = Math.abs(date2.getTime() - date1.getTime());
-  var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-  container.find('.nights').html(diffDays + ' nights');
+          var date2 = new Date(date_to_);
+          var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+          var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+          container.find('.nights').html(diffDays + ' nights');
 
         }
         checkHover(containerCalendar.find('td.valid.start'), 'click');
@@ -440,6 +441,7 @@
       containerCalendarContainer.empty();
 
       $('body').css('position', '');
+      backdrop.css('display', 'none');
     }
   }
 
@@ -458,8 +460,7 @@
     locale: 'en-US',
     l: {
       label: 'Close',
-      at: 'Checkin',
-      to: 'Checkout',
+
       days: ['MON', 'TUE', 'WED', 'THUR', 'FRI', 'SAT', 'SUN'],
       months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
     }

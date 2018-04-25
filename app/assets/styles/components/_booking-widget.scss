@@ -181,20 +181,323 @@
       .endDateContainer,
       .startDateContainer {
         width: 160px;
-        font-size: 12px;
+        //font-size: 12px;
         float: left;
         margin-right: 11px;
       }
 
       .endDate,
       .startDate {
+        font-family: $primary-font;
+        @include font-size(12px);
+        font-weight: bold;
+        line-height: 2.5;
+        letter-spacing: 0.9px;
+        text-align: left;
+        color: #000000;
         border: 2px solid #eeeeee;
         height: 66px;
-        padding: 18px;
-        background: url("../images/calendar-interface-symbol-tool.svg") 10% center;
-        background-repeat: no-repeat;
-        padding-left: 40px;
+        line-height: 66px;
+        padding: 18px 0;
+        background: url("../images/calendar-interface-symbol-tool.svg") 10% center no-repeat;
+        padding-left: 45px;
         background-size: 20px;
+
+        .dayoftheweek {
+          opacity: 0.5;
+          color: rgba(0, 0, 0, 0.5);
+        }
+      }
+
+      .daysFromTo .dayoftheweek {
+        display: none;
+      }
+
+      .daysFromTo{
+        font-family: YuGo;
+          @include font-size(12px);
+        font-weight: bold;
+
+
+        letter-spacing: normal;
+        text-align: center;
+        color: rgba(0, 0, 0, 0.6);
+      }
+
+      .values {
+        .clear,
+        .to,
+        .value {
+          vertical-align: top;
+          margin-right: 10px;
+          display: block;
+          line-height: 14px;
+          text-align: left;
+        }
+
+        .to {
+          float: left;
+          padding: 60px 0;
+          vertical-align: middle;
+          color: #d3d3d3;
+        }
+
+        .value {
+          span {
+            cursor: pointer;
+          }
+
+          &.active span {
+            color: #3399cc;
+          }
+
+          input {
+            opacity: 0;
+          }
+        }
+      }
+
+      .calendar-backdrop{
+        display: none;
+        opacity: 0.5;
+        height: 100vh;
+        width: 100vw;
+        background: #000;
+        left: 0;
+        position: fixed;
+        top: 0;
+      }
+      .calendar {
+        display: none;
+        width: 700px;
+        height: 567px;
+        margin: 0;
+        padding: 10px 0;
+        background: #fff;
+        text-align: center;
+        overflow: hidden;
+         top: 103px;
+        //border: 1px solid #000;
+        left: 0;
+        z-index: 9;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        box-sizing: border-box;
+        transition-duration: 0.5s;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin-top: -283px;
+        margin-left: -350px;
+
+        &:after {
+          background: url("../images/clear.svg") 50% 50% no-repeat;
+        }
+      }
+
+      &.active .calendar {
+        display: block;
+      }
+
+      .calendar {
+        .clear{
+          width: 16px;
+          height: 16px;
+          margin: 0 auto;
+          cursor: pointer;
+        }
+        .button-next,
+        .button-prev {
+          position: absolute;
+          top: 20px;
+          z-index: 3;
+          width: 36px;
+          height: 29px;
+          padding: 8px;
+          //border: 1px solid #ccc;
+          cursor: pointer;
+          box-sizing: border-box;
+          //border-radius: 4px;
+          background-size: 15px;
+          //background-color: #fff;
+          background-position: 50% 50%;
+          background-repeat: no-repeat;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+
+        .button-prev {
+          background-image: url("../images/prev.svg");
+          left: 20px;
+        }
+
+        .button-next {
+          background-image: url("../images/next.svg");
+          right: 20px;
+        }
+
+        .close {
+          position: absolute;
+          top: 0;
+          width: 15px;
+          left: 50%;
+        }
+
+        .calendarContainer {
+          position: absolute;
+          top: 0;
+          left: -292px;
+          z-index: 2;
+          float: left;
+          //width: 1092px;
+          text-align: left;
+          font-size: 0;
+          padding-top: 50px;
+
+          table {
+            display: inline-block;
+            vertical-align: top;
+            width: 304px;
+            margin: 10px;
+            padding: 0;
+            border-collapse: collapse;
+            border-spacing: 0;
+            text-align: center;
+
+            caption {
+              border-bottom: 2px solid #000;
+              font-family: YuGo;
+              font-size: 14px;
+              font-weight: bold;
+              font-style: normal;
+              font-stretch: normal;
+              line-height: 2.14;
+              letter-spacing: 1.1px;
+              text-align: center;
+              color: #000000;
+              padding-bottom: 12px;
+            }
+
+            th {
+              width: 37px;
+              font-size: 14px;
+              line-height: 20px;
+              color: #999;
+              box-sizing: border-box;
+              padding: 0;
+              font-family: YuGo;
+              font-size: 14px;
+              font-weight: bold;
+              font-style: normal;
+              font-stretch: normal;
+              text-align: center;
+              color: #000000;
+              padding: 10px 0;
+              border: none;
+            }
+
+            td {
+              width: 40px;
+              height: 40px;
+              font-size: 15px;
+              line-height: 33px;
+              box-sizing: border-box;
+              padding: 0;
+              text-align: center;
+              border: none;
+              border: 5px solid #fff;
+
+              span {
+                display: block;
+                border: 1px solid #eeeeee;
+              }
+
+              &.inactive,
+              &.valid {}
+
+              &.valid {
+                cursor: pointer;
+
+                &:hover {
+                  background: #cccccc;
+                }
+              }
+
+              &.today {
+                color: #666;
+              }
+
+              &.inactive {
+                color: #ccc;
+              }
+
+              &.valid {
+                &.hovered,
+                &.intermediate,
+                &.intermediate-hover {
+                  background: #eeeeee;
+                  color: #000;
+                }
+
+                &.hovered,
+                &.intermediate-hover {
+                  color: #000;
+                }
+
+                &.end,
+                &.start {
+                  background: #000;
+                  color: #fff;
+                }
+              }
+            }
+          }
+        }
+
+        .bottomLayer {
+          position: absolute;
+          top: 70%;
+          left: 0;
+          display: block;
+          width: 100%;
+
+          .days {
+            opacity: 0.6;
+            font-family: YuGo;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: normal;
+            text-align: center;
+            color: rgba(0, 0, 0, 0.6);
+          }
+
+          .nights {
+            height: 13px;
+            font-family: YuGo;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: normal;
+            text-align: center;
+            color: #000000;
+            margin: 10px 0 30px;
+          }
+
+          .closePopup {
+            opacity: 1;
+            width: 320px;
+            background-color: #c5ad6c;
+            margin: 0 auto;
+            padding: 25px 0;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2.8px;
+            text-align: center;
+            color: #ffffff;
+            cursor: pointer;
+          }
+        }
       }
     }
   }
@@ -230,319 +533,6 @@
       color: #fefefe;
       border: none;
       padding: 26px 53px;
-    }
-  }
-}
-
-
-.date-picker {
-  // &.active .values {
-  //   //box-shadow: 0 1px 0 #3399cc;
-  //   position: relative;
-  //   z-index: 2;
-  // }
-
-  .values {
-    .clear,
-    .to,
-    .value {
-      //display: inline-block;
-      vertical-align: top;
-      margin-right: 10px;
-      //font-size: 12px;
-      //padding: 20px 40px;
-      display: block;
-      line-height: 14px;
-      text-align: left;
-      //line-height: 24px;
-    }
-
-    .to {
-      float: left;
-      padding: 60px 0;
-      // height: 1px;
-      // margin: 0 calc( 13px - 0.285em) 0 7px;
-      // background: #DDDDDD;
-      //display: inline-block;
-      vertical-align: middle;
-    }
-
-    .clear {
-      float: right;
-      width: 12px;
-      height: 12px;
-      margin: 0;
-      padding: 6px 0;
-      cursor: pointer;
-      display: none;
-      background: url("../images/clear.svg") 50% 50% no-repeat;
-      background-size: 12px 12px;
-    }
-
-    .value {
-      span {
-        cursor: pointer;
-      }
-
-      &.active span {
-        color: #3399cc;
-      }
-
-      input {
-        opacity: 0;
-      }
-    }
-  }
-
-  .calendar {
-    display: none;
-    width: 700px;
-    height: 567px;
-    margin: 0;
-    padding: 10px 0;
-    background: #fff;
-    text-align: center;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 9;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    box-sizing: border-box;
-    transition-duration: 0.5s;
-
-    &:after {
-      background: url("../images/clear.svg") 50% 50% no-repeat;
-    }
-  }
-
-  &.active .calendar {
-    display: block;
-  }
-
-  .calendar {
-    .button-next,
-    .button-prev {
-      position: absolute;
-      top: 20px;
-      z-index: 3;
-      width: 36px;
-      height: 29px;
-      padding: 8px;
-      //border: 1px solid #ccc;
-      cursor: pointer;
-      box-sizing: border-box;
-      //border-radius: 4px;
-      background-size: 15px;
-      //background-color: #fff;
-      background-position: 50% 50%;
-      background-repeat: no-repeat;
-
-      &:hover {
-        opacity: 1;
-      }
-    }
-
-    &:after {
-      //     content:'';
-      //  display: inline-block;
-      //  width:0;
-      //  height:0;
-      //  border:20px solid transparent;
-      //  vertical-align: middle;
-      //  background-image: url("../images/clear.svg");
-    }
-
-    .bottomLayer {
-      position: absolute;
-      top: 70%;
-      left: 0;
-      display: block;
-      width: 100%;
-
-      .days {
-        opacity: 0.6;
-        font-family: YuGo;
-        font-size: 14px;
-        font-weight: bold;
-        letter-spacing: normal;
-        text-align: center;
-        color: rgba(0, 0, 0, 0.6);
-      }
-
-      .nights {
-        height: 13px;
-        font-family: YuGo;
-        font-size: 14px;
-        font-weight: bold;
-        letter-spacing: normal;
-        text-align: center;
-        color: #000000;
-        margin: 10px 0 30px;
-      }
-
-      .closePopup {
-        opacity: 1;
-        width: 320px;
-        // height: 70px;
-        background-color: #c5ad6c;
-        margin: 0 auto;
-        padding: 25px 0;
-        font-size: 14px;
-        font-weight: bold;
-        letter-spacing: 2.8px;
-        text-align: center;
-        color: #ffffff;
-        cursor: pointer;
-      }
-    }
-
-    .close img {
-      // background-image: url("../images/clear.svg");
-      // position: absolute;
-      //
-      //  left: 50%;
-      //  top: -10px;
-      //
-      //  opacity: 1;
-    }
-
-    .button-prev {
-      background-image: url("../images/prev.svg");
-      left: 20px;
-    }
-
-    .button-next {
-      background-image: url("../images/next.svg");
-      right: 20px;
-    }
-
-    .close {
-      position: absolute;
-      top: 0;
-      width: 15px;
-      left: 50%;
-    }
-
-    .calendarContainer {
-      position: absolute;
-      top: 0;
-      left: -292px;
-      z-index: 2;
-      float: left;
-      //width: 1092px;
-      text-align: left;
-      font-size: 0;
-      padding-top: 50px;
-    }
-
-    table {
-      display: inline-block;
-      vertical-align: top;
-      width: 304px;
-      margin: 10px;
-      padding: 0;
-      border-collapse: collapse;
-      border-spacing: 0;
-      text-align: center;
-
-      caption {
-        // width: 100%;
-        // line-height: 29px;
-        // font-size: 18px;
-        // font-weight: 700;
-        // margin: 0 0 10px;
-        border-bottom: 2px solid #000;
-        font-family: YuGo;
-        font-size: 14px;
-        font-weight: bold;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 2.14;
-        letter-spacing: 1.1px;
-        text-align: center;
-        color: #000000;
-        padding-bottom: 12px;
-      }
-
-      th {
-        width: 37px;
-        font-size: 14px;
-        line-height: 20px;
-        color: #999;
-        box-sizing: border-box;
-        padding: 0;
-        font-family: YuGo;
-        font-size: 14px;
-        font-weight: bold;
-        font-style: normal;
-        font-stretch: normal;
-        text-align: center;
-        color: #000000;
-        padding: 10px 0;
-        border: none;
-      }
-    }
-
-    td {
-      width: 40px;
-      height: 40px;
-      font-size: 15px;
-      line-height: 33px;
-      box-sizing: border-box;
-      padding: 0;
-      text-align: center;
-      border: none;
-      border: 5px solid #fff;
-
-      span {
-        display: block;
-        border: 1px solid #eeeeee;
-      }
-
-      &.inactive,
-      &.valid {
-        //border: 1px solid #e4e7e7;
-      }
-
-      &.valid {
-        cursor: pointer;
-
-        &:hover {
-          background: #cccccc;
-        }
-      }
-
-      &.today {
-        color: #666;
-      }
-
-      &.inactive {
-        color: #ccc;
-      }
-
-      &.valid {
-        &.hovered,
-        &.intermediate,
-        &.intermediate-hover {
-          background: #eeeeee;
-          //border: 1px double #eeeeee;
-          color: #000;
-        }
-
-        &.hovered,
-        &.intermediate-hover {
-          color: #000;
-        }
-
-        &.end,
-        &.start {
-          background: #000;
-          //border: 1px double #000;
-          color: #fff;
-        }
-      }
     }
   }
 }
