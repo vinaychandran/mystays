@@ -21,7 +21,7 @@
         @include font-size(14px);
         font-weight: bold;
         letter-spacing: 1.1px;
-        color: #000000;
+        color: $default-color;
 
         &.selected {
           opacity: 1;
@@ -53,116 +53,103 @@
     @extend %clearfix;
     background: $secondary-color;
     height: 196px;
-    //padding: 50px 80px;
+    padding: 50px 60px;
   }
 
   #booking-tab1 {
     .room-locations {
       float: left;
-      width: 200px;
       margin-right: 11px;
 
       .form-group {
         margin: 0;
-      }
-
-      label {
-        font-family: $secondary-font;
-        @include font-size(14px);
-        font-weight: 500;
-        font-style: normal;
-        letter-spacing: 1.1px;
-        text-align: left;
-        color: #000000;
-        padding: 5px 10px;
-      }
-
-      .input-showtext {
-        position: relative;
-
-        &:after {
-          content: '';
-          position: absolute;
-          right: 10%;
-          top: 45%;
-          width: 0;
-          cursor: pointer;
-          height: 0;
-          border-left: 3px solid transparent;
-          border-right: 3px solid transparent;
-          border-top: 5px solid #000;
-          clear: both;
-        }
-      }
-
-      .input-showtext input,
-      .input-showtext input::placeholder {
-        //background: url("../images/drop-down-arrow.svg") 90% center;
-        font-family: $primary-font;
-        background-size: 6px;
-        background-repeat: no-repeat;
-        cursor: pointer;
-        border-radius: 4px;
-        margin: 0;
         width: 200px;
-        height: 66px;
-        border: 2px solid #eeeeee;
-        @include font-size(12px);
-        font-weight: bold;
-        line-height: 2.5;
-        letter-spacing: 0.9px;
-        padding-left: 11px;
-        //text-align: left;
-        color: #000000;
 
-        &:focus {
-          border: 2px solid #eeeeee;
+        label {
+          font-family: $secondary-font;
+          @include font-size(14px);
+          font-weight: 500;
+          letter-spacing: 1.1px;
+          text-align: left;
+          color: $default-color;
+          padding: 5px 10px;
         }
-      }
 
-      .input-showtext input::placeholder {
-        background: none;
-        border: 0;
-        padding-left: 0;
-      }
+        .input-showtext {
+          position: relative;
 
-      .popup-menu {
-        display: none;
+          &:after {
+            content: '';
+            position: absolute;
+            right: 10%;
+            top: 45%;
+            width: 0;
+            cursor: pointer;
+            height: 0;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-top: 5px solid $default-color;
+            clear: both;
+          }
 
-        ul {
-          margin: 0;
+          input,
+          input::placeholder {
+            font-family: $primary-font;
+            background-size: 6px;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            border-radius: 4px;
+            margin: 0;
+            height: 66px;
+            border: 2px solid #eeeeee;
+            @include font-size(12px);
+            font-weight: bold;
+            letter-spacing: 0.9px;
+            padding: 0 11px;
+            color: $default-color;
 
-          li {
-            span {
-              cursor: pointer;
-              display: block;
-              font-size: 12px;
-              line-height: 1.4;
-              padding: 8px 12px;
-              color: #000;
-
-              &.active,
-              &:focus,
-              &:hover {
-                background-color: rgba(255, 210, 93, 0.55);
-              }
+            &:focus {
+              border: 2px solid #eeeeee;
             }
+          }
 
-            ul li {
-              span {
-                padding-left: 30px;
-                font-weight: 400;
-              }
-            }
+          input::placeholder {
+            border: 0;
+            padding-left: 0;
           }
         }
 
-        .popup-content-input {
-          overflow-y: auto;
-          position: absolute;
-          background: #f5f5f5;
-          z-index: 999;
-          width: 200px;
+        .popup-menu {
+          display: none;
+
+          ul {
+            margin: 0;
+
+            li {
+              span {
+                cursor: pointer;
+                display: block;
+                @include font-size(12px);
+                line-height: 1.4;
+                padding: 8px 12px;
+                color: $default-color;
+
+                &.active,
+                &:focus,
+                &:hover {
+                  background-color: rgba(255, 210, 93, 0.55);
+                }
+              }
+            }
+          }
+
+          .popup-content-input {
+            overflow-y: auto;
+            position: absolute;
+            background: #f5f5f5;
+            z-index: 999;
+            width: 200px;
+          }
         }
       }
     }
@@ -170,8 +157,8 @@
     .date-picker {
       float: left;
       //width: 200px;
-      margin-right: 11px;
-      width: 372px;
+      margin-right: 9px;
+      //width: 372px;
       position: relative;
 
       label {
@@ -180,8 +167,6 @@
 
       .endDateContainer,
       .startDateContainer {
-        width: 160px;
-        //font-size: 12px;
         float: left;
         margin-right: 11px;
       }
@@ -194,7 +179,7 @@
         line-height: 2.5;
         letter-spacing: 0.9px;
         text-align: left;
-        color: #000000;
+        color: $default-color;
         border: 2px solid #eeeeee;
         height: 66px;
         line-height: 66px;
@@ -202,6 +187,7 @@
         background: url("../images/calendar-interface-symbol-tool.svg") 10% center no-repeat;
         padding-left: 45px;
         background-size: 20px;
+        width: 164px;
 
         .dayoftheweek {
           opacity: 0.5;
@@ -213,12 +199,10 @@
         display: none;
       }
 
-      .daysFromTo{
-        font-family: YuGo;
-          @include font-size(12px);
+      .daysFromTo {
+        font-family: $primary-font;
+        @include font-size(12px);
         font-weight: bold;
-
-
         letter-spacing: normal;
         text-align: center;
         color: rgba(0, 0, 0, 0.6);
@@ -257,16 +241,17 @@
         }
       }
 
-      .calendar-backdrop{
+      .calendar-backdrop {
         display: none;
         opacity: 0.5;
         height: 100vh;
         width: 100vw;
-        background: #000;
+        background: $primary-bg;
         left: 0;
         position: fixed;
         top: 0;
       }
+
       .calendar {
         display: none;
         width: 700px;
@@ -276,8 +261,7 @@
         background: #fff;
         text-align: center;
         overflow: hidden;
-         top: 103px;
-        //border: 1px solid #000;
+        top: 103px;
         left: 0;
         z-index: 9;
         -webkit-user-select: none;
@@ -300,12 +284,13 @@
       }
 
       .calendar {
-        .clear{
+        .clear {
           width: 16px;
           height: 16px;
           margin: 0 auto;
           cursor: pointer;
         }
+
         .button-next,
         .button-prev {
           position: absolute;
@@ -314,12 +299,9 @@
           width: 36px;
           height: 29px;
           padding: 8px;
-          //border: 1px solid #ccc;
           cursor: pointer;
           box-sizing: border-box;
-          //border-radius: 4px;
           background-size: 15px;
-          //background-color: #fff;
           background-position: 50% 50%;
           background-repeat: no-repeat;
 
@@ -351,9 +333,7 @@
           left: -292px;
           z-index: 2;
           float: left;
-          //width: 1092px;
           text-align: left;
-          font-size: 0;
           padding-top: 50px;
 
           table {
@@ -368,32 +348,26 @@
 
             caption {
               border-bottom: 2px solid #000;
-              font-family: YuGo;
-              font-size: 14px;
+              font-family: $primary-font;
+              @include font-size(14px);
               font-weight: bold;
-              font-style: normal;
-              font-stretch: normal;
               line-height: 2.14;
               letter-spacing: 1.1px;
               text-align: center;
-              color: #000000;
+              color: $default-color;
               padding-bottom: 12px;
             }
 
             th {
               width: 37px;
-              font-size: 14px;
+              @include font-size(14px);
               line-height: 20px;
-              color: #999;
               box-sizing: border-box;
               padding: 0;
-              font-family: YuGo;
-              font-size: 14px;
+              font-family: $primary-font;
               font-weight: bold;
-              font-style: normal;
-              font-stretch: normal;
               text-align: center;
-              color: #000000;
+              color: $default-color;
               padding: 10px 0;
               border: none;
             }
@@ -401,7 +375,7 @@
             td {
               width: 40px;
               height: 40px;
-              font-size: 15px;
+              @include font-size(15px);
               line-height: 33px;
               box-sizing: border-box;
               padding: 0;
@@ -438,18 +412,18 @@
                 &.intermediate,
                 &.intermediate-hover {
                   background: #eeeeee;
-                  color: #000;
+                  color: $default-color;
                 }
 
                 &.hovered,
                 &.intermediate-hover {
-                  color: #000;
+                  color: $default-color;
                 }
 
                 &.end,
                 &.start {
-                  background: #000;
-                  color: #fff;
+                  background: $primary-bg;
+                  color: $secondary-color;
                 }
               }
             }
@@ -465,8 +439,8 @@
 
           .days {
             opacity: 0.6;
-            font-family: YuGo;
-            font-size: 14px;
+            font-family: $primary-font;
+            @include font-size(14px);
             font-weight: bold;
             letter-spacing: normal;
             text-align: center;
@@ -475,12 +449,12 @@
 
           .nights {
             height: 13px;
-            font-family: YuGo;
-            font-size: 14px;
+            font-family: $primary-font;
+            @include font-size(14px);
             font-weight: bold;
             letter-spacing: normal;
             text-align: center;
-            color: #000000;
+            color: $default-color;
             margin: 10px 0 30px;
           }
 
@@ -490,14 +464,80 @@
             background-color: #c5ad6c;
             margin: 0 auto;
             padding: 25px 0;
-            font-size: 14px;
+            @include font-size(14px);
             font-weight: bold;
             letter-spacing: 2.8px;
             text-align: center;
-            color: #ffffff;
+            color: $secondary-color;
             cursor: pointer;
           }
         }
+      }
+    }
+
+    .people {
+      float: left;
+      width: 200px;
+      margin-right: 49px;
+
+      .people-list {
+        font-family: $primary-font;
+        background-size: 6px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        border-radius: 4px;
+        margin: 0;
+        width: 200px;
+        height: 66px;
+        border: 2px solid #eeeeee;
+        @include font-size(12px);
+        font-weight: bold;
+        line-height: 2.5;
+        letter-spacing: 0.9px;
+        color: $default-color;
+        padding: 15px 0;
+
+        p {
+          background: url("../images/multiple-users-silhouette.svg") 10% center no-repeat;
+          padding-left: 50px;
+          background-size: 25px;
+          line-height: 1.4em;
+        }
+
+        span {
+          display: block;
+          opacity: 0.5;
+          font-family: $primary-font;
+          @include font-size(12px);
+          font-weight: bold;
+          letter-spacing: 0.9px;
+          text-align: left;
+          color: rgba(0, 0, 0, 0.5);
+        }
+      }
+
+      label {
+        padding: 5px 10px;
+      }
+    }
+
+    .find-button {
+      float: left;
+
+      label {
+        text-decoration: underline;
+        background: url("../images/forma-1.svg") left center;
+        background-repeat: no-repeat;
+        padding: 5px 10px 5px 20px;
+      }
+
+      button {
+        background: #c5ad6c;
+        color: #fefefe;
+        border: none;
+        height: 66px;
+        width: 182px;
+        //padding: 26px 53px;
       }
     }
   }
@@ -505,34 +545,192 @@
   #booking-tab2 {}
 
   #booking-tab3 {}
+}
 
-  #find-button,
-  #people {
-    float: left;
-    width: 200px;
-    margin-right: 11px;
+.overlay {
+  height: 100%;
+  width: 100%;
+  background-color: $default-color;
+  opacity: 0.5;
+  overflow-y: hidden;
+  transition: 0.5s;
+}
+
+.popup-wrap {
+  height: 100%;
+  width: 100%;
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+}
+
+.big-popup {
+  width: 640px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+  margin-left: -320px;
+  margin-top: -275px;
+  padding: 77px 55px 45px;
+  background-color: $secondary-color;
+  opacity: 1;
+  z-index: 1001;
+  transition: 0.5s;
+
+  .head-popup {
+    @extend %clearfix;
+    padding-bottom: 32px;
+
+    section {
+      float: left;
+
+      .form-group {
+        margin: 0;
+        display: inline;
+
+        label {
+          font-family: $secondary-font;
+          @include font-size(14px);
+          font-weight: 500;
+          font-style: normal;
+          letter-spacing: 1.1px;
+          text-align: left;
+          color: $default-color;
+          padding: 20px 44px 20px 12px;
+          float: left;
+        }
+
+        .input-showtext {
+          position: relative;
+          @extend %clearfix;
+          float: left;
+          width: 90px;
+
+          &:after {
+            content: '';
+            position: absolute;
+            right: 25%;
+            top: 45%;
+            width: 0;
+            cursor: pointer;
+            height: 0;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-top: 5px solid $default-color;
+            clear: both;
+          }
+
+          input,
+          input::placeholder {
+            font-family: $primary-font;
+            background-size: 6px;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            border-radius: 4px;
+            margin: 0;
+            height: 66px;
+            border: 2px solid #eeeeee;
+            @include font-size(12px);
+            font-weight: bold;
+            letter-spacing: 0.9px;
+            padding: 0 11px;
+            color: $default-color;
+
+            &:focus {
+              border: 2px solid #eeeeee;
+            }
+          }
+
+          input::placeholder {
+            border: 0;
+            padding-left: 0;
+          }
+        }
+
+        .popup-menu {
+          display: none;
+
+          ul {
+            margin: 0;
+
+            li {
+              span {
+                cursor: pointer;
+                display: block;
+                @include font-size(12px);
+                line-height: 1.4;
+                padding: 8px 12px;
+                color: $default-color;
+
+                &.active,
+                &:focus,
+                &:hover {
+                  background-color: rgba(255, 210, 93, 0.55);
+                }
+              }
+            }
+          }
+
+          .popup-content-input {
+            overflow-y: auto;
+            position: absolute;
+            background: #f5f5f5;
+            z-index: 999;
+            width: 90px;
+          }
+        }
+      }
+    }
   }
 
-  #people label {
-    padding: 5px 10px;
-  }
+  .input-popup {
+    border: 2px solid #eeeeee;
+    padding: 33px;
+    margin-bottom: 40px;
 
-  #find-button {
-    width: 182px;
-  }
-
-  #find-button {
-    label {
-      background: url("../images/forma-1.svg") left center;
-      background-repeat: no-repeat;
-      padding-left: 20px;
+    .title {
+      @include font-size(14px);
+      font-family: $primary-font;
+      font-weight: bold;
+      line-height: 2.14;
+      letter-spacing: normal;
+      text-align: left;
+      color: $default-color;
+      margin-bottom: 12px;
     }
 
+    ul li {
+      @include font-size(12px);
+      list-style: disc;
+    }
+  }
+
+  .btn-group {
     button {
-      background: #c5ad6c;
-      color: #fefefe;
+      margin: 0;
       border: none;
-      padding: 26px 53px;
+    }
+
+    .clear {
+      width: 261px;
+      height: 70px;
+      cursor: pointer;
+      background-color: #eeeeee;
+      float: left;
+
+      &:hover {}
+    }
+
+    .done {
+      width: 261px;
+      height: 70px;
+      float: right;
+      background-color: #c5ad6c;
+
+      &:hover {}
     }
   }
 }
