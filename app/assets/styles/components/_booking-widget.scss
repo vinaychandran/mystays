@@ -25,7 +25,8 @@
 
         &.selected {
           opacity: 1;
-          background: #fff;
+          background: $secondary-color;
+          border-bottom: 2px solid $default-color;
         }
 
         &.selected:before {
@@ -56,7 +57,11 @@
     padding: 50px 60px;
   }
 
-  #booking-tab1 {
+  #booking-tab1 {}
+
+  #booking-tab2 {}
+
+  #booking-tab3 {
     .room-locations {
       float: left;
       margin-right: 11px;
@@ -156,9 +161,7 @@
 
     .date-picker {
       float: left;
-      //width: 200px;
       margin-right: 9px;
-      //width: 372px;
       position: relative;
 
       label {
@@ -250,6 +253,7 @@
         left: 0;
         position: fixed;
         top: 0;
+        z-index: 99998;
       }
 
       .calendar {
@@ -258,12 +262,12 @@
         height: 567px;
         margin: 0;
         padding: 10px 0;
-        background: #fff;
+        background: $secondary-color;
         text-align: center;
         overflow: hidden;
         top: 103px;
         left: 0;
-        z-index: 9;
+        z-index: 99999;
         -webkit-user-select: none;
         -moz-user-select: none;
         box-sizing: border-box;
@@ -306,7 +310,6 @@
           background-repeat: no-repeat;
 
           &:hover {
-            opacity: 1;
           }
         }
 
@@ -347,7 +350,7 @@
             text-align: center;
 
             caption {
-              border-bottom: 2px solid #000;
+              border-bottom: 2px solid $default-color;
               font-family: $primary-font;
               @include font-size(14px);
               font-weight: bold;
@@ -381,7 +384,7 @@
               padding: 0;
               text-align: center;
               border: none;
-              border: 5px solid #fff;
+              border: 5px solid $secondary-color;
 
               span {
                 display: block;
@@ -537,14 +540,9 @@
         border: none;
         height: 66px;
         width: 182px;
-        //padding: 26px 53px;
       }
     }
   }
-
-  #booking-tab2 {}
-
-  #booking-tab3 {}
 }
 
 .overlay {
