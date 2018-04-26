@@ -9,9 +9,108 @@ section.booking-widget
         a(href='', data-href='#booking-tab3') お部屋+航空券
     .tab-container
       #booking-tab1.tabContent
-        label お部屋
+        .date-picker
+          .values
+            .startDateContainer
+              label チェックイン
+              .startDate
+                .value.date_at
+                  span.date_at
+                  input#date_at.date_at(type='hidden')
+            .to ~
+            .endDateContainer
+              label チェックアウト
+              .endDate
+                .value.date_to
+                  span.date_to
+                  input#date_to.date_to(type='hidden')
+          .calendar-backdrop
+          .calendar
+            //img.clear(src='/assets/images/clear.svg' )
+            .button.button-prev
+            .button.button-next
+            .calendarContainer
+            .bottomLayer
+              span.daysFromTo 2018年00月00日 金曜日 ~ 2018年00月00日 金曜日
+              .nights 10 金曜日
+              .button.closePopup &#x5B8C;&#x4E86;
+        .people
+          label ご利用人数
+          .people-list
+            p 大人2名, 子供1名
+              span １部屋
+        .promo-code
+          section
+            .form-group
+              label.form-label(for='') プロモコード
+              .input-showtext
+                input.form-control(type='text', placeholder='プロモコード)')
+        .find-button
+          label 最低価格保証
+          button(name='submit', type='submit', value='空室を検索') 空室を検索
       #booking-tab2.tabContent
-        h3 レストラン
+        .number-of-people
+          section
+            .form-group
+              label.form-label(for='') ご利用人数
+              .input-showtext
+                input.form-control(type='text', placeholder='大阪(伊丹・関西・神戸)')
+                .popup-menu
+                  .popup-content-input
+                    ul.cities
+                      li
+                        span(target='Hokkaido', names='Hokkaido') 1名
+                      li
+                        span(target='Okinawa', names='Okinawa') 2名
+                      li
+                        span(target='Tochigi', names='Tochigi') 3名
+                      li
+                        span(target='Tokyo', names='Tokyo') 4名
+        //.date-picker.date-picker-single
+          .values
+            .startDateContainer
+              label チェックイン
+              .startDate
+                .value.date_at
+                  span.date_at
+                  input#date_at.date_at(type='hidden')
+            .to ~
+            .endDateContainer
+              label チェックアウト
+              .endDate
+                .value.date_to
+                  span.date_to
+                  input#date_to.date_to(type='hidden')
+          .calendar-backdrop
+          .calendar
+            //img.clear(src='/assets/images/clear.svg' )
+            .button.button-prev
+            .button.button-next
+            .calendarContainer
+            .bottomLayer
+              span.daysFromTo 2018年00月00日 金曜日 ~ 2018年00月00日 金曜日
+              .nights 10 金曜日
+              .button.closePopup &#x5B8C;&#x4E86;
+        .shop
+          section
+            .form-group
+              label.form-label(for='') お店
+              .input-showtext
+                input.form-control(type='text', placeholder='大阪(伊丹・関西・神戸)')
+                .popup-menu
+                  .popup-content-input
+                    ul.cities
+                      li
+                        span(target='Hokkaido', names='Hokkaido') レストラン「ガーデニア」
+                      li
+                        span(target='Okinawa', names='Okinawa') チェックイン
+                      li
+                        span(target='Tochigi', names='Tochigi') チェックアウト
+                      li
+                        span(target='Tokyo', names='Tokyo') 大人2名
+        .find-button
+          label 最低価格保証
+          button(name='submit', type='submit', value='空室を検索') 空室を検索
       #booking-tab3.tabContent
         .room-locations
           section

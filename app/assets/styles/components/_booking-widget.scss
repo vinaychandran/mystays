@@ -57,12 +57,10 @@
     padding: 50px 60px;
   }
 
-  #booking-tab1 {}
-
-  #booking-tab2 {}
-
+  #booking-tab1,
+  #booking-tab2,
   #booking-tab3 {
-    .room-locations {
+    .promo-code {
       float: left;
       margin-right: 11px;
 
@@ -82,20 +80,6 @@
 
         .input-showtext {
           position: relative;
-
-          &:after {
-            content: '';
-            position: absolute;
-            right: 10%;
-            top: 45%;
-            width: 0;
-            cursor: pointer;
-            height: 0;
-            border-left: 3px solid transparent;
-            border-right: 3px solid transparent;
-            border-top: 5px solid $default-color;
-            clear: both;
-          }
 
           input,
           input::placeholder {
@@ -121,39 +105,6 @@
           input::placeholder {
             border: 0;
             padding-left: 0;
-          }
-        }
-
-        .popup-menu {
-          display: none;
-
-          ul {
-            margin: 0;
-
-            li {
-              span {
-                cursor: pointer;
-                display: block;
-                @include font-size(12px);
-                line-height: 1.4;
-                padding: 8px 12px;
-                color: $default-color;
-
-                &.active,
-                &:focus,
-                &:hover {
-                  background-color: rgba(255, 210, 93, 0.55);
-                }
-              }
-            }
-          }
-
-          .popup-content-input {
-            overflow-y: auto;
-            position: absolute;
-            background: #f5f5f5;
-            z-index: 999;
-            width: 200px;
           }
         }
       }
@@ -309,8 +260,7 @@
           background-position: 50% 50%;
           background-repeat: no-repeat;
 
-          &:hover {
-          }
+          &:hover {}
         }
 
         .button-prev {
@@ -540,6 +490,131 @@
         border: none;
         height: 66px;
         width: 182px;
+      }
+    }
+  }
+
+  #booking-tab2,
+  #booking-tab3 {
+    .number-of-people,
+    .room-locations,
+    .shop {
+      float: left;
+      margin-right: 20px;
+
+      .form-group {
+        margin: 0;
+        width: 142px;
+
+        label {
+          font-family: $secondary-font;
+          @include font-size(14px);
+          font-weight: 500;
+          letter-spacing: 1.1px;
+          text-align: left;
+          color: $default-color;
+          padding: 5px 10px;
+        }
+
+        .input-showtext {
+          position: relative;
+
+          &:after {
+            content: '';
+            position: absolute;
+            right: 10%;
+            top: 45%;
+            width: 0;
+            cursor: pointer;
+            height: 0;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-top: 5px solid $default-color;
+            clear: both;
+          }
+
+          input,
+          input::placeholder {
+            font-family: $primary-font;
+            background-size: 6px;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            border-radius: 4px;
+            margin: 0;
+            height: 66px;
+            border: 2px solid #eeeeee;
+            @include font-size(12px);
+            font-weight: bold;
+            letter-spacing: 0.9px;
+            padding: 0 11px;
+            color: $default-color;
+
+            &:focus {
+              border: 2px solid #eeeeee;
+            }
+          }
+
+          input::placeholder {
+            border: 0;
+            padding-left: 0;
+          }
+        }
+
+        .popup-menu {
+          display: none;
+
+          ul {
+            margin: 0;
+
+            li {
+              span {
+                cursor: pointer;
+                display: block;
+                @include font-size(12px);
+                line-height: 1.4;
+                padding: 8px 12px;
+                color: $default-color;
+
+                &.active,
+                &:focus,
+                &:hover {
+                  background-color: rgba(255, 210, 93, 0.55);
+                }
+              }
+            }
+          }
+
+          .popup-content-input {
+            overflow-y: auto;
+            position: absolute;
+            background: #f5f5f5;
+            z-index: 999;
+            width: 200px;
+          }
+        }
+      }
+    }
+
+    .people {
+      margin-right: 20px;
+    }
+
+    .shop {
+      margin-right: 66px;
+
+      .form-group {
+        width: 290px;
+      }
+    }
+  }
+
+  #booking-tab1,
+  #booking-tab3 {
+    .room-locations {
+      margin-right: 11px;
+
+      .form-group {
+        width: 200px;
       }
     }
   }

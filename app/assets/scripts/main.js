@@ -275,7 +275,7 @@ const FE = {
         }
       });
       $(document).on('focus', '.input-showtext input', function() {
-        $(this).blur();
+        //$(this).blur();
         $(this).next().find('li span').on('click', function() {
           $(this).parents('.input-showtext').find('input').val($(this).text());
           $(this).parents('.input-showtext').find('input').focus();
