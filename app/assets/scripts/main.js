@@ -143,7 +143,8 @@ const FE = {
                     slidesToShow: slideToShow,
                     slidesToScroll: 1,
                     dots: dots,
-                    arrows: arrows
+                    arrows: arrows,
+                    lazyLoad: 'progressive'
                 });
                 imgIndex = $(this).find('.slider-content').index();
                 $(this).on('init reInit afterChange', function(event, slick, currentSlide, nextSlide) {

@@ -1,0 +1,148 @@
+.about-rooms-wrap{
+  .about-rooms-info{
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 60px 0;
+    text-align: center;
+    @include md {
+      padding: 90px 0;
+    }
+    h3{
+      font-family: 'Lato';
+      font-weight: normal;
+      line-height: 1;
+      margin-bottom: 30px;
+    }
+    p{
+      @include font-size(14px);
+      font-family: 'YuMin'; 
+      color: #333;  
+    }
+  }  
+
+  .rooms-list-wrap{ 
+    background-color: #fafafa; 
+    padding: 80px 0;
+    h4{
+      text-align: center;
+      @include font-size(20px);
+      font-weight: 500; 
+      font-family: 'YuMin';
+      margin-bottom: 30px;
+    }
+  }
+  ul.room-types{
+      @include sm {
+      display: table;
+      margin: 0 auto 40px;
+    }
+    li {    
+      @include sm {
+        float: left;
+        padding: 0 20px;
+      }
+      a {
+        @include font-size(14px);
+        font-family: 'YuGo';
+        line-height: 1.43;
+        letter-spacing: 1.4px;
+        text-align: center;
+        color: #888888;
+        display: block;
+        position: relative;
+        margin: 8px 0;
+        @include sm {
+          text-align: left;
+          margin: 0;
+        }
+        &.selected {
+          color: $default-color;
+          &:after {
+            @include sm {
+              content: "";
+              width: 100%;
+              height: 2px;
+              display: block;
+              background-color: #232e48;
+              margin-top: 3px;
+            }
+          }
+          &:before {
+            @include sm {
+              content: '';
+              width: 0; 
+              height: 0; 
+              position: absolute;
+              bottom: -6px;
+              left: 50%;
+              margin-left: -4px;
+              border-left: 6px solid transparent;
+              border-right: 6px solid transparent;          
+              border-top: 6px solid $default-color;
+            }
+          }
+        }      
+      }
+    } 
+  }
+
+  ul.rooms-list{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content:space-between;  
+    > li{
+      width: 48%;
+      background:$default-bg; 
+      margin-bottom: 110px; 
+      .room-short-info{
+        padding: 20px 50px;
+        width: 100%;
+        float: left;
+      }      
+    }  
+    h6{
+      float: left;
+      @include font-size(16px);
+      font-family: 'YuGo';
+    }
+    .price{
+      @include font-size(24px);
+      font-family: 'YuGo';
+      float: right;
+    }
+    .room-facilities{
+      clear: both;
+      margin-top: 25px;
+      border-top: 1px solid #f1f3ee;
+      width: 100%;
+      padding: 25px 0 50px; 
+      float: left;
+      position: relative;
+      ul{
+        width: 50%;
+        float: left;
+        padding-right:50px; 
+        border-right: 1px solid #f1f3ee;
+        &:nth-child(2) {
+          border-right: 0px;
+          padding-left: 30px;
+        }
+      }
+      li{ 
+        @include font-size(14px);
+        font-family: 'YuGo';
+        width: 100%;
+        padding: 6px 0;
+        span{
+          float: right;
+          font-weight: 700;
+        }
+      }
+    }    
+  }  
+  .room-more{
+    position: absolute;
+    bottom: -60px;
+    width: 100%;
+  }
+} 
