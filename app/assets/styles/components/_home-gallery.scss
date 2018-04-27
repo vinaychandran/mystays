@@ -113,3 +113,21 @@
         }
     }    
 }
+
+.gallery-nav{
+   .slick-slide{
+        text-align: center;
+        img{
+            margin: 0 auto;
+        }
+   } 
+   @include md {
+        .slick-prev{
+            left: 10px;
+        }
+        .slick-next {
+            right: 10px;
+        }
+   }
+
+}

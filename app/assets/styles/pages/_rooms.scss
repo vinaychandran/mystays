@@ -144,5 +144,9 @@
     position: absolute;
     bottom: -60px;
     width: 100%;
+    .mys-arrow-left{
+      @include center(vertical);
+      right: 30px; 
+    }
   }
 } 
