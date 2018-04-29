@@ -315,6 +315,22 @@ const FE = {
         }, 100);
       });
 
+      $(document).on('click', '.calendar-link', function() {
+        setTimeout(() => {
+          $('body').addClass('noScrollBody');
+          let $body = $(this).closest('body');
+          $body.children('.booking-widget').fadeIn();
+        }, 100);
+      });
+
+      $(document).on('click', '.close-booking', function() {
+        setTimeout(() => {
+          $('body').removeClass('noScrollBody');
+          let $body = $(this).closest('body');
+          $body.children('.booking-widget').fadeOut();
+        }, 100);
+      });
+
     },
 
 

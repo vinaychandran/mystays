@@ -7,6 +7,7 @@
 }
 
 .home-slider {
+  @extend %clearfix;
   margin-bottom: 130px;
 
   .home-slider-title {

@@ -58,6 +58,10 @@
 
     function createCalendar(year, month, direction, max_m = 3) {
 
+      if($(window).width() < 767) {
+        max_m = 2;
+      }
+
       var html;
 
       var start = 1;
