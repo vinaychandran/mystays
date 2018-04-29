@@ -5,6 +5,7 @@
       mobile = false;
 
     var container = $(opts.container),
+      singleDatePicker = opts.singleDatePicker,
       containerValues = container.find('.values'),
       containerCalendar = container.find('.calendar'),
       containerCalendarContainer = container.find('.calendarContainer'),
@@ -242,6 +243,11 @@
         // if(date_at_ = ''){
         //   date_at_ = date_to_;
         // }
+        if(singleDatePicker){
+          date_to_ = date_at_;
+          closeCalendarAndEmpty();
+          clearAll();
+        }
 
         if (date_at_ > date_to_) {
           date_to_ = '';
@@ -318,6 +324,7 @@
           container.find('.nights').html(diffDays + ' nights');
 
         }
+        closeCalendarAndEmpty();
         checkHover(containerCalendar.find('td.valid.start'), 'click');
         // if (opts.date_at != '' && opts.date_to) {
         //     //closeCalendarAndEmpty();

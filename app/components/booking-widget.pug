@@ -1,6 +1,6 @@
 section.booking-widget.visible-desktop
   .container
-    div.booking-title.visible-mobile 
+    div.booking-title.visible-mobile
       p 空室検索
       a.close-booking X
     ul#tabs.tabs
@@ -12,7 +12,7 @@ section.booking-widget.visible-desktop
         a(href='', data-href='#booking-tab3') お部屋+航空券
     .tab-container
       #booking-tab1.tabContent
-        .date-picker
+        .date-picker-tab1
           .values
             .startDateContainer
               label チェックイン
@@ -27,7 +27,7 @@ section.booking-widget.visible-desktop
                 .value.date_to
                   span.date_to
                   input#date_to.date_to(type='hidden')
-          .calendar-backdrop
+          //.calendar-backdrop
           .calendar
             //img.clear(src='/assets/images/clear.svg' )
             .button.button-prev
@@ -36,7 +36,7 @@ section.booking-widget.visible-desktop
             .bottomLayer
               span.daysFromTo 2018年00月00日 金曜日 ~ 2018年00月00日 金曜日
               .nights 10 金曜日
-              .button.closePopup &#x5B8C;&#x4E86;
+              //.button.closePopup &#x5B8C;&#x4E86;
         .people
           label ご利用人数
           .people-list
@@ -57,7 +57,7 @@ section.booking-widget.visible-desktop
             .form-group
               label.form-label(for='') ご利用人数
               .input-showtext
-                input.form-control(type='text', placeholder='大阪(伊丹・関西・神戸)')
+                input.form-control(type='text', placeholder='大阪(伊丹・関西)')
                 .popup-menu
                   .popup-content-input
                     ul.cities
@@ -69,31 +69,40 @@ section.booking-widget.visible-desktop
                         span(target='Tochigi', names='Tochigi') 3名
                       li
                         span(target='Tokyo', names='Tokyo') 4名
-        //.date-picker.date-picker-single
-          .values
-            .startDateContainer
-              label チェックイン
-              .startDate
-                .value.date_at
-                  span.date_at
-                  input#date_at.date_at(type='hidden')
-            .to ~
-            .endDateContainer
-              label チェックアウト
-              .endDate
-                .value.date_to
-                  span.date_to
-                  input#date_to.date_to(type='hidden')
-          .calendar-backdrop
-          .calendar
-            //img.clear(src='/assets/images/clear.svg' )
-            .button.button-prev
-            .button.button-next
-            .calendarContainer
-            .bottomLayer
-              span.daysFromTo 2018年00月00日 金曜日 ~ 2018年00月00日 金曜日
-              .nights 10 金曜日
-              .button.closePopup &#x5B8C;&#x4E86;
+        .date-picker-tab2-single
+          label チェックイン
+          .date-picker-tab2-single-container
+            .values
+              .startDateContainer
+                .startDate
+                  .value.date_at
+                    span.date_at
+                    input#date_at.date_at(type='hidden')
+            .time-selection
+              section
+                .form-group
+                  .input-showtext
+                    input.form-control(type='text', placeholder='00:00')
+                    .popup-menu
+                      .popup-content-input
+                        ul.cities
+                          li
+                            span(target='Hokkaido', names='Hokkaido') 19:30
+                          li
+                            span(target='Okinawa', names='Okinawa') 20:00
+                          li
+                            span(target='Tochigi', names='Tochigi') 20:30
+                          li
+                            span(target='Tokyo', names='Tokyo') 21:00
+            //.calendar-backdrop
+            .calendar
+              .button.button-prev
+              .button.button-next
+              .calendarContainer
+              .bottomLayer
+                span.daysFromTo 2018年00月00日 金曜日 ~ 2018年00月00日 金曜日
+                .nights 10 金曜日
+                //.button.closePopup &#x5B8C;&#x4E86;
         .shop
           section
             .form-group
@@ -132,7 +141,7 @@ section.booking-widget.visible-desktop
                         span(target='Tochigi', names='Tochigi') チェックアウト
                       li
                         span(target='Tokyo', names='Tokyo') 大人2名
-        .date-picker
+        .date-picker-tab3
           .values
             .startDateContainer
               label チェックイン
@@ -147,7 +156,7 @@ section.booking-widget.visible-desktop
                 .value.date_to
                   span.date_to
                   input#date_to.date_to(type='hidden')
-          .calendar-backdrop
+          //.calendar-backdrop
           .calendar
             //img.clear(src='/assets/images/clear.svg' )
             .button.button-prev
@@ -156,7 +165,7 @@ section.booking-widget.visible-desktop
             .bottomLayer
               span.daysFromTo 2018年00月00日 金曜日 ~ 2018年00月00日 金曜日
               .nights 10 金曜日
-              .button.closePopup &#x5B8C;&#x4E86;
+              //.button.closePopup &#x5B8C;&#x4E86;
         .people
           label ご利用人数
           .people-list

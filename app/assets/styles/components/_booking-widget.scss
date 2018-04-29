@@ -10,30 +10,33 @@
   @include sm {
     position: static;
   }
+
   .booking-title {
     @extend %clearfix;
     text-align: center;
     font-family: $primary-font;
-    font-weight: bold; 
+    font-weight: bold;
     @include sm {
       display: none;
-    }   
+    }
+
     p {
       @include font-size(14px);
       margin: 0;
       float: left;
       width: 85%;
-      padding: 18px 0;      
+      padding: 18px 0;
       line-height: 1.25;
       letter-spacing: 5.3px;
     }
+
     a {
       float: right;
-      padding: 18px 0;
       padding: 18px 22px;
       border-left: 1px solid #eee;
     }
   }
+
   .tabs {
     @extend %clearfix;
     display: block;
@@ -41,6 +44,7 @@
     @include mobile {
       border-top: 1px solid #eee;
     }
+
     li {
       background: #eeeeee;
       padding: 0;
@@ -48,6 +52,7 @@
       @include mobile {
         width: 33.3%;
       }
+
       a {
         height: 40px;
         display: block;
@@ -107,12 +112,14 @@
         margin: 0;
         padding: 20px 0;
       }
+
       .form-group {
         margin: 0;
         width: 200px;
         @include mobile {
           width: 100%;
         }
+
         label {
           font-family: $secondary-font;
           @include font-size(14px);
@@ -155,7 +162,9 @@
       }
     }
 
-    .date-picker {
+    .date-picker-tab1,
+    .date-picker-tab2-single,
+    .date-picker-tab3 {
       float: left;
       margin-right: 9px;
       position: relative;
@@ -171,10 +180,10 @@
       .endDateContainer,
       .startDateContainer {
         float: left;
-        margin-right: 11px;
+        margin-right: 6px;
         @include mobile {
           margin-right: 0;
-          width:47%;
+          width: 47%;
         }
       }
 
@@ -198,6 +207,7 @@
         @include mobile {
           width: 100%;
         }
+
         .dayoftheweek {
           opacity: 0.5;
           color: rgba(0, 0, 0, 0.5);
@@ -223,7 +233,8 @@
         @include mobile {
           clear: both;
           padding-top: 20px;
-        }        
+        }
+
         .clear,
         .to,
         .value {
@@ -236,6 +247,7 @@
         .to {
           float: left;
           padding: 60px 0;
+          margin-right: 11px;
           vertical-align: middle;
           color: #d3d3d3;
         }
@@ -270,7 +282,7 @@
       .calendar {
         display: none;
         width: 700px;
-        height: 567px;
+        height: 474px;
         margin: 0;
         padding: 10px 0;
         background: $secondary-color;
@@ -283,11 +295,12 @@
         -moz-user-select: none;
         box-sizing: border-box;
         transition-duration: 0.5s;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        margin-top: -283px;
-        margin-left: -350px;
+        position: absolute;
+        border-top: 2px solid #000;
+        // top: 50%;
+        // left: 50%;
+        // margin-top: -283px;
+        // margin-left: -350px;
 
         &:after {
           background: url("../images/clear.svg") 50% 50% no-repeat;
@@ -445,7 +458,7 @@
 
         .bottomLayer {
           position: absolute;
-          top: 70%;
+          top: 88%;
           left: 0;
           display: block;
           width: 100%;
@@ -491,10 +504,11 @@
     .people {
       float: left;
       width: 200px;
-      margin-right: 49px;
+      margin-right: 20px;
       @include mobile {
         width: 100%;
       }
+
       .people-list {
         font-family: $primary-font;
         background-size: 6px;
@@ -547,6 +561,7 @@
         clear: both;
         padding: 30px 0;
       }
+
       label {
         text-decoration: underline;
         background: url("../images/forma-1.svg") left center;
@@ -572,19 +587,22 @@
   #booking-tab3 {
     .number-of-people,
     .room-locations,
-    .shop {
+    .shop,
+    .time-selection {
       float: left;
       margin-right: 20px;
       @include mobile {
         width: 100%;
         margin: 0;
       }
+
       .form-group {
         margin: 0;
         width: 142px;
         @include mobile {
           width: 100%;
         }
+
         label {
           font-family: $secondary-font;
           @include font-size(14px);
@@ -674,19 +692,83 @@
       }
     }
 
+    .date-picker-tab2-single {
+      .date-picker-tab2-single-container {
+        @extend %clearfix;
+        border: 2px solid #eeeeee;
+        width: 308px;
+
+        .values {
+          float: left;
+
+          .startDate {
+            width: 181px;
+            height: 62px;
+            background: url("../images/calendar-interface-symbol-tool.svg") 5% center no-repeat;
+            padding-left: 35px;
+            background-size: 20px;
+            border: 0;
+
+            .value {
+              border-right: 2px solid #eeeeee;
+              padding-right: 20px;
+            }
+          }
+        }
+      }
+    }
+
     .people {
       margin-right: 20px;
     }
 
     .shop {
-      margin-right: 66px;
+      margin-right: 58px;
       @include mobile {
         margin-right: 0;
       }
+
       .form-group {
         width: 290px;
         @include mobile {
           width: 100%;
+        }
+      }
+    }
+
+    .time-selection {
+      margin: 0;
+      width: 100px;
+
+      .form-group {
+        width: auto;
+
+        .input-showtext {
+          input,
+          input::placeholder {
+            border: 0;
+            font-family: Lato;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1.4px;
+            text-align: left;
+            color: #000000;
+            height: 62px;
+
+            &:focus {
+              border: none;
+            }
+          }
+        }
+      }
+
+      .popup-menu {
+        .popup-content-input {
+          width: 100px!important;
+
+          ul li {
+            font-family: Lato;
+          }
         }
       }
     }

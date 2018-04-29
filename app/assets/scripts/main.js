@@ -373,6 +373,13 @@ $(function() {
 $(window).load(function() {
   FE.global.loaded();
   $.DateRangePicker({
-    container: '.date-picker'
+    container: '.date-picker-tab1'
+  });
+  $.DateRangePicker({
+    container: '.date-picker-tab2-single',
+    singleDatePicker: true
+  });
+  $.DateRangePicker({
+    container: '.date-picker-tab3'
   });
 });
