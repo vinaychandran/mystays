@@ -177,6 +177,12 @@
         padding: 5px 10px;
       }
 
+      .date-picker-tab1-container {
+        border: 2px solid #eeeeee;
+        border-radius: 4px;
+        width: 360px;
+      }
+
       .endDateContainer,
       .startDateContainer {
         float: left;
@@ -196,14 +202,14 @@
         letter-spacing: 0.9px;
         text-align: left;
         color: $default-color;
-        border: 2px solid #eeeeee;
-        height: 66px;
+        //border: 2px solid #eeeeee;
+        height: 62px;
         line-height: 66px;
-        padding: 18px 0;
+        padding-top: 18px;
         background: url("../images/calendar-interface-symbol-tool.svg") 10% center no-repeat;
         padding-left: 45px;
         background-size: 20px;
-        width: 164px;
+        //width: 164px;
         @include mobile {
           width: 100%;
         }
@@ -246,7 +252,7 @@
 
         .to {
           float: left;
-          padding: 60px 0;
+          padding-top: 25px;
           margin-right: 11px;
           vertical-align: middle;
           color: #d3d3d3;
@@ -680,7 +686,14 @@
           ul {
             margin: 0;
             padding: 10px 0;
+
             li {
+              border-bottom: 1px solid #eeeeee;
+
+              &:first-child {
+                border-top: 1px solid #eeeeee;
+              }
+
               span {
                 cursor: pointer;
                 display: block;
@@ -738,6 +751,7 @@
       .date-picker-tab2-single-container {
         @extend %clearfix;
         border: 2px solid #eeeeee;
+        border-radius: 4px;
         width: 308px;
 
         .values {
@@ -939,8 +953,15 @@
 
           ul {
             margin: 0;
-            padding-top: 10px;
+            padding: 10px 0;
+
             li {
+              border-bottom: 1px solid #eeeeee;
+
+              &:first-child {
+                border-top: 1px solid #eeeeee;
+              }
+
               span {
                 cursor: pointer;
                 display: block;
