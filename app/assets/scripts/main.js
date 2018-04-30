@@ -313,7 +313,14 @@ const FE = {
           let $body = $(this).closest('body');
           $body.children('.popup-wrap').fadeIn();
           $body.children('.popup-wrap').find('.people-list-popup').fadeIn();
+          console.log($body.children('.popup-wrap').find('.people-list-popup'));
+          // This lines is not working
+         $body.children('.popup-wrap').find('.people-list-popup').css('display', 'block');
         }, 100);
+
+        //  $(this).closest('body').children('.popup-wrap').find('.people-list-popup').css('display', 'block');
+          //console.log(  $(this).closest('body').children('.popup-wrap').find('.people-list-popup'))
+
       });
 
       $(document).on('click', '.calendar-link', function() {

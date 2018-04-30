@@ -324,7 +324,7 @@
           content: "";
           position: absolute;
           height: 5px;
-          border-bottom: 3px solid #000;
+          border-bottom: 4px solid #000;
           top: 7px;
           left: 0;
           width: 100%;
@@ -529,6 +529,7 @@
       float: left;
       width: 200px;
       margin-right: 20px;
+      position: relative;
       @include mobile {
         width: 100%;
       }
@@ -738,7 +739,7 @@
               content: "";
               position: absolute;
               height: 5px;
-              border-bottom: 3px solid #000;
+              border-bottom: 4px solid #000;
               top: 8px;
               left: 0;
               width: 100%;
@@ -846,20 +847,20 @@
   }
 }
 
-.overlay {
-  height: 100%;
-  width: 100%;
-  background-color: $default-color;
-  opacity: 0.5;
-  overflow-y: hidden;
-  transition: 0.5s;
-}
+// .overlay {
+//   height: 100%;
+//   width: 100%;
+//   background-color: $default-color;
+//   opacity: 0.5;
+//   overflow-y: hidden;
+//   transition: 0.5s;
+// }
 
 .popup-wrap {
   height: 100%;
   width: 100%;
-  display: none;
-  position: fixed;
+  ///display: none;
+  position: relative;
   z-index: 1000;
   top: 0;
   left: 0;
@@ -868,11 +869,12 @@
 .big-popup {
   width: 640px;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 0;
+  left: 0;
+    // This lines is not working
   display: none;
-  margin-left: -320px;
-  margin-top: -275px;
+  // margin-left: -320px;
+  // margin-top: -275px;
   padding: 77px 55px 45px;
   background-color: $secondary-color;
   opacity: 1;
