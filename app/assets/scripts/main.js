@@ -313,9 +313,8 @@ const FE = {
           let $body = $(this).closest('body');
           $body.children('.popup-wrap').fadeIn();
           $body.children('.popup-wrap').find('.people-list-popup').fadeIn();
-          console.log($body.children('.popup-wrap').find('.people-list-popup'));
           // This lines is not working
-         $body.children('.popup-wrap').find('.people-list-popup').css('display', 'block');
+         $(this).find('.people-list-popup').show();
         }, 100);
 
         //  $(this).closest('body').children('.popup-wrap').find('.people-list-popup').css('display', 'block');
