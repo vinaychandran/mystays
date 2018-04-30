@@ -1,18 +1,34 @@
 .section-title {
     text-align: center;
-    h2 {        
+    h2 {
         line-height: 1.47;
         letter-spacing: 2.6px;
         color: #141414;
         display: inline-block;
         margin: 0 0 50px 0;
         text-underline-position: under;
-        text-decoration: underline;    
+        text-decoration: underline;
         font-family: 'Lato';
-        font-weight: normal;    
+        font-weight: normal;
     }
     padding: 0 15px;
     @include md {
         padding: 0;
+    }
+}
+
+.sticky {
+    position: fixed;
+    top: 12px;
+    width: 100%;
+    z-index: 9;
+    bottom: auto;
+    padding-bottom: 0 !important;
+    box-shadow: 3.5px 3.5px 6px 0 rgba(0, 0, 0, 0.04);
+    .tab-container {
+        height: 172px;
+    }
+    + .home-slider {
+        padding-top: 302px;
     }
 }
