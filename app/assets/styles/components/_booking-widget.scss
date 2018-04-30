@@ -864,6 +864,7 @@
   z-index: 1000;
   top: 0;
   left: 0;
+  display: none;
 }
 
 .big-popup {
@@ -872,7 +873,6 @@
   top: 0;
   left: 0;
     // This lines is not working
-  display: none;
   // margin-left: -320px;
   // margin-top: -275px;
   padding: 77px 55px 45px;

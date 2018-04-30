@@ -290,12 +290,13 @@ const FE = {
         $(this).parents('.input-showtext').find('.popup-menu').fadeOut();
         $(this).parents('.input-showtext').removeClass('focus');
       });
-      $(document).on('click', '.people-list-popup .btn-group .done', function(e) {
-        e.preventDefault();
-        var popup = $(this).parents('.people-list-popup')
+      $(document).on('click', '.people-list-popup .btn-group .done', function(e) {        
+        var popup = $(this).parents('.popup-wrap');
+        console.log(popup);
         let getText = '大人'+ popup.find('.grown-up .input-showtext input').val() + ' 名, 子供' + popup.find('.children .input-showtext input').val() + ' 名 <span>' + popup.find('.room .input-showtext input').val() + ' 部屋 </span>';
         $('.people .people-list p').html(getText);
-        $(this).closest('body').children('.popup-wrap').css('display', 'none');
+        popup.css('display', 'none');
+        e.preventDefault();
       });
       $(document).on('click', '.people-list-popup .btn-group .clear', function(e) {
         e.preventDefault();
@@ -314,7 +315,7 @@ const FE = {
           $body.children('.popup-wrap').fadeIn();
           $body.children('.popup-wrap').find('.people-list-popup').fadeIn();
           // This lines is not working
-         $(this).find('.people-list-popup').show();
+         $(this).next().show();
         }, 100);
 
         //  $(this).closest('body').children('.popup-wrap').find('.people-list-popup').css('display', 'block');
