@@ -8,8 +8,9 @@ const isDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/
     iOS11 = /OS 11_0_1|OS 11_0_2|OS 11_0_3|OS 11_1|OS 11_1_1|OS 11_1_2|OS 11_2|OS 11_2_1|OS 11_2_2|OS 11_2_3|OS 11_2_4|OS 11_2_5/.test(navigator.userAgent);
 const isMobile = $(window).width() <= mobileWidth;
 const isIpad = $(window).width() <= deviceWidth;
+var sticky = document.getElementById('booking-widget').offsetTop - 12;
 const FE = {
-    global: {        
+    global: {
         lazyLoad: () => {
             const myLazyLoad = new LazyLoad({
                 elements_selector: '.lazy',
@@ -133,7 +134,7 @@ const FE = {
                 $(this).on('init reInit afterChange', function(event, slick, currentSlide, nextSlide) {
                     imgIndex = (currentSlide ? currentSlide : 0) + 1;
                 });
-            });            
+            });
         },
         instaFeed: () => {
             let instabox = document.getElementById('instafeed');
@@ -259,19 +260,19 @@ const FE = {
             document.querySelectorAll('[data-show-id]').forEach(function(elem) {
                 const html = getTargetHTML(elem);
                // elem.onclick = basicLightbox.create(html).show;
-                elem.onclick = basicLightbox.create(html, {                    
+                elem.onclick = basicLightbox.create(html, {
                     afterShow: (instance) => {
                        let SlideNumber = elem.getAttribute('data-slide')
                        FE.global.lazyLoad();
                        FE.global.sliderImage('.gallery-nav', 1, false, true);
                        $('.gallery-nav').slick('slickGoTo', SlideNumber, true);
-                    }, 
-                    afterClose: (instance) => {                       
+                    },
+                    afterClose: (instance) => {
                        $('.gallery-nav').slick('unslick');
-                    }               
+                    }
                 }).show
             })
-            
+
         },
         lightBoxGallery: () => {
             const getSrc = (elem) => elem.getAttribute('data-src')
@@ -314,8 +315,88 @@ const FE = {
             document.querySelectorAll('.thumbnail-gallery').forEach(function(elem) {
                 elem.onclick = (e) => open(elem)
             })
-            
+
         },
+
+        autocomplatePopup: () => {
+          $(document).on('click', '.input-showtext input', function() {
+            if ($(this).parents('#header-search-popup').length == 1) {} else {
+              $(this).parents('.input-showtext').find('.popup-menu').fadeIn();
+            }
+          });
+          $(document).on('focus', '.input-showtext input', function() {
+            //$(this).blur();
+            $(this).next().find('li span').on('click', function() {
+              $(this).parents('.input-showtext').find('input').val($(this).text());
+              $(this).parents('.input-showtext').find('input').focus();
+            });
+          });
+
+          $(document).on('click', '.input-showtext .popup-content-input ul li span', function() {
+            $(this).parents('.input-showtext').find(' .popup-content-input ul li span').removeClass('active');
+            $(this).addClass('active');
+            $(this).parents('.input-showtext').find('input').attr('href', $(this).parent().attr('data-link')).focus();
+            $(this).parents('.input-showtext').find('.popup-menu').fadeOut();
+            $(this).parents('.input-showtext').removeClass('focus');
+          });
+          $(document).on('click', '.people-list-popup .btn-group .done', function(e) {
+            var popup = $(this).parents('.popup-wrap');
+            console.log(popup);
+            let getText = '大人'+ popup.find('.grown-up .input-showtext input').val() + ' 名, 子供' + popup.find('.children .input-showtext input').val() + ' 名 <span>' + popup.find('.room .input-showtext input').val() + ' 部屋 </span>';
+            $('.people .people-list p').html(getText);
+            popup.css('display', 'none');
+            e.preventDefault();
+          });
+          $(document).on('click', '.people-list-popup .btn-group .clear', function(e) {
+            e.preventDefault();
+            var popup = $(this).parents('.people-list-popup')
+            popup.find('.grown-up .input-showtext input').val('');
+            popup.find('.children .input-showtext input').val('');
+            popup.find('.room .input-showtext input').val('');
+          });
+        },
+        itemShowHide: () => {
+
+          $(document).on('click', '.people-list', function() {
+             $(this).next().show();
+          });
+
+          $(document).on('click', '.calendar-link', function() {
+            setTimeout(() => {
+              $('body').addClass('noScrollBody');
+              let $body = $(this).closest('body');
+              $body.children('.booking-widget').fadeIn();
+            }, 100);
+          });
+
+          $(document).on('click', '.close-booking', function() {
+            setTimeout(() => {
+              $('body').removeClass('noScrollBody');
+              let $body = $(this).closest('body');
+              $body.children('.booking-widget').fadeOut();
+            }, 100);
+          });
+
+        },
+        sticky: (element) => {
+          if (window.pageYOffset  >= sticky) {
+            element.classList.add('sticky')
+          } else {
+            element.classList.remove('sticky');
+          }
+        },
+
+        getOffset: (el) => {
+          var _x = 0;
+            var _y = 0;
+            while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
+                _x += el.offsetLeft - el.scrollLeft;
+                _y += el.offsetTop - el.scrollTop;
+                el = el.offsetParent;
+            }
+            return { top: _y, left: _x };
+        },
+
         init: () => {
             //initialling modal
             //FE.global.loginModal('modal1', false, false);
@@ -338,7 +419,10 @@ const FE = {
             FE.global.lazyLoad();
             FE.global.lightBox();
             FE.global.lightBoxGallery();
-            //FE.global.sliderImage('.home-video-slider-nav', 4, false, true);
+            FE.global.clickOutside('fade', '.input-showtext .form-control', '.input-showtext .popup-menu');
+            FE.global.clickOutside('fade', '.people-list-popup', '.popup-wrap.popup-create');
+            FE.global.autocomplatePopup();
+            FE.global.itemShowHide();
         },
         resize: function resize() {
             //Functions inside loaded execute when window resize
@@ -352,14 +436,27 @@ $(function() {
     FE.global.init();
 });
 
+window.onscroll = function() {FE.global.sticky(document.getElementById('booking-widget'))};
+
 $(window).load(function() {
     FE.global.loaded();
-    $('#checkin_date').datepicker({
-        numberOfMonths: 2,
-        minDate: new Date(),
-        showButtonPanel: true,
-        autoclose: false
-    });
-    $('#checkout_date').datepicker();
-    $.datepicker.setDefaults($.datepicker.regional["kr"]);
+    // $('#checkin_date').datepicker({
+    //     numberOfMonths: 2,
+    //     minDate: new Date(),
+    //     showButtonPanel: true,
+    //     autoclose: false
+    // });
+    // $('#checkout_date').datepicker();
+    // $.datepicker.setDefaults($.datepicker.regional["kr"]);
+
+      $.DateRangePicker({
+        container: '.date-picker-tab1'
+      });
+      $.DateRangePicker({
+        container: '.date-picker-tab2-single',
+        singleDatePicker: true
+      });
+      $.DateRangePicker({
+        container: '.date-picker-tab3'
+      });
 });
