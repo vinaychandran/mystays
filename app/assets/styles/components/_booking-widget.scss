@@ -104,7 +104,8 @@
   #booking-tab1,
   #booking-tab2,
   #booking-tab3 {
-    .promo-code {
+    @extend %clearfix;
+    .promo-code {      
       float: left;
       margin-right: 11px;
       @include mobile {

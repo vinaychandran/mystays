@@ -16,3 +16,19 @@
         }
     }
 }
+
+.sticky {
+    position: fixed;
+    top: 12px;
+    width: 100%;
+    z-index: 9;
+    bottom: auto;
+    padding-bottom: 0 !important;
+    box-shadow: 3.5px 3.5px 6px 0 rgba(0, 0, 0, 0.04);
+    .tab-container {
+        height: 172px;
+    }
+    + .home-slider {
+        padding-top: 302px;
+    }
+}

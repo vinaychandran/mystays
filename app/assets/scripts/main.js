@@ -1,5 +1,6 @@
 'use strict';
 var triggerVideo;
+var sticky = document.getElementById('booking-widget').offsetTop - 12;
 const FE = {
   global: {
     loginModal: (id, transition, backdropclose) => {
@@ -332,9 +333,24 @@ const FE = {
       });
 
     },
+    sticky: (element) => {
+      if (window.pageYOffset  >= sticky) {
+        element.classList.add('sticky')
+      } else {
+        element.classList.remove('sticky');
+      }
+    },
 
-
-
+    getOffset: (el) => {
+      var _x = 0;
+        var _y = 0;
+        while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
+            _x += el.offsetLeft - el.scrollLeft;
+            _y += el.offsetTop - el.scrollTop;
+            el = el.offsetParent;
+        }
+        return { top: _y, left: _x };
+    },
 
     init: () => {
       //initialling modal
@@ -369,6 +385,8 @@ const FE = {
 $(function() {
   FE.global.init();
 });
+
+window.onscroll = function() {FE.global.sticky(document.getElementById('booking-widget'))};
 
 $(window).load(function() {
   FE.global.loaded();
