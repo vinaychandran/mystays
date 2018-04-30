@@ -12,6 +12,25 @@
     //top: -100px;
     background: none;
   }
+  &.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+    bottom: auto;
+    padding-bottom: 0 !important;
+    box-shadow: 3.5px 3.5px 6px 0 rgba(0, 0, 0, 0.04);
+    background: #fff;
+    .tab-container {
+        height: 172px;
+        .tabContent {
+          padding-top: 10px;
+        }
+    }
+    + .home-slider {
+        padding-top: 312px;
+    }
+  }
 
   .booking-title {
     @extend %clearfix;

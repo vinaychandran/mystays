@@ -1,9 +1,6 @@
 .main-banner {
     position: relative;
-    padding-top: 54px;
-    @include md {
-        padding-top: 94px;
-    }
+    top: 94px;
     .banner-image{
         img{
             width: 100%;

@@ -8,7 +8,7 @@ const isDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/
     iOS11 = /OS 11_0_1|OS 11_0_2|OS 11_0_3|OS 11_1|OS 11_1_1|OS 11_1_2|OS 11_2|OS 11_2_1|OS 11_2_2|OS 11_2_3|OS 11_2_4|OS 11_2_5/.test(navigator.userAgent);
 const isMobile = $(window).width() <= mobileWidth;
 const isIpad = $(window).width() <= deviceWidth;
-var sticky = document.getElementById('booking-widget').offsetTop - 12;
+var sticky = document.getElementById('booking-widget').offsetTop;
 const FE = {
     global: {
         lazyLoad: () => {
@@ -48,7 +48,7 @@ const FE = {
         tabs: {
             tabLinks: new Array(),
             contentDivs: new Array(),
-            tabs: () => {
+            tabs: (element) => {
                 if (document.getElementById('tabs')) {
                     let tabListItems = document.getElementById('tabs').childNodes;
                     for (let i = 0; i < tabListItems.length; i++) {
@@ -411,7 +411,7 @@ const FE = {
             } else {
                 FE.global.sliderImage('.home-slider-nav', 3, false, true);
             }
-            FE.global.tabs.tabs();
+            FE.global.tabs.tabs(document.getElementById('tabs'));
             //FE.global.instaFeed();
             FE.global.googleMap();
             FE.global.scroll();
