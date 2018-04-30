@@ -105,7 +105,7 @@
   #booking-tab2,
   #booking-tab3 {
     @extend %clearfix;
-    .promo-code {      
+    .promo-code {
       float: left;
       margin-right: 11px;
       @include mobile {
@@ -880,6 +880,29 @@
   opacity: 1;
   z-index: 1001;
   transition: 0.5s;
+
+  &:after {
+    content: '';
+    top: 2px;
+    width: 0;
+    left: 15%;
+    position: absolute;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 9px solid black;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    height: 5px;
+    border-bottom: 4px solid #000;
+    top: 8px;
+    left: 0;
+    width: 100%;
+  }
+
 
   .head-popup {
     @extend %clearfix;

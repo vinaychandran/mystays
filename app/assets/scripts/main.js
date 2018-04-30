@@ -290,7 +290,7 @@ const FE = {
         $(this).parents('.input-showtext').find('.popup-menu').fadeOut();
         $(this).parents('.input-showtext').removeClass('focus');
       });
-      $(document).on('click', '.people-list-popup .btn-group .done', function(e) {        
+      $(document).on('click', '.people-list-popup .btn-group .done', function(e) {
         var popup = $(this).parents('.popup-wrap');
         console.log(popup);
         let getText = '大人'+ popup.find('.grown-up .input-showtext input').val() + ' 名, 子供' + popup.find('.children .input-showtext input').val() + ' 名 <span>' + popup.find('.room .input-showtext input').val() + ' 部屋 </span>';
@@ -309,18 +309,7 @@ const FE = {
     itemShowHide: () => {
 
       $(document).on('click', '.people-list', function() {
-        setTimeout(() => {
-          $('body').addClass('noScrollBody');
-          let $body = $(this).closest('body');
-          $body.children('.popup-wrap').fadeIn();
-          $body.children('.popup-wrap').find('.people-list-popup').fadeIn();
-          // This lines is not working
-         $(this).next().show();
-        }, 100);
-
-        //  $(this).closest('body').children('.popup-wrap').find('.people-list-popup').css('display', 'block');
-          //console.log(  $(this).closest('body').children('.popup-wrap').find('.people-list-popup'))
-
+         $(this).next().toggle();
       });
 
       $(document).on('click', '.calendar-link', function() {
@@ -374,7 +363,7 @@ const FE = {
       FE.global.sideNavigation();
       FE.global.clickOutside('active', '.selected-lang', '.selected-lang');
       FE.global.clickOutside('fade', '.input-showtext .form-control', '.input-showtext .popup-menu');
-      //FE.global.clickOutside('fade', '.people-list-popup', '.popup-wrap.popup-create');
+      FE.global.clickOutside('fade', '.people-list-popup', '.popup-wrap.popup-create');
       FE.global.sliderImage('.home-video-slider-nav', 4, false, true);
       FE.global.autocomplatePopup();
       FE.global.itemShowHide();
