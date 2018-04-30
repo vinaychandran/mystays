@@ -153,39 +153,41 @@ const FE = {
             });            
         },
         instaFeed: () => {
-            let instabox = document.getElementById('instafeed');
-            let limit =  instabox.attributes.getNamedItem('data-limit').value;
-            let moreText = instabox.attributes.getNamedItem('data-more').value;
-            let moreTextSecond = instabox.attributes.getNamedItem('data-morespan').value;
-            let feed = new Instafeed({
-                get: 'tagged',
-                tagName: 'hotelmystays',
-                clientId: '1459052068',
-                accessToken: '1459052068.3a81a9f.656faf6eb84044cea80572ed44299e2e',
-                limit: limit,
-                resolution: 'standard_resolution',
-                template: '<a href="{{link}}" target="_blank" class="insta-image lazy" data-src="{{image}}"><div class="insta-mask"><div class="insta-content"><span class="insta-likes">{{likes}}</span><span class="insta-comments">{{comments}}</span></div></div></a>',
-                after: function() {
-                    let node = document.createElement('A');
-                    let div = document.createElement('DIV');
-                    let span = document.createElement('SPAN');
-                    let arrow = document.createElement('I');
-                    let textNode = document.createTextNode(moreText);
-                    let textNodeSecond = document.createTextNode(moreTextSecond);
-                    arrow.className = 'mys-arrow-left white';
-                    span.appendChild(textNodeSecond);
-                    div.appendChild(textNode);
-                    div.appendChild(span);
-                    div.appendChild(arrow);
-                    node.appendChild(div);
-                    node.id = 'more-link';
-                    node.href = 'gallery.html';
-                    let feed = document.getElementById('instafeed');
-                    feed.appendChild(node);
-                    FE.global.lazyLoad();
-                },
-            });
-            feed.run();
+            if (document.getElementById('instafeed')) {
+                let instabox = document.getElementById('instafeed');
+                let limit =  instabox.attributes.getNamedItem('data-limit').value;
+                let moreText = instabox.attributes.getNamedItem('data-more').value;
+                let moreTextSecond = instabox.attributes.getNamedItem('data-morespan').value;
+                let feed = new Instafeed({
+                    get: 'tagged',
+                    tagName: 'hotelmystays',
+                    clientId: '1459052068',
+                    accessToken: '1459052068.3a81a9f.656faf6eb84044cea80572ed44299e2e',
+                    limit: limit,
+                    resolution: 'standard_resolution',
+                    template: '<a href="{{link}}" target="_blank" class="insta-image lazy" data-src="{{image}}"><div class="insta-mask"><div class="insta-content"><span class="insta-likes">{{likes}}</span><span class="insta-comments">{{comments}}</span></div></div></a>',
+                    after: function() {
+                        let node = document.createElement('A');
+                        let div = document.createElement('DIV');
+                        let span = document.createElement('SPAN');
+                        let arrow = document.createElement('I');
+                        let textNode = document.createTextNode(moreText);
+                        let textNodeSecond = document.createTextNode(moreTextSecond);
+                        arrow.className = 'mys-arrow-left white';
+                        span.appendChild(textNodeSecond);
+                        div.appendChild(textNode);
+                        div.appendChild(span);
+                        div.appendChild(arrow);
+                        node.appendChild(div);
+                        node.id = 'more-link';
+                        node.href = 'gallery.html';
+                        let feed = document.getElementById('instafeed');
+                        feed.appendChild(node);
+                        FE.global.lazyLoad();
+                    },
+                });
+                feed.run();
+            }            
         },
         showBookingTab: (evt, tabName) => {
             let i, tabcontent, tablinks;
