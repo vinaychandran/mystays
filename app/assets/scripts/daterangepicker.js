@@ -25,7 +25,13 @@
         if (day < 10) day = '0' + day;
         var dateText = day + '.' + month + '.' + year;
       } else if (opts.locale == 'en-US') {
-        var dateText = year + ' ' + thisMonth + ' ' + day + '<div class="dayoftheweek">' + dayName + '</div>';
+        var dateText;
+        if ($(window).width() < 767) {
+          dateText = '<div class="day"> ' + day + '</div><div class="month"> ' + thisMonth + '</div><div class="dayoftheweek">' + dayName + '</div>';
+        } else {
+          dateText = '<div class="year"> ' + year + '</div><div class="month"> ' + thisMonth + '</div><div class="day"> ' + day + '</day><div class="dayoftheweek">' + dayName + '</div>';
+
+        }
       }
 
 
@@ -34,7 +40,7 @@
 
     function init() {
       checkButtonClear();
-       var now = getDateLocale(new Date());
+      var now = getDateLocale(new Date());
       containerValues.find('span.date_at').html(now);
       containerValues.find('span.date_to').html(now);
 
@@ -59,7 +65,7 @@
 
     function createCalendar(year, month, direction, max_m = 3) {
 
-      if($(window).width() < 767) {
+      if ($(window).width() < 767) {
         max_m = 2;
       }
 
@@ -243,7 +249,7 @@
         // if(date_at_ = ''){
         //   date_at_ = date_to_;
         // }
-        if(singleDatePicker){
+        if (singleDatePicker) {
           date_to_ = date_at_;
           closeCalendarAndEmpty();
           clearAll();
@@ -329,7 +335,7 @@
           closeCalendarAndEmpty();
 
         }
-      //  closeCalendarAndEmpty();
+        //  closeCalendarAndEmpty();
         checkHover(containerCalendar.find('td.valid.start'), 'click');
         // if (opts.date_at != '' && opts.date_to) {
         //     //closeCalendarAndEmpty();
