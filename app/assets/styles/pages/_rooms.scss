@@ -161,11 +161,13 @@
 .roomPopup{
   background:#fafafa;
   overflow: auto;
-  display: block;  
+  display: block; 
+  &:after{
+    display: none;
+  } 
 }
 
 #room-full-info{
-  width: 100%; 
   padding-top: 94px; 
 }
 
@@ -243,7 +245,16 @@
 }
 
 .room-info-slider-thumb{
+  display: flex; 
+  flex-wrap:wrap;
+  justify-content: space-between;
+  padding: 10px 0 85px;
   img{
-    float: left;
+    width: calc(100% * (1/6) - 4px);
+    margin-bottom: 4px;
+    cursor: pointer;
+    &.active{
+      opacity: 0.5;
+    }
   }
 }
