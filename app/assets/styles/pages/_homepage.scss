@@ -7,7 +7,11 @@
 }
 
 .home-slider {
-  padding-bottom: 100px;  
+  padding: 100px 0;  
+  @include sm {
+    padding: 100px 0 0 0;  
+  }
+
   .home-slider-nav{
     max-width: 1040px;
     margin: 0 auto;    

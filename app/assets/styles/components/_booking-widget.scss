@@ -45,7 +45,7 @@
       @include font-size(14px);
       margin: 0;
       float: left;
-      width: 85%;
+      width: 84%;
       padding: 18px 0;
       line-height: 1.25;
       letter-spacing: 5.3px;
@@ -72,10 +72,11 @@
       width: 13.3%;
       @include mobile {
         width: 33.3%;
+        float: left;
       }
 
       a {
-        height: 40px;
+        height: 46px;
         display: block;
         text-align: center;
         padding: 14px 0;
@@ -85,7 +86,7 @@
         font-weight: bold;
         letter-spacing: 1.1px;
         color: $default-color;
-
+        margin: 0;
         &.tabs-title-active {
           opacity: 1;
           background: $secondary-color;
@@ -191,8 +192,8 @@
       position: relative;
       @include mobile {
         float: none;
-        width: 100%;
-      }
+        width: 100%;        
+      }      
 
       label {
         padding: 5px 10px;
@@ -202,6 +203,9 @@
         border: 2px solid #eeeeee;
         border-radius: 4px;
         width: 360px;
+        @include mobile {          
+          width: 100%;
+        }
       }
 
       .endDateContainer,
@@ -210,7 +214,7 @@
         margin-right: 6px;
         @include mobile {
           margin-right: 0;
-          width: 47%;
+          width: 46%;
         }
       }
 
@@ -233,10 +237,20 @@
         //width: 164px;
         @include mobile {
           width: 100%;
+          background: none;
+          padding-left: 15px;
         }
 
         .year,.day, .month{
           display: inline;
+        }
+
+        .day {
+          @include mobile {
+            font-size: 45px;
+            float: left;
+            margin: 6px 10px 0 0;
+          }          
         }
 
         .dayoftheweek {
@@ -263,7 +277,6 @@
         position: relative;
         @include mobile {
           clear: both;
-          padding-top: 20px;
         }
 
         .clear,
@@ -380,8 +393,6 @@
           background-size: 15px;
           background-position: 50% 50%;
           background-repeat: no-repeat;
-
-          &:hover {}
         }
 
         .button-prev {
@@ -461,9 +472,6 @@
                 display: block;
                 border: 1px solid #eeeeee;
               }
-
-              &.inactive,
-              &.valid {}
 
               &.valid {
                 cursor: pointer;
@@ -549,6 +557,13 @@
       }
     }
 
+    .date-picker-tab2-single, .date-picker-tab3 {
+      @include mobile { 
+        clear: both;
+        padding: 20px 0;
+      }
+    }
+
     .people {
       float: left;
       width: 200px;
@@ -556,6 +571,8 @@
       position: relative;
       @include mobile {
         width: 100%;
+        padding: 20px 0 0 0;
+        margin-right: 0;
       }
 
       .people-list {
@@ -746,6 +763,9 @@
             //border-top: 3px solid #000;
             //margin-top: 10px;
             padding-top: 10px;
+            @include mobile {
+              width: 100%;
+            }
 
             &:after {
               content: '';
@@ -779,7 +799,9 @@
         border: 2px solid #eeeeee;
         border-radius: 4px;
         width: 308px;
-
+        @include mobile {
+          width: 100%;
+        }
         .values {
           float: left;
 
@@ -789,7 +811,11 @@
             background: url("../icons/calendar-interface-symbol-tool.svg") 5% center no-repeat;
             padding-left: 35px;
             background-size: 20px;
-            border: 0;
+            border: 0;   
+            @include mobile {
+              background: none;
+              padding-left: 15px;
+            }         
 
             .value {
               border-right: 2px solid #eeeeee;
@@ -1099,8 +1125,6 @@
       cursor: pointer;
       background-color: #eeeeee;
       float: left;
-
-      &:hover {}
     }
 
     .done {
@@ -1108,8 +1132,6 @@
       height: 70px;
       float: right;
       background-color: #c5ad6c;
-
-      &:hover {}
     }
   }
 }
