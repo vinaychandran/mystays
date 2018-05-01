@@ -41,7 +41,7 @@ block append content
 										span 2
 									li エキストラベッド
 										span 1
-								.btn.room-more.popup(data-popupItem="test") もっと見る
+								.btn.room-more.popup(data-show-rooms="room-full-info") もっと見る
 									i.mys-arrow-left.white
 					li
 						img.lazy(data-src='/assets/images/room-big1.jpg')
@@ -61,7 +61,7 @@ block append content
 										span 2
 									li エキストラベッド
 										span 1
-								.btn.room-more.popup(data-popupItem="test") もっと見る
+								.btn.room-more.popup(data-show-rooms="room-full-info") もっと見る
 					li
 						img.lazy(data-src='/assets/images/room-big1.jpg' )
 						.room-short-info
@@ -80,7 +80,7 @@ block append content
 										span 2
 									li エキストラベッド
 										span 1
-								.btn.room-more.popup(data-popupItem="test") もっと見る
+								.btn.room-more.popup(data-show-rooms="room-full-info") もっと見る
 									i.mys-arrow-left.white
 					li
 						img.lazy(data-src='/assets/images/room-big1.jpg')
@@ -100,8 +100,64 @@ block append content
 										span 2
 									li エキストラベッド
 										span 1
-								.btn.room-more.popup(data-popupItem="test") もっと見る
+								.btn.room-more.popup(data-show-rooms="room-full-info") もっと見る
 									i.mys-arrow-left.white
-			a(data-show-id="0")
-				h1 testing	
-			img(src='/assets/images/mobile1.jpg' data-basicLightbox data-id="0")
+			
+		include ../components/breadcrumb.pug
+	#room-full-info(data-basicLightbox data-id="room-full-info")
+		.room-info-header
+			.room-price
+				span 宿泊料金
+				| ￥9,000
+			a(href="#").book-room
+				| 予約する
+			.close-room
+				| x  
+		.room-info-container
+			h4 スタンダードトリプル
+			.room-quick-info
+				| 65m² / 禁煙ルームのみ / 定員 4名
+			.room-info-slider-container
+				.room-info-slider
+					div.slick-slide
+						img(src='/assets/images/room-slider1.jpg')
+					div.slick-slide
+						img(src='/assets/images/room-slider1.jpg')
+					div.slick-slide
+						img(src='/assets/images/room-slider1.jpg')
+					div.slick-slide
+						img(src='/assets/images/room-slider1.jpg')
+					div.slick-slide
+						img(src='/assets/images/room-slider1.jpg')
+					div.slick-slide
+						img(src='/assets/images/room-slider1.jpg')
+					div.slick-slide
+						img(src='/assets/images/room-slider1.jpg')
+					div.slick-slide
+						img(src='/assets/images/room-slider1.jpg')
+					div.slick-slide
+						img(src='/assets/images/room-slider1.jpg')
+					div.slick-slide
+						img(src='/assets/images/room-slider1.jpg')
+					div.slick-slide
+						img(src='/assets/images/room-slider1.jpg')
+					div.slick-slide
+						img(src='/assets/images/room-slider1.jpg')
+				.slider-count
+					span.number 1 
+					| / 12
+			.room-info-slider-thumb
+				img.active(src='/assets/images/room-slide-thumb.jpg')
+				img(src='/assets/images/room-slide-thumb.jpg')
+				img(src='/assets/images/room-slide-thumb.jpg')
+				img(src='/assets/images/room-slide-thumb.jpg')
+				img(src='/assets/images/room-slide-thumb.jpg')
+				img(src='/assets/images/room-slide-thumb.jpg')
+				img(src='/assets/images/room-slide-thumb.jpg')
+				img(src='/assets/images/room-slide-thumb.jpg')
+				img(src='/assets/images/room-slide-thumb.jpg')
+				img(src='/assets/images/room-slide-thumb.jpg')
+				img(src='/assets/images/room-slide-thumb.jpg')
+				img(src='/assets/images/room-slide-thumb.jpg')
+			.room-overview
+				h5 お部屋概要
