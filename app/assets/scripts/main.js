@@ -8,7 +8,7 @@ const isDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/
     iOS11 = /OS 11_0_1|OS 11_0_2|OS 11_0_3|OS 11_1|OS 11_1_1|OS 11_1_2|OS 11_2|OS 11_2_1|OS 11_2_2|OS 11_2_3|OS 11_2_4|OS 11_2_5/.test(navigator.userAgent);
 const isMobile = $(window).width() <= mobileWidth;
 const isIpad = $(window).width() <= deviceWidth;
-var sticky = document.getElementById('booking-widget').offsetTop;
+//const sticky = document.getElementById('booking-widget').offsetTop;
 const FE = {
     global: {
         lazyLoad: () => {
@@ -26,7 +26,6 @@ const FE = {
             }
             if (evt.target.attributes.getNamedItem('data-src')) {
                 let src = evt.target.attributes.getNamedItem('data-src').value;
-
                 video.openVideo(src);
             }
         },
@@ -122,7 +121,7 @@ const FE = {
         sliderImage: (slider, slideToShow, dots, arrows) => {
             $(slider).each(function() {
                 let imgIndex, sliderImageCount;
-                sliderImageCount = $(this).children().length;
+                sliderImageCount = $(this).children().length;                
                 $(this).slick({
                     slidesToShow: slideToShow,
                     slidesToScroll: 1,
@@ -131,9 +130,19 @@ const FE = {
                     lazyLoad: 'progressive'
                 });
                 imgIndex = $(this).find('.slider-content').index();
+                console.log(sliderImageCount);
                 $(this).on('init reInit afterChange', function(event, slick, currentSlide, nextSlide) {
-                    imgIndex = (currentSlide ? currentSlide : 0) + 1;
+                    $('.slider-count .number').text(currentSlide + 1);
+                    $('.room-info-slider-thumb img').removeClass('active');
+                    let thumbnailSlide = currentSlide + 1
+                    $('.room-info-slider-thumb img:nth-child(' + thumbnailSlide +')').addClass('active');
                 });
+            });
+            $(document).on('click',  '.room-info-slider-thumb img', function () {
+                var indexThumbnail = $(this).index();
+                $('.room-info-slider-thumb img').removeClass('active');
+                $(this).addClass('active');
+                $(slider).slick('slickGoTo', indexThumbnail);
             });
         },
         instaFeed: () => {
@@ -240,7 +249,7 @@ const FE = {
                 if (!container.is(e.target) && container.has(e.target).length === 0) {
                     switch (method) {
                         case 'fade':
-                            $(targetElement).stop().fadeOut(500);
+                            $(targetElement).stop().fadeOut(300);
                             break;
                         case 'slide':
                             $(targetElement).stop().slideUp();
@@ -256,8 +265,9 @@ const FE = {
         lightBox: () => {
             const getTargetHTML = function(elem) {
                 const id = elem.getAttribute('data-show-id')
-                const target = document.querySelector(`[data-id="${ id }"]`)
+                const target = document.querySelector(`[data-id="${ id }"]`)                
                 return target.outerHTML
+                
             }
             document.querySelectorAll('[data-show-id]').forEach(function(elem) {
                 const html = getTargetHTML(elem);
@@ -276,50 +286,33 @@ const FE = {
             })
 
         },
-        lightBoxGallery: () => {
-            const getSrc = (elem) => elem.getAttribute('data-src')
-
-            const getPrev = (elem) => document.getElementById(elem.getAttribute('data-prev'))
-            const getNext = (elem) => document.getElementById(elem.getAttribute('data-next'))
-
-            const open = function(elem) {
-
-                const init = (instance) => {
-
-                    // Remove current src first. It stays until the second image has loaded.
-                    // You can also show a spinner in the meanwhile.
-                    instance.element().querySelector('img').src = ''
-
-                    instance.element().querySelector('img').src = getSrc(elem)
-
-                    const prev = instance.element().querySelector('#prev')
-                    const next = instance.element().querySelector('#next')
-
-                    prev.onclick = (e) => {
-                        elem = getPrev(elem)
-                        init(instance)
-                    }
-
-                    next.onclick = (e) => {
-                        elem = getNext(elem)
-                        init(instance)
-                    }
-
-                }
-                basicLightbox.create('<img>', {
-                    beforePlaceholder: '<button id="prev">&#8592;</button>',
-                    afterPlaceholder: '<button id="next">&#8594;</button>',
-                    beforeShow: init
-                }).show()
-
+        lightBoxRoom: () => {
+            const getTargetHTML = function(elem) {
+                const id = elem.getAttribute('data-show-rooms')  
+                const target = document.querySelector(`[data-id="${ id }"]`)   
+                return target.outerHTML           
             }
-
-            document.querySelectorAll('.thumbnail-gallery').forEach(function(elem) {
-                elem.onclick = (e) => open(elem)
+            document.querySelectorAll('[data-show-rooms]').forEach(function(elem) {
+                const html = getTargetHTML(elem);
+                let checkSlider = false;
+               // elem.onclick = basicLightbox.create(html).show;
+               if(checkSlider){
+                    $('.room-info-slider').slick('unslick');
+                }               
+                elem.onclick = basicLightbox.create(html,{
+                    className: 'roomPopup',
+                    closable: true,
+                    afterShow: (instance) => {
+                        FE.global.sliderImage('.room-info-slider', 1, false, true);
+                        let checkSlider = true;
+                    },
+                    afterClose: (instance) => {
+                       $('.room-info-slider').slick('unslick');
+                    }                   
+                }).show
             })
 
         },
-
         autocomplatePopup: () => {
           $(document).on('click', '.input-showtext input', function() {
             if ($(this).parents('#header-search-popup').length == 1) {} else {
@@ -381,11 +374,11 @@ const FE = {
 
         },
         sticky: (element) => {
-          if (window.pageYOffset  >= sticky) {
-            element.classList.add('sticky')
-          } else {
-            element.classList.remove('sticky');
-          }
+          // if (window.pageYOffset  >= sticky) {
+          //   element.classList.add('sticky')
+          // } else {
+          //   element.classList.remove('sticky');
+          // }
         },
 
         getOffset: (el) => {
@@ -410,9 +403,9 @@ const FE = {
                 FE.global.sliderImage('.home-slider-nav', 1, true, false);
             } else {
                 FE.global.sliderImage('.home-slider-nav', 3, false, true);
-            }
+            }            
             FE.global.tabs.tabs(document.getElementById('tabs'));
-            //FE.global.instaFeed();
+            FE.global.instaFeed();
             FE.global.googleMap();
             FE.global.scroll();
             FE.global.changeLanguage();
@@ -420,7 +413,7 @@ const FE = {
             FE.global.clickOutside('active', '.selected-lang', '.selected-lang');
             FE.global.lazyLoad();
             FE.global.lightBox();
-            FE.global.lightBoxGallery();
+            FE.global.lightBoxRoom();
             FE.global.clickOutside('fade', '.input-showtext .form-control', '.input-showtext .popup-menu');
             FE.global.clickOutside('fade', '.people-list-popup', '.popup-wrap.popup-create');
             FE.global.autocomplatePopup();
