@@ -253,6 +253,7 @@
           date_to_ = '';
           opts.date_to = '';
           opts.inputActive = 'date_to';
+          //opts.date_at = year + '-' + ('0' + month).slice(-2) + '-' + ('0' + $(this).text()).slice(-2);
           container.find('input.date_to').val('');
           container.find('.value').removeClass('active');
           container.find('span.date_at').html(getDateLocale(date_at_));
@@ -264,6 +265,7 @@
           container.find('span.date_at').html(getDateLocale(date_at_));
           //container.find('span.daysFromTo').html(getDateLocale(date_at_) + ' to ' + getDateLocale(date_to_));
           opts.inputActive = 'date_to';
+
           container.find('.value').removeClass('active');
           container.find('.value.date_to').addClass('active');
         }
@@ -290,6 +292,7 @@
           //container.find('span.daysFromTo').html(getDateLocale(date_at_) + ' to ' + getDateLocale(date_to_));
           opts.date_to = '';
           opts.inputActive = 'date_to';
+          opts.date_at = year + '-' + ('0' + month).slice(-2) + '-' + ('0' + $(this).text()).slice(-2);
           date_to_ = '';
 
           container.find('input.date_to').val('');
@@ -322,9 +325,11 @@
           var timeDiff = Math.abs(date2.getTime() - date1.getTime());
           var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
           container.find('.nights').html(diffDays + ' nights');
+          console.log(opts.date_at + " *** " + opts.date_to)
+          closeCalendarAndEmpty();
 
         }
-        closeCalendarAndEmpty();
+      //  closeCalendarAndEmpty();
         checkHover(containerCalendar.find('td.valid.start'), 'click');
         // if (opts.date_at != '' && opts.date_to) {
         //     //closeCalendarAndEmpty();
