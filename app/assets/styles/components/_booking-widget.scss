@@ -192,18 +192,19 @@
       position: relative;
       @include mobile {
         float: none;
-        width: 100%;        
-      }      
+        width: 100%;
+      }
 
       label {
         padding: 5px 10px;
       }
 
-      .date-picker-tab1-container {
+      .date-picker-tab1-container, .date-picker-tab3-container {
         border: 2px solid #eeeeee;
         border-radius: 4px;
         width: 360px;
-        @include mobile {          
+        position: relative;
+        @include mobile {
           width: 100%;
         }
       }
@@ -250,7 +251,7 @@
             font-size: 45px;
             float: left;
             margin: 6px 10px 0 0;
-          }          
+          }
         }
 
         .dayoftheweek {
@@ -332,7 +333,7 @@
         background: $secondary-color;
         text-align: center;
         overflow: hidden;
-        top: 103px;
+        top: 65px;
         left: 0;
         z-index: 99999;
         -webkit-user-select: none;
@@ -345,11 +346,18 @@
         // left: 50%;
         // margin-top: -283px;
         // margin-left: -350px;
+
+        @include mobile {
+          width: 320px;
+        }
         &:after {
           content: '';
           top: -26px;
           width: 0;
           left: -170px;
+          @include mobile {
+            left: 0;
+          }
           position: relative;
           height: 0;
           border-left: 5px solid transparent;
@@ -425,6 +433,9 @@
             display: inline-block;
             vertical-align: top;
             width: 304px;
+            @include mobile {
+              width: 285px;
+            }
             margin: 10px;
             padding: 0;
             border-collapse: collapse;
@@ -518,6 +529,9 @@
           left: 0;
           display: block;
           width: 100%;
+          .year,.day, .month{
+            display: inline;
+          }
 
           .days {
             opacity: 0.6;
@@ -558,7 +572,7 @@
     }
 
     .date-picker-tab2-single, .date-picker-tab3 {
-      @include mobile { 
+      @include mobile {
         clear: both;
         padding: 20px 0;
       }
@@ -811,11 +825,11 @@
             background: url("../icons/calendar-interface-symbol-tool.svg") 5% center no-repeat;
             padding-left: 35px;
             background-size: 20px;
-            border: 0;   
+            border: 0;
             @include mobile {
               background: none;
               padding-left: 15px;
-            }         
+            }
 
             .value {
               border-right: 2px solid #eeeeee;
@@ -919,6 +933,9 @@
 
 .big-popup {
   width: 640px;
+    @include mobile {
+      width: 100%;
+    }
   position: absolute;
   top: 0;
   left: 0;

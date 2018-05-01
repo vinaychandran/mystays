@@ -64,10 +64,10 @@
     init();
 
     function createCalendar(year, month, direction, max_m = 3) {
-
-      if ($(window).width() < 767) {
-        max_m = 2;
-      }
+      //
+      // if ($(window).width() < 767) {
+      //   max_m = 2;
+      // }
 
       var html;
 
@@ -109,18 +109,19 @@
           var width = containerCalendarContainer.find('table').innerWidth() + -10;
           containerCalendar.find('table:last').remove();
           containerCalendarContainer.animate({
-            left: '10px',
+            //left: '10px',
           }, 200, function() {
-            containerCalendarContainer.css('left', '-' + width + 'px').prepend(html);
+          //containerCalendarContainer.css('left', '-' + width + 'px').prepend(html);
+          containerCalendarContainer.prepend(html);
           });
         } else if (direction == 'next') {
           var width = containerCalendarContainer.find('table').innerWidth() + -10;
           containerCalendarContainer.animate({
-            left: '-' + (width * 2 + 10) + 'px',
+            //left: '-' + (width * 2 + 10) + 'px',
           }, 200, function() {
             containerCalendar.find('table:first').fadeOut(0, function() {
               $(this).remove();
-              containerCalendarContainer.css('left', '-' + width + 'px');
+              //containerCalendarContainer.css('left', '-' + width + 'px');
             });
           }).append(html);
         } else {
