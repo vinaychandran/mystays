@@ -95,7 +95,7 @@
       background:$default-bg; 
       margin-bottom: 110px; 
       .room-short-info{
-        padding: 20px 50px;
+        padding: 27px 50px 20px;
         width: 100%;
         float: left;
       }      
@@ -150,3 +150,111 @@
     }
   }
 } 
+
+.breadcrumb{
+  padding: 30px 0;
+  @include font-size(12px);
+  color: $primary-color;
+  font-family: 'YuGo';  
+}
+
+.roomPopup{
+  background:#fafafa;
+  overflow: auto;
+  display: block; 
+  &:after{
+    display: none;
+  } 
+}
+
+#room-full-info{
+  padding-top: 94px; 
+}
+
+.room-info-header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: $secondary-color;
+  .room-price{
+    color: $primary-color;
+    @include font-size(32px);
+    padding-left: 30px;
+    font-family: 'Lato-B';
+    float: left;
+    span{
+      @include font-size(14px);  
+      padding-right: 20px;    
+    }
+  }
+  .close-room{
+    color: $secondary-color;
+    background:$primary-bg;
+    width: 94px;
+    height: 94px;
+    line-height: 94px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    @include font-size(24px);
+     font-family: 'Lato-L';
+     text-align: center;
+     cursor: pointer;
+  }
+  .book-room{
+    float: right;
+    margin-right: 94px;
+    background-color: #c5ad6c;
+    color: #ffffff;
+    @include font-size(16px);
+    font-family: 'YuGo';
+    padding: 39px 80px;
+    line-height: 1;
+  }
+}
+
+.room-info-container{
+  max-width: 920px;
+  margin: 80px auto;
+  text-align: center;
+  h4{
+    @include font-size(24px);
+    font-family: 'YuMin';
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  .room-quick-info{
+    @include font-size(14px);
+    font-family: 'YuMin';
+    opacity: 0.5;
+    padding-bottom: 50px;
+  }
+}
+
+.room-info-slider-container{
+  position: relative;
+  .slider-count{
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+    @include font-size(12px);
+    font-family: 'YuGo';
+    color: $secondary-color;
+  }
+}
+
+.room-info-slider-thumb{
+  display: flex; 
+  flex-wrap:wrap;
+  justify-content: space-between;
+  padding: 10px 0 85px;
+  img{
+    width: calc(100% * (1/6) - 4px);
+    margin-bottom: 4px;
+    cursor: pointer;
+    &.active{
+      opacity: 0.5;
+    }
+  }
+}

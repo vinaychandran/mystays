@@ -25,7 +25,13 @@
         if (day < 10) day = '0' + day;
         var dateText = day + '.' + month + '.' + year;
       } else if (opts.locale == 'en-US') {
-        var dateText = year + ' ' + thisMonth + ' ' + day + '<div class="dayoftheweek">' + dayName + '</div>';
+        var dateText;
+        if ($(window).width() < 767) {
+          dateText = '<div class="day"> ' + day + '</div><div class="month"> ' + thisMonth + '</div><div class="dayoftheweek">' + dayName + '</div>';
+        } else {
+          dateText = '<div class="year"> ' + year + '</div><div class="month"> ' + thisMonth + '</div><div class="day"> ' + day + '</day><div class="dayoftheweek">' + dayName + '</div>';
+
+        }
       }
 
 
@@ -34,7 +40,7 @@
 
     function init() {
       checkButtonClear();
-       var now = getDateLocale(new Date());
+      var now = getDateLocale(new Date());
       containerValues.find('span.date_at').html(now);
       containerValues.find('span.date_to').html(now);
 
@@ -59,7 +65,7 @@
 
     function createCalendar(year, month, direction, max_m = 3) {
 
-      if($(window).width() < 767) {
+      if ($(window).width() < 767) {
         max_m = 2;
       }
 
@@ -243,7 +249,7 @@
         // if(date_at_ = ''){
         //   date_at_ = date_to_;
         // }
-        if(singleDatePicker){
+        if (singleDatePicker) {
           date_to_ = date_at_;
           closeCalendarAndEmpty();
           clearAll();
@@ -253,6 +259,7 @@
           date_to_ = '';
           opts.date_to = '';
           opts.inputActive = 'date_to';
+          //opts.date_at = year + '-' + ('0' + month).slice(-2) + '-' + ('0' + $(this).text()).slice(-2);
           container.find('input.date_to').val('');
           container.find('.value').removeClass('active');
           container.find('span.date_at').html(getDateLocale(date_at_));
@@ -264,6 +271,7 @@
           container.find('span.date_at').html(getDateLocale(date_at_));
           //container.find('span.daysFromTo').html(getDateLocale(date_at_) + ' to ' + getDateLocale(date_to_));
           opts.inputActive = 'date_to';
+
           container.find('.value').removeClass('active');
           container.find('.value.date_to').addClass('active');
         }
@@ -290,6 +298,7 @@
           //container.find('span.daysFromTo').html(getDateLocale(date_at_) + ' to ' + getDateLocale(date_to_));
           opts.date_to = '';
           opts.inputActive = 'date_to';
+          opts.date_at = year + '-' + ('0' + month).slice(-2) + '-' + ('0' + $(this).text()).slice(-2);
           date_to_ = '';
 
           container.find('input.date_to').val('');
@@ -322,9 +331,11 @@
           var timeDiff = Math.abs(date2.getTime() - date1.getTime());
           var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
           container.find('.nights').html(diffDays + ' nights');
+          console.log(opts.date_at + " *** " + opts.date_to)
+          closeCalendarAndEmpty();
 
         }
-        closeCalendarAndEmpty();
+        //  closeCalendarAndEmpty();
         checkHover(containerCalendar.find('td.valid.start'), 'click');
         // if (opts.date_at != '' && opts.date_to) {
         //     //closeCalendarAndEmpty();

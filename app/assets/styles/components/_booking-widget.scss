@@ -235,6 +235,10 @@
           width: 100%;
         }
 
+        .year,.day, .month{
+          display: inline;
+        }
+
         .dayoftheweek {
           opacity: 0.5;
           color: rgba(0, 0, 0, 0.5);
