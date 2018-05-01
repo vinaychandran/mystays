@@ -1,6 +1,9 @@
 .main-banner {
     position: relative;
-    top: 94px;
+    top: 56px;
+    @include sm {
+        top: 94px;
+    }
     .banner-image{
         img{
             width: 100%;
@@ -65,5 +68,22 @@
             padding: 8px; 
             display: inline-block;
         }         
+    }
+    .calendar-link {
+        @include center(horizontal);
+        width: 80%;
+        text-align: center;   
+        bottom: 40px;     
+        a {
+            @include font-size(12px);
+            font-family: $primary-font;
+            font-weight: bold;
+            line-height: 1.25;
+            letter-spacing: 4.6px;
+            display: block;
+            background: #fff;
+            padding: 18px 0;
+            border: 1px solid #000;
+        }
     }
 }

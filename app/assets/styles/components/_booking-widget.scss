@@ -58,7 +58,7 @@
     }
   }
 
-  .tabs {
+  .tabs-header {
     @extend %clearfix;
     display: block;
     margin: 0;
@@ -86,18 +86,17 @@
         letter-spacing: 1.1px;
         color: $default-color;
 
-        &.selected {
+        &.tabs-title-active {
           opacity: 1;
           background: $secondary-color;
         }
 
-        &.selected:before {
+        &.tabs-title-active:before {
           border: 0;
         }
 
-        &.selected:after {
+        &.tabs-title-active:after {
           background: none;
-          height: auto;
           display: inline;
         }
       }
@@ -112,7 +111,7 @@
     }
   }
 
-  .tab-container {
+  .tabs-content {
     @extend %clearfix;
     background: $secondary-color;
     height: 196px;
