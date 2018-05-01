@@ -327,11 +327,11 @@ const FE = {
 
         },
         sticky: (element) => {
-          // if (window.pageYOffset  >= sticky) {
-          //   element.classList.add('sticky')
-          // } else {
-          //   element.classList.remove('sticky');
-          // }
+            if (window.pageYOffset  >= sticky) {
+                element.classList.add('sticky')
+            } else {
+                element.classList.remove('sticky');
+            }
         },
 
         getOffset: (el) => {
