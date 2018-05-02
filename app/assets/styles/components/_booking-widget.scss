@@ -7,11 +7,14 @@
   bottom: 0;
   z-index: 9999;
   width: 100%;
+  overflow-y: scroll;
   @include md {
     position: relative;
     margin-top: -80px;
     background: none;
+    overflow-y:inherit;
   }
+
   &.sticky {
     position: fixed;
     top: 94px;
@@ -22,19 +25,23 @@
     box-shadow: 3.5px 3.5px 6px 0 rgba(0, 0, 0, 0.1);
     background: #fff;
     margin: 0;
-    .tabs-header{
+
+    .tabs-header {
       display: none;
     }
+
     .tabs-content {
-        height: 80px;
-        padding: 10px 60px;
-        label {
-          margin-bottom: 9px;
-          display: none;
-        }
+      height: 80px;
+      padding: 10px 60px;
+
+      label {
+        margin-bottom: 9px;
+        display: none;
+      }
     }
+
     + .home-slider {
-        padding-top: 312px;
+      padding-top: 312px;
     }
   }
 
@@ -50,17 +57,21 @@
     p {
       @include font-size(14px);
       margin: 0;
-      float: left; 
-      width: 84%;
+      float: left;
+      width: 81%;
       padding: 18px 0;
       line-height: 1.25;
       letter-spacing: 5.3px;
+      border-right: 1px solid #eee;
+    }
+
+    .close-booking {
+      @extend %clearfix;
     }
 
     a {
-      float: right;
-      padding: 18px 22px;
-      border-left: 1px solid #eee;
+      padding: 15px 22px;
+      display: table;
     }
   }
 
@@ -92,6 +103,7 @@
         letter-spacing: 1.1px;
         color: $default-color;
         margin: 0;
+
         &.tabs-title-active {
           opacity: 1;
           background: $secondary-color;
@@ -131,6 +143,7 @@
   #booking-tab2,
   #booking-tab3 {
     @extend %clearfix;
+
     .promo-code {
       float: left;
       margin-right: 11px;
@@ -203,7 +216,8 @@
         padding: 5px 10px;
       }
 
-      .date-picker-tab1-container, .date-picker-tab3-container {
+      .date-picker-tab1-container,
+      .date-picker-tab3-container {
         border: 2px solid #eeeeee;
         border-radius: 4px;
         width: 360px;
@@ -245,7 +259,9 @@
           padding-left: 15px;
         }
 
-        .year,.day, .month{
+        .day,
+        .month,
+        .year {
           display: inline;
         }
 
@@ -330,7 +346,7 @@
         display: none;
         width: 700px;
         height: 430px;
-        margin: 0;        
+        margin: 0;
         background: $secondary-color;
         text-align: center;
         overflow: hidden;
@@ -348,13 +364,13 @@
         // left: 50%;
         // margin-top: -283px;
         // margin-left: -350px;
-
         @include mobile {
           width: 320px;
         }
+
         &:after {
           content: '';
-          top: -21px;
+          top: -18px;
           width: 0;
           left: -170px;
           @include mobile {
@@ -529,7 +545,10 @@
           left: 0;
           display: block;
           width: 100%;
-          .year,.day, .month{
+
+          .day,
+          .month,
+          .year {
             display: inline;
           }
 
@@ -568,7 +587,8 @@
       }
     }
 
-    .date-picker-tab2-single, .date-picker-tab3 {
+    .date-picker-tab2-single,
+    .date-picker-tab3 {
       @include mobile {
         clear: both;
         padding: 20px 0;
@@ -582,7 +602,7 @@
       position: relative;
       @include mobile {
         width: 100%;
-        padding: 20px 0 0 0;
+        padding: 20px 0 0;
         margin-right: 0;
       }
 
@@ -809,11 +829,17 @@
         border-radius: 4px;
         width: 100%;
         position: relative;
-        @include md {          
+        @include md {
           width: 308px;
         }
+
+        .calendar{
+          height: 340px;
+        }
+
         .values {
           float: left;
+
           .startDate {
             width: 181px;
             height: 62px;
@@ -904,7 +930,6 @@
     }
   }
 }
-
 // .overlay {
 //   height: 100%;
 //   width: 100%;
@@ -929,16 +954,16 @@
   width: 100%;
   box-shadow: 35.4px 35.4px 90px 0 rgba(0, 0, 0, 0.15);
   @include md {
-    
+    padding: 77px 55px 45px;
     width: 640px;
   }
   position: absolute;
   top: 0;
   left: 0;
-    // This lines is not working
+  // This lines is not working
   // margin-left: -320px;
   // margin-top: -275px;
-  padding: 77px 55px 45px;
+  padding: 40px 20px;
   background-color: $secondary-color;
   opacity: 1;
   z-index: 1001;
@@ -966,10 +991,14 @@
     width: 100%;
   }
 
-
   .head-popup {
     @extend %clearfix;
-    padding-bottom: 32px;
+    //padding-bottom: 32px;
+    .children,
+    .grown-up,
+    .room {
+      padding-bottom: 32px;
+    }
 
     section {
       float: left;
@@ -1039,7 +1068,7 @@
 
         .popup-menu {
           display: none;
-          
+
           ul {
             margin: 0;
             padding: 0;
@@ -1078,6 +1107,7 @@
             // border-top: 3px solid #000;
             // margin-top: 10px;
             box-shadow: 35.4px 35.4px 90px 0 rgba(0, 0, 0, 0.15);
+
             &:after {
               content: '';
               top: 2px;
@@ -1133,18 +1163,24 @@
     }
 
     .clear {
-      width: 261px;
+      width: 48%;
       height: 70px;
       cursor: pointer;
       background-color: #eeeeee;
       float: left;
+      @include md {
+        width: 261px;
+      }
     }
 
     .done {
-      width: 261px;
+      width: 48%;
       height: 70px;
       float: right;
       background-color: #c5ad6c;
+      @include md {
+        width: 261px;
+      }
     }
   }
 }
