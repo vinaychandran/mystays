@@ -11,19 +11,19 @@ block append content
 				h4 お部屋一覧
 				ul.room-types
 					li
-						a.selected(href="#") 一覧表示
+						a.selected(data-room-type="all") 一覧表示
 					li
-						a(href="#") スペシャリティスイート
+						a(data-room-type="single") スペシャリティスイート
 					li
-						a(href="#") 家族部屋
+						a( data-room-type="double") 家族部屋
 					li
-						a(href="#") 女性専用部屋
+						a( data-room-type="triple") 女性専用部屋
 					li
-						a(href="#") 禁煙室 
+						a( data-room-type="smoking") 禁煙室 
 					li
-						a(href="#") 喫煙室
+						a( data-room-type="family") 喫煙室
 				ul.rooms-list
-					li
+					li.show(data-rooms="all smoking family")
 						img.lazy(data-src='/assets/images/room-big1.jpg')
 						.room-short-info
 							h6 スーペリアツインハイフロア
@@ -43,7 +43,7 @@ block append content
 										span 1
 								.btn.room-more.popup(data-show-rooms="room-full-info") もっと見る
 									i.mys-arrow-left.white
-					li
+					li.show(data-rooms="all single")
 						img.lazy(data-src='/assets/images/room-big1.jpg')
 						.room-short-info
 							h6 スーペリアツインハイフロア
@@ -63,7 +63,7 @@ block append content
 										span 1
 								.btn.room-more.popup(data-show-rooms="room-full-info") もっと見る
 									i.mys-arrow-left.white
-					li
+					li.show(data-rooms="all double")
 						img.lazy(data-src='/assets/images/room-big1.jpg' )
 						.room-short-info
 							h6 スーペリアツインハイフロア
@@ -83,7 +83,7 @@ block append content
 										span 1
 								.btn.room-more.popup(data-show-rooms="room-full-info") もっと見る
 									i.mys-arrow-left.white
-					li
+					li.show(data-rooms="all smoking triple")
 						img.lazy(data-src='/assets/images/room-big1.jpg')
 						.room-short-info
 							h6 スーペリアツインハイフロア
