@@ -50,7 +50,7 @@
     p {
       @include font-size(14px);
       margin: 0;
-      float: left;
+      float: left; 
       width: 84%;
       padding: 18px 0;
       line-height: 1.25;
@@ -89,7 +89,6 @@
         opacity: 0.4;
         font-family: $primary-font;
         @include font-size(14px);
-        font-weight: bold;
         letter-spacing: 1.1px;
         color: $default-color;
         margin: 0;
@@ -172,7 +171,6 @@
             height: 66px;
             border: 2px solid #eeeeee;
             @include font-size(12px);
-            font-weight: bold;
             letter-spacing: 0.9px;
             padding: 0 11px;
             color: $default-color;
@@ -229,7 +227,6 @@
       .startDate {
         font-family: $primary-font;
         @include font-size(12px);
-        font-weight: bold;
         line-height: 2.5;
         letter-spacing: 0.9px;
         text-align: left;
@@ -273,7 +270,6 @@
       .daysFromTo {
         font-family: $primary-font;
         @include font-size(12px);
-        font-weight: bold;
         letter-spacing: normal;
         text-align: center;
         color: rgba(0, 0, 0, 0.6);
@@ -452,7 +448,6 @@
               border-bottom: 2px solid $default-color;
               font-family: $primary-font;
               @include font-size(14px);
-              font-weight: bold;
               line-height: 2.14;
               letter-spacing: 1.1px;
               text-align: center;
@@ -467,7 +462,6 @@
               box-sizing: border-box;
               padding: 0;
               font-family: $primary-font;
-              font-weight: bold;
               text-align: center;
               color: $default-color;
               padding: 10px 0;
@@ -543,7 +537,6 @@
             opacity: 0.6;
             font-family: $primary-font;
             @include font-size(14px);
-            font-weight: bold;
             letter-spacing: normal;
             text-align: center;
             color: rgba(0, 0, 0, 0.6);
@@ -553,7 +546,6 @@
             height: 13px;
             font-family: $primary-font;
             @include font-size(14px);
-            font-weight: bold;
             letter-spacing: normal;
             text-align: center;
             color: $default-color;
@@ -567,7 +559,6 @@
             margin: 0 auto;
             padding: 25px 0;
             @include font-size(14px);
-            font-weight: bold;
             letter-spacing: 2.8px;
             text-align: center;
             color: $secondary-color;
@@ -606,7 +597,6 @@
         height: 66px;
         border: 2px solid #eeeeee;
         @include font-size(12px);
-        font-weight: bold;
         line-height: 2.5;
         letter-spacing: 0.9px;
         color: $default-color;
@@ -627,7 +617,6 @@
           opacity: 0.5;
           font-family: $primary-font;
           @include font-size(12px);
-          font-weight: bold;
           letter-spacing: 0.9px;
           text-align: left;
           color: rgba(0, 0, 0, 0.5);
@@ -727,7 +716,6 @@
             height: 66px;
             border: 2px solid #eeeeee;
             @include font-size(12px);
-            font-weight: bold;
             letter-spacing: 0.9px;
             padding: 0 11px;
             color: $default-color;
@@ -878,7 +866,6 @@
             border: 0;
             font-family: Lato;
             font-size: 18px;
-            font-weight: bold;
             letter-spacing: 1.4px;
             text-align: left;
             color: #000000;
@@ -1035,7 +1022,6 @@
             height: 66px;
             border: 2px solid #eeeeee;
             @include font-size(12px);
-            font-weight: bold;
             letter-spacing: 0.9px;
             padding: 0 11px;
             color: $default-color;
@@ -1127,7 +1113,6 @@
     .title {
       @include font-size(14px);
       font-family: $primary-font;
-      font-weight: bold;
       line-height: 2.14;
       letter-spacing: normal;
       text-align: left;
