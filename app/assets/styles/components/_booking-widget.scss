@@ -12,7 +12,7 @@
     position: relative;
     margin-top: -80px;
     background: none;
-    overflow-y:inherit;
+    overflow-y: inherit;
   }
 
   &.sticky {
@@ -249,14 +249,27 @@
         height: 62px;
         line-height: 66px;
         padding-top: 18px;
-        background: url("../icons/calendar-interface-symbol-tool.svg") 10% center no-repeat;
-        padding-left: 45px;
-        background-size: 20px;
+        // background: url("../icons/calendar-interface-symbol-tool.svg") 10% center no-repeat;
+        // padding-left: 45px;
+        // background-size: 20px;
         //width: 164px;
         @include mobile {
           width: 100%;
           background: none;
           padding-left: 15px;
+        }
+
+        span.date_at,
+        span.date_to {
+          @include md {
+            background-image: url("../svg/sprite.svg");
+            background-repeat: no-repeat;
+            background-size: 42.6em 346.4em;
+            background-position: 0.4em -72.7em;
+            //background: url("../icons/calendar-interface-symbol-tool.svg") 10% center no-repeat;
+            padding-left: 45px;
+            float: left;
+          }
         }
 
         .day,
@@ -626,9 +639,11 @@
         }
 
         p {
-          background: url("../icons/multiple-users-silhouette.svg") 5% center no-repeat;
+          background-image: url("../svg/sprite.svg");
+          background-repeat: no-repeat;
+          background-size: 32.5em 210em;
+          background-position: 0.5em -139.4em;
           padding-left: 50px;
-          background-size: 25px;
           line-height: 1.4em;
         }
 
@@ -833,7 +848,7 @@
           width: 308px;
         }
 
-        .calendar{
+        .calendar {
           height: 340px;
         }
 
@@ -843,9 +858,9 @@
           .startDate {
             width: 181px;
             height: 62px;
-            background: url("../icons/calendar-interface-symbol-tool.svg") 5% center no-repeat;
-            padding-left: 35px;
-            background-size: 20px;
+            // background: url("../icons/calendar-interface-symbol-tool.svg") 5% center no-repeat;
+            // padding-left: 35px;
+            // background-size: 20px;
             border: 0;
             @include mobile {
               background: none;
@@ -954,8 +969,8 @@
   width: 100%;
   box-shadow: 35.4px 35.4px 90px 0 rgba(0, 0, 0, 0.15);
   @include md {
-    padding: 77px 55px 45px;
-    width: 640px;
+    padding: 46px 55px 45px;
+    width: 510px;
   }
   position: absolute;
   top: 0;
@@ -998,6 +1013,15 @@
     .grown-up,
     .room {
       padding-bottom: 32px;
+      @include md {
+        padding-right: 18px;
+      }
+    }
+
+    .room{
+      @include md {
+        padding-right: 0;
+      }
     }
 
     section {
@@ -1024,7 +1048,7 @@
           position: relative;
           @extend %clearfix;
           float: left;
-          width: 90px;
+          width: 70px;
 
           &:after {
             content: '';
@@ -1169,7 +1193,7 @@
       background-color: #eeeeee;
       float: left;
       @include md {
-        width: 261px;
+        width: 190px;
       }
     }
 
@@ -1179,7 +1203,7 @@
       float: right;
       background-color: #c5ad6c;
       @include md {
-        width: 261px;
+        width: 190px;
       }
     }
   }
