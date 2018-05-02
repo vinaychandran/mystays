@@ -218,7 +218,7 @@
   max-width: 920px;
   margin: 80px auto;
   text-align: center;
-  h4{
+  h2{
     @include font-size(24px);
     font-family: 'YuMin';
     font-weight: 500;
@@ -248,13 +248,160 @@
   display: flex; 
   flex-wrap:wrap;
   justify-content: space-between;
-  padding: 10px 0 85px;
+  padding: 10px 0;
   img{
     width: calc(100% * (1/6) - 4px);
     margin-bottom: 4px;
     cursor: pointer;
     &.active{
       opacity: 0.5;
+    }
+  }
+}
+
+.room-overview{
+  background: #fff;
+  padding: 75px 55px;
+  text-align: left;
+  margin-bottom: 30px;
+  h5{
+    @include font-size(16px);
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: 3.2px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 15px;
+    text-align: center;
+  }
+  
+}
+
+.room-highlight-wrap{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  padding: 35px 50px 40px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  .checkin-checkout{
+    max-width: 210px; 
+    .time{
+      @include font-size(14px);
+      font-family: 'YuGo';
+      margin-bottom: 10px;
+      span{
+        float: right; 
+        
+        @include font-size(15px);         
+         font-weight: 700;
+      }
+    }
+    .note{
+      font-family: 'YuGo';
+      @include font-size(10px);
+      margin-top: 10px;
+      letter-spacing: 0.6px;
+    }
+  }
+  .room-tags{
+    max-width: 210px;
+    ul{
+      margin: 0;
+    }
+    li{
+      display: inline-block;
+      border: 1px solid #000;
+      padding: 5px 15px;
+      margin-right: 10px; 
+      @include font-size(12px);
+      letter-spacing: 2.4px; 
+      margin-bottom: 10px;
+      font-family: 'YuGo';
+    }
+  }
+  .room-downloads{
+    max-width: 210px;
+    ul{
+      margin: 0;
+    }
+    li{
+      font-family: 'YuGo';
+      line-height: 2.83;
+      span{
+        @include font-size(12px);
+        margin-left: 8px;
+        letter-spacing: 2.4px;
+        border-bottom: 1px solid #000;
+      }
+    }
+  }
+}
+
+.room-amenities{
+  ul{
+    margin: 0;
+    display: flex;
+    justify-content:space-between;
+    padding: 40px 50px 40px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    li{
+      span{
+        padding-left: 15px;
+        @include font-size(12px);
+        font-family: 'YuGo';
+      }
+    }
+  }
+}
+
+.room-features{
+  background:#fff;
+  padding: 100px 0 25px;
+  h3{
+    @include font-size(20px);
+    font-weight: 500;
+    font-family: 'YuMin';
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    padding: 0 50px;
+  }
+  .content{
+    letter-spacing: 1.4px;
+    max-width: 645px;
+    margin:0 auto 75px;
+    line-height: 2;
+    font-family: 'YuMin'; 
+    @include font-size(14px);
+  }
+  .separator{
+    width: 150px;
+    margin:0 auto 60px;
+    height: 1px; 
+    background:#1b1b1b; 
+  }
+  h4{
+    @include font-size(14px);
+    margin-bottom: 25px;
+    font-family: 'YuGo';  
+  }
+  .strech{
+    margin: 0 -40px 40px;
+  }
+  .three-images{
+    max-width: 725px;
+    margin: 0 auto 40px;
+    overflow: hidden;
+    img{
+      float: left;
+      display: block;
+      &:nth-child(2) {
+        float: right;
+        margin-top: 80px;
+      }
+      &:nth-child(3) {
+        float: left;
+        margin-top: 50px;
+        margin-left: 80px;
+      }
     }
   }
 }
