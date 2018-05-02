@@ -4,12 +4,15 @@
 
 .booking-widget {
   padding-bottom: 100px;
+  @include md {
+    padding-bottom: 50px;
+  }
 }
 
 .home-slider {
   padding: 100px 0;  
-  @include sm {
-    padding: 100px 0 0 0;  
+  @include md {
+    padding: 0 0 100px 0;  
   }
 
   .home-slider-nav{
@@ -32,7 +35,7 @@
     max-width: 290px;
     @include md {
       margin: 0 15px; 
-      max-width: 320px;
+      max-width: 320px; 
     }
   }
 
@@ -123,7 +126,7 @@
   //   padding: 0 21px;
   // }
   .home-video-slider-nav{
-    @include md {
+    @include sm {
       display: flex;
       justify-content:space-between;
     }
@@ -134,7 +137,7 @@
     float: left;
     margin-top: 40px;
     width: 47%;
-    @include md {
+    @include sm {
       margin-top: 0;
       width: auto;
     }
@@ -146,11 +149,11 @@
     }
     &:nth-child(2) {
       margin-top: 30px; 
-      @include md {
+      @include sm {
         margin-top: 0;
       }
     }
-    @include md {
+    @include sm {
       margin: 0;
     }
     p {

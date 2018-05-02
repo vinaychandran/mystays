@@ -327,10 +327,12 @@ const FE = {
 
         },
         sticky: (element) => {
-            if (window.pageYOffset  >= sticky) {
-                element.classList.add('sticky')
-            } else {
-                element.classList.remove('sticky');
+            if ($(window).width() > 768) {
+                if (window.pageYOffset  >= sticky) {
+                    element.classList.add('sticky')
+                } else {
+                    element.classList.remove('sticky');
+                }
             }
         },
 
@@ -385,7 +387,7 @@ $(function() {
     FE.global.init();
 });
 
-if(!isMobile) {
+if(!isMobile && document.getElementById('booking-widget')) {
     window.onscroll = function() {FE.global.sticky(document.getElementById('booking-widget'))};
 }
 

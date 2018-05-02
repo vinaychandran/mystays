@@ -7,24 +7,30 @@
   bottom: 0;
   z-index: 9999;
   width: 100%;
-  @include sm {
-    position: static;
-    //top: -100px;
+  @include md {
+    position: relative;
+    margin-top: -80px;
     background: none;
   }
   &.sticky {
     position: fixed;
-    top: -21px;
+    top: 94px;
     width: 100%;
     z-index: 9;
     bottom: auto;
     padding-bottom: 0 !important;
     box-shadow: 3.5px 3.5px 6px 0 rgba(0, 0, 0, 0.04);
     background: #fff;
+    margin: 0;
+    .tabs-header{
+      display: none;
+    }
     .tabs-content {
-        height: 172px;
+        height: 80px;
+        padding: 10px 60px;
         label {
           margin-bottom: 9px;
+          display: none;
         }
     }
     + .home-slider {
@@ -37,7 +43,7 @@
     text-align: center;
     font-family: $primary-font;
     font-weight: bold;
-    @include sm {
+    @include md {
       display: none;
     }
 
@@ -292,7 +298,7 @@
         .to {
           float: left;
           padding-top: 25px;
-          margin-right: 11px;
+          //margin-right: 11px;
           vertical-align: middle;
           color: #d3d3d3;
         }
@@ -327,9 +333,8 @@
       .calendar {
         display: none;
         width: 700px;
-        height: 474px;
-        margin: 0;
-        padding: 10px 0;
+        height: 430px;
+        margin: 0;        
         background: $secondary-color;
         text-align: center;
         overflow: hidden;
@@ -352,7 +357,7 @@
         }
         &:after {
           content: '';
-          top: -26px;
+          top: -21px;
           width: 0;
           left: -170px;
           @include mobile {
@@ -427,7 +432,7 @@
           z-index: 2;
           float: left;
           text-align: left;
-          padding-top: 50px;
+          padding-top: 15px;
 
           table {
             display: inline-block;
@@ -525,7 +530,7 @@
 
         .bottomLayer {
           position: absolute;
-          top: 88%;
+          bottom: 20px;
           left: 0;
           display: block;
           width: 100%;

@@ -1,8 +1,14 @@
+.home-banner{
+    @include md {
+        box-shadow: -3px 53px 81px rgba(0,0,0,0.2);  
+    }
+}
+
 .main-banner {
     position: relative;
-    top: 56px;
-    @include sm {
-        top: 94px;
+    padding-top: 56px;
+    @include md {
+        padding-top: 94px;
     }
     .banner-image{
         img{
