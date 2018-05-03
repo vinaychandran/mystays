@@ -26,7 +26,7 @@
         var dateText = day + '.' + month + '.' + year;
       } else if (opts.locale == 'en-US') {
         var dateText;
-        if ($(window).width() < 767) {
+        if ($(window).width() < 769) {
           dateText = '<div class="day"> ' + day + '</div><div class="month"> ' + thisMonth + '</div><div class="dayoftheweek">' + dayName + '</div>';
         } else {
           dateText = '<div class="year"> ' + year + '</div><div class="month"> ' + thisMonth + '</div><div class="day"> ' + day + '</day><div class="dayoftheweek">' + dayName + '</div>';
