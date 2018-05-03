@@ -152,7 +152,7 @@ const FE = {
                 let marker = new google.maps.Marker({
                     position: latlng,
                     title: 'Hotel Mystays',
-                    icon: '../assets/images/marker-icon.png',
+                    icon: '../assets/narita/images/marker-icon.png',
                     map: map
                 });
             }
