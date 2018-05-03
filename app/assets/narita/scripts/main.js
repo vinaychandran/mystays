@@ -126,16 +126,16 @@ const FE = {
         },
         showBookingTab: (evt, tabName) => {
             let i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
+            tabcontent = document.getElementsByClassName('tabcontent');
             for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
+                tabcontent[i].style.display = 'none';
             }
-            tablinks = document.getElementsByClassName("tablinks");
+            tablinks = document.getElementsByClassName('tablinks');
             for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
+                tablinks[i].className = tablinks[i].className.replace(' active', '');
             }
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
+            document.getElementById(tabName).style.display = 'block';
+            evt.currentTarget.className += ' active';
         },
 
         googleMap: () => {
@@ -351,8 +351,8 @@ const FE = {
             
             function showFilterRoom(el) {
                 const type = el.getAttribute('data-room-type');
-                const className = "show";
-                const classNa = "selected";
+                const className = 'show';
+                const classNa = 'selected';
                 document.querySelectorAll('[data-rooms]').forEach(function(e) { 
                     let string = e.getAttribute('data-rooms');
                     if (e.classList){

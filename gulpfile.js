@@ -75,6 +75,20 @@ gulp.task('html', ['views', 'styles', 'scripts'], () => {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('html-dev', ['views', 'styles', 'scripts'], () => {
+  return gulp.src(['app/**/*.html', '.tmp/**/*.html'])
+    .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
+    .pipe($.if('*.js', $.uglify({
+      mangle: false,
+      compress: false,
+      output: { beautify: true }
+    }
+      )))
+    .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(gulp.dest('dist'));
+});
+
 gulp.task('images', () => {
   return gulp.src('app/assets/narita/images/**/*')
     .pipe($.cache($.imagemin()))
@@ -184,6 +198,10 @@ gulp.task('wiredep', () => {
 
 gulp.task('build', ['lint', 'html', 'images', 'fonts', /*'extras'*/], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
+});
+
+gulp.task('build-dev', ['lint', 'html-dev', 'images', 'fonts', /*'extras'*/], () => {
+  return gulp.src('dist/**/*').pipe($.size({title: 'build-dev', gzip: false}));
 });
 
 gulp.task('default', () => {

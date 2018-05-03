@@ -232,7 +232,7 @@
         opts.inputActive = 'date_at'
 
       }
-      console.log("opts.inputActive " + opts.inputActive)
+      console.log('opts.inputActive ' + opts.inputActive)
       if (opts.inputActive == 'date_at') {
 
 
@@ -332,7 +332,7 @@
           var timeDiff = Math.abs(date2.getTime() - date1.getTime());
           var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
           container.find('.nights').html(diffDays + ' nights');
-          console.log(opts.date_at + " *** " + opts.date_to)
+          console.log(opts.date_at + ' *** ' + opts.date_to)
           closeCalendarAndEmpty();
 
         }
