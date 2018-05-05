@@ -26,7 +26,7 @@
         var dateText = day + '.' + month + '.' + year;
       } else if (opts.locale == 'en-US') {
         var dateText;
-        if ($(window).width() < 767) {
+        if ($(window).width() < 769) {
           dateText = '<div class="day"> ' + day + '</div><div class="month"> ' + thisMonth + '</div><div class="dayoftheweek">' + dayName + '</div>';
         } else {
           dateText = '<div class="year"> ' + year + '</div><div class="month"> ' + thisMonth + '</div><div class="day"> ' + day + '</day><div class="dayoftheweek">' + dayName + '</div>';
@@ -232,7 +232,7 @@
         opts.inputActive = 'date_at'
 
       }
-      console.log("opts.inputActive " + opts.inputActive)
+      console.log('opts.inputActive ' + opts.inputActive)
       if (opts.inputActive == 'date_at') {
 
 
@@ -332,7 +332,7 @@
           var timeDiff = Math.abs(date2.getTime() - date1.getTime());
           var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
           container.find('.nights').html(diffDays + ' nights');
-          console.log(opts.date_at + " *** " + opts.date_to)
+          console.log(opts.date_at + ' *** ' + opts.date_to)
           closeCalendarAndEmpty();
 
         }

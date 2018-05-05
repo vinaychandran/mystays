@@ -11,10 +11,10 @@ function Swipe(elem, callback) {
 	elem.addEventListener('touchend', handleEvent, false);
 }
 Swipe.prototype.touches = {
-	"touchstart": {"x":-1, "y":-1},
-	"touchmove" : {"x":-1, "y":-1},
-	"touchend"  : false,
-	"direction" : "undetermined"
+	'touchstart': {'x':-1, 'y':-1},
+	'touchmove' : {'x':-1, 'y':-1},
+	'touchend'  : false,
+	'direction' : 'undetermined'
 };
 Swipe.prototype.touchHandler = function (event) {
 	var touch;
@@ -34,9 +34,9 @@ Swipe.prototype.touchHandler = function (event) {
 					if (x < 0) x /= -1;
 					if (y < 0) y /= -1;
 					if (x > y)
-						this.touches.direction = this.touches.touchstart.x < this.touches.touchmove.x ? "right" : "left";
+						this.touches.direction = this.touches.touchstart.x < this.touches.touchmove.x ? 'right' : 'left';
 					else
-						this.touches.direction = this.touches.touchstart.y < this.touches.touchmove.y ? "down" : "up";
+						this.touches.direction = this.touches.touchstart.y < this.touches.touchmove.y ? 'down' : 'up';
 					this.callback(event, this.touches.direction);
 					break;
 			}

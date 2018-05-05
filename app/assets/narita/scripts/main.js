@@ -53,17 +53,20 @@ const FE = {
             });
             if(document.getElementById('tablink') && isMobile) {
                 let tabLink = document.getElementById('tablink');
-                tabLink.addEventListener('click', FE.global.openTab); 
-            }                       
+                tabLink.addEventListener('click', FE.global.openTab);
+            }
         },
         openTab: (e) => {
+            if(document.getElementById('tabs-header') !== null)
             document.getElementById('tabs-header').style.display = 'block';
+            if(document.getElementById('room-types') !== null)
+            document.getElementById('room-types').style.display = 'block';
             e.preventDefault();
         },
         sliderImage: (slider, slideToShow, dots, arrows) => {
             $(slider).each(function() {
                 let imgIndex, sliderImageCount;
-                sliderImageCount = $(this).children().length;                
+                sliderImageCount = $(this).children().length;
                 $(this).slick({
                     slidesToShow: slideToShow,
                     slidesToScroll: 1,
@@ -74,10 +77,12 @@ const FE = {
                 imgIndex = $(this).find('.slider-content').index();
                 console.log(sliderImageCount);
                 $(this).on('init reInit afterChange', function(event, slick, currentSlide, nextSlide) {
-                    // $('.slider-count .number').text(currentSlide + 1);
-                    // $('.room-info-slider-thumb img').removeClass('active');
-                    // let thumbnailSlide = currentSlide + 1
-                    // $('.room-info-slider-thumb img:nth-child(' + thumbnailSlide +')').addClass('active');
+                    if(currentSlide !== undefined) {
+                        $('.slider-count .number').text(currentSlide + 1);
+                        $('.room-info-slider-thumb img').removeClass('active');
+                        let thumbnailSlide = currentSlide + 1
+                        $('.room-info-slider-thumb img:nth-child(' + thumbnailSlide +')').addClass('active');
+                    }                    
                 });
             });
             $(document).on('click',  '.room-info-slider-thumb img', function () {
@@ -122,20 +127,20 @@ const FE = {
                     },
                 });
                 feed.run();
-            }            
+            }
         },
         showBookingTab: (evt, tabName) => {
             let i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
+            tabcontent = document.getElementsByClassName('tabcontent');
             for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
+                tabcontent[i].style.display = 'none';
             }
-            tablinks = document.getElementsByClassName("tablinks");
+            tablinks = document.getElementsByClassName('tablinks');
             for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
+                tablinks[i].className = tablinks[i].className.replace(' active', '');
             }
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
+            document.getElementById(tabName).style.display = 'block';
+            evt.currentTarget.className += ' active';
         },
 
         googleMap: () => {
@@ -152,7 +157,7 @@ const FE = {
                 let marker = new google.maps.Marker({
                     position: latlng,
                     title: 'Hotel Mystays',
-                    icon: '../assets/images/marker-icon.png',
+                    icon: '../assets/narita/images/marker-icon.png',
                     map: map
                 });
             }
@@ -207,9 +212,9 @@ const FE = {
         lightBox: () => {
             const getTargetHTML = function(elem) {
                 const id = elem.getAttribute('data-show-id')
-                const target = document.querySelector(`[data-id="${ id }"]`)                
+                const target = document.querySelector(`[data-id="${ id }"]`)
                 return target.outerHTML
-                
+
             }
             document.querySelectorAll('[data-show-id]').forEach(function(elem) {
                 const html = getTargetHTML(elem);
@@ -230,9 +235,9 @@ const FE = {
         },
         lightBoxRoom: () => {
             const getTargetHTML = function(elem) {
-                const id = elem.getAttribute('data-show-rooms')  
-                const target = document.querySelector(`[data-id="${ id }"]`)   
-                return target.outerHTML           
+                const id = elem.getAttribute('data-show-rooms')
+                const target = document.querySelector(`[data-id="${ id }"]`)
+                return target.outerHTML
             }
             document.querySelectorAll('[data-show-rooms]').forEach(function(elem) {
                 const html = getTargetHTML(elem);
@@ -240,12 +245,12 @@ const FE = {
                // elem.onclick = basicLightbox.create(html).show;
                if(checkSlider){
                     $('.room-info-slider').slick('unslick');
-                }               
+                }
                 elem.onclick = basicLightbox.create(html,{
                     className: 'roomPopup',
                     closable: true,
                     beforeShow: (instance) => {
-                       $('body').addClass('modal-open');  
+                       $('body').addClass('modal-open');
                     },
                     afterShow: (instance) => {
                         FE.global.sliderImage('.room-info-slider', 1, false, true);
@@ -253,8 +258,8 @@ const FE = {
                     },
                     beforeClose: (instance) => {
                        $('.room-info-slider').slick('unslick');
-                       $('body').removeClass('modal-open');  
-                    }                   
+                       $('body').removeClass('modal-open');
+                    }
                 }).show
             })
             $(document).on('click',  '#room-full-info .close-room', function () {
@@ -262,35 +267,35 @@ const FE = {
                 setTimeout(() => {
                     $('.roomPopup').remove();
                     $('.room-info-slider').slick('unslick');
-                    $('body').removeClass('modal-open');  
+                    $('body').removeClass('modal-open');
                 }, 410)
             });
         },
         autocomplatePopup: () => {
-          $(document).on('click', '.input-showtext input', function() {
+          $(document).on('click', '.input-showtext button', function() {
             if ($(this).parents('#header-search-popup').length == 1) {} else {
               $(this).parents('.input-showtext').find('.popup-menu').fadeIn();
             }
           });
-          $(document).on('focus', '.input-showtext input', function() {
+          $(document).on('focus', '.input-showtext button', function() {
             //$(this).blur();
             $(this).next().find('li span').on('click', function() {
-              $(this).parents('.input-showtext').find('input').val($(this).text());
-              $(this).parents('.input-showtext').find('input').focus();
+              $(this).parents('.input-showtext').find('button').text($(this).text());
+              $(this).parents('.input-showtext').find('button').focus();
             });
           });
 
           $(document).on('click', '.input-showtext .popup-content-input ul li span', function() {
             $(this).parents('.input-showtext').find(' .popup-content-input ul li span').removeClass('active');
             $(this).addClass('active');
-            $(this).parents('.input-showtext').find('input').attr('href', $(this).parent().attr('data-link')).focus();
+            //$(this).parents('.input-showtext').find('input').attr('href', $(this).parent().attr('data-link')).focus();
             $(this).parents('.input-showtext').find('.popup-menu').fadeOut();
             $(this).parents('.input-showtext').removeClass('focus');
           });
           $(document).on('click', '.people-list-popup .btn-group .done', function(e) {
             var popup = $(this).parents('.popup-wrap');
             console.log(popup);
-            let getText = '大人'+ popup.find('.grown-up .input-showtext input').val() + ' 名, 子供' + popup.find('.children .input-showtext input').val() + ' 名 <span>' + popup.find('.room .input-showtext input').val() + ' 部屋 </span>';
+            let getText = '大人'+ popup.find('.grown-up .input-showtext button').text() + ' 名, 子供' + popup.find('.children .input-showtext button').text() + ' 名 <span>' + popup.find('.room .input-showtext button').text() + ' 部屋 </span>';
             $('.people .people-list p').html(getText);
             popup.css('display', 'none');
             e.preventDefault();
@@ -298,9 +303,9 @@ const FE = {
           $(document).on('click', '.people-list-popup .btn-group .clear', function(e) {
             e.preventDefault();
             var popup = $(this).parents('.people-list-popup')
-            popup.find('.grown-up .input-showtext input').val('');
-            popup.find('.children .input-showtext input').val('');
-            popup.find('.room .input-showtext input').val('');
+            popup.find('.grown-up .input-showtext button').text('0人');
+            popup.find('.children .input-showtext button').text('0人');
+            popup.find('.room .input-showtext button').text('0人');
           });
         },
         itemShowHide: () => {
@@ -313,7 +318,7 @@ const FE = {
             setTimeout(() => {
               $('body').addClass('noScrollBody');
               let $body = $(this).closest('body');
-              $body.children('.booking-widget').fadeIn();
+              $body.find('.booking-widget').fadeIn();
             }, 100);
           });
 
@@ -321,16 +326,18 @@ const FE = {
             setTimeout(() => {
               $('body').removeClass('noScrollBody');
               let $body = $(this).closest('body');
-              $body.children('.booking-widget').fadeOut();
+              $body.find('.booking-widget').fadeOut();
             }, 100);
           });
 
         },
         sticky: (element) => {
-            if (window.pageYOffset  >= sticky) {
-                element.classList.add('sticky')
-            } else {
-                element.classList.remove('sticky');
+            if ($(window).width() > 768) {
+                if (window.pageYOffset  >= sticky) {
+                    element.classList.add('sticky')
+                } else {
+                    element.classList.remove('sticky');
+                }
             }
         },
 
@@ -343,6 +350,52 @@ const FE = {
                 el = el.offsetParent;
             }
             return { top: _y, left: _x };
+        },
+
+        filterRooms: () => {
+
+            if (isMobile && (document.getElementById('room-types') !== null)) {
+                document.getElementById('room-types').style.display = 'none';
+            }
+
+            function showFilterRoom(el) {
+                const type = el.getAttribute('data-room-type');
+                const className = 'show';
+                const classNa = 'selected';
+                document.getElementById('tablink').innerText = el.text;
+                if(isMobile && (document.getElementById('room-types') !== null)) {
+                    document.getElementById('room-types').style.display = 'none';
+                }
+                document.querySelectorAll('[data-rooms]').forEach(function(e) {
+                    let string = e.getAttribute('data-rooms');
+                    if (e.classList){
+                      e.classList.remove(className);
+                    }
+                    else{
+                      e.className = e.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+                    }
+                    let clasString = string.includes(type)
+                    console.log(type);
+                    console.log(clasString);
+                    if (string.includes(type)){
+                        if (e.classList){
+                          e.classList.add(className);
+                        }
+                        else{
+                          e.className += ' ' + className;
+                        }
+                    }
+                });
+                document.querySelectorAll('[data-room-type]').forEach(function(e) {
+                    e.classList.remove(classNa);
+                })
+                el.classList.add(classNa);
+            };
+            document.querySelectorAll('[data-room-type]').forEach(function(elem) {
+                elem.addEventListener('click', function(){
+                    showFilterRoom(elem);
+                }, false);
+            })
         },
 
         init: () => {
@@ -372,6 +425,7 @@ const FE = {
             FE.global.clickOutside('fade', '.people-list-popup', '.popup-wrap.popup-create');
             FE.global.autocomplatePopup();
             FE.global.itemShowHide();
+            FE.global.filterRooms();
         },
         resize: function resize() {
             //Functions inside loaded execute when window resize
@@ -385,7 +439,7 @@ $(function() {
     FE.global.init();
 });
 
-if(!isMobile) {
+if(!isMobile && document.getElementById('booking-widget')) {
     window.onscroll = function() {FE.global.sticky(document.getElementById('booking-widget'))};
 }
 
