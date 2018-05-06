@@ -8,7 +8,7 @@ const isDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/
     iOS11 = /OS 11_0_1|OS 11_0_2|OS 11_0_3|OS 11_1|OS 11_1_1|OS 11_1_2|OS 11_2|OS 11_2_1|OS 11_2_2|OS 11_2_3|OS 11_2_4|OS 11_2_5/.test(navigator.userAgent);
 const isMobile = $(window).width() <= mobileWidth;
 const isIpad = $(window).width() <= deviceWidth;
-if(document.getElementById('booking-widget')) {
+if (document.getElementById('booking-widget')) {
     var sticky = document.getElementById('booking-widget').offsetTop;
 }
 const FE = {
@@ -51,16 +51,16 @@ const FE = {
                 elem: element,
                 open: 0
             });
-            if(document.getElementById('tablink') && isMobile) {
+            if (document.getElementById('tablink') && isMobile) {
                 let tabLink = document.getElementById('tablink');
                 tabLink.addEventListener('click', FE.global.openTab);
             }
         },
         openTab: (e) => {
-            if(document.getElementById('tabs-header') !== null)
-            document.getElementById('tabs-header').style.display = 'block';
-            if(document.getElementById('room-types') !== null)
-            document.getElementById('room-types').style.display = 'block';
+            if (document.getElementById('tabs-header') !== null)
+                document.getElementById('tabs-header').style.display = 'block';
+            if (document.getElementById('room-types') !== null)
+                document.getElementById('room-types').style.display = 'block';
             e.preventDefault();
         },
         sliderImage: (slider, slideToShow, dots, arrows) => {
@@ -77,15 +77,15 @@ const FE = {
                 imgIndex = $(this).find('.slider-content').index();
                 console.log(sliderImageCount);
                 $(this).on('init reInit afterChange', function(event, slick, currentSlide, nextSlide) {
-                    if(currentSlide !== undefined) {
+                    if (currentSlide !== undefined) {
                         $('.slider-count .number').text(currentSlide + 1);
                         $('.room-info-slider-thumb img').removeClass('active');
                         let thumbnailSlide = currentSlide + 1
-                        $('.room-info-slider-thumb img:nth-child(' + thumbnailSlide +')').addClass('active');
-                    }                    
+                        $('.room-info-slider-thumb img:nth-child(' + thumbnailSlide + ')').addClass('active');
+                    }
                 });
             });
-            $(document).on('click',  '.room-info-slider-thumb img', function () {
+            $(document).on('click', '.room-info-slider-thumb img', function() {
                 var indexThumbnail = $(this).index();
                 $('.room-info-slider-thumb img').removeClass('active');
                 $(this).addClass('active');
@@ -95,7 +95,7 @@ const FE = {
         instaFeed: () => {
             if (document.getElementById('instafeed')) {
                 let instabox = document.getElementById('instafeed');
-                let limit =  instabox.attributes.getNamedItem('data-limit').value;
+                let limit = instabox.attributes.getNamedItem('data-limit').value;
                 let moreText = instabox.attributes.getNamedItem('data-more').value;
                 let moreTextSecond = instabox.attributes.getNamedItem('data-morespan').value;
                 let feed = new Instafeed({
@@ -164,7 +164,7 @@ const FE = {
         },
 
         scroll: () => {
-          const scroll = new SmoothScroll('.scroll', { speed: 2000 });
+            const scroll = new SmoothScroll('.scroll', { speed: 2000 });
         },
 
         changeLanguage: () => {
@@ -218,16 +218,16 @@ const FE = {
             }
             document.querySelectorAll('[data-show-id]').forEach(function(elem) {
                 const html = getTargetHTML(elem);
-               // elem.onclick = basicLightbox.create(html).show;
+                // elem.onclick = basicLightbox.create(html).show;
                 elem.onclick = basicLightbox.create(html, {
                     afterShow: (instance) => {
-                       let SlideNumber = elem.getAttribute('data-slide')
-                       FE.global.lazyLoad();
-                       FE.global.sliderImage('.gallery-nav', 1, false, true);
-                       $('.gallery-nav').slick('slickGoTo', SlideNumber, true);
+                        let SlideNumber = elem.getAttribute('data-slide')
+                        FE.global.lazyLoad();
+                        FE.global.sliderImage('.gallery-nav', 1, false, true);
+                        $('.gallery-nav').slick('slickGoTo', SlideNumber, true);
                     },
                     afterClose: (instance) => {
-                       $('.gallery-nav').slick('unslick');
+                        $('.gallery-nav').slick('unslick');
                     }
                 }).show
             })
@@ -242,27 +242,27 @@ const FE = {
             document.querySelectorAll('[data-show-rooms]').forEach(function(elem) {
                 const html = getTargetHTML(elem);
                 let checkSlider = false;
-               // elem.onclick = basicLightbox.create(html).show;
-               if(checkSlider){
+                // elem.onclick = basicLightbox.create(html).show;
+                if (checkSlider) {
                     $('.room-info-slider').slick('unslick');
                 }
-                elem.onclick = basicLightbox.create(html,{
+                elem.onclick = basicLightbox.create(html, {
                     className: 'roomPopup',
                     closable: true,
                     beforeShow: (instance) => {
-                       $('body').addClass('modal-open');
+                        $('body').addClass('modal-open');
                     },
                     afterShow: (instance) => {
                         FE.global.sliderImage('.room-info-slider', 1, false, true);
                         let checkSlider = true;
                     },
                     beforeClose: (instance) => {
-                       $('.room-info-slider').slick('unslick');
-                       $('body').removeClass('modal-open');
+                        $('.room-info-slider').slick('unslick');
+                        $('body').removeClass('modal-open');
                     }
                 }).show
             })
-            $(document).on('click',  '#room-full-info .close-room', function () {
+            $(document).on('click', '#room-full-info .close-room', function() {
                 $('.roomPopup').removeClass('basicLightbox--visible')
                 setTimeout(() => {
                     $('.roomPopup').remove();
@@ -272,68 +272,68 @@ const FE = {
             });
         },
         autocomplatePopup: () => {
-          $(document).on('click', '.input-showtext button', function() {
-            if ($(this).parents('#header-search-popup').length == 1) {} else {
-              $(this).parents('.input-showtext').find('.popup-menu').fadeIn();
-            }
-          });
-          $(document).on('focus', '.input-showtext button', function() {
-            //$(this).blur();
-            $(this).next().find('li span').on('click', function() {
-              $(this).parents('.input-showtext').find('button').text($(this).text());
-              $(this).parents('.input-showtext').find('button').focus();
+            $(document).on('click', '.input-showtext button', function() {
+                if ($(this).parents('#header-search-popup').length == 1) {} else {
+                    $(this).parents('.input-showtext').find('.popup-menu').fadeIn();
+                }
             });
-          });
+            $(document).on('focus', '.input-showtext button', function() {
+                //$(this).blur();
+                $(this).next().find('li span').on('click', function() {
+                    $(this).parents('.input-showtext').find('button').text($(this).text());
+                    $(this).parents('.input-showtext').find('button').focus();
+                });
+            });
 
-          $(document).on('click', '.input-showtext .popup-content-input ul li span', function() {
-            $(this).parents('.input-showtext').find(' .popup-content-input ul li span').removeClass('active');
-            $(this).addClass('active');
-            //$(this).parents('.input-showtext').find('input').attr('href', $(this).parent().attr('data-link')).focus();
-            $(this).parents('.input-showtext').find('.popup-menu').fadeOut();
-            $(this).parents('.input-showtext').removeClass('focus');
-          });
-          $(document).on('click', '.people-list-popup .btn-group .done', function(e) {
-            var popup = $(this).parents('.popup-wrap');
-            console.log(popup);
-            let getText = '大人'+ popup.find('.grown-up .input-showtext button').text() + ' 名, 子供' + popup.find('.children .input-showtext button').text() + ' 名 <span>' + popup.find('.room .input-showtext button').text() + ' 部屋 </span>';
-            $('.people .people-list p').html(getText);
-            popup.css('display', 'none');
-            e.preventDefault();
-          });
-          $(document).on('click', '.people-list-popup .btn-group .clear', function(e) {
-            e.preventDefault();
-            var popup = $(this).parents('.people-list-popup')
-            popup.find('.grown-up .input-showtext button').text('0人');
-            popup.find('.children .input-showtext button').text('0人');
-            popup.find('.room .input-showtext button').text('0人');
-          });
+            $(document).on('click', '.input-showtext .popup-content-input ul li span', function() {
+                $(this).parents('.input-showtext').find(' .popup-content-input ul li span').removeClass('active');
+                $(this).addClass('active');
+                //$(this).parents('.input-showtext').find('input').attr('href', $(this).parent().attr('data-link')).focus();
+                $(this).parents('.input-showtext').find('.popup-menu').fadeOut();
+                $(this).parents('.input-showtext').removeClass('focus');
+            });
+            $(document).on('click', '.people-list-popup .btn-group .done', function(e) {
+                var popup = $(this).parents('.popup-wrap');
+                console.log(popup);
+                let getText = '大人' + popup.find('.grown-up .input-showtext button').text() + ' 名, 子供' + popup.find('.children .input-showtext button').text() + ' 名 <span>' + popup.find('.room .input-showtext button').text() + ' 部屋 </span>';
+                $('.people .people-list p').html(getText);
+                popup.css('display', 'none');
+                e.preventDefault();
+            });
+            $(document).on('click', '.people-list-popup .btn-group .clear', function(e) {
+                e.preventDefault();
+                var popup = $(this).parents('.people-list-popup')
+                popup.find('.grown-up .input-showtext button').text('0人');
+                popup.find('.children .input-showtext button').text('0人');
+                popup.find('.room .input-showtext button').text('0人');
+            });
         },
         itemShowHide: () => {
 
-          $(document).on('click', '.people-list', function() {
-             $(this).next().show();
-          });
+            $(document).on('click', '.people-list', function() {
+                $(this).next().show();
+            });
 
-          $(document).on('click', '.calendar-link', function() {
-            setTimeout(() => {
-              $('body').addClass('noScrollBody');
-              let $body = $(this).closest('body');
-              $body.find('.booking-widget').fadeIn();
-            }, 100);
-          });
+            $(document).on('click', '.calendar-link', function() {
+                setTimeout(() => {
+                    $('body').addClass('noScrollBody');
+                    let $body = $(this).closest('body');
+                    $body.find('.booking-widget').fadeIn();
+                }, 100);
+            });
 
-          $(document).on('click', '.close-booking', function() {
-            setTimeout(() => {
-              $('body').removeClass('noScrollBody');
-              let $body = $(this).closest('body');
-              $body.find('.booking-widget').fadeOut();
-            }, 100);
-          });
+            $(document).on('click', '.close-booking', function() {
+                setTimeout(() => {
+                    $('body').removeClass('noScrollBody');
+                    let $body = $(this).closest('body');
+                    $body.find('.booking-widget').fadeOut();
+                }, 100);
+            });
 
         },
         sticky: (element) => {
             if ($(window).width() > 768) {
-                if (window.pageYOffset  >= sticky) {
+                if (window.pageYOffset >= sticky) {
                     element.classList.add('sticky')
                 } else {
                     element.classList.remove('sticky');
@@ -342,9 +342,9 @@ const FE = {
         },
 
         getOffset: (el) => {
-          var _x = 0;
+            var _x = 0;
             var _y = 0;
-            while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
+            while (el && !isNaN(el.offsetLeft) && !isNaN(el.offsetTop)) {
                 _x += el.offsetLeft - el.scrollLeft;
                 _y += el.offsetTop - el.scrollTop;
                 el = el.offsetParent;
@@ -363,26 +363,24 @@ const FE = {
                 const className = 'show';
                 const classNa = 'selected';
                 document.getElementById('tablink').innerText = el.text;
-                if(isMobile && (document.getElementById('room-types') !== null)) {
+                if (isMobile && (document.getElementById('room-types') !== null)) {
                     document.getElementById('room-types').style.display = 'none';
                 }
                 document.querySelectorAll('[data-rooms]').forEach(function(e) {
                     let string = e.getAttribute('data-rooms');
-                    if (e.classList){
-                      e.classList.remove(className);
-                    }
-                    else{
-                      e.className = e.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+                    if (e.classList) {
+                        e.classList.remove(className);
+                    } else {
+                        e.className = e.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
                     }
                     let clasString = string.includes(type)
                     console.log(type);
                     console.log(clasString);
-                    if (string.includes(type)){
-                        if (e.classList){
-                          e.classList.add(className);
-                        }
-                        else{
-                          e.className += ' ' + className;
+                    if (string.includes(type)) {
+                        if (e.classList) {
+                            e.classList.add(className);
+                        } else {
+                            e.className += ' ' + className;
                         }
                     }
                 });
@@ -392,7 +390,7 @@ const FE = {
                 el.classList.add(classNa);
             };
             document.querySelectorAll('[data-room-type]').forEach(function(elem) {
-                elem.addEventListener('click', function(){
+                elem.addEventListener('click', function() {
                     showFilterRoom(elem);
                 }, false);
             })
@@ -439,30 +437,31 @@ $(function() {
     FE.global.init();
 });
 
-if(!isMobile && document.getElementById('booking-widget')) {
-    window.onscroll = function() {FE.global.sticky(document.getElementById('booking-widget'))};
+if (!isMobile && document.getElementById('booking-widget')) {
+    window.onscroll = function() { FE.global.sticky(document.getElementById('booking-widget')) };
 }
 
 
 $(window).load(function() {
     FE.global.loaded();
-    // $('#checkin_date').datepicker({
-    //     numberOfMonths: 2,
-    //     minDate: new Date(),
-    //     showButtonPanel: true,
-    //     autoclose: false
-    // });
-    // $('#checkout_date').datepicker();
-    // $.datepicker.setDefaults($.datepicker.regional["kr"]);
+    /*
+    For localisation change the locale dynamically. EG below
+    locale: 'en-US'
+    locale: 'ja'
+    locale: 'ko'
+    locale: 'zh-TW'
+    locale: 'zh-CN'
+    */
 
-      $.DateRangePicker({
-        container: '.date-picker-tab1'
-      });
-      $.DateRangePicker({
+    $.DateRangePicker({
+        container: '.date-picker-tab1',
+        locale: 'ja'
+    });
+    $.DateRangePicker({
         container: '.date-picker-tab2-single',
         singleDatePicker: true
-      });
-      $.DateRangePicker({
+    });
+    $.DateRangePicker({
         container: '.date-picker-tab3'
-      });
+    });
 });
