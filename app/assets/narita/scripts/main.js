@@ -67,7 +67,7 @@ const FE = {
             $(slider).each(function() {
                 let imgIndex, sliderImageCount;
                 sliderImageCount = $(this).children().length;
-                $(this).slick({
+                $(this).not('.slick-initialized').slick({
                     slidesToShow: slideToShow,
                     slidesToScroll: 1,
                     dots: dots,
