@@ -4,13 +4,15 @@
   position: fixed;
   background: #fff;
   top: 0;
-  bottom: 0;
-  z-index: 9999;
+  height: 100vh;
+  z-index: 99999;
   width: 100%;
   overflow-y: scroll;
   @include md {
     position: relative;
     margin-top: -80px;
+    z-index: 9999;
+    height: auto;
     background: none;
     overflow-y: inherit;
   }
@@ -47,7 +49,7 @@
     }
 
     + .home-slider {
-      padding-top: 312px;
+      padding-top: 232px;
     }
   }
 

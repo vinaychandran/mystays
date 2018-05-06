@@ -57,7 +57,10 @@ const FE = {
             }
         },
         openTab: (e) => {
-            document.getElementById('tabs-header').style.display = 'block';
+            if (document.getElementById('tabs-header') !== null)
+                document.getElementById('tabs-header').style.display = 'block';
+            if (document.getElementById('room-types') !== null)
+                document.getElementById('room-types').style.display = 'block';
             e.preventDefault();
         },
         sliderImage: (slider, slideToShow, dots, arrows) => {
@@ -74,10 +77,12 @@ const FE = {
                 imgIndex = $(this).find('.slider-content').index();
                 console.log(sliderImageCount);
                 $(this).on('init reInit afterChange', function(event, slick, currentSlide, nextSlide) {
-                    // $('.slider-count .number').text(currentSlide + 1);
-                    // $('.room-info-slider-thumb img').removeClass('active');
-                    // let thumbnailSlide = currentSlide + 1
-                    // $('.room-info-slider-thumb img:nth-child(' + thumbnailSlide +')').addClass('active');
+                    if (currentSlide !== undefined) {
+                        $('.slider-count .number').text(currentSlide + 1);
+                        $('.room-info-slider-thumb img').removeClass('active');
+                        let thumbnailSlide = currentSlide + 1
+                        $('.room-info-slider-thumb img:nth-child(' + thumbnailSlide + ')').addClass('active');
+                    }
                 });
             });
             $(document).on('click', '.room-info-slider-thumb img', function() {
@@ -313,7 +318,7 @@ const FE = {
                 setTimeout(() => {
                     $('body').addClass('noScrollBody');
                     let $body = $(this).closest('body');
-                    $body.children('.booking-widget').fadeIn();
+                    $body.find('.booking-widget').fadeIn();
                 }, 100);
             });
 
@@ -321,7 +326,7 @@ const FE = {
                 setTimeout(() => {
                     $('body').removeClass('noScrollBody');
                     let $body = $(this).closest('body');
-                    $body.children('.booking-widget').fadeOut();
+                    $body.find('.booking-widget').fadeOut();
                 }, 100);
             });
 
@@ -349,10 +354,18 @@ const FE = {
 
         filterRooms: () => {
 
+            if (isMobile && (document.getElementById('room-types') !== null)) {
+                document.getElementById('room-types').style.display = 'none';
+            }
+
             function showFilterRoom(el) {
                 const type = el.getAttribute('data-room-type');
                 const className = 'show';
                 const classNa = 'selected';
+                document.getElementById('tablink').innerText = el.text;
+                if (isMobile && (document.getElementById('room-types') !== null)) {
+                    document.getElementById('room-types').style.display = 'none';
+                }
                 document.querySelectorAll('[data-rooms]').forEach(function(e) {
                     let string = e.getAttribute('data-rooms');
                     if (e.classList) {

@@ -3,7 +3,7 @@ header{
   height: 56px;
   background: $footer-bg;
   position: fixed;
-  z-index: 9999;
+  z-index: 99999;
   @include md {
   	height: 94px;
   }
