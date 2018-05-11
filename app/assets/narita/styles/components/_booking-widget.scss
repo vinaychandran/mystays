@@ -833,8 +833,8 @@
           ul {
             margin: 0;
             padding: 0;
-            max-height: 135px;
-            overflow-y: scroll;
+            max-height: 150px;
+            overflow-y: auto; 
 
             li {
               border-bottom: 1px solid #eeeeee;

@@ -225,6 +225,9 @@
   &:after{
     display: none;
   } 
+  .basicLightbox__placeholder{
+    transition: scale(1) ;
+  }
   &.basicLightbox--visible{
     animation: roomPop 0.2s ease; /* IE 10+, Fx 29+ */
     opacity: 1;
