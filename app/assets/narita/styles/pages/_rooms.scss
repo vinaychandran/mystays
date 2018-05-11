@@ -229,8 +229,9 @@
     transition: scale(1) ;
   }
   &.basicLightbox--visible{
+     opacity: 1;
     animation: roomPop 1s ease; /* IE 10+, Fx 29+ */
-    opacity: 1;
+   
   }
 }
 
@@ -238,12 +239,8 @@
 @keyframes roomPop {
   0%   { 
     top: -5%;
-    opacity: 0.5; 
-  }
-  50%  { 
-    top: -2%;
-    opacity: 1;
-  }
+    opacity: 1; 
+  }  
   100% { 
     top: 0;  
     opacity: 1;  
