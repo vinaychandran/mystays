@@ -834,7 +834,7 @@
             margin: 0;
             padding: 0;
             max-height: 150px;
-            overflow-y: auto; 
+            overflow-y: auto;
 
             li {
               border-bottom: 1px solid #eeeeee;
@@ -1339,4 +1339,11 @@
 .restaurant-detail {
   background: #fff;
   padding: 30px;
+}
+
+#show-restaurant{
+  width: 100vw;
+  @include md {
+    width: 480px;
+  }
 }
