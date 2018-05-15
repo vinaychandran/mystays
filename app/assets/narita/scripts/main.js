@@ -368,6 +368,20 @@ const FE = {
             return { top: _y, left: _x };
         },
 
+        closeHamburger: (box, targetElement, targetElement1) => {
+            //debugger
+            $('html').on('click', 'body', function(e) {
+                let container = $(box);
+                let container1 = $(targetElement);
+                if (!container.is(e.target) && container.has(e.target).length === 0 && (!container1.is(e.target) && container1.has(e.target).length === 0)) {
+                    $(targetElement).stop().removeClass('active');
+                    $(targetElement1).removeClass('active');
+                    //$('#hamburger').removeClass('active');
+                    $('body').removeClass('noScrollBody');
+                }
+            });
+        },
+
         filterRooms: () => {
 
             if (isMobile && (document.getElementById('room-types') !== null)) {
@@ -432,6 +446,7 @@ const FE = {
             FE.global.changeLanguage();
             FE.global.sideNavigation();
             FE.global.clickOutside('active', '.selected-lang', '.selected-lang');
+            FE.global.closeHamburger('.header-right', '.side-navigation', '.hamburger');
             FE.global.lazyLoad();
             FE.global.lightBox();
             FE.global.lightBoxRoom();
