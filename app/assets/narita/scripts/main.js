@@ -190,6 +190,7 @@ const FE = {
                 }
             });
         },
+
         clickOutside: (method, box, targetElement) => {
             $('html').on('click', 'body', function(e) {
                 let container = $(box);
@@ -331,6 +332,14 @@ const FE = {
             });
 
         },
+
+        calendarClick: () => {
+            if ($(window).width() > 768) {
+                let elem = document.getElementById('booking-widget');
+                elem.classList.add('sticky');
+            }
+        },
+
         sticky: (element) => {
             if ($(window).width() > 768) {
                 if (window.pageYOffset >= sticky) {
@@ -369,7 +378,6 @@ const FE = {
         },
 
         closeHamburger: (box, targetElement, targetElement1) => {
-            //debugger
             $('html').on('click', 'body', function(e) {
                 let container = $(box);
                 let container1 = $(targetElement);

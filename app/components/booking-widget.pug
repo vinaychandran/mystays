@@ -17,14 +17,14 @@ section.booking-widget.visible-desktop#booking-widget
           label チェックイン
           .date-picker-tab1-container
             .values
-              .startDateContainer
+              .startDateContainer(onclick="FE.global.calendarClick()")
                 //label チェックイン
                 .startDate
                   .value.date_at
                     span.date_at
                     input#date_at.date_at(type='hidden')
               .to ~
-              .endDateContainer
+              .endDateContainer(onclick="FE.global.calendarClick()")
                 //label チェックアウト
                 .endDate
                   .value.date_to
