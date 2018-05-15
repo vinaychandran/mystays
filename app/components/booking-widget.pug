@@ -12,19 +12,19 @@ section.booking-widget.visible-desktop#booking-widget
           a.tabs-title(href='#') レストラン
         li
           a.tabs-title(href='#') お部屋+航空券
-      #booking-tab1.tabs-content
+      #booking-tab1.tabs-content(onclick='FE.global.bookingWidgetClick()')
         .date-picker-tab1
           label チェックイン
           .date-picker-tab1-container
             .values
-              .startDateContainer(onclick="FE.global.calendarClick()")
+              .startDateContainer
                 //label チェックイン
                 .startDate
                   .value.date_at
                     span.date_at
                     input#date_at.date_at(type='hidden')
               .to ~
-              .endDateContainer(onclick="FE.global.calendarClick()")
+              .endDateContainer
                 //label チェックアウト
                 .endDate
                   .value.date_to

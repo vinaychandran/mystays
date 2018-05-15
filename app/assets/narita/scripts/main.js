@@ -8,9 +8,7 @@ const isDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/
     iOS11 = /OS 11_0_1|OS 11_0_2|OS 11_0_3|OS 11_1|OS 11_1_1|OS 11_1_2|OS 11_2|OS 11_2_1|OS 11_2_2|OS 11_2_3|OS 11_2_4|OS 11_2_5/.test(navigator.userAgent);
 const isMobile = $(window).width() <= mobileWidth;
 const isIpad = $(window).width() <= deviceWidth;
-if (document.getElementById('booking-widget')) {
-    var sticky = document.getElementById('booking-widget').offsetTop;
-}
+var sticky, pageOffset;
 const FE = {
     global: {
         lazyLoad: () => {
@@ -165,6 +163,14 @@ const FE = {
 
         scroll: () => {
             const scroll = new SmoothScroll('.scroll', { speed: 2000 });
+        },
+
+        pageScroll: () => {
+            if (!isMobile && document.getElementById('booking-widget')) {
+                window.onscroll = function() {
+                    FE.global.sticky(document.getElementById('booking-widget'))
+                };
+            }
         },
 
         changeLanguage: () => {
@@ -333,13 +339,6 @@ const FE = {
 
         },
 
-        calendarClick: () => {
-            if ($(window).width() > 768) {
-                let elem = document.getElementById('booking-widget');
-                elem.classList.add('sticky');
-            }
-        },
-
         sticky: (element) => {
             if ($(window).width() > 768) {
                 if (window.pageYOffset >= sticky) {
@@ -350,19 +349,19 @@ const FE = {
             }
         },
 
-        datePickerInit: () => {
+        bookingWidgetClick: () => {
+            if ($(window).width() > 768) {
+                if (window.pageYOffset <= sticky) {
+                    $('html, body').animate({ scrollTop: sticky }, 500);
+                }
+            }
+        },
+
+        datePickerInit: (container, locale, single) => {
             $.DateRangePicker({
-                container: '.date-picker-tab1',
-                locale: 'ja'
-            });
-            $.DateRangePicker({
-                container: '.date-picker-tab2-single',
-                singleDatePicker: true,
-                locale: 'ja'
-            });
-            $.DateRangePicker({
-                container: '.date-picker-tab3',
-                locale: 'ja'
+                container: container,
+                singleDatePicker: single,
+                locale: locale
             });
         },
 
@@ -435,10 +434,9 @@ const FE = {
         },
 
         init: () => {
-            //initialling modal
-            //FE.global.loginModal('modal1', false, false);
             FE.global.lazyLoad();
         },
+
         loaded: function loaded() {
             //Functions inside loaded execute when window loaded
             if (isMobile) {
@@ -463,7 +461,10 @@ const FE = {
             FE.global.autocomplatePopup();
             FE.global.itemShowHide();
             FE.global.filterRooms();
-            FE.global.datePickerInit();
+            FE.global.datePickerInit('.date-picker-tab1', 'ja', false);
+            FE.global.datePickerInit('.date-picker-tab2-single', 'ja', true);
+            FE.global.datePickerInit('.date-picker-tab3', 'ja', false);
+            FE.global.pageScroll();
         },
         resize: function resize() {
             //Functions inside loaded execute when window resize
@@ -477,12 +478,9 @@ $(function() {
     FE.global.init();
 });
 
-if (!isMobile && document.getElementById('booking-widget')) {
-    window.onscroll = function() { FE.global.sticky(document.getElementById('booking-widget')) };
-}
-
 $(window).load(function() {
     FE.global.loaded();
+    sticky = document.getElementById('booking-widget').offsetTop;
 });
 
 $(window).resize(function() {
