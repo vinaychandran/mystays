@@ -937,7 +937,7 @@
               @include md {
                 width: 181px;
               }
-  
+
               .value {
                 //border-right: 2px solid #eeeeee;
                 padding-right: 20px;
@@ -1351,5 +1351,37 @@
   width: 100vw;
   @include md {
     width: 480px;
+  }
+  button{
+    background: #c5ad6c;
+    color: #fefefe;
+    border: none;
+    height: 66px;
+    width: 100%;
+  }
+  input,
+  input::placeholder {
+    font-family: $primary-font;
+    background-size: 6px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 0;
+    height: 66px;
+    border: 2px solid #eeeeee;
+    @include font-size(12px);
+    letter-spacing: 0.9px;
+    padding: 0 11px;
+    color: $default-color;
+    margin-bottom: 15px;
+
+    &:focus {
+      border: 2px solid #eeeeee;
+    }
+  }
+
+  input::placeholder {
+    border: 0;
+    padding-left: 0;
   }
 }
