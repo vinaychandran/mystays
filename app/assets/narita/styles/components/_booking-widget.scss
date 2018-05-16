@@ -70,7 +70,7 @@
       padding: 18px 0;
       line-height: 1.25;
       letter-spacing: 5.3px;
-      border-right: 1px solid #eee;
+      //border-right: 1px solid #eee;
       @include tablet {
         width: 90%;
       };
@@ -83,6 +83,8 @@
     a {
       padding: 15px 22px;
       display: table;
+      float: right;
+      border-left: 1px solid #eee
     }
   }
 
@@ -620,7 +622,7 @@
             letter-spacing: normal;
             text-align: center;
             color: $default-color;
-            margin: 10px 0 30px;
+            margin: 0px 0 10px;
           }
 
           .closePopup {
