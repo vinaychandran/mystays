@@ -61,6 +61,32 @@ const FE = {
                 document.getElementById('room-types').style.display = 'block';
             e.preventDefault();
         },
+
+        validateForm: () => {
+            let fname = document.forms["bookingForm"]["fname"].value;
+            let lname = document.forms["bookingForm"]["lname"].value;
+            let mobile = document.forms["bookingForm"]["mobile"].value;
+            let details = document.forms["bookingForm"]["details"].value;
+            let errorMsg = '';
+            //alert(x);
+            if (fname == "") {
+                errorMsg += "Please enter firstname <br>";
+                // return false;
+            }
+            if (lname == "") {
+                errorMsg += "Please enter lastname <br>";
+                //return false;
+            }
+            if (mobile == "") {
+                errorMsg += "Please enter mobile <br>";
+                //return false;
+            }
+            if (details == "") {
+                errorMsg += "Please enter details";
+                //return false;
+            }
+            document.getElementsByClassName("errors")[1].innerHTML = errorMsg;
+        },
         sliderImage: (slider, slideToShow, dots, arrows) => {
             $(slider).each(function() {
                 let imgIndex, sliderImageCount;

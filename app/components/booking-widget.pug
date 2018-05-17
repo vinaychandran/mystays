@@ -184,21 +184,22 @@ section.booking-widget.visible-desktop#booking-widget
           label 最低価格保証
           button(name='submit', type='submit', value='空室を検索'  data-show-id='show-restaurant') 空室を検索
         #show-restaurant(data-basicLightbox data-id="show-restaurant" class=" row restaurant-detail")
-          form
+          .errors
+          form(id='bookingForm' name="bookingForm")
             label First Name
             .input-showtext
-              input.form-control(type='text', placeholder='プロモコード)', required='')
+              input.form-control(id='fname' name= "fname" type='text', placeholder='プロモコード)' )
             label Last Name
             .input-showtext
-              input.form-control(type='text', placeholder='プロモコード)', required='')
+              input.form-control(type='text', placeholder='プロモコード)' name='lname')
             label Mobile
             .input-showtext
-              input.form-control(type='number', placeholder='プロモコード)', required='')
+              input.form-control(type='number', placeholder='プロモコード)' name='mobile')
             label Deatils
             .input-showtext
-              input.form-control(type='text', placeholder='プロモコード)', required='')
+              input.form-control(type='text', placeholder='プロモコード)' name='details')
             .find-button
-              button(name='submit', type='submit', value='空室を検索') 空室を検索
+              button(name='button', type='button', value='空室を検索' onclick='FE.global.validateForm()') 空室を検索
       #booking-tab3.tabs-content(onclick='FE.global.bookingWidgetClick()')
         .room-locations
           section
