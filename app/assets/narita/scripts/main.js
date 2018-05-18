@@ -415,19 +415,17 @@ const FE = {
             });
         },
 
-        filterRooms: () => {
-
+        filterRooms: (targetElement) => {
             if (isMobile && (document.getElementById('room-types') !== null)) {
                 document.getElementById('room-types').style.display = 'none';
             }
-
             function showFilterRoom(el) {
                 const type = el.getAttribute('data-room-type');
                 const className = 'show';
                 const classNa = 'selected';
                 document.getElementById('tablink').innerText = el.text;
                 if (isMobile && (document.getElementById('room-types') !== null)) {
-                    document.getElementById('room-types').style.display = 'none';
+                    document.getElementById(targetElement).style.display = 'none';
                 }
                 document.querySelectorAll('[data-rooms]').forEach(function(e) {
                     let string = e.getAttribute('data-rooms');
@@ -486,11 +484,13 @@ const FE = {
             FE.global.clickOutside('fade', '.people-list-popup', '.popup-wrap.popup-create');
             FE.global.autocomplatePopup();
             FE.global.itemShowHide();
-            FE.global.filterRooms();
+            FE.global.filterRooms('room-types');
+            FE.global.filterRooms('venue-types');
             FE.global.datePickerInit('.date-picker-tab1', 'ja', false);
             FE.global.datePickerInit('.date-picker-tab2-single', 'ja', true);
             FE.global.datePickerInit('.date-picker-tab3', 'ja', false);
             FE.global.pageScroll();
+            FE.global.sliderImage('.venues-slider', 1, false, true);
         },
         resize: function resize() {
             //Functions inside loaded execute when window resize
