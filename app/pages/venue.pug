@@ -14,9 +14,63 @@ block append content
 			//- 		i.icon.sprite-calendar-interface-symbol-tool
 		//- .visible-device
 		//- 	include ../components/booking-widget.pug
+		section.thiru_toRename
+			button(data-show-id='rfp-form') New Popup
+			#rfp-form(data-basicLightbox data-id="rfp-form" class=" row rfp-form-details")
+				.errors
+				form(id='rpfForm' name="rpfForm")
+					h5 Planning your meeting of event Free quotation - Please fill out the form below
+					label Select Location
+					.input-showtext
+						input.form-control(id='fname' name= "fname" type='text', placeholder='Cities, Hotels' )
+					label First Name
+					.input-showtext
+						input.form-control(id='fname' name= "fname" type='text', placeholder='First Name' )
+					label Last Name
+					.input-showtext
+						input.form-control(type='text', placeholder='Last Name' name='lname')
+					label Company Name
+					.input-showtext
+						input.form-control(type='text', placeholder='Company Name' name='lname')
+					label Email Address
+					.input-showtext
+						input.form-control(type='text', placeholder='Email Address' name='details')
+					label Phone Number
+					.input-showtext
+						input.form-control(type='number', placeholder='Phone Number' name='mobile')
+					h5 Meeting / Event Information
+					label Event / Meeting Name
+					.input-showtext
+						input.form-control(type='text', placeholder='Event / Meeting Name' name='details')
+					label Nr. Attendees
+					.input-showtext
+						input.form-control(type='number', placeholder='Nr. Attendees' name='mobile')
+
+					label Start Date
+					.input-showtext
+						input.form-control(type='text', placeholder='Start Date' name='details')
+					label End Date
+					.input-showtext
+						input.form-control(type='number', placeholder='End Date' name='mobile')
+					label Guest Room
+					.input-showtext
+						input.form-control(type='text', placeholder='Guest Room' name='details')
+					label Duration
+					.input-showtext
+						input.form-control(type='number', placeholder='Duration' name='mobile')
+					label Check applicable food and beverage needs
+					.input-showtext
+						input.form-control(type='number', placeholder='Duration' name='mobile')
+					label Please tell us about your other / Audio Visual requirements:
+					.input-showtext
+						input.form-control(type='number', placeholder='Duration' name='mobile')
+					h5 Free Quotation - We will call you within 24H
+					h5 By submiting this RFP, you are agreeing with our Terms and Conditions and Privacy Statement.
+					.find-button
+						button(name='button', type='button', value='空室を検索' onclick='FE.global.validateForm()') Submit my RPF
 		section.about-venue-info
 			h3 TOGETHER IN  STYLE
-			p のイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、夏でも底に冷たさをもつ青いそら、あうつくしい森で飾られたモリーオ市あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら 
+			p のイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、夏でも底に冷たさをもつ青いそら、あうつくしい森で飾られたモリーオ市あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら
 		section.venues-list-wrap
 			.container
 				h4 会場一覧
@@ -46,11 +100,11 @@ block append content
 									.size 3m
 								li
 									span 面積
-									.size 
-										| 立食時  〜1200人 
+									.size
+										| 立食時  〜1200人
 										br
 										| 着席時  〜600人
-							a.see-more(href="#") 
+							a.see-more(href="#")
 								span もっと見る
 					li.show(data-rooms="all medium")
 						img.lazy(data-src='/assets/narita/images/room-big1.jpg')
@@ -67,11 +121,11 @@ block append content
 									.size 3m
 								li
 									span 面積
-									.size 
-										| 立食時  〜1200人 
+									.size
+										| 立食時  〜1200人
 										br
 										| 着席時  〜600人
-							a.see-more(href="#") 
+							a.see-more(href="#")
 								span もっと見る
 					li.show(data-rooms="all big")
 						img.lazy(data-src='/assets/narita/images/room-big1.jpg')
@@ -88,11 +142,11 @@ block append content
 									.size 3m
 								li
 									span 面積
-									.size 
-										| 立食時  〜1200人 
+									.size
+										| 立食時  〜1200人
 										br
 										| 着席時  〜600人
-							a.see-more(href="#") 
+							a.see-more(href="#")
 								span もっと見る
 					li.show(data-rooms="all big")
 						img.lazy(data-src='/assets/narita/images/room-big1.jpg')
@@ -109,11 +163,11 @@ block append content
 									.size 3m
 								li
 									span 面積
-									.size 
-										| 立食時  〜1200人 
+									.size
+										| 立食時  〜1200人
 										br
 										| 着席時  〜600人
-							a.see-more(href="#") 
+							a.see-more(href="#")
 								span もっと見る
 					li.show(data-rooms="all medium")
 						img.lazy(data-src='/assets/narita/images/room-big1.jpg')
@@ -130,11 +184,11 @@ block append content
 									.size 3m
 								li
 									span 面積
-									.size 
-										| 立食時  〜1200人 
+									.size
+										| 立食時  〜1200人
 										br
 										| 着席時  〜600人
-							a.see-more(href="#") 
+							a.see-more(href="#")
 								span もっと見る
 					li.show(data-rooms="all small")
 						img.lazy(data-src='/assets/narita/images/room-big1.jpg')
@@ -151,8 +205,8 @@ block append content
 									.size 3m
 								li
 									span 面積
-									.size 
-										| 立食時  〜1200人 
+									.size
+										| 立食時  〜1200人
 										br
 										| 着席時  〜600人
 							a.see-more(href="#")
@@ -161,7 +215,7 @@ block append content
 			h2 ギャラリー
 			.venues-slider.container
 				div.slick-slide
-					img(src='/assets/narita/images/venue-slider/venue-slider1.jpg') 
+					img(src='/assets/narita/images/venue-slider/venue-slider1.jpg')
 				div.slick-slide
 					img(src='/assets/narita/images/venue-slider/venue-slider2.jpg')
 				div.slick-slide
@@ -174,14 +228,14 @@ block append content
 					img(src='/assets/narita/images/venue-slider/venue-slider3.jpg')
 			.venue-slider-info.container
 				.slider-count
-					span.number 1 
-					|  / 6				
-				.btn PDFをダウンロード	
-				a.faq-link(href="#") FAQ	
+					span.number 1
+					|  / 6
+				.btn PDFをダウンロード
+				a.faq-link(href="#") FAQ
 			.venue-menu-wrap
 				img(src='/assets/narita/images/venue-menu.jpg')
 				.venue-menu-info
-					.star 
+					.star
 						span
 					h4 ケータリングメニュー
 					.venu-menu あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、夏でも底に冷たさをもつ青いそら、あうつくしい森で飾られたモリーオ市あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそらあのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、夏でも底に冷たさをもつ青いそら、あうつくしい森で飾られたモリーオ市あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら
