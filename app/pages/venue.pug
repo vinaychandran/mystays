@@ -22,7 +22,29 @@ block append content
 					h5 Planning your meeting of event Free quotation - Please fill out the form below
 					label Select Location
 					.input-showtext
-						input.form-control(id='fname' name= "fname" type='text', placeholder='Cities, Hotels' )
+						button(name='button', type='button', value='空室を検索') Cities, Hotels
+						.popup-menu
+							.popup-content-input
+								label Cities
+								ul.cities
+									li
+										span(target='Hokkaido', names='Hokkaido') 1名
+									li
+										span(target='Okinawa', names='Okinawa') 2名
+									li
+										span(target='Tochigi', names='Tochigi') 3名
+									li
+										span(target='Tokyo', names='Tokyo') 4名
+									label Hotels
+									ul.hotels
+										li
+											span(target='Hokkaido', names='Hokkaido') 1名
+										li
+											span(target='Okinawa', names='Okinawa') 2名
+										li
+											span(target='Tochigi', names='Tochigi') 3名
+										li
+											span(target='Tokyo', names='Tokyo') 4名
 					label First Name
 					.input-showtext
 						input.form-control(id='fname' name= "fname" type='text', placeholder='First Name' )
@@ -58,6 +80,20 @@ block append content
 					label Duration
 					.input-showtext
 						input.form-control(type='number', placeholder='Duration' name='mobile')
+					label Type of Event
+					.input-showtext
+						button(name='button', type='button', value='空室を検索') Trade show
+						.popup-menu
+							.popup-content-input
+								ul.cities
+									li
+										span(target='Hokkaido', names='Hokkaido') Party
+									li
+										span(target='Okinawa', names='Okinawa') Meeting
+									li
+										span(target='Tochigi', names='Tochigi') Conference
+									li
+										span(target='Tokyo', names='Tokyo') Others
 					label Check applicable food and beverage needs
 					.input-showtext
 						input.form-control(type='number', placeholder='Duration' name='mobile')
