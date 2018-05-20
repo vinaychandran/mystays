@@ -62,30 +62,59 @@ const FE = {
             e.preventDefault();
         },
 
+        checkValidationRules: (x) => {
+            let formId = x.id;
+            let fieldId;
+            let errorField = [],
+                noError = [];
+            let lightBox = document.querySelector(".basicLightbox--visible");
+            for (let i = 0; i < x.rules.length; i++) {
+                fieldId = (x.rules[i]) ? x.rules[i].name : '';
+                if (x.rules[i].required && document.querySelector(".basicLightbox--visible form#" + formId + " #" + fieldId).value == '') {
+                    errorField.push(fieldId);
+                } else {
+                    noError.push(fieldId);
+                }
+            }
+            if (noError.length) {
+                for (let i = 0; i < noError.length; i++) {
+                    let element = document.querySelector(".basicLightbox--visible form#" + formId + " #" + noError[i]);
+                    element.classList.remove("error-border");
+                }
+            }
+            if (errorField.length) {
+                for (let i = 0; i < errorField.length; i++) {
+                    let element = document.querySelector(".basicLightbox--visible form#" + formId + " #" + errorField[i]);
+                    element.classList.add("error-border");
+                }
+                return false;
+            } else {
+                return true;
+            }
+        },
+
         validateForm: () => {
-            let fname = document.forms["bookingForm"]["fname"].value;
-            let lname = document.forms["bookingForm"]["lname"].value;
-            let mobile = document.forms["bookingForm"]["mobile"].value;
-            let details = document.forms["bookingForm"]["details"].value;
-            let errorMsg = '';
-            //alert(x);
-            if (fname == "") {
-                errorMsg += "Please enter firstname <br>";
-                // return false;
-            }
-            if (lname == "") {
-                errorMsg += "Please enter lastname <br>";
-                //return false;
-            }
-            if (mobile == "") {
-                errorMsg += "Please enter mobile <br>";
-                //return false;
-            }
-            if (details == "") {
-                errorMsg += "Please enter details";
-                //return false;
-            }
-            document.getElementsByClassName("errors")[1].innerHTML = errorMsg;
+            let validationRules = {
+                "id": "bookingForm",
+                "rules": [{
+                        "name": "fname",
+                        "required": true
+                    },
+                    {
+                        "name": "lname",
+                        required: true
+                    },
+                    {
+                        "name": "mobile",
+                        required: true
+                    },
+                    {
+                        "name": "details",
+                        required: true
+                    }
+                ]
+            };
+            FE.global.checkValidationRules(validationRules);
         },
         sliderImage: (slider, slideToShow, dots, arrows) => {
             $(slider).each(function() {
@@ -419,6 +448,7 @@ const FE = {
             if (isMobile && (document.getElementById('room-types') !== null)) {
                 document.getElementById('room-types').style.display = 'none';
             }
+
             function showFilterRoom(el) {
                 const type = el.getAttribute('data-room-type');
                 const className = 'show';
