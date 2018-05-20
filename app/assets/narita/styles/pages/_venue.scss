@@ -278,3 +278,255 @@ ul.venue-list{
     }
   }
 }
+
+.phone-number {
+  @include font-size(18px);
+  color: $primary-color;
+  padding-left: 10px;
+  font-family: 'YuGo';
+  float: left;
+  line-height: 55px; 
+  font-weight: 500;
+  @include sm {
+    line-height: 92px; 
+    @include font-size(24px); 
+    height: 94px;
+  }
+  i {
+    @include font-size(13px);
+    margin-right: 10px;
+  }
+}
+
+.venue-info {
+  margin-bottom: 0;
+  h2 {
+    font-family: 'YuGo';
+    font-weight: bold;
+  }
+  .venue-quick {
+    font-family: 'YuGo';
+    padding-bottom: 8px;
+  }
+  .venue-floor {
+    @include font-size(14px);
+    font-family: 'Lato';
+    line-height: 26px;
+    color: $primary-color;
+    padding-bottom: 50px;
+  }
+}
+
+.venue-slider-count {
+  @include font-size(14px);
+  font-weight: 500;
+  line-height: 26px;
+  color: $primary-color;
+  float: left;
+  padding: 6px 0;
+  margin-left: 28px;
+  @include sm {
+    margin-left: 0;
+  }
+}
+
+.venue-info-container {
+  margin-top: 0;
+}
+.venue-overview{
+  h5{
+    border-bottom: 2px solid #000;
+    font-weight: bold;
+  }
+  .venue-facilities {
+    @extend %clearfix;
+    padding: 40px 0;
+    border-bottom: 1px solid #eee;
+    ul {
+      @include sm {
+        width: 33.3%;
+        float: left;
+        padding-right: 80px;
+      }
+      li {
+        @include font-size(15px);
+        line-height: 26px;
+        padding-bottom: 8px;
+        span {
+          float: right;
+          font-weight: bold;
+        }
+      }
+    }
+    .btn-download {
+      background: $default-color;
+      position: relative;
+      span {
+        text-align: left;
+        display: block;
+        width: 75%;
+      }
+      i {
+        @include center(vertical);
+        right: 30px;
+      }
+      @include sm {
+        float: left;
+        width: 33.3%;
+        padding: 30px;
+      }
+    }
+  }
+  .venue-layout {
+    padding: 40px 0;
+    #tablink {
+      margin: 20px 0;
+    }
+    h4 {
+      @include font-size(14px);
+      letter-spacing: 2.8px;
+      font-weight: bold;
+    }
+    .tabs {
+      padding: 30px 0 0 0;
+      .tabs-header {
+        margin: 0 0 30px 0;
+        li {
+          &:first-of-type {
+            padding-left: 0;
+          }
+        }
+      }
+      .tabs-content {
+        background: #fafafa;
+        padding: 30px 30px 50px 30px;
+        img {
+          margin-bottom: 30px;
+        }
+        .max-text {
+          @include font-size(12px);
+          float: right;
+        }
+      }
+    }
+  }
+  .meeting-details, .price-details {
+    overflow: hidden;
+    overflow-x: auto;
+    @include sm {
+      overflow: visible;
+    }
+    table {
+      overflow-x: auto;
+      width: 100%;
+      thead {
+        background: #eee;
+        th {
+          text-align: center;
+          vertical-align: middle;
+          border-right: 1px solid #E1E1E1;
+          &:last-of-type {
+            border-right: none;
+          }
+        }
+      }
+      tbody {
+        background: #fafafa;
+        td {
+          text-align: center;
+          vertical-align: middle;
+          padding: 20px 10px;
+          min-width: 100px;
+          border-right: 1px solid #E1E1E1;
+          &:last-of-type {
+            border-right: none;
+          }
+        }
+      }
+    }
+  }
+  .venue-links {
+    @extend %clearfix;
+    .links {
+      padding-bottom: 20px;
+      @include sm {
+        float: left;
+      }      
+      a {
+        text-decoration: underline;
+        margin-right: 10px;
+        @include font-size(14px);
+        line-break: 24px;
+        letter-spacing: 0.4px;
+      }
+    }
+    .note {
+      @include sm {
+        float: right;
+      }      
+      p {
+        @include font-size(10px);
+        letter-spacing: 0.3px;
+        line-height: 15px;
+      }
+    }
+  }
+}
+
+.benefits-overview {
+  h4 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .benefits-details {
+    @extend %clearfix;
+    background: url('../images/benefits-img.png') no-repeat;
+    padding: 14px;
+    color: $secondary-color;
+    background-size: cover;
+    .planner-benefits, .meeting-benefits {
+      padding: 30px;
+      @include sm {
+        padding: 50px 30px 50px 50px;
+        width: 50%;
+        float: left;
+      }     
+      h6 {        
+        @include font-size(16px);
+        line-height: 26px;
+        letter-spacing: 1.6px;
+        margin-bottom: 30px;
+        text-align: left;
+        @include sm {
+          text-align: center;
+        }
+      }
+      ul {
+        li {
+          text-shadow: 0 0 8.5px rgba(0, 0, 0, 0.3);
+          @include font-size(16px);
+          font-weight: 500;
+          line-height: 34px;
+          list-style-type: disc;
+        }
+      }
+    }
+    p {
+      clear: both;
+      margin: 0;
+      @include font-size(10px);
+    }
+  }
+}
+
+.venues-popup {
+  padding-top: 0;
+  .container {
+    h4 {
+      @include font-size(16px);
+      line-height: 20px;
+      letter-spacing: 3.2px;
+      font-weight: bold;
+    }
+  }
+}

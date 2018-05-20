@@ -14,7 +14,7 @@ const FE = {
         lazyLoad: () => {
             const myLazyLoad = new LazyLoad({
                 elements_selector: '.lazy',
-                threshold: 50
+                threshold: 0
             });
             myLazyLoad.update();
         },
@@ -59,6 +59,8 @@ const FE = {
                 document.getElementById('tabs-header').style.display = 'block';
             if (document.getElementById('room-types') !== null)
                 document.getElementById('room-types').style.display = 'block';
+            if (document.getElementById('venue-types') !== null)
+                document.getElementById('venue-types').style.display = 'block';
             e.preventDefault();
         },
 
@@ -417,15 +419,22 @@ const FE = {
 
         filterRooms: (targetElement) => {
             if (isMobile && (document.getElementById('room-types') !== null)) {
-                document.getElementById('room-types').style.display = 'none';
+                document.getElementById('room-types').style.display = 'none';                
             }
+            if (isMobile && (document.getElementById('venue-types') !== null)) {
+                document.getElementById('venue-types').style.display = 'none';
+            }
+
             function showFilterRoom(el) {
                 const type = el.getAttribute('data-room-type');
                 const className = 'show';
                 const classNa = 'selected';
                 document.getElementById('tablink').innerText = el.text;
                 if (isMobile && (document.getElementById('room-types') !== null)) {
-                    document.getElementById(targetElement).style.display = 'none';
+                    document.getElementById('room-types').style.display = 'none';
+                }
+                if (isMobile && (document.getElementById('venue-types') !== null)) {
+                    document.getElementById('venue-types').style.display = 'none';
                 }
                 document.querySelectorAll('[data-rooms]').forEach(function(e) {
                     let string = e.getAttribute('data-rooms');
@@ -470,6 +479,7 @@ const FE = {
             }
             FE.global.tabs('gallery-tabs');
             FE.global.tabs('booking-tabs');
+            FE.global.tabs('layout-tabs');
             FE.global.instaFeed();
             FE.global.googleMap();
             FE.global.scroll();
@@ -506,7 +516,9 @@ $(function() {
 
 $(window).load(function() {
     FE.global.loaded();
-    sticky = document.getElementById('booking-widget').offsetTop;
+    if(document.getElementById('booking-widget')) {
+        sticky = document.getElementById('booking-widget').offsetTop;
+    }    
 });
 
 $(window).resize(function() {

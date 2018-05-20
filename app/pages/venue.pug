@@ -50,7 +50,7 @@ block append content
 										| 立食時  〜1200人 
 										br
 										| 着席時  〜600人
-							a.see-more(href="#") 
+							a.see-more(href="#" data-show-rooms="room-full-info")
 								span もっと見る
 					li.show(data-rooms="all medium")
 						img.lazy(data-src='/assets/narita/images/room-big1.jpg')
@@ -189,3 +189,13 @@ block append content
 						span もっと見る
 		include ../components/google-map.pug
 		include ../components/breadcrumb.pug
+	#room-full-info(data-basicLightbox data-id="room-full-info" class="room-detail")
+		.room-info-header
+			.phone-number
+				i.icon.sprite-tel_sp
+				| 000-0000-0000
+			a(href="#").book-room
+				| お問い合わせ
+			.close-room
+				| x  
+		include ../components/venue-info.pug
