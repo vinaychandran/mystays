@@ -311,9 +311,6 @@ const FE = {
             });
         },
         lightBox: (datepicker) => {
-            if (datepicker) {
-                FE.global.datePickerInit('.date-picker-venue-rpf', 'ja', false);
-            }
             const getTargetHTML = function(elem) {
                 const id = elem.getAttribute('data-show-id')
                 const target = document.querySelector(`[data-id="${ id }"]`)
@@ -326,6 +323,7 @@ const FE = {
                 // elem.onclick = basicLightbox.create(html).show;
                 elem.onclick = basicLightbox.create(html, {
                     afterShow: (instance) => {
+                        FE.global.datePickerInit('.date-picker-venue-rpf', 'ja', false)
                         let SlideNumber = elem.getAttribute('data-slide')
                         FE.global.lazyLoad();
                         FE.global.sliderImage('.gallery-nav', 1, false, true);
@@ -578,7 +576,7 @@ const FE = {
             FE.global.datePickerInit('.date-picker-tab1', 'ja', false);
             FE.global.datePickerInit('.date-picker-tab2-single', 'ja', true);
             FE.global.datePickerInit('.date-picker-tab3', 'ja', false);
-
+            FE.global.datePickerInit('.basicLightbox--visible .date-picker-venue-rpf', 'ja', false);
             FE.global.pageScroll();
             FE.global.sliderImage('.venues-slider', 1, false, true);
         },
