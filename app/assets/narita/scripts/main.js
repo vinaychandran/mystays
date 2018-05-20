@@ -534,10 +534,10 @@ const FE = {
 
                 if ($(this).is(':checked')) {
                     console.log('clciked');
-                    $('.food-beverage .sprite-checked_sp').show();
+                    //$('.food-beverage .sprite-checked_sp').show();
                 } else {
                     console.log('un clciked');
-                    $('.food-beverage .sprite-checked_sp').hide();
+                    // $('.food-beverage .sprite-checked_sp').hide();
                 }
 
             });
