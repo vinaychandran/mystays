@@ -71,7 +71,7 @@ block append content
 					label Nr. Attendees
 					.input-showtext
 
-						input.form-control(type='number', placeholder='Nr. Attendees' name='mobile')
+						input.form-control(id='attendees' type='number', placeholder='Nr. Attendees' name='mobile')
 					#venue-booking-tab
 						.date-picker-venue-rpf
 							label Start Date ~ End Date
@@ -191,7 +191,7 @@ block append content
 					p Free Quotation - We will call you within 24H
 					.find-button
 
-						button(name='button', type='button', value='空室を検索' onclick='FE.global.validateForm()') Submit my RPF
+						button(name='button', type='button', value='空室を検索' onclick='FE.global.submitRFPForm()') Submit my RPF
 					p By submiting this RFP, you are agreeing with our Terms and Conditions and Privacy Statement.
 
 		section.about-venue-info

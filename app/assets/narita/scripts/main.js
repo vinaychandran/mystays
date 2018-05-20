@@ -235,7 +235,7 @@ const FE = {
             evt.currentTarget.className += ' active';
         },
 
-          googleMap: () => {
+        googleMap: () => {
             let selectorMapElement = document.getElementById('gmap_canvas');
             if (typeof(selectorMapElement) != 'undefined' && selectorMapElement != null) {
                 let latlng = new google.maps.LatLng(35.784248, 140.351513);
@@ -311,9 +311,9 @@ const FE = {
             });
         },
         lightBox: (datepicker) => {
-          if(datepicker){
-            FE.global.datePickerInit('.date-picker-venue-rpf', 'ja', false);
-          }
+            if (datepicker) {
+                FE.global.datePickerInit('.date-picker-venue-rpf', 'ja', false);
+            }
             const getTargetHTML = function(elem) {
                 const id = elem.getAttribute('data-show-id')
                 const target = document.querySelector(`[data-id="${ id }"]`)
