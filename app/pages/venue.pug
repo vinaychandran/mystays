@@ -54,22 +54,23 @@ block append content
 						input.form-control(id='fname' name= "fname" type='text', placeholder='First Name' )
 					label Last Name
 					.input-showtext
-						input.form-control(type='text', placeholder='Last Name' name='lname')
+						input.form-control(id='lname' type='text', placeholder='Last Name' name='lname')
 					label Company Name
 					.input-showtext
-						input.form-control(type='text', placeholder='Company Name' name='lname')
+						input.form-control(id='company' type='text', placeholder='Company Name' name='company')
 					label Email Address
 					.input-showtext
-						input.form-control(type='text', placeholder='Email Address' name='details')
+						input.form-control(id='email' type='text', placeholder='Email Address' name='email')
 					label Phone Number
 					.input-showtext
-						input.form-control(type='number', placeholder='Phone Number' name='mobile')
+						input.form-control(id='mobile' type='number', placeholder='Phone Number' name='mobile')
 					h5 Meeting / Event Information
 					label Event / Meeting Name
 					.input-showtext
-						input.form-control(type='text', placeholder='Event / Meeting Name' name='details')
+						input.form-control(id='meeting' type='text', placeholder='Event / Meeting Name' name='meeting')
 					label Nr. Attendees
 					.input-showtext
+
 						input.form-control(type='number', placeholder='Nr. Attendees' name='mobile')
 					#venue-booking-tab
 						.date-picker-venue-rpf
@@ -127,6 +128,7 @@ block append content
 												span(target='Hokkaido', names='Hokkaido') All Day
 											li
 												span(target='Okinawa', names='Okinawa') Item name item
+
 					section
 						.form-group
 							label Type of Event
@@ -188,8 +190,10 @@ block append content
 						input.form-control(type='number', placeholder='Duration' name='mobile')
 					p Free Quotation - We will call you within 24H
 					.find-button
+
 						button(name='button', type='button', value='空室を検索' onclick='FE.global.validateForm()') Submit my RPF
 					p By submiting this RFP, you are agreeing with our Terms and Conditions and Privacy Statement.
+
 		section.about-venue-info
 			h3 TOGETHER IN  STYLE
 			p のイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、夏でも底に冷たさをもつ青いそら、あうつくしい森で飾られたモリーオ市あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら

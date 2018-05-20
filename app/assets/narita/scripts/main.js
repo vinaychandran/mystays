@@ -64,16 +64,21 @@ const FE = {
 
         checkValidationRules: (x) => {
             let formId = x.id;
-            let fieldId;
+            let fieldId, fieldRegex;
             let errorField = [],
                 noError = [];
             let lightBox = document.querySelector(".basicLightbox--visible");
             for (let i = 0; i < x.rules.length; i++) {
                 fieldId = (x.rules[i]) ? x.rules[i].name : '';
+                fieldRegex = (x.rules[i]) ? x.rules[i].regex : '';
                 if (x.rules[i].required && document.querySelector(".basicLightbox--visible form#" + formId + " #" + fieldId).value == '') {
                     errorField.push(fieldId);
                 } else {
-                    noError.push(fieldId);
+                    if (fieldRegex && !fieldRegex.test(String(document.querySelector(".basicLightbox--visible form#" + formId + " #" + fieldId).value).toLowerCase())) {
+                        errorField.push(fieldId);
+                    } else {
+                        noError.push(fieldId);
+                    }
                 }
             }
             if (noError.length) {
@@ -91,6 +96,40 @@ const FE = {
             } else {
                 return true;
             }
+        },
+
+        submitRFPForm: () => {
+            let validationRules = {
+                "id": "rpfForm",
+                "rules": [{
+                        "name": "fname",
+                        "required": true
+                    },
+                    {
+                        "name": "lname",
+                        "required": true
+                    },
+                    {
+                        "name": "company",
+                        "required": true
+                    },
+                    {
+                        "name": "meeting",
+                        "required": true
+                    },
+                    {
+                        "name": "attendees",
+                        "required": true
+                    },
+                    {
+                        "name": "email",
+                        "required": true,
+                        "regex": /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                    },
+                ]
+            };
+
+            FE.global.checkValidationRules(validationRules);
         },
 
         validateForm: () => {
@@ -492,14 +531,14 @@ const FE = {
         },
 
         showCheckBoxAction: () => {
-            $(document).on('click', '.form-checkbox .checkbox-style input', function () {
-              console.log($(this));
+            $(document).on('click', '.form-checkbox .checkbox-style input', function() {
+                console.log($(this));
 
                 if ($(this).is(':checked')) {
-                  console.log('clciked');
+                    console.log('clciked');
                     $('.food-beverage .sprite-checked_sp').show();
                 } else {
-                  console.log('un clciked');
+                    console.log('un clciked');
                     $('.food-beverage .sprite-checked_sp').hide();
                 }
 
