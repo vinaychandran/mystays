@@ -20,6 +20,34 @@ block append content
 				.errors
 				form(id='rpfForm' name="rpfForm")
 					h5 Planning your meeting of event Free quotation - Please fill out the form below
+					#venue-booking-tab
+						.date-picker-venue-rpf
+							label チェックイン
+							.date-picker-tab1-container
+								.values
+									.startDateContainer
+										//label チェックイン
+										.startDate
+											.value.date_at
+												span.date_at
+												input#date_at.date_at(type='hidden')
+									.to ~
+									.endDateContainer
+										//label チェックアウト
+										.endDate
+											.value.date_to
+												span.date_to
+												input#date_to.date_to(type='hidden')
+								//.calendar-backdrop
+								.calendar
+									//img.clear(src='/assets/narita/images/clear.svg' )
+									.button.button-prev
+									.button.button-next
+									.calendarContainer
+									.bottomLayer
+										span.daysFromTo 2018年00月00日 金曜日 ~ 2018年00月00日 金曜日
+										.nights 10 金曜日
+										//.button.closePopup &#x5B8C;&#x4E86;
 					section
 						.form-group
 							label Select Location

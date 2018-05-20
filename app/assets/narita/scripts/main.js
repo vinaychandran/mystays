@@ -235,7 +235,7 @@ const FE = {
             evt.currentTarget.className += ' active';
         },
 
-        googleMap: () => {
+          googleMap: () => {
             let selectorMapElement = document.getElementById('gmap_canvas');
             if (typeof(selectorMapElement) != 'undefined' && selectorMapElement != null) {
                 let latlng = new google.maps.LatLng(35.784248, 140.351513);
@@ -310,11 +310,15 @@ const FE = {
                 }
             });
         },
-        lightBox: () => {
+        lightBox: (datepicker) => {
+          if(datepicker){
+            FE.global.datePickerInit('.date-picker-venue-rpf', 'ja', false);
+          }
             const getTargetHTML = function(elem) {
                 const id = elem.getAttribute('data-show-id')
                 const target = document.querySelector(`[data-id="${ id }"]`)
                 return target.outerHTML
+
 
             }
             document.querySelectorAll('[data-show-id]').forEach(function(elem) {
@@ -563,7 +567,7 @@ const FE = {
             FE.global.closeHamburger('.header-right', '.side-navigation', '.hamburger');
             FE.global.lazyLoad();
             FE.global.showCheckBoxAction();
-            FE.global.lightBox();
+            FE.global.lightBox(true);
             FE.global.lightBoxRoom();
             FE.global.clickOutside('fade', '.input-showtext .form-control', '.input-showtext .popup-menu');
             FE.global.clickOutside('fade', '.people-list-popup', '.popup-wrap.popup-create');
@@ -574,6 +578,7 @@ const FE = {
             FE.global.datePickerInit('.date-picker-tab1', 'ja', false);
             FE.global.datePickerInit('.date-picker-tab2-single', 'ja', true);
             FE.global.datePickerInit('.date-picker-tab3', 'ja', false);
+
             FE.global.pageScroll();
             FE.global.sliderImage('.venues-slider', 1, false, true);
         },
