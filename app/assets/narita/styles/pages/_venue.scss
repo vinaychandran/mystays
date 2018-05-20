@@ -317,14 +317,18 @@ ul.venue-list {
 
 .rfp-form-details {
   background: #fff;
-  padding: 30px;
+  border: 30px solid #fff;
 }
 
 #rfp-form {
   width: 100vw;
+
+  #rpfForm {
+    margin-bottom: 0;
+  }
   @include md {
     width: 734px;
-    height: 100vh;
+    height: 95vh;
     overflow-y: scroll;
   }
 
@@ -332,47 +336,58 @@ ul.venue-list {
   p {
     margin-bottom: 15px;
     text-align: center;
+
+    &.meeting {
+      clear: both;
+      padding-top: 20px;
+    }
   }
 
-  section {
-    // @extend %clearfix;
-    // clear: both;
-  }
-
-
-  .firstname, .lastname, .email, .phone, .attendees, .event, .typeofevent, .onedayevent{
+  .attendees,
+  .email,
+  .event,
+  .firstname,
+  .lastname,
+  .onedayevent,
+  .phone,
+  .typeofevent {
     width: 50%;
     float: left;
     padding-right: 5%;
   }
 
-  .lastname, .phone, .attendees, .onedayevent{
+  .attendees,
+  .lastname,
+  .onedayevent,
+  .phone {
     //float: right;
     padding-right: 0;
   }
 
-  .event, .typeofevent{
+  .event,
+  .typeofevent {
     width: 75%;
   }
 
-  .attendees, .onedayevent{
+  .attendees,
+  .onedayevent {
     width: 25%;
   }
 
-  .onedayevent{
+  .onedayevent {
     padding-top: 40px;
   }
 
   .attachFile {
-    input[type=file]{
-   border: none;
-   height: auto;
-   padding: 0;
-    //color:transparent;
+    input[type=file] {
+      border: none;
+      height: auto;
+      padding: 0;
+      //color:transparent;
     }
   }
 
-  .companyname{
+  .companyname {
     clear: both;
   }
 
@@ -445,20 +460,15 @@ ul.venue-list {
           width: 100%;
         }
 
-
-
         &:focus {
           border: 2px solid #eeeeee;
         }
-
-
       }
 
       input::placeholder {
         border: 0;
         padding-left: 0;
       }
-
     }
 
     .form-checkbox {
