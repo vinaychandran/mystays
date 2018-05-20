@@ -339,6 +339,34 @@ ul.venue-list {
     // clear: both;
   }
 
+
+  .firstname, .lastname, .email, .phone, .attendees, .event, .typeofevent, .onedayevent{
+    width: 50%;
+    float: left;
+    padding-right: 5%;
+  }
+
+  .lastname, .phone, .attendees, .onedayevent{
+    //float: right;
+    padding-right: 0;
+  }
+
+  .event, .typeofevent{
+    width: 75%;
+  }
+
+  .attendees, .onedayevent{
+    width: 25%;
+  }
+
+  .onedayevent{
+    padding-top: 40px;
+  }
+
+  .companyname{
+    clear: both;
+  }
+
   .duration,
   .guestrooms {
     @extend %clearfix;
@@ -408,15 +436,20 @@ ul.venue-list {
           width: 100%;
         }
 
+
+
         &:focus {
           border: 2px solid #eeeeee;
         }
+
+
       }
 
       input::placeholder {
         border: 0;
         padding-left: 0;
       }
+
     }
 
     .form-checkbox {
