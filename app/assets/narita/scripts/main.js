@@ -110,11 +110,7 @@ const FE = {
                         "required": true
                     },
                     {
-                        "name": "mobile",
-                        "required": true
-                    },
-                    {
-                        "name": "details",
+                        "name": "company",
                         "required": true
                     },
                     {
