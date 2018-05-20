@@ -363,6 +363,15 @@ ul.venue-list {
     padding-top: 40px;
   }
 
+  .attachFile {
+    input[type=file]{
+   border: none;
+   height: auto;
+   padding: 0;
+    //color:transparent;
+    }
+  }
+
   .companyname{
     clear: both;
   }
