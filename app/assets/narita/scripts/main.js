@@ -505,6 +505,7 @@ const FE = {
             FE.global.datePickerInit('.date-picker-tab1', 'ja', false);
             FE.global.datePickerInit('.date-picker-tab2-single', 'ja', true);
             FE.global.datePickerInit('.date-picker-tab3', 'ja', false);
+            FE.global.datePickerInit('.date-picker-venue-rpf', 'ja', false);
             FE.global.pageScroll();
             FE.global.sliderImage('.venues-slider', 1, false, true);
         },
