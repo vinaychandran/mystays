@@ -457,6 +457,21 @@ const FE = {
             })
         },
 
+        showCheckBoxAction: () => {
+            $(document).on('click', '.form-checkbox .checkbox-style input', function () {
+              console.log($(this));
+
+                if ($(this).is(':checked')) {
+                  console.log('clciked');
+                    $('.food-beverage .sprite-checked_sp').show();
+                } else {
+                  console.log('un clciked');
+                    $('.food-beverage .sprite-checked_sp').hide();
+                }
+
+            });
+        },
+
         init: () => {
             FE.global.lazyLoad();
         },
@@ -478,6 +493,7 @@ const FE = {
             FE.global.clickOutside('active', '.selected-lang', '.selected-lang');
             FE.global.closeHamburger('.header-right', '.side-navigation', '.hamburger');
             FE.global.lazyLoad();
+            FE.global.showCheckBoxAction();
             FE.global.lightBox();
             FE.global.lightBoxRoom();
             FE.global.clickOutside('fade', '.input-showtext .form-control', '.input-showtext .popup-menu');
