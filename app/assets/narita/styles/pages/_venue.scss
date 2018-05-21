@@ -8,6 +8,26 @@
   }
 }
 
+.inner-menu-wrap{
+  background: #fff;
+  overflow: hidden;
+  .inner-menu{
+    float: left;
+    li{
+      float: left;
+    }
+  }
+  .inner-links-right{
+    float: right;
+  }
+  .inner-phone{
+    display: inline-block;
+  }
+  .btn{
+    display: inline-block;
+  }
+}
+
 .about-venue-info {
   max-width: 660px;
   margin: 0 auto;

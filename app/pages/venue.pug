@@ -14,8 +14,25 @@ block append content
 			//- 		i.icon.sprite-calendar-interface-symbol-tool
 		//- .visible-device
 		//- 	include ../components/booking-widget.pug
-		section.thiru_toRename
-			button(data-show-id='rfp-form') New Popup
+		section.inner-menu-wrap
+			.inner-menu
+				ul
+					li
+						a(href="#") 会場一覧
+					li 
+						a(href="#") ギャラリー
+					li 
+						a(href="#") ケータリングメニュー
+					li 
+						a(href="#") 所在地
+			.inner-links-right
+				.inner-phone 
+					i.icon.sprite-phone
+					| 000-0000-0000
+				.btn.pdf-download 					
+					| PDFをダウンロード
+					i.icon.sprite-download
+				.btn.rfp-form(data-show-id='rfp-form') お問い合わせ
 			#rfp-form(data-basicLightbox data-id="rfp-form" class=" row rfp-form-details")
 				.errors
 				form(id='rpfForm' name="rpfForm")
