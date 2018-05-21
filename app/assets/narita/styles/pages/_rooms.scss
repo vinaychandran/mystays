@@ -390,8 +390,16 @@ ul.rooms-list{
   .slick-next, .slick-prev{
     display: none !important;
     @include sm {
-      display: block; 
+      display: block !important;  
+      top: 50%;
+      transform: translateY(-50%);
     }
+  }
+  .slick-next{
+    right: -28px;
+  }
+  .slick-prev{
+    left: -28px;
   }
 }
 
