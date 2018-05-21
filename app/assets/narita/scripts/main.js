@@ -63,33 +63,32 @@ const FE = {
         },
 
         checkValidationRules: (x) => {
-            let formId = x.id;
+            let formId = x;
             let fieldId, fieldRegex;
             let errorField = [],
                 noError = [];
-            let lightBox = document.querySelector(".basicLightbox--visible");
-            for (let i = 0; i < x.rules.length; i++) {
-                fieldId = (x.rules[i]) ? x.rules[i].name : '';
-                fieldRegex = (x.rules[i]) ? x.rules[i].regex : '';
-                if (x.rules[i].required && document.querySelector(".basicLightbox--visible form#" + formId + " #" + fieldId).value == '') {
-                    errorField.push(fieldId);
+            let formElem = document.querySelector(formId);
+            var inputs = formElem.getElementsByTagName('input');
+            for (var i = 0; i < inputs.length; i += 1) {
+                if (inputs[i].hasAttribute('required') && !inputs[i].value.length) {
+                    if (inputs[i].id) {
+                        errorField.push(inputs[i].id);
+                    }
                 } else {
-                    if (fieldRegex && !fieldRegex.test(String(document.querySelector(".basicLightbox--visible form#" + formId + " #" + fieldId).value).toLowerCase())) {
-                        errorField.push(fieldId);
-                    } else {
-                        noError.push(fieldId);
+                    if (inputs[i].id) {
+                        noError.push(inputs[i].id);
                     }
                 }
             }
             if (noError.length) {
                 for (let i = 0; i < noError.length; i++) {
-                    let element = document.querySelector(".basicLightbox--visible form#" + formId + " #" + noError[i]);
+                    let element = document.querySelector(formId + " #" + noError[i]);
                     element.classList.remove("error-border");
                 }
             }
             if (errorField.length) {
                 for (let i = 0; i < errorField.length; i++) {
-                    let element = document.querySelector(".basicLightbox--visible form#" + formId + " #" + errorField[i]);
+                    let element = document.querySelector(formId + " #" + errorField[i]);
                     element.classList.add("error-border");
                 }
                 return false;
@@ -98,67 +97,20 @@ const FE = {
             }
         },
 
-        submitRFPForm: () => {
-            let validationRules = {
-                "id": "rpfForm",
-                "rules": [{
-                        "name": "fname",
-                        "required": true
-                    },
-                    {
-                        "name": "lname",
-                        "required": true
-                    },
-                    {
-                        "name": "company",
-                        "required": true
-                    },
-                    {
-                        "name": "meeting",
-                        "required": true
-                    },
-                    {
-                        "name": "attendees",
-                        "required": true
-                    },
-                    {
-                        "name": "mobile",
-                        "required": true
-                    },
-                    {
-                        "name": "email",
-                        "required": true,
-                        "regex": /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-                    },
-                ]
-            };
-
-            FE.global.checkValidationRules(validationRules);
+        submitForm: () => {
+            let lightBoxId = ".basicLightbox--visible";
+            if (document.querySelector(lightBoxId + " .submitRfpForm")) {
+                document.querySelector(lightBoxId + " .submitRfpForm").addEventListener("click", function() {
+                    FE.global.checkValidationRules(lightBoxId + " form#rpfForm");
+                });
+            }
+            if (document.querySelector(lightBoxId + " .bookingForm")) {
+                document.querySelector(lightBoxId + " .bookingForm").addEventListener("click", function() {
+                    FE.global.checkValidationRules(lightBoxId + " form#bookingForm");
+                });
+            }
         },
 
-        validateForm: () => {
-            let validationRules = {
-                "id": "bookingForm",
-                "rules": [{
-                        "name": "fname",
-                        "required": true
-                    },
-                    {
-                        "name": "lname",
-                        required: true
-                    },
-                    {
-                        "name": "mobile",
-                        required: true
-                    },
-                    {
-                        "name": "details",
-                        required: true
-                    }
-                ]
-            };
-            FE.global.checkValidationRules(validationRules);
-        },
         sliderImage: (slider, slideToShow, dots, arrows) => {
             $(slider).each(function() {
                 let imgIndex, sliderImageCount;
@@ -332,6 +284,7 @@ const FE = {
                         FE.global.lazyLoad();
                         FE.global.sliderImage('.gallery-nav', 1, false, true);
                         $('.gallery-nav').slick('slickGoTo', SlideNumber, true);
+                        FE.global.submitForm();
                     },
                     afterClose: (instance) => {
                         $('.gallery-nav').slick('unslick');
@@ -583,6 +536,7 @@ const FE = {
             FE.global.datePickerInit('.basicLightbox--visible .date-picker-venue-rpf', 'ja', false);
             FE.global.pageScroll();
             FE.global.sliderImage('.venues-slider', 1, false, true);
+            FE.global.submitForm();
         },
         resize: function resize() {
             //Functions inside loaded execute when window resize
