@@ -64,30 +64,102 @@ const FE = {
             e.preventDefault();
         },
 
+        checkValidationRules: (x) => {
+            let formId = x.id;
+            let fieldId, fieldRegex;
+            let errorField = [],
+                noError = [];
+            let lightBox = document.querySelector(".basicLightbox--visible");
+            for (let i = 0; i < x.rules.length; i++) {
+                fieldId = (x.rules[i]) ? x.rules[i].name : '';
+                fieldRegex = (x.rules[i]) ? x.rules[i].regex : '';
+                if (x.rules[i].required && document.querySelector(".basicLightbox--visible form#" + formId + " #" + fieldId).value == '') {
+                    errorField.push(fieldId);
+                } else {
+                    if (fieldRegex && !fieldRegex.test(String(document.querySelector(".basicLightbox--visible form#" + formId + " #" + fieldId).value).toLowerCase())) {
+                        errorField.push(fieldId);
+                    } else {
+                        noError.push(fieldId);
+                    }
+                }
+            }
+            if (noError.length) {
+                for (let i = 0; i < noError.length; i++) {
+                    let element = document.querySelector(".basicLightbox--visible form#" + formId + " #" + noError[i]);
+                    element.classList.remove("error-border");
+                }
+            }
+            if (errorField.length) {
+                for (let i = 0; i < errorField.length; i++) {
+                    let element = document.querySelector(".basicLightbox--visible form#" + formId + " #" + errorField[i]);
+                    element.classList.add("error-border");
+                }
+                return false;
+            } else {
+                return true;
+            }
+        },
+
+        submitRFPForm: () => {
+            let validationRules = {
+                "id": "rpfForm",
+                "rules": [{
+                        "name": "fname",
+                        "required": true
+                    },
+                    {
+                        "name": "lname",
+                        "required": true
+                    },
+                    {
+                        "name": "company",
+                        "required": true
+                    },
+                    {
+                        "name": "meeting",
+                        "required": true
+                    },
+                    {
+                        "name": "attendees",
+                        "required": true
+                    },
+                    {
+                        "name": "mobile",
+                        "required": true
+                    },
+                    {
+                        "name": "email",
+                        "required": true,
+                        "regex": /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                    },
+                ]
+            };
+
+            FE.global.checkValidationRules(validationRules);
+        },
+
         validateForm: () => {
-            let fname = document.forms["bookingForm"]["fname"].value;
-            let lname = document.forms["bookingForm"]["lname"].value;
-            let mobile = document.forms["bookingForm"]["mobile"].value;
-            let details = document.forms["bookingForm"]["details"].value;
-            let errorMsg = '';
-            //alert(x);
-            if (fname == "") {
-                errorMsg += "Please enter firstname <br>";
-                // return false;
-            }
-            if (lname == "") {
-                errorMsg += "Please enter lastname <br>";
-                //return false;
-            }
-            if (mobile == "") {
-                errorMsg += "Please enter mobile <br>";
-                //return false;
-            }
-            if (details == "") {
-                errorMsg += "Please enter details";
-                //return false;
-            }
-            document.getElementsByClassName("errors")[1].innerHTML = errorMsg;
+            let validationRules = {
+                "id": "bookingForm",
+                "rules": [{
+                        "name": "fname",
+                        "required": true
+                    },
+                    {
+                        "name": "lname",
+                        required: true
+                    },
+                    {
+                        "name": "mobile",
+                        required: true
+                    },
+                    {
+                        "name": "details",
+                        required: true
+                    }
+                ]
+            };
+            FE.global.checkValidationRules(validationRules);
         },
         sliderImage: (slider, slideToShow, dots, arrows) => {
             $(slider).each(function() {
@@ -195,6 +267,7 @@ const FE = {
 
         pageScroll: () => {
             if (!isMobile && document.getElementById('booking-widget')) {
+                sticky = document.getElementById('booking-widget').offsetTop;
                 window.onscroll = function() {
                     FE.global.sticky(document.getElementById('booking-widget'))
                 };
@@ -244,11 +317,12 @@ const FE = {
                 }
             });
         },
-        lightBox: () => {
+        lightBox: (datepicker) => {
             const getTargetHTML = function(elem) {
                 const id = elem.getAttribute('data-show-id')
                 const target = document.querySelector(`[data-id="${ id }"]`)
                 return target.outerHTML
+
 
             }
             document.querySelectorAll('[data-show-id]').forEach(function(elem) {
@@ -256,6 +330,7 @@ const FE = {
                 // elem.onclick = basicLightbox.create(html).show;
                 elem.onclick = basicLightbox.create(html, {
                     afterShow: (instance) => {
+                        FE.global.datePickerInit('.date-picker-venue-rpf', 'ja', false)
                         let SlideNumber = elem.getAttribute('data-slide')
                         FE.global.lazyLoad();
                         FE.global.sliderImage('.gallery-nav', 1, false, true);
@@ -466,6 +541,21 @@ const FE = {
             })
         },
 
+        showCheckBoxAction: () => {
+            $(document).on('click', '.form-checkbox .checkbox-style input', function() {
+                console.log($(this));
+
+                if ($(this).is(':checked')) {
+                    console.log('clciked');
+                    //$('.food-beverage .sprite-checked_sp').show();
+                } else {
+                    console.log('un clciked');
+                    // $('.food-beverage .sprite-checked_sp').hide();
+                }
+
+            });
+        },
+
         init: () => {
             FE.global.lazyLoad();
         },
@@ -488,7 +578,8 @@ const FE = {
             FE.global.clickOutside('active', '.selected-lang', '.selected-lang');
             FE.global.closeHamburger('.header-right', '.side-navigation', '.hamburger');
             FE.global.lazyLoad();
-            FE.global.lightBox();
+            FE.global.showCheckBoxAction();
+            FE.global.lightBox(true);
             FE.global.lightBoxRoom();
             FE.global.clickOutside('fade', '.input-showtext .form-control', '.input-showtext .popup-menu');
             FE.global.clickOutside('fade', '.people-list-popup', '.popup-wrap.popup-create');
@@ -499,6 +590,7 @@ const FE = {
             FE.global.datePickerInit('.date-picker-tab1', 'ja', false);
             FE.global.datePickerInit('.date-picker-tab2-single', 'ja', true);
             FE.global.datePickerInit('.date-picker-tab3', 'ja', false);
+            FE.global.datePickerInit('.basicLightbox--visible .date-picker-venue-rpf', 'ja', false);
             FE.global.pageScroll();
             FE.global.sliderImage('.venues-slider', 1, false, true);
         },
@@ -515,10 +607,7 @@ $(function() {
 });
 
 $(window).load(function() {
-    FE.global.loaded();
-    if(document.getElementById('booking-widget')) {
-        sticky = document.getElementById('booking-widget').offsetTop;
-    }    
+    FE.global.loaded(); 
 });
 
 $(window).resize(function() {
