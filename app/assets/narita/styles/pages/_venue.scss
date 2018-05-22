@@ -13,8 +13,17 @@
   overflow: hidden;
   .inner-menu{
     float: left;
+    padding-left: 70px;
     li{
       float: left;
+      
+      line-height: 80px;
+      a{
+        @include font-size(14px);
+        padding: 0 25px 0 10px;
+        display: block;
+        letter-spacing: 1.6px;
+      }
     }
   }
   .inner-links-right{
@@ -22,11 +31,20 @@
   }
   .inner-phone{
     display: inline-block;
+    @include font-size(24px);
+    padding-right: 25px;
   }
   .btn{
     display: inline-block;
   }
+  .pdf-download{
+    background: #000;
+    margin-right: -5px;
+        height: 81px;
+  }
 }
+
+
 
 .about-venue-info {
   max-width: 660px;
@@ -52,8 +70,88 @@
   }
 }
 
+.venue-party-plan-wrap{
+  max-width: 720px;
+  margin:0 auto; 
+  padding-bottom: 30px;
+  .venue-party-plan{
+    float: left;
+    position: relative;
+    &.big{
+      margin-bottom: 20px;
+    }
+    &.small{
+      h4{
+        position: absolute;
+        top: 40%;
+        left: 0;
+        right: 0;
+        text-align: center;  
+      }
+      margin-bottom: 33px; 
+    }
+    &:last-child{
+      float: right;
+    }
+    h4{
+      @include font-size(16px);
+      letter-spacing: 0.8px;
+      color: #fff;
+    }
+    p{
+      @include font-size(12px);
+      margin-top: 8px;
+      margin-bottom: 0;
+    }
+  }
+  .venue-plan-content{
+    position: absolute;
+    left: 50%;
+    top: 55px;
+    max-width: 260px;
+    p{
+      color: #fff;
+      letter-spacing: 0.7px;
+      @include font-size(14px);
+      font-family: 'YuMin';
+      line-height: 1.79;
+      margin-top: 20px;
+    }
+  }
+  .latest-plan{
+    position: absolute;
+    right: 10px;
+    top: -37px;
+    width: 74px;
+    height: 74px;
+    background: #eeeeee; 
+    border-radius: 50%;
+    @include font-size(11px);
+    text-align: center;
+    line-height: 1.45;
+    padding-top: 22px;
+    &:after{
+      content:"";
+      width: 68px;
+      height: 68px;
+      border: 1px solid #000;
+      border-radius: 50%;
+      position: absolute;
+    left: 3px;
+    top: 3px;
+    }
+  }  
+}
+
+.btn-party-plan{
+  clear: both;
+  max-width: 460px;
+  margin:0 auto; 
+}
+
 .venues-list-wrap {
   padding: 60px 10px 20px;
+  clear: both;
   @include md {
     padding: 80px 0 35px;
   }
@@ -64,11 +162,36 @@
     font-weight: 500;
     font-family: 'YuGo';
     margin-bottom: 30px;
-  }
+  }  
 }
 
 ul.venue-types {
-  @extend ul.room-types;
+  text-align: center;
+  margin-bottom: 50px;
+  li{
+    display: inline-block; 
+    margin:0 15px; 
+    input[type="checkbox"] {
+      display:none;
+    }
+    input[type="checkbox"] + label span {
+        display:inline-block;
+        width:24px;
+        height:24px;
+        margin:-2px 10px 0 0;
+        vertical-align:middle;
+        background:#eee;
+        cursor:pointer; 
+    }
+
+    input[type="checkbox"]:checked + label span {
+        @extend .icon;
+        @extend .sprite-checked_pc;
+        &:before{
+          margin-left: 2px;
+        }
+    }
+  }
 }
 
 ul.venue-list {
@@ -81,10 +204,8 @@ ul.venue-list {
     width: 100%;
     background: $default-bg;
     margin-bottom: 40px;
-    display: none;
-    transition: all 1s ease;
-    opacity: 1;
-    animation: all 0.3s;
+    display: none;   
+    animation: all 0.3s ease;
     box-shadow: 14.1px 14.1px 90px 0 rgba(0, 0, 0, 0.1);
 
     &.show {
@@ -92,9 +213,17 @@ ul.venue-list {
       animation: bounceList 0.3s;
       opacity: 1;
     }
+    &.showItem {
+        display: list-item;
+        animation: bounceList 0.3s;
+    }
+    &.hideItem {
+        display: none;
+    }
     @include sm {
       width: calc(100% / 3 - 23px);
     }
+
   }
 
   .venue-short-info {
@@ -191,7 +320,7 @@ ul.venue-list {
 .venues-slider-wrap {
   text-align: center;
   background: #fff;
-  padding: 55px 0 25px;
+  padding: 55px 0 75px;
   overflow: hidden;
 
   h2 {
