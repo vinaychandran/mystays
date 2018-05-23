@@ -13,7 +13,7 @@
   overflow: hidden;
 
   .inner-menu {
-    background: #fafafa;    
+    background: #fafafa;
     @include md {
       float: left;
       padding-left: 70px;
@@ -22,13 +22,13 @@
     ul{
       margin-top: 0;
     }
-    li {      
+    li {
       @include md {
-        float: left;      
+        float: left;
         line-height: 60px;
-      }      
+      }
       a{
-        @include font-size(14px);               
+        @include font-size(14px);
         display: block;
         letter-spacing: 1.6px;
         text-align: center;
@@ -38,12 +38,12 @@
           padding: 0 25px 0 10px;
           text-align: left;
           border-bottom: 0;
-        } 
+        }
       }
     }
   }
 
-  .inner-links-right {    
+  .inner-links-right {
     @include md {
       float: right;
     }
@@ -116,7 +116,7 @@
   max-width: 720px;
   margin:0 20px;
   @include md {
-    margin:0 auto; 
+    margin:0 auto;
     padding-bottom: 30px;
   }
   margin:0 auto;
@@ -135,7 +135,7 @@
         right: 0;
         text-align: center;
       }
-      margin-bottom: 33px;  
+      margin-bottom: 33px;
     }
     &:last-child{
       float: right;
@@ -146,7 +146,7 @@
       @include md {
         color: #fff;
       }
-      
+
     }
     p{
       @include font-size(12px);
@@ -154,7 +154,7 @@
       margin-bottom: 0;
     }
   }
-  .venue-plan-content{    
+  .venue-plan-content{
     @include md {
       position: absolute;
       left: 50%;
@@ -170,7 +170,7 @@
       }
     }
     p{
-      
+
       letter-spacing: 0.7px;
       @include font-size(14px);
       font-family: 'YuMin';
@@ -209,7 +209,7 @@
 .btn-party-plan{
   clear: both;
   margin:0 20px;
-   
+
   @include md {
     margin:0 auto;
     max-width: 460px;
@@ -1080,20 +1080,40 @@ ul.venue-list {
 
       span.date_at,
       span.date_to {
+        @extend .icon;
+        @extend .sprite-calender_pc;
+
+        &:before {
+          display: block;
+          background-image: none;
+          height: auto;
+        }
         @include md {
-          background-image: url("../svg/sprite.svg");
-          background-repeat: no-repeat;
-          background-size: 42.6em 346.4em;
-          background-position: 0.4em -72.7em;
-          //background: url("../icons/calendar-interface-symbol-tool.svg") 10% center no-repeat;
-          padding-left: 45px;
           float: left;
-          @-moz-document url-prefix() {
-            background-position: 0.4em -20.8em;
-            background-size: 42.6em 282.4em;
+          padding: 0 10px;
+          // background-image: url("../svg/sprite.svg");
+          // background-repeat: no-repeat;
+          // background-size: 42.6em 346.4em;
+          // background-position: 0.4em -72.7em;
+          //background: url("../icons/calendar-interface-symbol-tool.svg") 10% center no-repeat;
+          // padding-left: 45px;
+          // float: left;
+          // @-moz-document url-prefix() {
+          //   background-position: 0.4em -20.8em;
+          //   background-size: 42.6em 282.4em;
+          // }
+          &:before {
+            background-image: url("../svg/sprite.svg");
+            margin-left: 5px;
+            width: 28px;
+            height: 20px;
+            margin: 7px 0;
+            float: left;
+            display: inline-block;
           }
         }
       }
+
 
       .day,
       .month,
