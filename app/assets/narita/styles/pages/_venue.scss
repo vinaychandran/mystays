@@ -113,14 +113,16 @@
 }
 
 .venue-party-plan-wrap{
-  max-width: 720px;
-  margin:0 20px;
+  float: left;
+  margin:0 20px; 
+  padding-bottom: 30px;
   @include md {
     margin:0 auto;
     padding-bottom: 30px;
+    max-width: 720px;
+    float: none;
   }
-  margin:0 auto;
-  padding-bottom: 30px;
+  
   .venue-party-plan{
     float: left;
     position: relative;
@@ -143,6 +145,7 @@
     h4{
       @include font-size(16px);
       letter-spacing: 0.8px;
+      color: #fff;
       @include md {
         color: #fff;
       }
@@ -164,9 +167,11 @@
     h4{
       text-align: center;
       margin-top: 20px;
+      color: #000;
       @include md {
         text-align: left;
         margin-top: 0;
+        color: #fff; 
       }
     }
     p{
