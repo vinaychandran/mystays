@@ -1,0 +1,13 @@
+.resturant-detail-cta-wrap{
+  float: right;
+  .btn{
+    display: inline-block;
+  }
+  .cta{
+    display: inline-block;
+    @include font-size(24px);
+  }
+  .rating-wrap{
+    display: inline-block;
+  }
+}

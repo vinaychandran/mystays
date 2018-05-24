@@ -1,0 +1,103 @@
+extends ../layouts/default
+
+block append content
+	.resturant-main-page
+		section.main-banner
+			picture.banner-image
+				source(media='(min-width: 768px)', srcset='/assets/narita/images/resturant/resturant-banner.jpg')
+				img(src='/assets/narita/images/resturant/resturant-banner-mobile.jpg') 
+			.banner-text
+				h1  レストラン 「ガーデニア」 
+		section.resturant-detail-menu-wrap
+			.resturant-detail-cta-wrap
+				.rating-wrap
+					.rating-units
+						.review-count レビュー 
+						span.rating-unit.is-full
+						span.rating-unit.is-full
+						span.rating-unit.is-full
+						span.rating-unit.is-full
+						span.rating-unit
+					.raring-number
+						span 4
+						| / 5				
+				.cta 
+					i.icon.sprite-tel_sp
+					| 000-0000-0000	
+				.btn 予約する
+			.resturant-detail-menu
+				ul
+					li
+						a(href="#") 会場一覧
+					li 
+						a(href="#") ギャラリー
+					li 
+						a(href="#") ケータリングメニュー
+					li 
+						a(href="#") 所在地
+		include ../components/inner-page-food-menu.pug
+		section.inner-page-slider-wrap
+			h2 ギャラリー
+			include ../components/inner-page-slider.pug
+			.inner-page-slider-info.container
+				.slider-count
+					span.number 1
+					|  / 6	
+		section.location
+			.section-title
+				h2 所在地
+			.map-container
+				#gmap_canvas
+				.map-info-wrap
+					h3 HOW TO FIND US
+					ul
+						li JR「成田」駅および成田空港からシャトルバスに揺られて15分。
+						li 空港通り沿いに「ホテルマイステイズプレミア成田」は建ちます。
+						li 駅や空港からはタクシーもご利用いただけます。
+					.contact-us-info
+						.phone
+							|ご予約の 
+							br
+							|お問い合わせ
+							span 000-0000-0000
+						.phone
+							|ご予約の 
+							br
+							|お問い合わせ
+							span 000-0000-0000
+				.btn.btn-map GOOGLE MAPで見る 
+					i.mys-arrow-left.white
+		section.resturants-list
+			ul
+				li
+					picture
+						source(media='(min-width: 768px)', srcset='/assets/narita/images/resturant/resturant1.jpg')
+						img(src='/assets/narita/images/resturant/resturant1-mobile.jpg') 
+					.resturant-list-info
+						h2 レストラン「ガーデニア」						
+						.see-more 
+							span もっと見る
+				li
+					picture
+						source(media='(min-width: 768px)', srcset='/assets/narita/images/resturant/resturant2.jpg')
+						img(src='/assets/narita/images/resturant/resturant2-mobile.jpg') 
+					.resturant-list-info
+						h2 レストラン「ガーデニア」						
+						.see-more 
+							span もっと見る
+				li
+					picture
+						source(media='(min-width: 768px)', srcset='/assets/narita/images/resturant/resturant3.jpg')
+						img(src='/assets/narita/images/resturant/resturant3-mobile.jpg') 
+					.resturant-list-info
+						h2 レストラン「ガーデニア」						
+						.see-more 
+							span もっと見る
+				li
+					picture
+						source(media='(min-width: 768px)', srcset='/assets/narita/images/resturant/resturant4.jpg')
+						img(src='/assets/narita/images/resturant/resturant4-mobile.jpg') 
+					.resturant-list-info
+						h2 レストラン「ガーデニア」						
+						.see-more 
+							span もっと見る		
