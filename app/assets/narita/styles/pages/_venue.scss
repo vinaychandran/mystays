@@ -35,12 +35,30 @@
         display: block;
         letter-spacing: 1.6px;
         text-align: center;
-        padding: 20px 10px;
+        padding: 20px 30px;
         border-bottom: 1px solid #eeeeee;
         @include md {
           padding: 0 25px 0 10px;
           text-align: left;
           border-bottom: 0;
+
+        }
+        i {
+          border: solid black;
+          border-width: 0 3px 3px 0;
+          display: inline-block;
+          padding: 3px;
+          float: right;
+          @include md {
+           
+            border: none;
+          }
+        }
+
+
+        .down {
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
         }
       }
     }
@@ -172,8 +190,10 @@
 
     img {
       margin: 0 auto;
+      width: 100%;
       @include md {
         margin: 0;
+        width: auto;
       }
     }
 
@@ -181,10 +201,7 @@
       @include font-size(12px);
       margin-top: 8px;
       margin-bottom: 0;
-      text-align: center;
-      @include md {
-        text-align: left;
-      }
+      text-align: left;
     }
   }
 

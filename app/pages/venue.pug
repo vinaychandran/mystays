@@ -5,7 +5,7 @@ block append content
 		section.main-banner
 			picture.banner-image
 				source(media='(min-width: 768px)', srcset='/assets/narita/images/venue-banner.jpg')
-				img(src='/assets/narita/images/resturant/resturant-banner-mobile.jpg')
+				img(src='/assets/narita/images/venue-banner-mobile.png')
 			.banner-text
 				h1 会議・宴会
 		//section.main-banner.venue-banner
@@ -32,12 +32,20 @@ block append content
 				ul
 					li
 						a(href="#") 会場一覧
+							span
+								i.down
 					li
 						a(href="#") ギャラリー
+							span
+								i.down
 					li
 						a(href="#") ケータリングメニュー
+							span
+								i.down
 					li
 						a(href="#") 所在地
+							span
+								i.down
 			#rfp-form(data-basicLightbox data-id="rfp-form" class=" row rfp-form-details")
 				.errors
 				form(id='rpfForm' name="rpfForm")
