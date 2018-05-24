@@ -41,8 +41,8 @@
           padding: 0 25px 0 10px;
           text-align: left;
           border-bottom: 0;
-
         }
+
         i {
           border: solid black;
           border-width: 0 3px 3px 0;
@@ -50,15 +50,13 @@
           padding: 3px;
           float: right;
           @include md {
-           
             border: none;
           }
         }
 
-
         .down {
-            transform: rotate(45deg);
-            -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
         }
       }
     }
@@ -364,6 +362,10 @@ ul.venue-list {
     &.hideItem {
       display: none;
     }
+
+    img {
+      margin: 0 auto;
+    }
     @include sm {
       width: calc(100% / 3 - 23px);
     }
@@ -611,6 +613,158 @@ ul.venue-list {
         }
       }
     }
+  }
+
+  .meeting-details1 {
+    @extend %clearfix;
+    margin-bottom: 30px;
+
+    .meeting-details-container {
+      .column-one,
+      .column-two {
+        @extend %clearfix;
+        display: block;
+        padding-bottom: 30px;
+        border-top: 1px solid #000;
+        @include md {
+          padding-bottom: 0;
+          width: 62.5%;
+          display: inline-block;
+          border-bottom: 1px solid #000;
+          float: left;
+        };
+
+        h6 {
+          text-align: center;
+          display: block;
+          border-bottom: 1px solid #000;
+        }
+
+        div {
+          @extend %clearfix;
+          display: block;
+          @include md {
+            width: 20%;
+            display: inline-block;
+            float: left;
+            //width: 12.5%;
+          }
+
+          &:last-child {
+            span {
+              border-right: 0;
+            }
+          }
+
+          span {
+            @extend %clearfix;
+            padding: 20px 0;
+            min-width: 100px;
+            text-align: center;
+            border-bottom: 1px solid #000;
+            width: 50%;
+            @include md {
+              width: auto;
+              border-bottom: 0;
+              border-right: 1px solid #000;
+            }
+
+            &:first-child {
+              float: left;
+              border-right: 1px solid #000;
+              @include md {
+                clear: both;
+                float: none;
+                border-right: 0;
+                border-bottom: 1px solid #000;
+                border-right: 1px solid #000;
+                display: block;
+                border-left: 0;
+              }
+            }
+
+            &:last-child {
+              float: right;
+              @include md {
+                float: none;
+                display: block;
+              }
+            }
+          }
+        }
+      }
+
+      .column-one {
+        div:last-child {
+          span:first-child {
+            @include md {
+              border-right: 0;
+            };
+          }
+        }
+      }
+
+      .column-two {
+        @include md {
+          width: 37.5%;
+          border-left: 1px solid #000;
+        }
+
+        div {
+          @include md {
+            width: 33%;
+          }
+
+          &:last-child {
+            span {
+              @include md {
+                border-right: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+    // overflow: hidden;
+    // overflow-x: auto;
+    // @include sm {
+    //   overflow: visible;
+    // }
+    //
+    // table {
+    //   overflow-x: auto;
+    //   width: 100%;
+    //
+    //   thead {
+    //     background: #eee;
+    //
+    //     th {
+    //       text-align: center;
+    //       vertical-align: middle;
+    //       border-right: 1px solid #E1E1E1;
+    //
+    //       &:last-of-type {
+    //         border-right: none;
+    //       }
+    //     }
+    //   }
+    //
+    //   tbody {
+    //     background: #fafafa;
+    //
+    //     td {
+    //       text-align: center;
+    //       vertical-align: middle;
+    //       padding: 20px 10px;
+    //       min-width: 100px;
+    //       border-right: 1px solid #E1E1E1;
+    //
+    //       &:last-of-type {
+    //         border-right: none;
+    //       }
+    //     }
+    //   }
+    // }
   }
 
   .meeting-details,
