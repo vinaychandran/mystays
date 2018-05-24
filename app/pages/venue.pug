@@ -17,7 +17,7 @@ block append content
 		section.inner-menu-wrap
 			.inner-links-right
 				.inner-phone
-					i.icon.sprite-phone
+					i.icon.sprite-tel_sp
 					| 000-0000-0000
 				.btn.pdf-download PDFをダウンロード
 					i.icon.sprite-download
@@ -26,11 +26,11 @@ block append content
 				ul
 					li
 						a(href="#") 会場一覧
-					li 
+					li
 						a(href="#") ギャラリー
-					li 
+					li
 						a(href="#") ケータリングメニュー
-					li 
+					li
 						a(href="#") 所在地
 			#rfp-form(data-basicLightbox data-id="rfp-form" class=" row rfp-form-details")
 				.errors
@@ -191,12 +191,12 @@ block append content
 			p のイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、夏でも底に冷たさをもつ青いそら、あうつくしい森で飾られたモリーオ市あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら
 		section.venue-party-plan-wrap
 			.venue-party-plan.big
-				img.lazy(data-src='/assets/narita/images/venue-party/3.jpg') 
+				img.lazy(data-src='/assets/narita/images/venue-party/3.jpg')
 				.venue-plan-content
 					h4 スプリングパーティープラン
 					p あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、あうつくしい森で飾られた
-				.latest-plan 
-					| 最新宴会 
+				.latest-plan
+					| 最新宴会
 					br
 					| プラン
 			.venue-party-plan.small
@@ -210,25 +210,25 @@ block append content
 		.btn.btn-party-plan 全てのプランを見る
 		section.venues-list-wrap
 			.container
-				h4 会場一覧 
+				h4 会場一覧
 				ul.venue-types.filterSection
 					li
 						//- a.selected(data-room-type="all") 一覧表示
 						input(type="checkbox" checked="true" id="below30" value="30")
-						label(for="below30") 
-							span 
+						label(for="below30")
+							span
 							| 30名以下
 					li
 						//- //a(data-room-type="small") 30名以下
 						input( type="checkbox" id="middle30" value="60")
-						label(for="middle30") 
-							span 
+						label(for="middle30")
+							span
 							| 31名〜60名
 					li
 						//- //a( data-room-type="medium") 31名〜60名
 						input( type="checkbox" id="above60"  value="100")
-						label(for="above60") 
-							span 
+						label(for="above60")
+							span
 							| 61名〜100名
 					//- li
 					//- 	a( data-room-type="big") 61名〜100名
@@ -445,16 +445,16 @@ block append content
 						li 駅や空港からはタクシーもご利用いただけます。
 					.contact-us-info
 						.phone
-							|ご予約の 
+							|ご予約の
 							br
 							|お問い合わせ
 							span 000-0000-0000
 						.phone
-							|ご予約の 
+							|ご予約の
 							br
 							|お問い合わせ
 							span 000-0000-0000
-				.btn.btn-map GOOGLE MAPで見る 
+				.btn.btn-map GOOGLE MAPで見る
 					i.mys-arrow-left.white
 		include ../components/breadcrumb.pug
 	#room-full-info(data-basicLightbox data-id="room-full-info" class="room-detail")
@@ -465,5 +465,5 @@ block append content
 			a(href="#").book-room
 				| お問い合わせ
 			.close-room
-				| x  
+				| x
 		include ../components/venue-info.pug
