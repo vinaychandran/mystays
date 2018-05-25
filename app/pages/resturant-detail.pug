@@ -11,15 +11,19 @@ block append content
 		section.resturant-detail-menu-wrap
 			.resturant-detail-cta-wrap
 				.rating-wrap
+					.review-count レビュー
 					.rating-units
-						.review-count レビュー 
 						span.rating-unit.is-full
+							i.icon.sprite-star
 						span.rating-unit.is-full
+							i.icon.sprite-star
 						span.rating-unit.is-full
+							i.icon.sprite-star
 						span.rating-unit.is-full
+							i.icon.sprite-star
 						span.rating-unit
-					.raring-number
-						span 4
+					.rating-number
+						span 4 
 						| / 5				
 				.cta 
 					i.icon.sprite-tel_sp
@@ -29,15 +33,45 @@ block append content
 				ul
 					li
 						a(href="#") 会場一覧
+								span
+									i.down
 					li 
 						a(href="#") ギャラリー
+								span
+									i.down
 					li 
 						a(href="#") ケータリングメニュー
+								span
+									i.down
 					li 
 						a(href="#") 所在地
-		include ../components/inner-page-food-menu.pug
-		section.inner-page-slider-wrap
-			h2 ギャラリー
+								span
+									i.down
+		section.resturant-timing-wrap
+			h2.higlight 
+				i
+				span 営業時間
+				i
+			.resturant-timing
+				.timings
+					.slot 朝食
+					.time 7:00 ~ 9:30
+					.lo LO 9:00
+				.timings
+					.slot 朝食
+					.time 7:00 ~ 9:30
+					.lo LO 9:00
+				.timings
+					.slot 朝食
+					.time 7:00 ~ 9:30
+					.lo LO 9:00
+		section.resturamt-food-wrap
+			include ../components/inner-page-food-menu.pug
+		section.inner-page-slider-wrap.resturant-detail-slider
+			h2.higlight 
+				i
+				span 営業時間
+				i
 			include ../components/inner-page-slider.pug
 			.inner-page-slider-info.container
 				.slider-count
@@ -45,7 +79,10 @@ block append content
 					|  / 6	
 		section.location
 			.section-title
-				h2 所在地
+				h2.higlight 
+					i
+					span 営業時間
+					i
 			.map-container
 				#gmap_canvas
 				.map-info-wrap
@@ -67,37 +104,35 @@ block append content
 							span 000-0000-0000
 				.btn.btn-map GOOGLE MAPで見る 
 					i.mys-arrow-left.white
-		section.resturants-list
-			ul
-				li
-					picture
-						source(media='(min-width: 768px)', srcset='/assets/narita/images/resturant/resturant1.jpg')
-						img(src='/assets/narita/images/resturant/resturant1-mobile.jpg') 
-					.resturant-list-info
-						h2 レストラン「ガーデニア」						
-						.see-more 
-							span もっと見る
-				li
-					picture
-						source(media='(min-width: 768px)', srcset='/assets/narita/images/resturant/resturant2.jpg')
-						img(src='/assets/narita/images/resturant/resturant2-mobile.jpg') 
-					.resturant-list-info
-						h2 レストラン「ガーデニア」						
-						.see-more 
-							span もっと見る
-				li
-					picture
-						source(media='(min-width: 768px)', srcset='/assets/narita/images/resturant/resturant3.jpg')
-						img(src='/assets/narita/images/resturant/resturant3-mobile.jpg') 
-					.resturant-list-info
-						h2 レストラン「ガーデニア」						
-						.see-more 
-							span もっと見る
-				li
-					picture
-						source(media='(min-width: 768px)', srcset='/assets/narita/images/resturant/resturant4.jpg')
-						img(src='/assets/narita/images/resturant/resturant4-mobile.jpg') 
-					.resturant-list-info
-						h2 レストラン「ガーデニア」						
-						.see-more 
-							span もっと見る		
+		section.resturants-detail-list
+			.large-container
+				h2.higlight 
+					i
+					span その他のレストラン
+					i
+				ul
+					li
+						img(src='/assets/narita/images/resturant/resturant-small1.jpg')
+						.resturant-list-info
+							h2 レストラン「ガーデニア」						
+							.see-more 
+								span もっと見る
+					li
+						img(src='/assets/narita/images/resturant/resturant-small2.jpg')
+						.resturant-list-info
+							h2 レストラン「ガーデニア」						
+							.see-more 
+								span もっと見る
+					li
+						img(src='/assets/narita/images/resturant/resturant-small3.jpg')
+						.resturant-list-info
+							h2 レストラン「ガーデニア」						
+							.see-more 
+								span もっと見る
+					li
+						img(src='/assets/narita/images/resturant/resturant-small4.jpg')
+						.resturant-list-info
+							h2 レストラン「ガーデニア」						
+							.see-more 
+								span もっと見る		
+		include ../components/breadcrumb.pug
