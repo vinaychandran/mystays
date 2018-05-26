@@ -1,0 +1,59 @@
+#user-form {
+    background: #fff;
+    height: 80vh;
+    #tabs-header {
+        margin: 0 auto;
+        padding: 0;
+        li {
+            width: 280px;
+            height: 70px;
+            background-color: #eeeeee;
+        }
+    }
+    #facebook-login {
+        background: url(../images/dummy.png) no-repeat;
+        width: 476px;
+        height: 60px;
+        margin: 0 42px 18px 42px;
+    }
+    #google-login {
+        background: url(../images/dummy.png) no-repeat;
+        width: 476px;
+        height: 60px;
+        margin: 0 42px 18px 42px;
+    }
+    #yahoo-login {
+        background: url(../images/dummy.png) no-repeat;
+        width: 476px;
+        height: 60px;
+        margin: 0 42px 18px 42px;
+    }
+    .input-showtext {
+        width: 476px;
+        margin: 0 auto;
+    }
+    input {
+        width: 476px;
+        height: 66px;
+        padding-left: 21px;
+    }
+    .submit-button {
+        width: 476px;
+        margin: 0 auto;
+        button {
+            width: 476px;
+            height: 66px;
+            background-color: #c5ad6c;
+        }
+    }
+}
+
+.basicLightbox--visible {
+    overflow: auto;
+    //background: rgba(0, 0, 0, 0.5);
+}
+
+#loginForm {
+    height: auto;
+    background: #fff;
+}

@@ -6,10 +6,8 @@
 @import "base/sprite";
 @import "sprite1";
 @import "base/helpers";
-
 // Common
 @import "base/common";
-
 // Components
 @import "components/header";
 @import "components/banner";
@@ -24,7 +22,7 @@
 @import "components/google-map";
 @import "components/modal-lightbox";
 @import "components/footer";
-
+@import "components/login-form";
 @import "pages/homepage";
 @import "components/inner-page-slider";
 @import "components/inner-page-menu-box";
