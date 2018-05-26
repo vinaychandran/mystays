@@ -496,19 +496,11 @@ const FE = {
         },
         filter: (targetElement) => {
             // get all of our list items
-<<<<<<< HEAD
-            let itemsToFilter = document.querySelectorAll(".itemsToFilter li");
-
-            //setup click event handlers on our checkboxes
-            let checkBoxes = document.querySelectorAll(".filterSection li input");
-
-=======
             let itemsToFilter = document.querySelectorAll('.itemsToFilter li');
-              
+
             //setup click event handlers on our checkboxes
             let checkBoxes = document.querySelectorAll('.filterSection li input');
-              
->>>>>>> d5675ec80ece7af6c894124016d68155f1c2f9c3
+
             for (let i = 0; i < checkBoxes.length; i++) {
                 checkBoxes[i].addEventListener('click', filterItems, false);
                 //checkBoxes[i].checked = true;
@@ -531,13 +523,8 @@ const FE = {
             function hideOrShowItems(itemType, classToRemove, classToAdd) {
                 for (var i = 0; i < itemsToFilter.length; i++) {
                     var currentItem = itemsToFilter[i];
-<<<<<<< HEAD
 
-                    if (currentItem.getAttribute("data-type") == itemType) {
-=======
-                      
                     if (currentItem.getAttribute('data-type') == itemType) {
->>>>>>> d5675ec80ece7af6c894124016d68155f1c2f9c3
                         removeClass(currentItem, classToRemove);
                         addClass(currentItem, classToAdd);
                     }
@@ -566,13 +553,8 @@ const FE = {
                     element.className = '';
                     return;
                 }
-<<<<<<< HEAD
 
-                var classValues = currentClassValue.split(" ");
-=======
-              
                 var classValues = currentClassValue.split(' ');
->>>>>>> d5675ec80ece7af6c894124016d68155f1c2f9c3
                 var filteredList = [];
 
                 for (var i = 0; i < classValues.length; i++) {
@@ -580,13 +562,8 @@ const FE = {
                         filteredList.push(classValues[i]);
                     }
                 }
-<<<<<<< HEAD
 
-                element.className = filteredList.join(" ");
-=======
-              
                 element.className = filteredList.join(' ');
->>>>>>> d5675ec80ece7af6c894124016d68155f1c2f9c3
             }
         },
 
