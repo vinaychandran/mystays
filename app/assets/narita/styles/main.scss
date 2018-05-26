@@ -6,10 +6,8 @@
 @import "base/sprite";
 @import "sprite1";
 @import "base/helpers";
-
 // Common
 @import "base/common";
-
 // Components
 @import "components/header";
 @import "components/banner";
@@ -20,16 +18,16 @@
 @import "components/video-player";
 @import "components/home-concept";
 @import "components/home-gallery";
-@import "components/review"; 
+@import "components/review";
 @import "components/google-map";
 @import "components/modal-lightbox";
-@import "components/footer";        
-
-@import "pages/homepage";  
-@import "components/inner-page-slider";   
+@import "components/footer";
+@import "components/login-form";
+@import "pages/homepage";
+@import "components/inner-page-slider";
 @import "components/inner-page-menu-box";
-@import "pages/gallerypage";  
-@import "pages/rooms";    
-@import "pages/venue"; 
-@import "pages/resturants"; 
-@import "pages/resturant-detail"; 
+@import "pages/gallerypage";
+@import "pages/rooms";
+@import "pages/venue";
+@import "pages/resturants";
+@import "pages/resturant-detail";
