@@ -84,14 +84,14 @@ const FE = {
             }
             if (noError.length) {
                 for (let i = 0; i < noError.length; i++) {
-                    let element = document.querySelector(formId + " #" + noError[i]);
-                    element.classList.remove("error-border");
+                    let element = document.querySelector(formId + ' #' + noError[i]);
+                    element.classList.remove('error-border');
                 }
             }
             if (errorField.length) {
                 for (let i = 0; i < errorField.length; i++) {
-                    let element = document.querySelector(formId + " #" + errorField[i]);
-                    element.classList.add("error-border");
+                    let element = document.querySelector(formId + ' #' + errorField[i]);
+                    element.classList.add('error-border');
                 }
                 return false;
             } else {
@@ -100,15 +100,15 @@ const FE = {
         },
 
         submitForm: () => {
-            let lightBoxId = ".basicLightbox--visible";
-            if (document.querySelector(lightBoxId + " .submitRfpForm")) {
-                document.querySelector(lightBoxId + " .submitRfpForm").addEventListener("click", function() {
-                    FE.global.checkValidationRules(lightBoxId + " form#rpfForm");
+            let lightBoxId = '.basicLightbox--visible';
+            if (document.querySelector(lightBoxId + ' .submitRfpForm')) {
+                document.querySelector(lightBoxId + ' .submitRfpForm').addEventListener('click', function() {
+                    FE.global.checkValidationRules(lightBoxId + ' form#rpfForm');
                 });
             }
-            if (document.querySelector(lightBoxId + " .bookingForm")) {
-                document.querySelector(lightBoxId + " .bookingForm").addEventListener("click", function() {
-                    FE.global.checkValidationRules(lightBoxId + " form#bookingForm");
+            if (document.querySelector(lightBoxId + ' .bookingForm')) {
+                document.querySelector(lightBoxId + ' .bookingForm').addEventListener('click', function() {
+                    FE.global.checkValidationRules(lightBoxId + ' form#bookingForm');
                 });
             }
         },
@@ -496,13 +496,21 @@ const FE = {
         },
         filter: (targetElement) => {
             // get all of our list items
+<<<<<<< HEAD
             let itemsToFilter = document.querySelectorAll(".itemsToFilter li");
 
             //setup click event handlers on our checkboxes
             let checkBoxes = document.querySelectorAll(".filterSection li input");
 
+=======
+            let itemsToFilter = document.querySelectorAll('.itemsToFilter li');
+              
+            //setup click event handlers on our checkboxes
+            let checkBoxes = document.querySelectorAll('.filterSection li input');
+              
+>>>>>>> d5675ec80ece7af6c894124016d68155f1c2f9c3
             for (let i = 0; i < checkBoxes.length; i++) {
-                checkBoxes[i].addEventListener("click", filterItems, false);
+                checkBoxes[i].addEventListener('click', filterItems, false);
                 //checkBoxes[i].checked = true;
             }
 
@@ -511,9 +519,9 @@ const FE = {
                 var clickedItem = e.target;
 
                 if (clickedItem.checked == true) {
-                    hideOrShowItems(clickedItem.value, "hideItem", "showItem");
+                    hideOrShowItems(clickedItem.value, 'hideItem', 'showItem');
                 } else if (clickedItem.checked == false) {
-                    hideOrShowItems(clickedItem.value, "showItem", "hideItem");
+                    hideOrShowItems(clickedItem.value, 'showItem', 'hideItem');
                 } else {
                     // deal with the indeterminate state if needed
                 }
@@ -523,8 +531,13 @@ const FE = {
             function hideOrShowItems(itemType, classToRemove, classToAdd) {
                 for (var i = 0; i < itemsToFilter.length; i++) {
                     var currentItem = itemsToFilter[i];
+<<<<<<< HEAD
 
                     if (currentItem.getAttribute("data-type") == itemType) {
+=======
+                      
+                    if (currentItem.getAttribute('data-type') == itemType) {
+>>>>>>> d5675ec80ece7af6c894124016d68155f1c2f9c3
                         removeClass(currentItem, classToRemove);
                         addClass(currentItem, classToAdd);
                     }
@@ -538,10 +551,10 @@ const FE = {
                 var currentClassValue = element.className;
 
                 if (currentClassValue.indexOf(classToAdd) == -1) {
-                    if ((currentClassValue == null) || (currentClassValue === "")) {
+                    if ((currentClassValue == null) || (currentClassValue === '')) {
                         element.className = classToAdd;
                     } else {
-                        element.className += " " + classToAdd;
+                        element.className += ' ' + classToAdd;
                     }
                 }
             }
@@ -550,11 +563,16 @@ const FE = {
                 var currentClassValue = element.className;
 
                 if (currentClassValue == classToRemove) {
-                    element.className = "";
+                    element.className = '';
                     return;
                 }
+<<<<<<< HEAD
 
                 var classValues = currentClassValue.split(" ");
+=======
+              
+                var classValues = currentClassValue.split(' ');
+>>>>>>> d5675ec80ece7af6c894124016d68155f1c2f9c3
                 var filteredList = [];
 
                 for (var i = 0; i < classValues.length; i++) {
@@ -562,8 +580,13 @@ const FE = {
                         filteredList.push(classValues[i]);
                     }
                 }
+<<<<<<< HEAD
 
                 element.className = filteredList.join(" ");
+=======
+              
+                element.className = filteredList.join(' ');
+>>>>>>> d5675ec80ece7af6c894124016d68155f1c2f9c3
             }
         },
 
