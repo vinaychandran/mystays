@@ -214,7 +214,32 @@ const FE = {
         },
 
         scroll: () => {
-            const scroll = new SmoothScroll('.scroll', { speed: 2000 });
+            const scroll = new SmoothScroll('.scroll', { speed: 2000, offset: 180,
+                before: function (anchor, toggle) {
+                    console.log(toggle.className.split(' ')[0]);
+                    [].forEach.call(
+                        anchor.querySelectorAll('.tabs-title'),
+                        function (el) {
+                            if (el.classList.contains('tabs-title-active')) {                    
+                                el.classList.remove('tabs-title-active');
+                            }
+                        }
+                    );
+                    [].forEach.call(
+                        anchor.querySelectorAll('.tabs-content'),
+                        function (el) {
+                            el.style.display = 'none';
+                        }
+                    );                    
+                    if(toggle.className.split(' ')[0] == 'guestPhotos') {                            
+                        anchor.querySelectorAll('.tabs-title')[0].classList.add('tabs-title-active');                        
+                        anchor.querySelectorAll('.tabs-content')[0].style.display = 'block';                        
+                    } else if(toggle.className.split(' ')[0] == 'hotelPhotos') {   
+                        anchor.querySelectorAll('.tabs-title')[1].classList.add('tabs-title-active');                        
+                        anchor.querySelectorAll('.tabs-content')[1].style.display = 'block';
+                    }
+                }
+            });
         },
 
         pageScroll: () => {
@@ -313,11 +338,12 @@ const FE = {
                     className: 'roomPopup',
                     closable: true,
                     beforeShow: (instance) => {
-                        $('body').addClass('modal-open');
+                        $('body').addClass('modal-open');                       
                     },
                     afterShow: (instance) => {
                         FE.global.sliderImage('.roomPopup .room-info-slider', 1, false, true);
-                        let checkSlider = true;
+                        FE.global.tabs('layout-tabs');
+                        let checkSlider = true;                        
                     },
                     beforeClose: (instance) => {
                         $('.roomPopup .room-info-slider').slick('unslick');
