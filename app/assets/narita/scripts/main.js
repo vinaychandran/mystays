@@ -261,11 +261,11 @@ const FE = {
                         }
                     );                    
                     if(toggle.className.split(' ')[0] == 'guestPhotos') {                            
-                        anchor.querySelectorAll('.tabs-title')[0].classList.add('tabs-title-active');                        
-                        anchor.querySelectorAll('.tabs-content')[0].style.display = 'block';                        
-                    } else if(toggle.className.split(' ')[0] == 'hotelPhotos') {   
                         anchor.querySelectorAll('.tabs-title')[1].classList.add('tabs-title-active');                        
-                        anchor.querySelectorAll('.tabs-content')[1].style.display = 'block';
+                        anchor.querySelectorAll('.tabs-content')[1].style.display = 'block';                        
+                    } else if(toggle.className.split(' ')[0] == 'hotelPhotos') {   
+                        anchor.querySelectorAll('.tabs-title')[0].classList.add('tabs-title-active');                        
+                        anchor.querySelectorAll('.tabs-content')[0].style.display = 'block';
                     }
                 }
             });
