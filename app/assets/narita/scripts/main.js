@@ -53,12 +53,6 @@ const FE = {
                 let tabLink = document.getElementById('tablink');
                 tabLink.addEventListener('click', FE.global.openTab);
             }
-            // if (document.querySelector('.basicLightbox--visible #userForm')) {
-            //     let lightBoxId1 = '.basicLightbox--visible';
-            //     let tabLink1 = document.querySelector(lightBoxId1 + ' #userForm');
-            //     tabLink1.addEventListener('click', FE.global.openModalTab);
-            // }
-
         },
         //ToDo modal
         // openModalTab: (e) => {
@@ -141,8 +135,11 @@ const FE = {
                     FE.global.checkValidationRules(lightBoxId + ' form#reset-form');
                 });
             }
-
-
+            if (document.querySelector(lightBoxId + ' .send-email')) {
+                document.querySelector(lightBoxId + ' .send-email').addEventListener('click', function() {
+                    FE.global.checkValidationRules(lightBoxId + ' form#reset-user-pwd');
+                });
+            }
         },
 
         sliderImage: (slider, slideToShow, dots, arrows) => {
@@ -326,13 +323,18 @@ const FE = {
                 }
             });
         },
+        resetForm: () => {
+            document.getElementById('resetUser').click();
+        },
+        closeForm: () => {
+            //TODO close functionality
+            //document.getElementById('resetUser').click();
+        },
         lightBox: (datepicker) => {
             const getTargetHTML = function(elem) {
                 const id = elem.getAttribute('data-show-id')
                 const target = document.querySelector(`[data-id="${ id }"]`)
                 return target.outerHTML
-
-
             }
             document.querySelectorAll('[data-show-id]').forEach(function(elem) {
                 const html = getTargetHTML(elem);
@@ -357,8 +359,12 @@ const FE = {
         resetUserDetails: () => {
             let url = new URL(window.location.href);
             let isReset = url.searchParams.get("reset");
-            if (isReset) {
+            let isEmail = url.searchParams.get("email");
+            if (isReset && !isEmail) {
                 document.getElementById('reset').click();
+            }
+            if (isReset && isEmail) {
+                document.getElementById('reset-mail').click();
             }
         },
         lightBoxRoom: () => {
