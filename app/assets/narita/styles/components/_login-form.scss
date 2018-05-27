@@ -1,13 +1,31 @@
 #user-form {
     background: #fff;
     height: 80vh;
-    #tabs-header {
+    #userForm {
         margin: 0 auto;
         padding: 0;
+        width: 100%;
+        margin-bottom: 39px;
         li {
-            width: 280px;
-            height: 70px;
-            background-color: #eeeeee;
+            width: 50%;
+            margin: 0;
+            padding: 0;
+            a {
+                text-align: center;
+                padding: 20px 0 20px 0px;
+                color: #a7a7a7;
+                font-size: 16px;
+                background-color: #eeeeee;
+                &.tabs-title-active {
+                    background-color: #fff;
+                }
+                &:before {
+                    display: none;
+                }
+                &:after {
+                    display: none;
+                }
+            }
         }
     }
     #facebook-login {
@@ -36,6 +54,15 @@
         width: 476px;
         height: 66px;
         padding-left: 21px;
+    }
+    #fname {
+        width: 48%;
+        float: left;
+        margin-right: 9px;
+    }
+    #lname {
+        width: 48%;
+        margin-left: 9px;
     }
     .submit-button {
         width: 476px;

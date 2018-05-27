@@ -111,6 +111,18 @@ const FE = {
                     FE.global.checkValidationRules(lightBoxId + ' form#bookingForm');
                 });
             }
+            if (document.querySelector(lightBoxId + ' .submitSignup')) {
+                document.querySelector(lightBoxId + ' .submitSignup').addEventListener('click', function() {
+                    FE.global.checkValidationRules(lightBoxId + ' form#signup');
+                });
+            }
+            if (document.querySelector(lightBoxId + ' .submitLogin')) {
+                document.querySelector(lightBoxId + ' .submitLogin').addEventListener('click', function() {
+                    FE.global.checkValidationRules(lightBoxId + ' form#login');
+                });
+            }
+
+
         },
 
         sliderImage: (slider, slideToShow, dots, arrows) => {

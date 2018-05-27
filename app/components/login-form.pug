@@ -5,6 +5,21 @@
             a.tabs-title(href='#') お部屋
           li
             a.tabs-title(href='#') レストラン
+        #loginForm2.tabs-content
+          #facebook-login
+          #google-login
+          #yahoo-login
+          p または
+          form#login(name='login-form')
+            section.email
+              .input-showtext
+                input#email.form-control(name='email', type='text', placeholder='または', required='required')
+            section.password
+              .input-showtext
+                input#password.form-control(name='password', type='text', placeholder='パスワード', required='required')
+            p パスワードをお忘れですか
+            .submit-button
+              button.submitLogin(name='button', type='button', value='空室を検索') 登録する
         #loginForm1.tabs-content
           #facebook-login
           #google-login
@@ -28,14 +43,3 @@
             p
             .submit-button
               button.submitSignup(name='button', type='button', value='空室を検索') 登録する
-        #loginForm2.tabs-content
-          form#login(name='login-form')
-            section.email
-              .input-showtext
-                input#email.form-control(name='email', type='text', placeholder='または', required='required')
-            section.password
-              .input-showtext
-                input#password.form-control(name='password', type='text', placeholder='パスワード', required='required')
-            p パスワードをお忘れですか
-            .submit-button
-              button.submitLogin(name='button', type='button', value='空室を検索') 登録する
