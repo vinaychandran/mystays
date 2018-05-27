@@ -53,7 +53,22 @@ const FE = {
                 let tabLink = document.getElementById('tablink');
                 tabLink.addEventListener('click', FE.global.openTab);
             }
+            // if (document.querySelector('.basicLightbox--visible #userForm')) {
+            //     let lightBoxId1 = '.basicLightbox--visible';
+            //     let tabLink1 = document.querySelector(lightBoxId1 + ' #userForm');
+            //     tabLink1.addEventListener('click', FE.global.openModalTab);
+            // }
+
         },
+        //ToDo modal
+        // openModalTab: (e) => {
+        //     let tab = e.target.hash;
+        //     let id = document.querySelector('.basicLightbox--visible ' + tab);
+
+        //     let tabElem = document.querySelector(".tabs-content");
+        //     tabElem.classList.add('hideTab');
+        //     id.classList.add('showTab');
+        // },
         openTab: (e) => {
             if (document.getElementById('tabs-header') !== null)
                 document.getElementById('tabs-header').style.display = 'block';
