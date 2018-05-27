@@ -53,7 +53,22 @@ const FE = {
                 let tabLink = document.getElementById('tablink');
                 tabLink.addEventListener('click', FE.global.openTab);
             }
+            // if (document.querySelector('.basicLightbox--visible #userForm')) {
+            //     let lightBoxId1 = '.basicLightbox--visible';
+            //     let tabLink1 = document.querySelector(lightBoxId1 + ' #userForm');
+            //     tabLink1.addEventListener('click', FE.global.openModalTab);
+            // }
+
         },
+        //ToDo modal
+        // openModalTab: (e) => {
+        //     let tab = e.target.hash;
+        //     let id = document.querySelector('.basicLightbox--visible ' + tab);
+
+        //     let tabElem = document.querySelector(".tabs-content");
+        //     tabElem.classList.add('hideTab');
+        //     id.classList.add('showTab');
+        // },
         openTab: (e) => {
             if (document.getElementById('tabs-header') !== null)
                 document.getElementById('tabs-header').style.display = 'block';
@@ -84,14 +99,14 @@ const FE = {
             }
             if (noError.length) {
                 for (let i = 0; i < noError.length; i++) {
-                    let element = document.querySelector(formId + " #" + noError[i]);
-                    element.classList.remove("error-border");
+                    let element = document.querySelector(formId + ' #' + noError[i]);
+                    element.classList.remove('error-border');
                 }
             }
             if (errorField.length) {
                 for (let i = 0; i < errorField.length; i++) {
-                    let element = document.querySelector(formId + " #" + errorField[i]);
-                    element.classList.add("error-border");
+                    let element = document.querySelector(formId + ' #' + errorField[i]);
+                    element.classList.add('error-border');
                 }
                 return false;
             } else {
@@ -100,17 +115,34 @@ const FE = {
         },
 
         submitForm: () => {
-            let lightBoxId = ".basicLightbox--visible";
-            if (document.querySelector(lightBoxId + " .submitRfpForm")) {
-                document.querySelector(lightBoxId + " .submitRfpForm").addEventListener("click", function() {
-                    FE.global.checkValidationRules(lightBoxId + " form#rpfForm");
+            let lightBoxId = '.basicLightbox--visible';
+            if (document.querySelector(lightBoxId + ' .submitRfpForm')) {
+                document.querySelector(lightBoxId + ' .submitRfpForm').addEventListener('click', function() {
+                    FE.global.checkValidationRules(lightBoxId + ' form#rpfForm');
                 });
             }
-            if (document.querySelector(lightBoxId + " .bookingForm")) {
-                document.querySelector(lightBoxId + " .bookingForm").addEventListener("click", function() {
-                    FE.global.checkValidationRules(lightBoxId + " form#bookingForm");
+            if (document.querySelector(lightBoxId + ' .bookingForm')) {
+                document.querySelector(lightBoxId + ' .bookingForm').addEventListener('click', function() {
+                    FE.global.checkValidationRules(lightBoxId + ' form#bookingForm');
                 });
             }
+            if (document.querySelector(lightBoxId + ' .submitSignup')) {
+                document.querySelector(lightBoxId + ' .submitSignup').addEventListener('click', function() {
+                    FE.global.checkValidationRules(lightBoxId + ' form#signup');
+                });
+            }
+            if (document.querySelector(lightBoxId + ' .submitLogin')) {
+                document.querySelector(lightBoxId + ' .submitLogin').addEventListener('click', function() {
+                    FE.global.checkValidationRules(lightBoxId + ' form#login');
+                });
+            }
+            if (document.querySelector(lightBoxId + ' .reset-form')) {
+                document.querySelector(lightBoxId + ' .reset-form').addEventListener('click', function() {
+                    FE.global.checkValidationRules(lightBoxId + ' form#reset-form');
+                });
+            }
+
+
         },
 
         sliderImage: (slider, slideToShow, dots, arrows) => {
@@ -313,6 +345,7 @@ const FE = {
                         FE.global.sliderImage('.gallery-nav', 1, false, true);
                         $('.gallery-nav').slick('slickGoTo', SlideNumber, true);
                         FE.global.submitForm();
+                        FE.global.tabs('loginForm');
                     },
                     afterClose: (instance) => {
                         $('.gallery-nav').slick('unslick');
@@ -320,6 +353,13 @@ const FE = {
                 }).show
             })
 
+        },
+        resetUserDetails: () => {
+            let url = new URL(window.location.href);
+            let isReset = url.searchParams.get("reset");
+            if (isReset) {
+                document.getElementById('reset').click();
+            }
         },
         lightBoxRoom: () => {
             const getTargetHTML = function(elem) {
@@ -473,7 +513,7 @@ const FE = {
 
         filterRooms: (targetElement) => {
             if (isMobile && (document.getElementById('room-types') !== null)) {
-                document.getElementById('room-types').style.display = 'none';                
+                document.getElementById('room-types').style.display = 'none';
             }
             if (isMobile && (document.getElementById('venue-types') !== null)) {
                 document.getElementById('venue-types').style.display = 'none';
@@ -521,74 +561,74 @@ const FE = {
         },
         filter: (targetElement) => {
             // get all of our list items
-            let itemsToFilter = document.querySelectorAll(".itemsToFilter li");
-              
+            let itemsToFilter = document.querySelectorAll('.itemsToFilter li');
+
             //setup click event handlers on our checkboxes
-            let checkBoxes = document.querySelectorAll(".filterSection li input");
-              
+            let checkBoxes = document.querySelectorAll('.filterSection li input');
+
             for (let i = 0; i < checkBoxes.length; i++) {
-                checkBoxes[i].addEventListener("click", filterItems, false);
+                checkBoxes[i].addEventListener('click', filterItems, false);
                 //checkBoxes[i].checked = true;
             }
-              
+
             // the event handler!
             function filterItems(e) {
                 var clickedItem = e.target;
-                  
+
                 if (clickedItem.checked == true) {
-                    hideOrShowItems(clickedItem.value, "hideItem", "showItem");
+                    hideOrShowItems(clickedItem.value, 'hideItem', 'showItem');
                 } else if (clickedItem.checked == false) {
-                    hideOrShowItems(clickedItem.value, "showItem", "hideItem");
+                    hideOrShowItems(clickedItem.value, 'showItem', 'hideItem');
                 } else {
                     // deal with the indeterminate state if needed
                 }
             }
-              
+
             // add or remove classes to show or hide our content
             function hideOrShowItems(itemType, classToRemove, classToAdd) {
                 for (var i = 0; i < itemsToFilter.length; i++) {
                     var currentItem = itemsToFilter[i];
-                      
-                    if (currentItem.getAttribute("data-type") == itemType) {
+
+                    if (currentItem.getAttribute('data-type') == itemType) {
                         removeClass(currentItem, classToRemove);
                         addClass(currentItem, classToAdd);
                     }
                 }
             }
-              
+
             //
             // Helper functions for adding and removing class values
             //
             function addClass(element, classToAdd) {
                 var currentClassValue = element.className;
-                    
+
                 if (currentClassValue.indexOf(classToAdd) == -1) {
-                    if ((currentClassValue == null) || (currentClassValue === "")) {
+                    if ((currentClassValue == null) || (currentClassValue === '')) {
                         element.className = classToAdd;
                     } else {
-                        element.className += " " + classToAdd;
+                        element.className += ' ' + classToAdd;
                     }
                 }
             }
-                    
+
             function removeClass(element, classToRemove) {
                 var currentClassValue = element.className;
-              
+
                 if (currentClassValue == classToRemove) {
-                    element.className = "";
+                    element.className = '';
                     return;
                 }
-              
-                var classValues = currentClassValue.split(" ");
+
+                var classValues = currentClassValue.split(' ');
                 var filteredList = [];
-              
-                for (var i = 0 ; i < classValues.length; i++) {
+
+                for (var i = 0; i < classValues.length; i++) {
                     if (classToRemove != classValues[i]) {
                         filteredList.push(classValues[i]);
                     }
                 }
-              
-                element.className = filteredList.join(" ");
+
+                element.className = filteredList.join(' ');
             }
         },
 
@@ -621,6 +661,7 @@ const FE = {
             FE.global.tabs('gallery-tabs');
             FE.global.tabs('booking-tabs');
             FE.global.tabs('layout-tabs');
+            FE.global.tabs('loginForm');
             FE.global.instaFeed();
             FE.global.googleMap();
             FE.global.scroll();
@@ -632,6 +673,7 @@ const FE = {
             FE.global.showCheckBoxAction();
             FE.global.lightBox(true);
             FE.global.lightBoxRoom();
+            FE.global.resetUserDetails();
             FE.global.clickOutside('fade', '.input-showtext .form-control', '.input-showtext .popup-menu');
             FE.global.clickOutside('fade', '.people-list-popup', '.popup-wrap.popup-create');
             FE.global.autocomplatePopup();
@@ -659,7 +701,7 @@ $(function() {
 });
 
 $(window).load(function() {
-    FE.global.loaded(); 
+    FE.global.loaded();
 });
 
 $(window).resize(function() {

@@ -1,0 +1,15 @@
+#reset(data-show-id='reset-form')
+#reset-form.row(data-basiclightbox='data-formLightbox', data-id='reset-form')
+        #reset-form
+          p.header パスワード再設定
+          form#reset-form(name='reset-form')
+            section.email
+              .input-showtext
+                input#new-pwd.form-control(name='newpwd', type='password', placeholder='新しいパスワード', required='required')
+            section.password
+              .input-showtext
+                input#conf-pwd.form-control(name='confpwd', type='password', placeholder='パスワードの確認', required='required')
+            p 「保存する」をクリックすることで、
+            p  サービス利用規約と個人情報保護ポリシーに同意したことになります。
+            .submit-button
+              button.reset-form(name='button', type='button', value='保存する') 保存する

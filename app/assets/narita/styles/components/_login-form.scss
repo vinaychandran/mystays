@@ -1,0 +1,131 @@
+#user-form {
+    background: #fff;
+    height: 80vh;
+    #userForm {
+        margin: 0 auto;
+        padding: 0;
+        width: 100%;
+        margin-bottom: 39px;
+        li {
+            width: 50%;
+            margin: 0;
+            padding: 0;
+            a {
+                text-align: center;
+                padding: 20px 0 20px 0px;
+                color: #a7a7a7;
+                font-size: 16px;
+                background-color: #eeeeee;
+                &.tabs-title-active {
+                    background-color: #fff;
+                }
+                &:before {
+                    display: none;
+                }
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+    #facebook-login {
+        background: url(../images/dummy.png) no-repeat;
+        width: 476px;
+        height: 60px;
+        margin: 0 42px 18px 42px;
+    }
+    #google-login {
+        background: url(../images/dummy.png) no-repeat;
+        width: 476px;
+        height: 60px;
+        margin: 0 42px 18px 42px;
+    }
+    #yahoo-login {
+        background: url(../images/dummy.png) no-repeat;
+        width: 476px;
+        height: 60px;
+        margin: 0 42px 18px 42px;
+    }
+    .input-showtext {
+        width: 476px;
+        margin: 0 auto;
+    }
+    input {
+        width: 476px;
+        height: 66px;
+        padding-left: 21px;
+    }
+    #fname {
+        width: 48%;
+        float: left;
+        margin-right: 9px;
+    }
+    #lname {
+        width: 48%;
+        margin-left: 9px;
+    }
+    .submit-button {
+        width: 476px;
+        margin: 0 auto;
+        button {
+            width: 476px;
+            height: 66px;
+            background-color: #c5ad6c;
+        }
+    }
+}
+
+.basicLightbox--visible {
+    overflow: auto;
+    //background: rgba(0, 0, 0, 0.5);
+}
+
+#loginForm {
+    height: auto;
+    background: #fff;
+}
+
+#reset-form {
+    background: #fff;
+    .input-showtext {
+        margin: 0 42px 18px 42px;
+    }
+    p {
+        opacity: 0.6;
+        font-family: YuGo;
+        font-size: 12px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.83;
+        letter-spacing: 0.9px;
+        text-align: left;
+        color: rgba(0, 0, 0, 0.6);
+        margin: 0 42px 0 42px;
+        &.header {
+            font-family: YuGo;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 1.5;
+            letter-spacing: normal;
+            text-align: left;
+            color: #000000;
+            margin: 46px 42px 46px 42px;
+        }
+    }
+    input {
+        width: 476px;
+        height: 66px;
+        padding-left: 21px;
+    }
+    .submit-button {
+        width: 476px;
+        margin: 0 auto;
+        margin-top: 25px;
+        button {
+            width: 476px;
+            height: 66px;
+            background-color: #c5ad6c;
+        }
+    }
+}
