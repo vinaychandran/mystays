@@ -9,7 +9,10 @@
           #facebook-login
           #google-login
           #yahoo-login
-          p または
+          #border-content
+            p.border.left 
+            p.border-text または
+            p.border.right
           form#login(name='login-form')
             section.email
               .input-showtext
@@ -17,14 +20,31 @@
             section.password
               .input-showtext
                 input#password.form-control(name='password', type='text', placeholder='パスワード', required='required')
-            p パスワードをお忘れですか
+            p.forgot-pwd
+              a#resetUser(data-show-id='reset-pwd-form' onclick='FE.global.resetForm()') パスワードをお忘れですか
+              #reset-pwd-form.row(data-basiclightbox='data-formLightbox', data-id='reset-pwd-form')
+                #reset-pwd
+                  p.header パスワード再設定
+                  p.header-text アカウントの登録メールアドレスをご入力ください。
+                  p.header-text パスワードリセット用のリンクをメールいたします。
+                  form#reset-user-pwd(name='reset-pwd-form')
+                    section.mail
+                      .input-showtext
+                        input#mail.form-control(name='mail', type='text', placeholder='メールアドレス', required='required')
+                    .back-button
+                      a.back(onclick='FE.global.closeForm()') ログイン画面に戻る
+                    .reset-button
+                      button.send-email(name='button', type='button', value='保存する') 保存する
             .submit-button
               button.submitLogin(name='button', type='button', value='空室を検索') 登録する
         #loginForm1.tabs-content
           #facebook-login
           #google-login
           #yahoo-login
-          p または
+          #border-content
+            p.border.left 
+            p.border-text または
+            p.border.right
           form#signup(name='signup-form')
             section.email
               .input-showtext
@@ -38,8 +58,7 @@
             section.password
               .input-showtext
                 input#s-password.form-control(name='password', type='text', placeholder='パスワード', required='required')
-            p 「登録」をクリックすることで、
-            |         サービス利用規約と個人情報保護ポリシーに同意したことになります。
-            p
+            p.form-text 「登録」をクリックすることで、         
+            p.form-text サービス利用規約と個人情報保護ポリシーに同意したことになります。
             .submit-button
               button.submitSignup(name='button', type='button', value='空室を検索') 登録する
