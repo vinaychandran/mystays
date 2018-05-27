@@ -136,6 +136,11 @@ const FE = {
                     FE.global.checkValidationRules(lightBoxId + ' form#login');
                 });
             }
+            if (document.querySelector(lightBoxId + ' .reset-form')) {
+                document.querySelector(lightBoxId + ' .reset-form').addEventListener('click', function() {
+                    FE.global.checkValidationRules(lightBoxId + ' form#reset-form');
+                });
+            }
 
 
         },
@@ -323,6 +328,13 @@ const FE = {
                 }).show
             })
 
+        },
+        resetUserDetails: () => {
+            let url = new URL(window.location.href);
+            let isReset = url.searchParams.get("reset");
+            if (isReset) {
+                document.getElementById('reset').click();
+            }
         },
         lightBoxRoom: () => {
             const getTargetHTML = function(elem) {
@@ -635,6 +647,7 @@ const FE = {
             FE.global.showCheckBoxAction();
             FE.global.lightBox(true);
             FE.global.lightBoxRoom();
+            FE.global.resetUserDetails();
             FE.global.clickOutside('fade', '.input-showtext .form-control', '.input-showtext .popup-menu');
             FE.global.clickOutside('fade', '.people-list-popup', '.popup-wrap.popup-create');
             FE.global.autocomplatePopup();
