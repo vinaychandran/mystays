@@ -662,6 +662,7 @@ const FE = {
             FE.global.tabs('booking-tabs');
             FE.global.tabs('layout-tabs');
             FE.global.tabs('loginForm');
+            FE.global.tabs('resturant-tabs');
             FE.global.instaFeed();
             FE.global.googleMap();
             FE.global.scroll();

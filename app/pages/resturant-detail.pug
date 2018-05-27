@@ -115,7 +115,7 @@ block append content
 						img(src='/assets/narita/images/resturant/resturant-small1.jpg')
 						.resturant-list-info
 							h2 レストラン「ガーデニア」						
-							.see-more 
+							a.see-more(href="#" data-show-rooms="room-full-info")
 								span もっと見る
 					li
 						img(src='/assets/narita/images/resturant/resturant-small2.jpg')
@@ -136,3 +136,14 @@ block append content
 							.see-more 
 								span もっと見る		
 		include ../components/breadcrumb.pug
+	#room-full-info(data-basicLightbox data-id="room-full-info" class="room-detail resturant-detail-popup")
+		.room-info-header 
+			span レストラン「ガーデニア」			
+			a(href="#").book-room
+				| 予約する
+			.close-room
+				| x
+			.phone-number
+				i.icon.sprite-tel_sp
+				| 000-0000-0000
+		include ../components/resturant-info.pug
