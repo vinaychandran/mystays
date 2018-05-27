@@ -45,16 +45,23 @@
       @extend %clearfix;
       //display: block;
       //position: relative;
+
       img {
         width: 680px;
         height: 770px;
+        position: static;
       }
+
       @include md {
-        margin-bottom: 100px;
+        margin-bottom: 200px;
         //float: left;
         list-style: none;
         .attraction-list-info {
           margin-top: 105px;
+        }
+
+        img{
+          position: absolute;
         }
 
         &:nth-child(even) {
@@ -64,6 +71,7 @@
 
           img {
             float: right;
+             right:0;
           }
         }
 
@@ -96,6 +104,7 @@
         color: #000;
         text-align: center;
         position: relative;
+        margin-top: 100px;
         .number{
             font-family: Lato;
           font-size: 100px;
@@ -309,17 +318,26 @@
         }
 
         .name .form-group {
-          width: 210px;
+          width: 100%;
+          @include md {
+            width: 210px;
+          }
         }
 
         .email .form-group {
-          width: 300px;
+          width: 100%;
+          @include md {
+            width: 300px;
+          }
           margin-right: 20px;
         }
 
         .find-button {
           button {
-            width: 204px;
+            width: 100%;
+            @include md {
+              width: 204px;
+            }
             margin-bottom: 0;
           }
         }
