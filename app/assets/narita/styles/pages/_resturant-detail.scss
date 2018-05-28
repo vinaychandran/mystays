@@ -215,6 +215,9 @@
   padding: 80px 0;
   text-align: center; 
   background: #fafafa;
+  @include md {
+    padding: 80px 0 50px;
+  }
   h2 {
     margin-bottom: 40px;    
   }
@@ -272,7 +275,7 @@
       position: relative;
       margin-top: 20px;
       display: block;
-
+      cursor: pointer;
       &:before {
         content: "";
         position: absolute;
