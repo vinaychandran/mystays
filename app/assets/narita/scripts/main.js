@@ -390,6 +390,7 @@ const FE = {
                         FE.global.sliderImage('.roomPopup .room-info-slider', 1, false, true);
                         //FE.global.tabs('layout-tabs');
                         FE.global.openModalTab('layout-tabs');
+                        FE.global.openModalTab('resturant-tabs');
                         let checkSlider = true;
                     },
                     beforeClose: (instance) => {
