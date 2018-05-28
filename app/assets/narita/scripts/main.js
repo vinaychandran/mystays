@@ -348,6 +348,7 @@ const FE = {
                         $('.gallery-nav').slick('slickGoTo', SlideNumber, true);
                         FE.global.submitForm();
                         FE.global.openModalTab('loginForm');
+                        FE.global.openModalTab('resturant-tabs');
                     },
                     afterClose: (instance) => {
                         $('.gallery-nav').slick('unslick');
@@ -669,7 +670,7 @@ const FE = {
             FE.global.tabs('gallery-tabs');
             FE.global.tabs('booking-tabs');
             FE.global.tabs('layout-tabs');
-            FE.global.tabs('resturant-tabs');
+            //FE.global.tabs('resturant-tabs');
             FE.global.instaFeed();
             FE.global.googleMap();
             FE.global.scroll();
