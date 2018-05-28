@@ -388,7 +388,8 @@ const FE = {
                     },
                     afterShow: (instance) => {
                         FE.global.sliderImage('.roomPopup .room-info-slider', 1, false, true);
-                        FE.global.tabs('layout-tabs');
+                        //FE.global.tabs('layout-tabs');
+                        FE.global.openModalTab('layout-tabs');
                         let checkSlider = true;
                     },
                     beforeClose: (instance) => {
