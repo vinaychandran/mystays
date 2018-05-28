@@ -2,9 +2,9 @@
       #loginForm.tabs
         ul.tabs-header#userForm
           li
-            a.tabs-title(href='#loginForm2') お部屋
+            a#userLogin.tabs-title(href='#loginForm2' onclick="FE.global.openModalTab('loginForm2')") お部屋
           li
-            a.tabs-title(href='#loginForm1') レストラン
+            a#userSignup.tabs-title(href='#loginForm1' onclick="FE.global.openModalTab('loginForm1')") レストラン
         #loginForm2.tabs-content
           #facebook-login
           #google-login

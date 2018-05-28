@@ -54,15 +54,13 @@ const FE = {
                 tabLink.addEventListener('click', FE.global.openTab);
             }
         },
-        //ToDo modal
-        // openModalTab: (e) => {
-        //     let tab = e.target.hash;
-        //     let id = document.querySelector('.basicLightbox--visible ' + tab);
-
-        //     let tabElem = document.querySelector(".tabs-content");
-        //     tabElem.classList.add('hideTab');
-        //     id.classList.add('showTab');
-        // },
+        openModalTab: (element) => {
+            var tabs = new Tabs({
+                elem: element,
+                isModal: true,
+                open: 0
+            });
+        },
         openTab: (e) => {
             if (document.getElementById('tabs-header') !== null)
                 document.getElementById('tabs-header').style.display = 'block';
@@ -322,7 +320,7 @@ const FE = {
                         FE.global.sliderImage('.gallery-nav', 1, false, true);
                         $('.gallery-nav').slick('slickGoTo', SlideNumber, true);
                         FE.global.submitForm();
-                        FE.global.tabs('loginForm');
+                        FE.global.openModalTab('loginForm');
                     },
                     afterClose: (instance) => {
                         $('.gallery-nav').slick('unslick');
@@ -338,7 +336,7 @@ const FE = {
             if (isReset && !isEmail) {
                 document.getElementById('reset').click();
             }
-            if (isReset && isEmail) {
+            if (isEmail) {
                 document.getElementById('reset-mail').click();
             }
         },
@@ -640,8 +638,6 @@ const FE = {
             }
             FE.global.tabs('gallery-tabs');
             FE.global.tabs('booking-tabs');
-            FE.global.tabs('layout-tabs');
-            FE.global.tabs('loginForm');
             FE.global.instaFeed();
             FE.global.googleMap();
             FE.global.scroll();
