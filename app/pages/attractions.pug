@@ -121,19 +121,21 @@ block append content
 		section.attractions-page-booking
 			h2
 				span 今すぐメールニュース登録で10%Off!
-			.booking-widget
+			.booking-widget.subscribe
 				#booking-tab2.tabs-content
 					label マイステイズメールニュースの配信停止はいつでもご自由に変更できます
-					.promo-code.name
-						section
-							.form-group
-								.input-showtext
-									input.form-control(type='text', placeholder='プロモコード)')
-					.promo-code.email
-						section
-							.form-group
-								.input-showtext
-									input.form-control(type='text', placeholder='プロモコード)')
-					.find-button
-						button(name='submit', type='submit', value='空室を検索') 空室を検索
+					label.thankyou Thank you for subscription!
+					form(id='subscribeForm' name="subscribeForm")
+						.promo-code.name
+							section
+								.form-group
+									.input-showtext
+										input.form-control(id='fname' name= "fname" type='text', placeholder='First Name' required)
+						.promo-code.email
+							section
+								.form-group
+									.input-showtext
+										input.form-control(id='email' type='email', placeholder='Email Address' name='email' required)
+						.find-button
+							button(name='button', type='button', value='空室を検索' class='submitSubscribeForm') Submit
 					label マイステイズメールニュースの配信停止はいつでもご自由に変更できます

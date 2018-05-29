@@ -445,6 +445,11 @@ const FE = {
                 popup.find('.children .input-showtext button').text('0人');
                 popup.find('.room .input-showtext button').text('0人');
             });
+            $(document).on('click', '.submitSubscribeForm', function(e) {
+              if(FE.global.checkValidationRules('#subscribeForm'))
+                { $('.submitSubscribeForm').closest('form').hide();
+                $('.subscribe .thankyou').show();}
+            });
         },
         itemShowHide: () => {
 

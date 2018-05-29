@@ -345,12 +345,21 @@
           }
 
           &:last-child {
-            padding: 30px 0 0;
+            padding: 0;
+            @include md {
+              padding: 30px 0 0;
+            };
           }
         }
       }
 
       #booking-tab2 {
+        .thankyou {
+          height: 66px;
+          margin: 0;
+          display: none;
+        }
+
         .shop .form-group {
           @include md {
             width: 275px;
