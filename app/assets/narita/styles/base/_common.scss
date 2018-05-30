@@ -74,7 +74,10 @@ h2.higlight{
 
 .inner-page-mobile-menu{
   position: relative;
-   padding: 54px 0 0 0;
+  padding: 54px 0 0 0;
+  @include md {
+    display: none;
+  }
   ul{
     width: 100%;
     margin: 0;
@@ -105,6 +108,9 @@ h2.higlight{
 
   + .main-banner{
     padding-top: 0;
+    @include md {
+      padding-top: 94px;
+    }
   }
 }
 
