@@ -2,6 +2,21 @@ extends ../layouts/default
 
 block append content
 	.resturant-detail-page
+		section.inner-page-mobile-menu
+			.menu-gradient
+			ul
+				li
+					a(href="#") 会場一覧
+						i.down
+				li
+					a(href="#") ギャラリー
+						i.down
+				li
+					a(href="#") ケータリングメニュー
+						i.down
+				li
+					a(href="#") 所在地 
+						i.down
 		section.main-banner
 			picture.banner-image
 				source(media='(min-width: 768px)', srcset='/assets/narita/images/resturant/resturant-banner.jpg')
@@ -29,7 +44,7 @@ block append content
 					i.icon.sprite-tel_sp
 					span 000-0000-0000	
 				.btn 予約する
-			.resturant-detail-menu
+			.resturant-detail-menu.hidden-xs
 				ul
 					li
 						a(href="#") 会場一覧
