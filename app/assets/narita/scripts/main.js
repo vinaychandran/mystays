@@ -310,7 +310,7 @@ const FE = {
                 if (!container.is(e.target) && container.has(e.target).length === 0) {
                     switch (method) {
                         case 'fade':
-                            $(targetElement).stop().fadeOut(300);
+                            $(targetElement).stop().fadeOut(100);
                             break;
                         case 'slide':
                             $(targetElement).stop().slideUp();
@@ -412,7 +412,7 @@ const FE = {
         autocomplatePopup: () => {
             $(document).on('click', '.input-showtext button', function() {
                 if ($(this).parents('#header-search-popup').length == 1) {} else {
-                    $(this).parents('.input-showtext').find('.popup-menu').fadeIn();
+                    $(this).parents('.input-showtext').find('.popup-menu').show();
                 }
             });
             $(document).on('focus', '.input-showtext button', function() {
