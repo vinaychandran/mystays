@@ -123,6 +123,12 @@ const FE = {
                     FE.global.checkValidationRules(lightBoxId + ' form#signup');
                 });
             }
+            debugger
+            if (document.querySelector('.submitProfile')) {
+                document.querySelector('.submitProfile').addEventListener('click', function() {
+                    FE.global.checkValidationRules('form#profile-form');
+                });
+            }
             if (document.querySelector(lightBoxId + ' .submitLogin')) {
                 document.querySelector(lightBoxId + ' .submitLogin').addEventListener('click', function() {
                     FE.global.checkValidationRules(lightBoxId + ' form#login');
@@ -446,9 +452,10 @@ const FE = {
                 popup.find('.room .input-showtext button').text('0人');
             });
             $(document).on('click', '.submitSubscribeForm', function(e) {
-              if(FE.global.checkValidationRules('#subscribeForm'))
-                { $('.submitSubscribeForm').closest('form').hide();
-                $('.subscribe .thankyou').show();}
+                if (FE.global.checkValidationRules('#subscribeForm')) {
+                    $('.submitSubscribeForm').closest('form').hide();
+                    $('.subscribe .thankyou').show();
+                }
             });
         },
         itemShowHide: () => {
@@ -675,7 +682,7 @@ const FE = {
             FE.global.tabs('gallery-tabs');
             FE.global.tabs('booking-tabs');
             FE.global.tabs('layout-tabs');
-            //FE.global.tabs('resturant-tabs');
+            FE.global.tabs('profile-tabs');
             FE.global.instaFeed();
             FE.global.googleMap();
             FE.global.scroll();
