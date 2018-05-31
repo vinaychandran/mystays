@@ -148,8 +148,10 @@
       input.form-control(type='file')
     label 会場の設備の要望をご記入ください。
     .input-showtext.details
-      textarea.form-control(type='text',  placeholder='', cols='40', rows='8', name='mobile')
+      textarea.form-control.textarea(type='text',  placeholder='', cols='40', rows='8', name='mobile')
     .find-button
       button(name='button', type='button', value='' class='submitRfpForm') 送信する
-    p 会議・宴会に関するお問い合わせ・資料請求 ご返答は速やかにおこなうよう心掛けておりますが、 内容や状況によりお時間がかかる場合もございます。 お急ぎの場合は、大変お手数ではございますがお電話にてご連絡ください。
-    p 本お問合せフォームの送信後、当社の利用規約および 個人情報保護ポリシーに関する声明に同意したことになります。
+    p.footer 会議・宴会に関するお問い合わせ・資料請求 ご返答は速やかにおこなうよう心掛けておりますが、 内容や状況によりお時間がかかる場合もございます。 お急ぎの場合は、大変お手数ではございますがお電話にてご連絡ください。
+    p.footer
+      span 本お問合せフォームの送信後、当社の利用規約および
+      span 個人情報保護ポリシーに関する声明に同意したことになります。

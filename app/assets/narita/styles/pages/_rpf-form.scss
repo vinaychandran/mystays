@@ -119,11 +119,16 @@ background-color: #000000;
     }
   }
 
+  .food-beverage{
+    line-height: 2.14;
+  letter-spacing: 1.1px;
+  }
+
   .form-group {
     clear: both;
     margin: 0;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     @include md {
       width: 100%;
     }
@@ -300,6 +305,7 @@ background-color: #000000;
     border: none;
     height: 66px;
     width: 100%;
+    padding: 0;
   }
 
   input,
@@ -326,6 +332,27 @@ background-color: #000000;
   input::placeholder {
     border: 0;
     padding-left: 0;
+  }
+
+  .textarea{
+    height: 256px;
+  }
+
+  .footer{
+    line-height: 2.14;
+  letter-spacing: 1.1px;
+   @include font-size(14px);
+   text-align: left;
+   padding-bottom: 20px;
+  span{
+    font-size: 10px;
+    text-align: left;
+    display: block;
+ @include font-size(10px);
+ line-height: 2;
+ letter-spacing: 0.8px;
+
+  }
   }
 
   #venue-booking-tab .date-picker-venue-rpf {
