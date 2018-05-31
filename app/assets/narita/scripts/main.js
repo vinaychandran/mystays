@@ -714,25 +714,26 @@ const FE = {
         newsScroll: () => {
             if (!isMobile) {
                 let element = document.getElementById('news-banner');
+                let content = document.getElementById('news-content');
                 let blockHeight = element.offsetHeight + 100;
-                document.getElementById('experience-content-padder').style.height = blockHeight + 'px';               
-                var imgWidth = element.offsetWidth; 
-                $(window).scroll(function () {
+                let imgWidth = element.offsetWidth; 
+                let imgMinWidth = imgWidth  - content.offsetWidth;
+                document.getElementById('experience-content-padder').style.height = blockHeight + 'px';  
 
-                        // the currently scrolled-to position - max-out at maxScrollDistance
-                        var scrollTopPos = $(document).scrollTop();
-                        
-                        // how many pixels to adjust by
-                        var scrollChangePx =  Math.floor(scrollTopPos);
-                        
-                        // calculate the new width
-                        var zoomedWidth = imgWidth - scrollTopPos;
-                        if (zoomedWidth > 1200){
-                            // set the width
-                            $('#news-banner').css('width', zoomedWidth);
-                        }
-                        
+                function scrollNews() {
+                    let scrollTopPos = $(document).scrollTop();
+                    let scrollChangePx =  Math.floor(scrollTopPos);
+                    let zoomedWidth = imgWidth - scrollChangePx;
+                    if (zoomedWidth > imgMinWidth){
+                        $('#news-banner').css('width', zoomedWidth);
+                    }else{
+                        $('#news-banner').css('width', imgMinWidth);
+                    }
+                };
+                $(window).scroll(function () {
+                    scrollNews();
                 });
+                scrollNews();
             }
         },
         loaded: function loaded() {
