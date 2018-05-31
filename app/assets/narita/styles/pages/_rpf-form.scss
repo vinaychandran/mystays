@@ -1,42 +1,79 @@
 .rfp-form-details {
   background: #fff;
   height: 100vh;
+    overflow-y: scroll;
+    position: relative;
 
 }
-.closeBtn{
 
-  float: right;
-  width: 50px;
-height: 50px;
-background-color: #000000;
+// .closeBtn {
+//   float: right;
+//   width: 56px;
+//   height: 56px;
+//   background-color: #000000;
+//   @include md {
+//     width: 94px;
+//     height: 94px;
+//   };
+// }
+
+.closeBtn {
+  position: absolute;
+  right: 15px;
+  top: 0;
+  width: 56px;
+  height: 56px;
+  background:#000;
+  @include md{
+    right:0;
+    width: 94px;
+    height: 94px;
+
+  };
+
+
+}
+
+.closeBtn:before, .closeBtn:after {
+  position: absolute;
+left: 28px;
+content: ' ';
+top: 16px;
+height: 20px;
+width: 1px;
+background-color: #fff;
 @include md{
-  width: 94px;
-height: 94px;
+  left: 47px;
+
+top: 26px;
+height: 35px;
 };
 }
+.closeBtn:before {
+  transform: rotate(45deg);
+}
+.closeBtn:after {
+  transform: rotate(-45deg);
+}
+
 
 #rfp-form {
 
-
-  overflow-y: scroll;
-
   //height: 87vh;
-
   #rpfForm {
     @extend %clearfix;
-    padding: 0 18px 18px 18px;
+    padding: 28px;
+    padding-top: 90px;
     clear: both;
     margin-bottom: 0;
-    @include md{
-        padding: 0 78px 78px 78px;
+    @include md {
+      padding: 94px 78px 78px;
     };
-
   }
   @include md {
     width: 800px;
     //margin-top: 74px;
     // height: 95vh;
-
     //margin-top: 74px;
   }
 
@@ -45,10 +82,10 @@ height: 94px;
     font-family: 'YuGo';
     @include font-size(24px);
     font-weight: bold;
-
     line-height: 1.04;
     letter-spacing: 0.6px;
-    text-align: center;;
+    text-align: center;
+    padding: 0 40px;
     padding-bottom: 20px;
 
     &.meeting {
@@ -57,11 +94,12 @@ height: 94px;
     }
   }
 
-  p{
-     @include font-size(14px);
-      line-height: 1.43;
-      padding-bottom: 40px;
+  p {
+    @include font-size(14px);
+    line-height: 1.43;
+    padding-bottom: 40px;
   }
+
   .attendees,
   .email,
   .event,
@@ -99,13 +137,11 @@ height: 94px;
       margin-right: 0;
     }
   }
-
   // .onedayevent {
   //   @include md {
   //     padding-top: 40px;
   //   }
   // }
-
   .attachFile {
     input[type=file] {
       border: none;
@@ -121,21 +157,21 @@ height: 94px;
   .duration,
   .guestrooms {
     @extend %clearfix;
+    width: 30%;
+    float: left;
     @include md {
-      float: left;
       width: 113px;
     }
   }
 
   .guestrooms {
-    @include md {
-      margin-right: 28px;
-    }
+    float: left;
+    margin-right: 28px;
   }
 
-  .food-beverage{
+  .food-beverage {
     line-height: 2.14;
-  letter-spacing: 1.1px;
+    letter-spacing: 1.1px;
   }
 
   .form-group {
@@ -209,11 +245,8 @@ height: 94px;
         float: none;
         position: relative;
         padding-right: 0;
-        //width: 20%;
         margin-bottom: 20px;
-        @include md {
-          float: left;
-        };
+        float: left;
       }
 
       .checkbox-style label.checkbox {
@@ -348,25 +381,25 @@ height: 94px;
     padding-left: 0;
   }
 
-  .textarea{
+  .textarea {
     height: 256px;
   }
 
-  .footer{
+  .footer {
     line-height: 2.14;
-  letter-spacing: 1.1px;
-   @include font-size(14px);
-   text-align: left;
-   padding-bottom: 20px;
-  span{
-    font-size: 10px;
+    letter-spacing: 1.1px;
+    @include font-size(14px);
     text-align: left;
-    display: block;
- @include font-size(10px);
- line-height: 2;
- letter-spacing: 0.8px;
+    padding-bottom: 20px;
 
-  }
+    span {
+      font-size: 10px;
+      text-align: left;
+      display: block;
+      @include font-size(10px);
+      line-height: 2;
+      letter-spacing: 0.8px;
+    }
   }
 
   #venue-booking-tab .date-picker-venue-rpf {
@@ -387,18 +420,20 @@ height: 94px;
       width: 100%;
       border: 0;
       position: relative;
-      .values .to{
-        @include md{
+
+      .values .to {
+        padding-top: 50px;
+        @include md {
+          padding-top: 25px;
           margin: 25px 10px 0 0;
         };
-
-     }
+      }
     }
 
     .endDateContainer,
     .startDateContainer {
       float: left;
-      width: 100%;
+      width: 45%;
       @include mobile {}
       @include md {
         margin-right: 0;
@@ -427,15 +462,14 @@ height: 94px;
       height: 66px;
       line-height: 66px;
       padding-top: 15px;
-
-
-
+      @include md {
+        //border: 2px solid #eeeeee;
+      };
       @include mobile {
         width: 100%;
         background: none;
         padding-left: 15px;
       }
-
 
       span.date_at,
       span.date_to {
