@@ -1,12 +1,18 @@
 .rfp-form-details {
   background: #fff;
+  height: 100vh;
 
 }
 .closeBtn{
+
   float: right;
+  width: 50px;
+height: 50px;
+background-color: #000000;
+@include md{
   width: 94px;
 height: 94px;
-background-color: #000000;
+};
 }
 
 #rfp-form {
@@ -17,15 +23,20 @@ background-color: #000000;
   //height: 87vh;
 
   #rpfForm {
-    padding: 0 73px 73px 73px;
+    @extend %clearfix;
+    padding: 0 18px 18px 18px;
     clear: both;
     margin-bottom: 0;
+    @include md{
+        padding: 0 78px 78px 78px;
+    };
+
   }
   @include md {
     width: 800px;
     //margin-top: 74px;
     // height: 95vh;
-    height: 100vh;
+
     //margin-top: 74px;
   }
 
@@ -76,13 +87,16 @@ background-color: #000000;
   .event,
   .typeofevent {
     @include md {
-      width: 75%;
+      width: 502px;
+      margin-right: 28px;
+      padding-right: 0;
     }
   }
 
   .attendees {
     @include md {
-      width: 25%;
+      width: 113px;
+      margin-right: 0;
     }
   }
 
@@ -109,13 +123,13 @@ background-color: #000000;
     @extend %clearfix;
     @include md {
       float: left;
-      width: 150px;
+      width: 113px;
     }
   }
 
   .guestrooms {
     @include md {
-      margin-right: 11px;
+      margin-right: 28px;
     }
   }
 
@@ -360,6 +374,7 @@ background-color: #000000;
     position: relative;
     padding-bottom: 20px;
     width: 100%;
+    margin-right: 30px;
     @include md {
       width: auto;
     };
@@ -372,6 +387,12 @@ background-color: #000000;
       width: 100%;
       border: 0;
       position: relative;
+      .values .to{
+        @include md{
+          margin: 25px 10px 0 0;
+        };
+
+     }
     }
 
     .endDateContainer,
@@ -381,7 +402,7 @@ background-color: #000000;
       @include mobile {}
       @include md {
         margin-right: 0;
-        width: 160px;
+        width: 164px;
       };
     }
 
@@ -406,11 +427,15 @@ background-color: #000000;
       height: 66px;
       line-height: 66px;
       padding-top: 15px;
+
+
+
       @include mobile {
         width: 100%;
         background: none;
         padding-left: 15px;
       }
+
 
       span.date_at,
       span.date_to {
@@ -440,7 +465,7 @@ background-color: #000000;
     }
 
     .calendar {
-      top: 75px;
+      top: 95px;
     }
   }
 }
