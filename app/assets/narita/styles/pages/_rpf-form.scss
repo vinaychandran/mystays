@@ -1,21 +1,13 @@
 .rfp-form-details {
   background: #fff;
   height: 100vh;
-    overflow-y: scroll;
-    position: relative;
+  overflow-y: scroll;
+  position: relative;
 
+  .col {
+    padding: 0;
+  }
 }
-
-// .closeBtn {
-//   float: right;
-//   width: 56px;
-//   height: 56px;
-//   background-color: #000000;
-//   @include md {
-//     width: 94px;
-//     height: 94px;
-//   };
-// }
 
 .closeBtn {
   position: absolute;
@@ -23,47 +15,44 @@
   top: 0;
   width: 56px;
   height: 56px;
-  background:#000;
-  @include md{
-    right:0;
+  background: #000;
+  @include md {
+    right: 0;
     width: 94px;
     height: 94px;
-
   };
-
-
 }
 
-.closeBtn:before, .closeBtn:after {
+.closeBtn:after,
+.closeBtn:before {
   position: absolute;
-left: 28px;
-content: ' ';
-top: 16px;
-height: 20px;
-width: 1px;
-background-color: #fff;
-@include md{
-  left: 47px;
-
-top: 26px;
-height: 35px;
-};
+  left: 28px;
+  content: ' ';
+  top: 16px;
+  height: 20px;
+  width: 1px;
+  background-color: #fff;
+  @include md {
+    left: 47px;
+    top: 26px;
+    height: 35px;
+  };
 }
+
 .closeBtn:before {
   transform: rotate(45deg);
 }
+
 .closeBtn:after {
   transform: rotate(-45deg);
 }
 
-
 #rfp-form {
+  height: 87vh;
 
-  //height: 87vh;
   #rpfForm {
     @extend %clearfix;
-    padding: 28px;
-    padding-top: 90px;
+    padding: 90px 28px 28px;
     clear: both;
     margin-bottom: 0;
     @include md {
@@ -72,9 +61,6 @@ height: 35px;
   }
   @include md {
     width: 800px;
-    //margin-top: 74px;
-    // height: 95vh;
-    //margin-top: 74px;
   }
 
   h5,
@@ -85,8 +71,7 @@ height: 35px;
     line-height: 1.04;
     letter-spacing: 0.6px;
     text-align: center;
-    padding: 0 40px;
-    padding-bottom: 20px;
+    padding: 0 40px 20px;
 
     &.meeting {
       clear: both;
@@ -100,48 +85,19 @@ height: 35px;
     padding-bottom: 40px;
   }
 
-  .attendees,
-  .email,
-  .event,
-  .firstname,
-  .lastname,
-  .phone,
-  .typeofevent {
-    @include md {
-      width: 50%;
-      float: left;
-      padding-right: 5%;
-    };
+  label {
+    font-family: $secondary-font;
+    @include font-size(14px);
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 1.1px;
+    text-align: left;
+    color: $default-color;
+    padding: 20px 44px 20px 12px;
+    float: left;
+    display: block;
   }
 
-  .attendees,
-  .lastname,
-  .phone {
-    @include md {
-      padding-right: 0;
-    }
-  }
-
-  .event,
-  .typeofevent {
-    @include md {
-      width: 502px;
-      margin-right: 28px;
-      padding-right: 0;
-    }
-  }
-
-  .attendees {
-    @include md {
-      width: 113px;
-      margin-right: 0;
-    }
-  }
-  // .onedayevent {
-  //   @include md {
-  //     padding-top: 40px;
-  //   }
-  // }
   .attachFile {
     input[type=file] {
       border: none;
@@ -150,269 +106,17 @@ height: 35px;
     }
   }
 
-  .companyname {
-    clear: both;
-  }
-
-  .duration,
-  .guestrooms {
-    @extend %clearfix;
-    width: 30%;
-    float: left;
-    @include md {
-      width: 113px;
-    }
-  }
-
-  .guestrooms {
-    float: left;
-    margin-right: 28px;
-  }
-
-  .food-beverage {
-    line-height: 2.14;
-    letter-spacing: 1.1px;
-  }
-
-  .form-group {
-    clear: both;
-    margin: 0;
-    width: 100%;
-    margin-bottom: 25px;
-    @include md {
-      width: 100%;
-    }
-
-    .input-showtext {
-      position: relative;
-
-      &:after {
-        content: '';
-        position: absolute;
-        right: 5%;
-        top: 45%;
-        width: 0;
-        cursor: pointer;
-        height: 0;
-        border-left: 3px solid transparent;
-        border-right: 3px solid transparent;
-        border-top: 5px solid $default-color;
-        clear: both;
-      }
-
-      button,
-      input,
-      input::placeholder {
-        font-family: $primary-font;
-        background-size: 6px;
-        background-repeat: no-repeat;
-        cursor: pointer;
-        border-radius: 4px;
-        margin: 0;
-        height: 66px;
-        width: 100%;
-        background: none;
-        border: none;
-        border: 2px solid #eeeeee;
-        @include font-size(12px);
-        letter-spacing: 0.9px;
-        padding: 0 12px;
-        color: $default-color;
-        text-align: left;
-        @include md {
-          width: 100%;
-        }
-
-        &:focus {
-          border: 2px solid #eeeeee;
-        }
-      }
-
-      input::placeholder {
-        border: 0;
-        padding-left: 0;
-      }
-    }
-
-    .form-checkbox {
-      @extend %clearfix;
-
-      input {
-        display: none;
-      }
-
-      .checkbox-style {
-        float: none;
-        position: relative;
-        padding-right: 0;
-        margin-bottom: 20px;
-        float: left;
-      }
-
-      .checkbox-style label.checkbox {
-        padding-left: 28px;
-        margin: 0;
-      }
-
-      .checkbox-style .checkbox > span {
-        border: 1px solid #232e48;
-        display: inline-block;
-        left: 0;
-        width: 21px;
-        height: 21px;
-        position: absolute;
-        background: #fff;
-        pointer-events: none;
-      }
-
-      .checkbox-style .checkbox > span i {
-        opacity: 0;
-      }
-
-      .checkbox-style .checkbox > input:checked + span i {
-        opacity: 1;
-      }
-    }
-
-    .popup-menu {
-      display: none;
-
-      ul {
-        margin: 0;
-        padding: 0;
-        max-height: 150px;
-        overflow-y: auto;
-
-        li {
-          border-bottom: 1px solid #eeeeee;
-
-          &:first-child {
-            border-top: 1px solid #eeeeee;
-          }
-
-          span {
-            cursor: pointer;
-            display: block;
-            @include font-size(12px);
-            line-height: 1.4;
-            padding: 8px 12px;
-            color: $default-color;
-
-            &.active,
-            &:focus,
-            &:hover {
-              background-color: #eeeeee;
-            }
-          }
-        }
-      }
-
-      .popup-content-input {
-        overflow-y: auto;
-        position: absolute;
-        background: #fff;
-        z-index: 999;
-        width: 100%;
-        //border-top: 3px solid #000;
-        //margin-top: 10px;
-        box-shadow: 35.4px 35.4px 90px 0 rgba(0, 0, 0, 0.15);
-        padding-top: 13px;
-        @include mobile {
-          width: 100%;
-        }
-
-        &:after {
-          content: '';
-          top: 2px;
-          width: 0;
-          left: 48%;
-          position: absolute;
-          height: 0;
-          border-left: 5px solid transparent;
-          border-right: 5px solid transparent;
-          border-bottom: 9px solid black;
-        }
-
-        &:before {
-          content: "";
-          position: absolute;
-          height: 5px;
-          border-bottom: 4px solid #000;
-          top: 8px;
-          left: 0;
-          width: 100%;
-        }
-      }
-    }
-  }
-
-  button {
-    background: #c5ad6c;
-    color: #fefefe;
-    border: none;
-    height: 66px;
-    width: 100%;
-    padding: 0;
-  }
-
-  input,
-  input::placeholder {
-    font-family: $primary-font;
-    background-size: 6px;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    border-radius: 4px;
-    margin: 0;
-    height: 66px;
-    border: 2px solid #eeeeee;
-    @include font-size(12px);
-    letter-spacing: 0.9px;
-    padding: 0 11px;
-    color: $default-color;
-    margin-bottom: 25px;
-
-    &:focus {
-      border: 2px solid #eeeeee;
-    }
-  }
-
-  input::placeholder {
-    border: 0;
-    padding-left: 0;
-  }
-
   .textarea {
     height: 256px;
-  }
-
-  .footer {
-    line-height: 2.14;
-    letter-spacing: 1.1px;
-    @include font-size(14px);
-    text-align: left;
-    padding-bottom: 20px;
-
-    span {
-      font-size: 10px;
-      text-align: left;
-      display: block;
-      @include font-size(10px);
-      line-height: 2;
-      letter-spacing: 0.8px;
-    }
   }
 
   #venue-booking-tab .date-picker-venue-rpf {
     float: left;
     position: relative;
     padding-bottom: 20px;
-    width: 100%;
-    margin-right: 30px;
-    @include md {
-      width: auto;
-    };
 
     label {
+      float: left;
       padding: 0;
     }
 
@@ -433,19 +137,20 @@ height: 35px;
     .endDateContainer,
     .startDateContainer {
       float: left;
-      width: 45%;
+      width: auto;
+      //width: 45%;
       @include mobile {}
       @include md {
         margin-right: 0;
-        width: 164px;
+        //width: 164px;
       };
     }
 
     .startDateContainer {
       margin-bottom: 15px;
       @include md {
-        margin-right: 11px;
-        margin-bottom: 0;
+        //margin-right: 11px;
+        //margin-bottom: 0;
       }
     }
 
@@ -501,5 +206,9 @@ height: 35px;
     .calendar {
       top: 95px;
     }
+  }
+
+  .find-button {
+    width: 320px;
   }
 }

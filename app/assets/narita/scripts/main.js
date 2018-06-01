@@ -442,30 +442,30 @@ const FE = {
       });
     },
     autocomplatePopup: () => {
-      $(document).on('click', '.input-showtext button', function() {
+      $(document).on('click', '.input-custom button', function() {
         if ($(this).parents('#header-search-popup').length == 1) {} else {
-          $(this).parents('.input-showtext').find('.popup-menu').show();
+          $(this).parents('.input-custom').find('.popup-menu').show();
         }
       });
-      $(document).on('focus', '.input-showtext button', function() {
+      $(document).on('focus', '.input-custom button', function() {
         //$(this).blur();
         $(this).next().find('li span').on('click', function() {
-          $(this).parents('.input-showtext').find('button').text($(this).text());
-          $(this).parents('.input-showtext').find('button').focus();
+          $(this).parents('.input-custom').find('button').text($(this).text());
+          $(this).parents('.input-custom').find('button').focus();
         });
       });
 
-      $(document).on('click', '.input-showtext .popup-content-input ul li span', function() {
-        $(this).parents('.input-showtext').find(' .popup-content-input ul li span').removeClass('active');
+      $(document).on('click', '.input-custom .popup-content-input ul li span', function() {
+        $(this).parents('.input-custom').find(' .popup-content-input ul li span').removeClass('active');
         $(this).addClass('active');
-        //$(this).parents('.input-showtext').find('input').attr('href', $(this).parent().attr('data-link')).focus();
-        $(this).parents('.input-showtext').find('.popup-menu').fadeOut();
-        $(this).parents('.input-showtext').removeClass('focus');
+        //$(this).parents('.input-custom').find('input').attr('href', $(this).parent().attr('data-link')).focus();
+        $(this).parents('.input-custom').find('.popup-menu').fadeOut();
+        $(this).parents('.input-custom').removeClass('focus');
       });
       $(document).on('click', '.people-list-popup .btn-group .done', function(e) {
         var popup = $(this).parents('.popup-wrap');
         console.log(popup);
-        let getText = '大人' + popup.find('.grown-up .input-showtext button').text() + ' 名, 子供' + popup.find('.children .input-showtext button').text() + ' 名 <span>' + popup.find('.room .input-showtext button').text() + ' 部屋 </span>';
+        let getText = '大人' + popup.find('.grown-up .input-custom button').text() + ' 名, 子供' + popup.find('.children .input-custom button').text() + ' 名 <span>' + popup.find('.room .input-custom button').text() + ' 部屋 </span>';
         $('.people .people-list p').html(getText);
         popup.css('display', 'none');
         e.preventDefault();
@@ -473,9 +473,9 @@ const FE = {
       $(document).on('click', '.people-list-popup .btn-group .clear', function(e) {
         e.preventDefault();
         var popup = $(this).parents('.people-list-popup')
-        popup.find('.grown-up .input-showtext button').text('0人');
-        popup.find('.children .input-showtext button').text('0人');
-        popup.find('.room .input-showtext button').text('0人');
+        popup.find('.grown-up .input-custom button').text('0人');
+        popup.find('.children .input-custom button').text('0人');
+        popup.find('.room .input-custom button').text('0人');
       });
       $(document).on('click', '.submitSubscribeForm', function(e) {
         if (FE.global.checkValidationRules('#subscribeForm')) {
@@ -726,7 +726,7 @@ const FE = {
       FE.global.lightBox(true);
       FE.global.lightBoxRoom();
       FE.global.resetUserDetails();
-      FE.global.clickOutside('fade', '.input-showtext .form-control', '.input-showtext .popup-menu');
+      FE.global.clickOutside('fade', '.input-custom .form-control', '.input-custom .popup-menu');
       FE.global.clickOutside('fade', '.people-list-popup', '.popup-wrap.popup-create');
       FE.global.autocomplatePopup();
       FE.global.itemShowHide();
