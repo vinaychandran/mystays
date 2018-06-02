@@ -400,11 +400,14 @@ const FE = {
                 document.getElementById('reset-mail').click();
             }
         },
+        lighBoxPool: () => {
+            alert(1);
+        },
         lightBoxRoom: () => {
             const getTargetHTML = function(elem) {
                 const id = elem.getAttribute('data-show-rooms')
                 const target = document.querySelector(`[data-id="${ id }"]`)
-                return target.outerHTML
+                return (target) ? target.outerHTML : '';
             }
             document.querySelectorAll('[data-show-rooms]').forEach(function(elem) {
                 const html = getTargetHTML(elem);
