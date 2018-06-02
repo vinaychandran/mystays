@@ -184,3 +184,10 @@
     opacity: 1;
   }
 }
+
+.textarea-custom{
+  border: 2px solid #eeeeee;
+  &:focus{
+    border: 2px solid #eeeeee;
+  }
+}
