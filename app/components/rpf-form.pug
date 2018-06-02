@@ -11,7 +11,7 @@
           .input-custom
             input.form-control(id='fname' name= "fname" type='text', placeholder='' required)
       .col.col-1-2
-        .lastname
+        .lastname.left-space
           label 名
           .input-custom
             input.form-control(id='lname' type='text', placeholder='' name='lname' required)
@@ -36,67 +36,70 @@
         label イベント名
         .input-custom
           input.form-control(id='meeting' type='text', placeholder='' name='meeting' required)
-      .col.col-1-3.attendees
+      .col.col-1-3.attendees.left-space
         label ご利用人数
         .input-custom
           input.form-control(id='attendees' type='number', placeholder='' name='mobile' required)
     .row
-      .col.col-1-2
+      .col.date-duration
+        //.col.col-1-2
         #venue-booking-tab
-          .date-picker-venue-rpf
-            .date-picker-tab1-container
-              .values
-                label 開始日
-                .startDateContainer
-                  .startDate
-                    .value.date_at
-                      span.date_at
-                      input#date_at.date_at(type='hidden')
-                .to ~
-                label 終了日
-                .endDateContainer
-                  .endDate
-                    .value.date_to
-                      span.date_to
-                      input#date_to.date_to(type='hidden')
-              //.calendar-backdrop
-              .calendar
-                //img.clear(src='/assets/narita/images/clear.svg' )
-                .button.button-prev
-                .button.button-next
-                .calendarContainer
-                .bottomLayer
-                  span.daysFromTo 2018年00月00日 金曜日 ~ 2018年00月00日 金曜日
-                  .nights 10 金曜日
-                  //.button.closePopup &#x5B8C;&#x4E86;
-      .col.col-1-4.guestrooms
-        .form-group.dropdown-custom
-          label 客室数
-          .input-custom
-            button(name='button', type='button', value='空室を検索') Rooms
-            .popup-menu
-              .popup-content-input
-                ul.cities
-                  li
-                    span(target='Hokkaido', names='Hokkaido') 1
-                  li
-                    span(target='Okinawa', names='Okinawa') 2
-                  li
-                    span(target='Tochigi', names='Tochigi') 3
-                  li
-                    span(target='Tokyo', names='Tokyo') 4
-      .col.col-1-4.duration
-        .form-group.dropdown-custom
-          label ご利用時間
-          .input-custom
-            button(name='button', type='button', value='空室を検索') Duration
-            .popup-menu
-              .popup-content-input
-                ul.cities
-                  li
-                    span(target='Hokkaido', names='Hokkaido') All Day
-                  li
-                    span(target='Okinawa', names='Okinawa') Item name item
+            .date-picker-venue-rpf
+              .date-picker-tab1-container
+                .values
+                  .first-box
+                    label 開始日
+                    .startDateContainer
+                      .startDate
+                        .value.date_at
+                          span.date_at
+                          input#date_at.date_at(type='hidden')
+                  .to ~
+                  .sec-box
+                    label 終了日
+                    .endDateContainer
+                      .endDate
+                        .value.date_to
+                          span.date_to
+                          input#date_to.date_to(type='hidden')
+                //.calendar-backdrop
+                .calendar
+                  //img.clear(src='/assets/narita/images/clear.svg' )
+                  .button.button-prev
+                  .button.button-next
+                  .calendarContainer
+                  .bottomLayer
+                    span.daysFromTo 2018年00月00日 金曜日 ~ 2018年00月00日 金曜日
+                    .nights 10 金曜日
+                    //.button.closePopup &#x5B8C;&#x4E86;
+        .guestrooms
+          .form-group.dropdown-custom
+            label 客室数
+            .input-custom
+              button(name='button', type='button', value='空室を検索') Rooms
+              .popup-menu
+                .popup-content-input
+                  ul.cities
+                    li
+                      span(target='Hokkaido', names='Hokkaido') 1
+                    li
+                      span(target='Okinawa', names='Okinawa') 2
+                    li
+                      span(target='Tochigi', names='Tochigi') 3
+                    li
+                      span(target='Tokyo', names='Tokyo') 4
+        .duration
+          .form-group.dropdown-custom
+            label ご利用時間
+            .input-custom
+              button(name='button', type='button', value='空室を検索') Duration
+              .popup-menu
+                .popup-content-input
+                  ul.cities
+                    li
+                      span(target='Hokkaido', names='Hokkaido') All Day
+                    li
+                      span(target='Okinawa', names='Okinawa') Item name item
     .row
       .col.col.col-2-3.typeofevent
         .form-group.dropdown-custom
@@ -119,7 +122,7 @@
         .food-beverage
           .form-checkbox
             label.form-label パーティ料理、お弁当をお届けするケータリング。お飲物やサービスに至までお客様のご要望に応じてお手伝いさせていただきます。
-    .row
+    .row.check-box-container
       .col.col-1-5
         .checkbox-custom
           label.checkbox
@@ -134,34 +137,35 @@
             span
               i.icon.sprite-checked_sp
             |	ランチ
-      .col.col-1-5 　　　
-        .checkbox-custom
+      .col.col-1-5
+        .checkbox-custom 　　　
           label.checkbox
             input.form-control(type='checkbox' name="food" value="Dinner")
             span
               i.icon.sprite-checked_sp
             |	夕食
-      .col.col-1-5 　　　
-        .checkbox-custom
+      .col.col-1-5
+        .checkbox-custom 　　　
           label.checkbox
             input.form-control(type='checkbox' name="food" value="Reception")
             span
               i.icon.sprite-checked_sp
             |	受付
-      .col.col-1-5 　　　　
-        .checkbox-custom
+      .col.col-1-5
+        .checkbox-custom 　　　　
           label.checkbox
             input.form-control(type='checkbox' name="food" value="Others")
             span
               i.icon.sprite-checked_sp
             |	その他
     .row
-      .col.attachFile
-        label.fileLabel ファイルを添付する
+      .col.col-1-2
+        label 会場の設備の要望をご記入ください。
+      .col.attachFile.col-1-2
         input.form-control(type='file')
+
     .row
       .col
-        label 会場の設備の要望をご記入ください。
         .input-custom.details
           textarea.form-control.textarea(type='text',  placeholder='', cols='40', rows='8', name='mobile')
     .row

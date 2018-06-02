@@ -40,7 +40,7 @@
     &:after {
       content: '';
       position: absolute;
-      right: 5%;
+      right: 15px;
       top: 45%;
       width: 0;
       cursor: pointer;
@@ -159,7 +159,8 @@
   float: left;
 
   label.checkbox {
-    padding: 0 0 0 28px !important;
+    padding: 0 0 0 8px !important;
+
     margin: 0;
   }
 
