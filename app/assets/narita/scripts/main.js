@@ -750,29 +750,29 @@ const FE = {
 
     news: {
         newsScroll: () => {
-            //   if (!isMobile) {
-            //     let element = document.getElementById('news-banner');
-            //     let content = document.getElementById('news-content');
-            //     let blockHeight = element.offsetHeight + 100;
-            //     let imgWidth = element.offsetWidth;
-            //     let imgMinWidth = imgWidth - content.offsetWidth;
-            //     document.getElementById('experience-content-padder').style.height = blockHeight + 'px';
+            if (!isMobile) {
+                let element = document.getElementById('news-banner');
+                let content = document.getElementById('news-content');
+                let blockHeight = element.offsetHeight + 100;
+                let imgWidth = element.offsetWidth;
+                let imgMinWidth = imgWidth - content.offsetWidth;
+                document.getElementById('experience-content-padder').style.height = blockHeight + 'px';
 
-            //     function scrollNews() {
-            //       let scrollTopPos = $(document).scrollTop();
-            //       let scrollChangePx = Math.floor(scrollTopPos);
-            //       let zoomedWidth = imgWidth - scrollChangePx;
-            //       if (zoomedWidth > imgMinWidth) {
-            //         $('#news-banner').css('width', zoomedWidth);
-            //       } else {
-            //         $('#news-banner').css('width', imgMinWidth);
-            //       }
-            //     };
-            //     $(window).scroll(function() {
-            //       scrollNews();
-            //     });
-            //     scrollNews();
-            //   }
+                function scrollNews() {
+                    let scrollTopPos = $(document).scrollTop();
+                    let scrollChangePx = Math.floor(scrollTopPos);
+                    let zoomedWidth = imgWidth - scrollChangePx;
+                    if (zoomedWidth > imgMinWidth) {
+                        $('#news-banner').css('width', zoomedWidth);
+                    } else {
+                        $('#news-banner').css('width', imgMinWidth);
+                    }
+                };
+                $(window).scroll(function() {
+                    scrollNews();
+                });
+                scrollNews();
+            }
         },
         loaded: function loaded() {
             FE.news.newsScroll();
