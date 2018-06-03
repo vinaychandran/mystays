@@ -91,7 +91,9 @@
         padding: 62px 0 40px 0;
     }
     ul {
-        margin: 0 150px;
+        // margin: 0 150px;
+        max-width: 1140px;
+        margin: 0 auto;
         .header {
             font-family: YuGo;
             font-size: 14px;
