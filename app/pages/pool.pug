@@ -5,8 +5,8 @@ block append content
     picture.banner-image
       source(media='(min-width: 768px)', srcset='/assets/narita/images/pool.jpg')
       img(src='/assets/narita/images/pool.jpg')
-    //- .banner-text
-    //-   h1 プール
+    .banner-text
+      h1 プール
   .about-rooms-wrap
     .about-rooms-info
       h3 SIMPLE, BLISSFUL MOMENTS
@@ -41,12 +41,12 @@ block append content
           span もっと見る
         #pool-full-info(data-basicLightbox data-id="pool-full-info" class="room-detail")
           .room-info-header
-            .phone-number
+            .phone-number.header
               | Mama treatment
-            a(href="#").book-room
-              | 予約する
-            a(href='#')
+            a(href="#").cancel
               | キャンセルする
+            a(href='#').book-room
+              | 予約する
             .close-room
               | x
           include ../components/pool-info.pug
