@@ -221,3 +221,50 @@
         }
     }
 }
+
+.promo-coupon {
+    .selected {
+        h3 {
+            font-family: YuGo;
+            font-size: 18px;
+            font-weight: 500;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.67;
+            letter-spacing: normal;
+            text-align: left;
+            color: #ffffff;
+            padding-top: 35px;
+        }
+        p {
+            color: #ffffff;
+        }
+        button {
+            max-width: 272px;
+            background-color: #ffffff;
+            background-color: #ffffff;
+            color: #000;
+            padding: 20px 0;
+        }
+        background-color: #232e48;
+    }
+    h3 {
+        font-family: YuGo;
+        font-size: 18px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.67;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000;
+        padding-top: 35px;
+    }
+    button {
+        max-width: 272px;
+        background-color: #000000;
+        color: #fff;
+        padding: 20px 0;
+    }
+    background-color: #fafafa;
+}
