@@ -79,8 +79,16 @@ block append content
                 .col2
                   button.submitProfile(type='button') 保存する 
         .tabs-content
-          .promo-content This is a promo tab
-          .promo-content This is a promo tab
-    .footer-content トップ　　　アカウント設定
+          .row.promo-coupon
+            .col.col-1-2.selected
+              h3  メンバー限定5%OFF
+              p あのイーハトーヴォのすきとおった風、夏でも底に。
+              button(type='button')  選択しています 
+          
+            .col.col-1-2
+              h3  メンバー限定5%OFF
+              p あのイーハトーヴォのすきとおった風、夏でも底に。
+              button(type='button')  選択しています
+    include ../components/breadcrumb.pug
         
 
