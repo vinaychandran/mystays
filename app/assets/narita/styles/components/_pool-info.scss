@@ -8,3 +8,12 @@
         margin: 0 auto;
     }
 }
+
+.pool-info-content {
+    max-width: 920px;
+    background-color: #ffffff;
+    margin: 0 auto;
+    .col {
+        border-right: 1px solid #eee;
+    }
+}
