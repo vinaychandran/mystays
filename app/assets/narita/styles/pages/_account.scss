@@ -110,6 +110,10 @@
             width: 600px;
             margin: 0 auto;
         }
+        .form-header {
+            width: 600px;
+            margin: 0 auto;
+        }
         .row {
             &.right {
                 margin-right: 10px;
@@ -206,8 +210,24 @@
 
 .promo-coupon {
     max-width: 660px;
+    .border-up {
+        border-top: 1px solid #eee;
+    }
+    .container {
+        width: 300px;
+        margin: 0 auto;
+    }
+    p {
+        text-align: left;
+    }
+    ul li {
+        max-width: 320px;
+        &:nth-child(odd) {
+            margin-right: 20px;
+        }
+    }
     .selected {
-        h3 {
+        label {
             font-family: YuGo;
             font-size: 18px;
             font-weight: 500;
@@ -218,6 +238,7 @@
         }
         p {
             color: #ffffff;
+            text-align: left;
         }
         button {
             max-width: 272px;
@@ -228,7 +249,7 @@
         }
         background-color: #232e48;
     }
-    h3 {
+    label {
         font-family: YuGo;
         font-size: 18px;
         font-weight: 500;

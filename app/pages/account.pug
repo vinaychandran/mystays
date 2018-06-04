@@ -79,16 +79,22 @@ block append content
                 .col2
                   button.submitProfile(type='button') 保存する 
         .tabs-content
-          .row.promo-coupon
-            .col.col-1-2.selected
-              h3  メンバー限定5%OFF
-              p あのイーハトーヴォのすきとおった風、夏でも底に。
-              button(type='button')  選択しています 
+          ul.row.promo-coupon
+            li.col.col-1-2.selected
+              .container
+                .border-up  
+                label  メンバー限定5%OFF
+                //input(type='radio',name='coupon',value='1')
+                p あのイーハトーヴォのすきとおった風、夏でも底に。
+                button(type='button')  選択しています 
           
-            .col.col-1-2
-              h3  メンバー限定5%OFF
-              p あのイーハトーヴォのすきとおった風、夏でも底に。
-              button(type='button')  選択しています
+            li.col.col-1-2
+              .container
+                .border-up  
+                label  メンバー限定5%OFF
+                //input(type='radio',name='coupon',value='1')
+                p あのイーハトーヴォのすきとおった風、夏でも底に。
+                button(type='button')  選択しています
           .booking-widget
             h3  さっそく予約する
             #booking-tab1(onclick='FE.global.bookingWidgetClick()')
