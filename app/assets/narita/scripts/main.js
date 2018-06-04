@@ -773,7 +773,7 @@ const FE = {
 
     news: {
         newsScroll: () => {
-            if (!isMobile) {
+            if (!isMobile && document.getElementById('news-banner')!=null) {
                 let element = document.getElementById('news-banner');
                 let content = document.getElementById('news-content');
                 let blockHeight = element.offsetHeight + 100;
@@ -798,7 +798,7 @@ const FE = {
             }
         },
         loaded: function loaded() {
-            //FE.news.newsScroll();
+            FE.news.newsScroll();
         }
     }
 }
