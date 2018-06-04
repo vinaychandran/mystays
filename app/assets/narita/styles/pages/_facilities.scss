@@ -114,6 +114,10 @@
                 .facility-short-info {
                     @include font-size(14px);
                     line-height: 20px;
+                    padding-bottom: 40px;
+                    @include md {
+                        padding-bottom: 80px;
+                    }
                     h6 {
                         font-weight: bold;
                     }
