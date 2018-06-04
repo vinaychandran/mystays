@@ -15,12 +15,12 @@
   }
 }
 
-.basicLightbox__placeholder {
-  @include md {
-    position: absolute;
-    top: 100px;
-  }
-}
+// .basicLightbox__placeholder {
+//   @include md {
+//     position: absolute;
+//     top: 100px;
+//   }
+// }
 
 .closeBtn {
   position: absolute;
@@ -72,7 +72,7 @@
   }
   @include md {
     width: 560px;
-    margin-bottom: 100px;
+    height: 100vh;
   }
 
   h5,
