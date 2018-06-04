@@ -7,10 +7,7 @@
         font-family: YuGo;
         font-size: 12px;
         font-weight: 500;
-        font-style: normal;
-        font-stretch: normal;
         line-height: 1.67;
-        letter-spacing: normal;
         text-align: left;
         color: #333333;
     }
@@ -28,15 +25,10 @@
                 width: auto;
                 display: inline-block;
                 text-align: center;
-                /* width: 540px; */
-                /* margin: 0 auto; */
                 font-family: YuGo;
                 font-size: 20px;
                 font-weight: 500;
-                font-style: normal;
-                font-stretch: normal;
                 line-height: 1.5;
-                letter-spacing: normal;
                 text-align: left;
                 color: #000000;
                 margin-left: 320px;
@@ -47,8 +39,6 @@
                 font-family: YuGo;
                 font-size: 14px;
                 font-weight: 500;
-                font-style: normal;
-                font-stretch: normal;
                 line-height: 2.14;
                 letter-spacing: 1.1px;
                 text-align: left;
@@ -61,10 +51,7 @@
             font-family: YuGo;
             font-size: 24px;
             font-weight: 500;
-            font-style: normal;
-            font-stretch: normal;
             line-height: 1.25;
-            letter-spacing: normal;
             text-align: center;
             color: #000000;
             padding: 32px 0;
@@ -81,10 +68,7 @@
                 font-family: YuGo;
                 font-size: 14px;
                 font-weight: 500;
-                font-style: normal;
-                font-stretch: normal;
                 line-height: 2.14;
-                letter-spacing: normal;
                 text-align: center;
                 color: #000000;
                 padding: 17px 0;
@@ -134,8 +118,6 @@
                 font-family: YuGo;
                 font-size: 14px;
                 font-weight: bold;
-                font-style: normal;
-                font-stretch: normal;
                 line-height: 2.14;
                 letter-spacing: 1.1px;
                 text-align: left;
@@ -229,10 +211,7 @@
             font-family: YuGo;
             font-size: 18px;
             font-weight: 500;
-            font-style: normal;
-            font-stretch: normal;
             line-height: 1.67;
-            letter-spacing: normal;
             text-align: left;
             color: #ffffff;
             padding-top: 35px;
@@ -253,10 +232,7 @@
         font-family: YuGo;
         font-size: 18px;
         font-weight: 500;
-        font-style: normal;
-        font-stretch: normal;
         line-height: 1.67;
-        letter-spacing: normal;
         text-align: left;
         color: #000;
         padding-top: 35px;
@@ -286,8 +262,6 @@
             font-family: YuGo;
             font-size: 24px;
             font-weight: 500;
-            font-style: normal;
-            font-stretch: normal;
             line-height: 1.25;
             letter-spacing: normal;
             text-align: center;
@@ -313,11 +287,7 @@
         padding-top: 100px;
         font-size: 24px;
         font-weight: 500;
-        font-style: normal;
-        font-stretch: normal;
         line-height: 1.25;
-        letter-spacing: normal;
-        /* text-align: left; */
         color: #000000;
     }
     .row {
@@ -332,10 +302,7 @@
                 font-family: YuGo;
                 font-size: 20px;
                 font-weight: bold;
-                font-style: normal;
-                font-stretch: normal;
                 line-height: 1;
-                letter-spacing: normal;
                 text-align: left;
                 color: #333333;
                 padding: 30px 0;
@@ -344,8 +311,6 @@
             p {
                 font-size: 14px;
                 font-weight: 500;
-                font-style: normal;
-                font-stretch: normal;
                 line-height: 2;
                 letter-spacing: 1.4px;
                 text-align: left;
@@ -362,6 +327,7 @@
                 width: auto;
                 padding: 25px 100px;
                 background-color: #000;
+                margin: 0;
             }
         }
     }
