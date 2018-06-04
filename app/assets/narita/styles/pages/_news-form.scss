@@ -3,11 +3,22 @@
   height: 100vh;
   overflow-y: scroll;
   position: relative;
+  @include md {
+    height: auto;
+    //overflow-y: hidden;
+  }
 
   .col {
     @include md {
       padding: 0;
     };
+  }
+}
+
+.basicLightbox__placeholder {
+  @include md {
+    position: absolute;
+    top: 100px;
   }
 }
 
@@ -61,6 +72,7 @@
   }
   @include md {
     width: 560px;
+    margin-bottom: 100px;
   }
 
   h5,
@@ -72,7 +84,6 @@
     letter-spacing: 0.6px;
     text-align: center;
     padding: 0 40px 20px;
-
   }
 
   p {
@@ -130,10 +141,10 @@
     }
   }
 
-  .lastname{
+  .lastname {
     padding-top: 40px;
     @include md {
-    padding-top: 61px;
+      padding-top: 61px;
     };
   }
 
@@ -221,12 +232,9 @@
       top: 10px;
     }
 
-
-
     span {
       background: #fff;
       font-weight: 700;
-
       padding: 0 15px;
       position: relative;
       z-index: 1;
@@ -336,11 +344,12 @@
   }
 
   .footer {
-       @include font-size(12px);
-       color: rgba(0, 0, 0, 0.6);
+    @include font-size(12px);
+    color: rgba(0, 0, 0, 0.6);
     padding: 0;
     text-align: left;
-    span{
+
+    span {
       text-decoration: underline;
     }
   }
