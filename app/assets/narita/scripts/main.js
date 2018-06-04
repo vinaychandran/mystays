@@ -773,32 +773,32 @@ const FE = {
 
     news: {
         newsScroll: () => {
-            if (!isMobile) {
+            if (!isMobile && document.getElementById('news-banner')!=null) {
                 let element = document.getElementById('news-banner');
                 let content = document.getElementById('news-content');
-                let blockHeight = element.offsetHeight + 100;
+               // let blockHeight = element.offsetHeight + 100;
                 let imgWidth = element.offsetWidth;
                 let imgMinWidth = imgWidth - content.offsetWidth;
-                document.getElementById('experience-content-padder').style.height = blockHeight + 'px';
-
-                function scrollNews() {
-                    let scrollTopPos = $(document).scrollTop();
-                    let scrollChangePx = Math.floor(scrollTopPos);
-                    let zoomedWidth = imgWidth - scrollChangePx;
-                    if (zoomedWidth > imgMinWidth) {
-                        $('#news-banner').css('width', zoomedWidth);
-                    } else {
-                        $('#news-banner').css('width', imgMinWidth);
-                    }
-                };
-                $(window).scroll(function() {
-                    scrollNews();
-                });
-                scrollNews();
+                //document.getElementById('experience-content-padder').style.height = blockHeight + 'px';
+                $('#news-banner').css('width', imgMinWidth);    
+                // function scrollNews() {
+                //     let scrollTopPos = $(document).scrollTop();
+                //     let scrollChangePx = Math.floor(scrollTopPos);
+                //     let zoomedWidth = imgWidth - scrollChangePx;
+                //     if (zoomedWidth > imgMinWidth) {
+                //         $('#news-banner').css('width', zoomedWidth);
+                //     } else {
+                //         $('#news-banner').css('width', imgMinWidth);
+                //     }
+                // };
+                // $(window).scroll(function() {
+                //     scrollNews();
+                // });
+                // scrollNews();
             }
         },
         loaded: function loaded() {
-            //FE.news.newsScroll();
+            FE.news.newsScroll();
         }
     }
 }
