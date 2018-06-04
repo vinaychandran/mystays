@@ -73,10 +73,6 @@
     text-align: center;
     padding: 0 40px 20px;
 
-    &.meeting {
-      clear: both;
-      padding-top: 20px;
-    }
   }
 
   p {
@@ -135,7 +131,10 @@
   }
 
   .lastname{
+    padding-top: 40px;
+    @include md {
     padding-top: 61px;
+    };
   }
 
   .event {
@@ -195,6 +194,42 @@
   .left-space {
     @include md {
       padding-left: 30px;
+    }
+  }
+
+  .meeting {
+    text-align: center;
+    position: relative;
+    margin-top: 30px;
+    display: block;
+    width: 100%;
+    float: left;
+    padding: 0;
+    margin-bottom: 30px;
+    @include md {
+      margin-top: 60px;
+      margin-bottom: 0;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background-color: #000;
+      top: 10px;
+    }
+
+
+
+    span {
+      background: #fff;
+      font-weight: 700;
+
+      padding: 0 15px;
+      position: relative;
+      z-index: 1;
     }
   }
 
