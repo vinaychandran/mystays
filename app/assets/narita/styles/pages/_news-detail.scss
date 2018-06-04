@@ -102,6 +102,13 @@
   .btns-wrap{
     overflow: hidden;
     padding-top: 10px;
+    span{
+      display: none;
+      &.active{
+        display: inline-block;
+        margin-right: 8px;
+      }
+    }
   }
   .news-content-highlight{
     background-color: #fafafa;
@@ -115,5 +122,24 @@
       width: 100%;
       margin-top: 10px;
     }
+  }
+}
+
+.news-related-wrap{
+  border-top: 2px solid #000;  
+  h3{
+    margin: 30px 0 40px;
+    @include font-size(14px);
+    letter-spacing: 1.1px;
+  }
+  h4{
+    @include font-size(20px);
+    font-weight: 500;
+    margin-top: 35px;
+  }
+  .see-more{
+    max-width: 300px;
+    margin: 35px auto 60px; 
+    float: none;
   }
 }
