@@ -785,7 +785,6 @@ const FE = {
                 let imgWidth = element.offsetWidth;
                 let imgMinWidth = imgWidth - content.offsetWidth;
                 //document.getElementById('experience-content-padder').style.height = blockHeight + 'px';
-<<<<<<< HEAD
                 $('#news-banner').css('width', imgMinWidth);    
                 function scrollNews() {
                     // let scrollTopPos = $(document).scrollTop();
@@ -801,7 +800,6 @@ const FE = {
                 $(window).scroll(function() {
                     scrollNews();
                 });
-=======
                 $('#news-banner').css('width', imgMinWidth);
                 // function scrollNews() {
                 //     let scrollTopPos = $(document).scrollTop();
@@ -816,7 +814,6 @@ const FE = {
                 // $(window).scroll(function() {
                 //     scrollNews();
                 // });
->>>>>>> c6c80375acad8287f3e6ac36700022c3cee82e58
                 // scrollNews();
             }
             $(document).on('click', '.open-details', function() {
