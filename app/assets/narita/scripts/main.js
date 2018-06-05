@@ -113,6 +113,11 @@ const FE = {
                     FE.global.checkValidationRules(lightBoxId + ' form#rpfForm');
                 });
             }
+            if (document.querySelector(lightBoxId + ' .submitNewsForm')) {
+                document.querySelector(lightBoxId + ' .submitNewsForm').addEventListener('click', function() {
+                    FE.global.checkValidationRules(lightBoxId + ' form#newsForm');
+                });
+            }
             if (document.querySelector(lightBoxId + ' .bookingForm')) {
                 document.querySelector(lightBoxId + ' .bookingForm').addEventListener('click', function() {
                     FE.global.checkValidationRules(lightBoxId + ' form#bookingForm');
@@ -718,11 +723,11 @@ const FE = {
 				}
 				return false;
 
-			});			
+			});
 		},
 
         init: () => {
-            FE.global.lazyLoad();           
+            FE.global.lazyLoad();
         },
 
         loaded: function loaded() {
@@ -780,6 +785,7 @@ const FE = {
                 let imgWidth = element.offsetWidth;
                 let imgMinWidth = imgWidth - content.offsetWidth;
                 //document.getElementById('experience-content-padder').style.height = blockHeight + 'px';
+<<<<<<< HEAD
                 $('#news-banner').css('width', imgMinWidth);    
                 function scrollNews() {
                     // let scrollTopPos = $(document).scrollTop();
@@ -795,6 +801,22 @@ const FE = {
                 $(window).scroll(function() {
                     scrollNews();
                 });
+=======
+                $('#news-banner').css('width', imgMinWidth);
+                // function scrollNews() {
+                //     let scrollTopPos = $(document).scrollTop();
+                //     let scrollChangePx = Math.floor(scrollTopPos);
+                //     let zoomedWidth = imgWidth - scrollChangePx;
+                //     if (zoomedWidth > imgMinWidth) {
+                //         $('#news-banner').css('width', zoomedWidth);
+                //     } else {
+                //         $('#news-banner').css('width', imgMinWidth);
+                //     }
+                // };
+                // $(window).scroll(function() {
+                //     scrollNews();
+                // });
+>>>>>>> c6c80375acad8287f3e6ac36700022c3cee82e58
                 // scrollNews();
             }
             $(document).on('click', '.open-details', function() {
