@@ -61,6 +61,12 @@ const FE = {
                 open: 0
             });
         },
+        loadFile: (event) => {
+
+            var output = document.getElementById('preview');
+            output.src = URL.createObjectURL(event.target.files[0]);
+
+        },
         openTab: (e) => {
             if (document.getElementById('tabs-header') !== null)
                 document.getElementById('tabs-header').style.display = 'block';
@@ -705,26 +711,26 @@ const FE = {
             });
         },
 
-        bindAccordion: function(event){
-			$('.accordion-content').hide();
-			$('.accordion-title').on(event, function(){
-				var $item = $(this).parents('.accordion-item');
+        bindAccordion: function(event) {
+            $('.accordion-content').hide();
+            $('.accordion-title').on(event, function() {
+                var $item = $(this).parents('.accordion-item');
 
-				if ( !$item.is('.is-active') ) {
-					$('.accordion-item').removeClass('is-active');
-					$item.addClass('is-active');
-					$('.accordion-content').slideUp();
-					$item.find('.accordion-content').slideDown();
-				} else {
-					$item.find('.accordion-content').slideUp();
-					$item.removeClass('is-active');
-				}
-				return false;
+                if (!$item.is('.is-active')) {
+                    $('.accordion-item').removeClass('is-active');
+                    $item.addClass('is-active');
+                    $('.accordion-content').slideUp();
+                    $item.find('.accordion-content').slideDown();
+                } else {
+                    $item.find('.accordion-content').slideUp();
+                    $item.removeClass('is-active');
+                }
+                return false;
 
-			});
-		},
+            });
+        },
 
-        filterNews: (targetElement) => { 
+        filterNews: (targetElement) => {
             function showFilterRoom(el) {
                 const type = el.getAttribute('data-news-type');
                 const className = 'show';
@@ -812,14 +818,15 @@ const FE = {
 
     news: {
         newsScroll: () => {
-            if (!isIpad && document.getElementById('news-banner')!=null) {
+            if (!isIpad && document.getElementById('news-banner') != null) {
                 let element = document.getElementById('news-banner');
                 let content = document.getElementById('news-content');
-               // let blockHeight = element.offsetHeight + 100;
+                // let blockHeight = element.offsetHeight + 100;
                 let imgWidth = element.offsetWidth;
                 let imgMinWidth = imgWidth - content.offsetWidth;
                 //document.getElementById('experience-content-padder').style.height = blockHeight + 'px';
                 $('#news-banner').css('width', imgMinWidth);
+
                 function scrollNews() {
                     // let scrollTopPos = $(document).scrollTop();
                     // let scrollChangePx = Math.floor(scrollTopPos);
@@ -829,8 +836,8 @@ const FE = {
                     // } else {
                     //     $('#news-banner').css('width', imgMinWidth);
                     // }
-                    $('#news-banner').css('width', imgMinWidth);    
-                };                
+                    $('#news-banner').css('width', imgMinWidth);
+                };
                 $(window).scroll(function() {
                     scrollNews();
                 });
