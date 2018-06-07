@@ -44,14 +44,16 @@ block append content
             span もっと見る
           #pool-full-info(data-basicLightbox data-id="pool-full-info" class="room-detail")
             .room-info-header
+              .content-right
+                a(href='#').book-room
+                  | 予約する
+                a(href="#").cancel
+                  | キャンセルする
+                .close-room
+                  | x
               .phone-number.header
                 | Mama treatment
-              a(href="#").cancel
-                | キャンセルする
-              a(href='#').book-room
-                | 予約する
-              .close-room
-                | x
+
             include ../components/pool-info.pug
         li.col.col-1-3
           source(media='(min-width: 356px)', srcset='/assets/narita/images/promo-image.jpg')
