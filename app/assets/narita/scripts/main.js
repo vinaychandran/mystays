@@ -728,7 +728,7 @@ const FE = {
             function showFilterRoom(el) {
                 const type = el.getAttribute('data-news-type');
                 const className = 'show';
-                const classNa = 'selected';                
+                const classNa = 'selected';
                 document.querySelectorAll('[data-news]').forEach(function(e) {
                     let string = e.getAttribute('data-news');
                     if (e.classList) {
@@ -819,8 +819,7 @@ const FE = {
                 let imgWidth = element.offsetWidth;
                 let imgMinWidth = imgWidth - content.offsetWidth;
                 //document.getElementById('experience-content-padder').style.height = blockHeight + 'px';
-                $('#news-banner').css('width', '200');
-                $('#news-banner').css('width', imgMinWidth);    
+                $('#news-banner').css('width', imgMinWidth);
                 function scrollNews() {
                     // let scrollTopPos = $(document).scrollTop();
                     // let scrollChangePx = Math.floor(scrollTopPos);
@@ -832,6 +831,9 @@ const FE = {
                     // }
                     $('#news-banner').css('width', imgMinWidth);    
                 };                
+                $(window).scroll(function() {
+                    scrollNews();
+                });
                 // function scrollNews() {
                 //     let scrollTopPos = $(document).scrollTop();
                 //     let scrollChangePx = Math.floor(scrollTopPos);
