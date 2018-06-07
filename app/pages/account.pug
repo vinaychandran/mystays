@@ -23,7 +23,8 @@ block append content
                 label プロフィール写真
                 .row
                   .user-image
-                    input(type="file" name="pic" accept="image/*")
+                    <img id="preview"/>
+                    input(type="file" name="pic" accept="image/*" onchange="FE.global.loadFile(event)")         
               .col2
                 label お名前*
                 .row.right
