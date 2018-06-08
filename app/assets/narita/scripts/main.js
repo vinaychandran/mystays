@@ -171,7 +171,7 @@ const FE = {
                 console.log(sliderImageCount);
                 $(this).on('init reInit afterChange', function(event, slick, currentSlide, nextSlide) {
                     if (currentSlide !== undefined) {
-                        $('.number').text(currentSlide + 1);
+                        $(this).closest('.slick-slider').next().find('.number').text(currentSlide + 1);
                         $('.room-info-slider-thumb img').removeClass('active');
                         let thumbnailSlide = currentSlide + 1
                         $('.room-info-slider-thumb img:nth-child(' + thumbnailSlide + ')').addClass('active');
