@@ -447,6 +447,7 @@ const FE = {
                 }).show
             })
             $(document).on('click', '.room-detail .close-room', function() {
+                $('.roomPopup .room-info-slider').slick('unslick');
                 $('.roomPopup').removeClass('basicLightbox--visible')
                 setTimeout(() => {
                     $('.roomPopup').remove();
@@ -807,7 +808,7 @@ const FE = {
             FE.global.submitForm();
             FE.global.bindAccordion('click');
             FE.global.filterNews();
-            FE.global.sliderImage('.single-room-wrap .room-info-slider', 1, false, true);    
+            FE.global.sliderImage('.single-room-wrap .room-info-slider', 1, false, true);
         },
         resize: function resize() {
             //Functions inside loaded execute when window resize
