@@ -171,7 +171,7 @@ const FE = {
                 console.log(sliderImageCount);
                 $(this).on('init reInit afterChange', function(event, slick, currentSlide, nextSlide) {
                     if (currentSlide !== undefined) {
-                        $('.slider-count .number').text(currentSlide + 1);
+                        $('.number').text(currentSlide + 1);
                         $('.room-info-slider-thumb img').removeClass('active');
                         let thumbnailSlide = currentSlide + 1
                         $('.room-info-slider-thumb img:nth-child(' + thumbnailSlide + ')').addClass('active');
@@ -807,7 +807,7 @@ const FE = {
             FE.global.submitForm();
             FE.global.bindAccordion('click');
             FE.global.filterNews();
-
+            FE.global.sliderImage('.single-room-wrap .room-info-slider', 1, false, true);    
         },
         resize: function resize() {
             //Functions inside loaded execute when window resize
