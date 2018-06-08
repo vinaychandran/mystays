@@ -812,6 +812,9 @@ const FE = {
         resize: function resize() {
             //Functions inside loaded execute when window resize
             FE.global.lazyLoad();
+            FE.global.datePickerInit('.date-picker-tab1', 'ja', false);
+            FE.global.datePickerInit('.date-picker-tab2-single', 'ja', true);
+            FE.global.datePickerInit('.date-picker-tab3', 'ja', false);
         }
 
     },
