@@ -184,6 +184,7 @@ ul {
         padding-bottom: 30px;
         @include md {
           text-align: left;
+          padding-bottom: 0;
         };
       }
     }
