@@ -590,7 +590,9 @@ const FE = {
                 const type = el.getAttribute('data-room-type');
                 const className = 'show';
                 const classNa = 'selected';
-                document.getElementById('tablink').innerText = el.text;
+                if (isMobile && (document.getElementById('tablink') !== null)) {
+                    document.getElementById('tablink').innerText = el.text;
+                }
                 if (isMobile && (document.getElementById('room-types') !== null)) {
                     document.getElementById('room-types').style.display = 'none';
                 }
