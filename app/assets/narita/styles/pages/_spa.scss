@@ -1,7 +1,11 @@
 .spa-content {
     position: relative;
     .read-statement {
-        padding: 70px;
+        @include md {
+            padding: 70px;
+        }
+        ;
+        padding: 35px;
         max-width: 540px;
         opacity: 0.95;
         background-color: #ffffff;
@@ -13,11 +17,16 @@
         right: 150px;
         h3 {
             font-family: YuGo;
-            font-size: 24px;
+            @include font-size(20px);
             font-weight: bold;
             line-height: 1.67;
             letter-spacing: 0.6px;
-            text-align: left;
+            @include md {
+                text-align: left;
+                @include font-size(24px);
+            }
+            ;
+            text-align: center;
             color: #000000;
             &.last-header {
                 margin-bottom: 50px;
@@ -45,7 +54,15 @@
 }
 
 .spa {
-    .promo-content {
+    &.promo-content {
         background: #fff;
+        h3 {
+            padding: 0 0 40px;
+        }
+        @include md {
+            h3 {
+                padding: 62px 0 40px;
+            }
+        }
     }
 }
