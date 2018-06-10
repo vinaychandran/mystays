@@ -392,12 +392,21 @@ const FE = {
                         FE.global.submitForm();
                         FE.global.openModalTab('loginForm');
                         FE.global.openModalTab('resturant-tabs');
+                        //alert(1);
                     },
                     afterClose: (instance) => {
                         $('.gallery-nav').slick('unslick');
                     }
                 }).show
             })
+            $(document).on('click', '.basicLightbox .closeBtn', function() {
+                $('.basicLightbox').removeClass('basicLightbox--visible')
+                setTimeout(() => {
+                    $('.basicLightbox').remove();
+                    //$('.roomPopup .room-info-slider').slick('unslick');
+                    $('body').removeClass('modal-open');
+                }, 410)
+            });
 
         },
         resetUserDetails: () => {
@@ -410,9 +419,6 @@ const FE = {
             if (isEmail) {
                 document.getElementById('reset-mail').click();
             }
-        },
-        lighBoxPool: () => {
-            alert(1);
         },
         lightBoxRoom: () => {
             const getTargetHTML = function(elem) {
