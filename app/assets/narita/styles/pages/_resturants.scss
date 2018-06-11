@@ -202,29 +202,45 @@
 
 .resturant-details-tabs {
   .container {
+    padding: 0;
+    @include md {
+      padding: 0 10;
+    }
     .tabs {
       padding: 0 0 78px 0;
-      @include lg {
+      @include md {
         padding: 120px 0 78px 0;
+      }
+      .menu-gradient {
+        top: 0;
+        width: 100px;
+        height: 57px;
+        @include md {
+          display: none;
+        }
       }
       .tabs-wrap {
         overflow: scroll;
+        position: relative;
         @include sm {
           overflow: auto;
-        }
+        }        
         ul {
           width: 310%;
           text-align: left;
-          margin-bottom: 20px;
+          margin-bottom: 30px;
           background: $default-bg;
+          padding-top: 8px;
           @include sm {
             width: 62%;
             text-align: center;
             background: transparent;
+            padding-top: 0;
           }
           li {
             display: inline-block;
-            float: none;            
+            float: none;  
+            margin-bottom: 6px;          
             @include sm {
               margin-bottom: 20px;
             }
@@ -278,9 +294,10 @@
         .menu-details {
           background: $default-bg;
           padding: 50px 20px;
-          margin-top: 20px;
+          margin-top: 10px;
           @include sm {
             padding: 50px 40px;
+            margin-top: 10px;
           }
           .menu-title {
             @include font-size(24px);
