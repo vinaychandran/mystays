@@ -55,12 +55,16 @@
         }
     }
     .gallery-images {
-        margin-top: 68px;
+        margin-top: 38px;
+        @include md {
+            width: 31%;
+            margin-top: 68px;
+        }
         .container {
             .image-list {
                 li {
-                    width: 44%;
-                    margin: 0 10px 30px 10px;
+                    width: 46.5%;
+                    margin: 0 5px 15px 5px;
                     @include md {
                         width: 31%;
                     }
