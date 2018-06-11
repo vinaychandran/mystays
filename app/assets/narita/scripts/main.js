@@ -394,6 +394,10 @@ const FE = {
                         FE.global.openModalTab('resturant-tabs');
                         //alert(1);
                     },
+                    beforeShow: (instance) => {
+                        let body = document.body;
+                        body.dataset.form = elem.getAttribute('data-show-id');
+                    },
                     afterClose: (instance) => {
                         $('.gallery-nav').slick('unslick');
                     }
