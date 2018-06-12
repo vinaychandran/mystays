@@ -39,7 +39,7 @@
       height: 80px;
       padding: 10px 60px;
       @include tablet {
-        padding: 10px 25px;
+        padding: 10px 5px;
       }
 
       label {
@@ -92,7 +92,7 @@
   #booking-tabs{
      @include mobile{
       margin: 0 -10px;
-    }    
+    }
   }
   .tabs-header {
     @extend %clearfix;
@@ -157,7 +157,7 @@
       padding: 20px;
     }
     @include tablet {
-      padding: 25px;
+      padding: 25px 5px;
     }
   }
 
@@ -294,22 +294,27 @@
         padding-left: 15px;
       }
       //padding-top: 18px;
+      padding: 20px 10px;
       @include md {
         padding-top: 0;
       };
 
       span.date_at,
-      span.date_to {        
+      span.date_to {
+        @extend %clearfix;
         @extend .icon-calender;
         &:before {
-          display: block;
-          @include font-size(20px);   
-          @extend .use-iconmoon;  
-          @include mobile {
-           content:'';
-           width: 18px;
-           height: 18px;
-          }      
+          display: none;
+          @include md{
+            display: block;
+          };
+          @include font-size(20px);
+          @extend .use-iconmoon;
+          // @include mobile {
+          //  content:'';
+          //  width: 18px;
+          //  height: 18px;
+          // }
         }
         @include md {
           float: left;
@@ -768,6 +773,7 @@
       height: 66px;
       width: 100%;
       @include md {
+        padding: 0;
         width: 182px;
       }
     }
