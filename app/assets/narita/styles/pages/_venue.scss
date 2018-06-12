@@ -323,9 +323,7 @@ ul.venue-types {
     }
 
     input[type="checkbox"]:checked + label span {
-      @extend .icon;
-      @extend .sprite-checked_pc;
-
+      @extend .icon-checked;
       &:before {
         margin-left: 2px;
       }
