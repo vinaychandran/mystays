@@ -233,12 +233,12 @@ header{
 			padding: 19px 25px 19px 75px;
 			font-family: 'YuGo';
 			line-height: 20px;
-			img{
+			> span{
 				position: absolute;
 				left: 25px;
 				top: 50%;
 				transform: translateY(-50%);
-				width: 29px;
+				font-size: 29px;
 			}
 			&.active{
 				background-color: #eeeeee;

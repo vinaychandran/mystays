@@ -3,9 +3,9 @@
 @font-face {
   font-family: 'icomoon';
   src:
-    url('#{$icomoon-font-path}/icomoon.ttf?94t8b3') format('truetype'),
-    url('#{$icomoon-font-path}/icomoon.woff?94t8b3') format('woff'),
-    url('#{$icomoon-font-path}/icomoon.svg?94t8b3#icomoon') format('svg');
+    url('#{$icomoon-font-path}/icomoon.ttf?twcjox') format('truetype'),
+    url('#{$icomoon-font-path}/icomoon.woff?twcjox') format('woff'),
+    url('#{$icomoon-font-path}/icomoon.svg?twcjox#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -25,115 +25,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-generation .path1 {
+.icon-generation {
   &:before {
-    content: $icon-generation-path1;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-generation .path2 {
-  &:before {
-    content: $icon-generation-path2;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-generation .path3 {
-  &:before {
-    content: $icon-generation-path3;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-generation .path4 {
-  &:before {
-    content: $icon-generation-path4;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-generation .path5 {
-  &:before {
-    content: $icon-generation-path5;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-generation .path6 {
-  &:before {
-    content: $icon-generation-path6;  
-    margin-left: -1em;  
-    color: rgb(0, 0, 0);
-  }
-}
-.icon-generation .path7 {
-  &:before {
-    content: $icon-generation-path7;  
-    margin-left: -1em;  
-    color: rgb(0, 0, 0);
-  }
-}
-.icon-generation .path8 {
-  &:before {
-    content: $icon-generation-path8;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-generation .path9 {
-  &:before {
-    content: $icon-generation-path9;  
-    margin-left: -1em;  
-    color: rgb(0, 0, 0);
-  }
-}
-.icon-generation .path10 {
-  &:before {
-    content: $icon-generation-path10;  
-    margin-left: -1em;  
-    color: rgb(0, 0, 0);
-  }
-}
-.icon-generation .path11 {
-  &:before {
-    content: $icon-generation-path11;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-generation .path12 {
-  &:before {
-    content: $icon-generation-path12;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-generation .path13 {
-  &:before {
-    content: $icon-generation-path13;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-generation .path14 {
-  &:before {
-    content: $icon-generation-path14;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-generation .path15 {
-  &:before {
-    content: $icon-generation-path15;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-generation .path16 {
-  &:before {
-    content: $icon-generation-path16;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
+    content: $icon-generation; 
   }
 }
 .icon-activity {
@@ -361,477 +255,29 @@
     color: rgb(244, 214, 33);
   }
 }
-.icon-flag_ch .path3 {
-  &:before {
-    content: $icon-flag_ch-path3;  
-    margin-left: -1em;  
-    color: rgb(244, 214, 33);
-  }
-}
-.icon-flag_ch .path4 {
-  &:before {
-    content: $icon-flag_ch-path4;  
-    margin-left: -1em;  
-    color: rgb(244, 214, 33);
-  }
-}
-.icon-flag_ch .path5 {
-  &:before {
-    content: $icon-flag_ch-path5;  
-    margin-left: -1em;  
-    color: rgb(244, 214, 33);
-  }
-}
-.icon-flag_ch .path6 {
-  &:before {
-    content: $icon-flag_ch-path6;  
-    margin-left: -1em;  
-    color: rgb(244, 214, 33);
-  }
-}
 .icon-flag_en .path1 {
   &:before {
     content: $icon-flag_en-path1;  
-    color: rgb(209, 0, 14);
+    color: rgb(255, 255, 255);
   }
 }
 .icon-flag_en .path2 {
   &:before {
     content: $icon-flag_en-path2;  
     margin-left: -1em;  
-    color: rgb(255, 255, 255);
+    color: rgb(209, 0, 14);
   }
 }
 .icon-flag_en .path3 {
   &:before {
     content: $icon-flag_en-path3;  
     margin-left: -1em;  
-    color: rgb(209, 0, 14);
+    color: rgb(18, 51, 95);
   }
 }
 .icon-flag_en .path4 {
   &:before {
     content: $icon-flag_en-path4;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path5 {
-  &:before {
-    content: $icon-flag_en-path5;  
-    margin-left: -1em;  
-    color: rgb(209, 0, 14);
-  }
-}
-.icon-flag_en .path6 {
-  &:before {
-    content: $icon-flag_en-path6;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path7 {
-  &:before {
-    content: $icon-flag_en-path7;  
-    margin-left: -1em;  
-    color: rgb(209, 0, 14);
-  }
-}
-.icon-flag_en .path8 {
-  &:before {
-    content: $icon-flag_en-path8;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path9 {
-  &:before {
-    content: $icon-flag_en-path9;  
-    margin-left: -1em;  
-    color: rgb(209, 0, 14);
-  }
-}
-.icon-flag_en .path10 {
-  &:before {
-    content: $icon-flag_en-path10;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path11 {
-  &:before {
-    content: $icon-flag_en-path11;  
-    margin-left: -1em;  
-    color: rgb(209, 0, 14);
-  }
-}
-.icon-flag_en .path12 {
-  &:before {
-    content: $icon-flag_en-path12;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path13 {
-  &:before {
-    content: $icon-flag_en-path13;  
-    margin-left: -1em;  
-    color: rgb(209, 0, 14);
-  }
-}
-.icon-flag_en .path14 {
-  &:before {
-    content: $icon-flag_en-path14;  
-    margin-left: -1em;  
-    color: rgb(18, 51, 95);
-  }
-}
-.icon-flag_en .path15 {
-  &:before {
-    content: $icon-flag_en-path15;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path16 {
-  &:before {
-    content: $icon-flag_en-path16;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path17 {
-  &:before {
-    content: $icon-flag_en-path17;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path18 {
-  &:before {
-    content: $icon-flag_en-path18;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path19 {
-  &:before {
-    content: $icon-flag_en-path19;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path20 {
-  &:before {
-    content: $icon-flag_en-path20;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path21 {
-  &:before {
-    content: $icon-flag_en-path21;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path22 {
-  &:before {
-    content: $icon-flag_en-path22;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path23 {
-  &:before {
-    content: $icon-flag_en-path23;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path24 {
-  &:before {
-    content: $icon-flag_en-path24;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path25 {
-  &:before {
-    content: $icon-flag_en-path25;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path26 {
-  &:before {
-    content: $icon-flag_en-path26;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path27 {
-  &:before {
-    content: $icon-flag_en-path27;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path28 {
-  &:before {
-    content: $icon-flag_en-path28;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path29 {
-  &:before {
-    content: $icon-flag_en-path29;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path30 {
-  &:before {
-    content: $icon-flag_en-path30;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path31 {
-  &:before {
-    content: $icon-flag_en-path31;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path32 {
-  &:before {
-    content: $icon-flag_en-path32;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path33 {
-  &:before {
-    content: $icon-flag_en-path33;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path34 {
-  &:before {
-    content: $icon-flag_en-path34;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path35 {
-  &:before {
-    content: $icon-flag_en-path35;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path36 {
-  &:before {
-    content: $icon-flag_en-path36;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path37 {
-  &:before {
-    content: $icon-flag_en-path37;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path38 {
-  &:before {
-    content: $icon-flag_en-path38;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path39 {
-  &:before {
-    content: $icon-flag_en-path39;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path40 {
-  &:before {
-    content: $icon-flag_en-path40;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path41 {
-  &:before {
-    content: $icon-flag_en-path41;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path42 {
-  &:before {
-    content: $icon-flag_en-path42;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path43 {
-  &:before {
-    content: $icon-flag_en-path43;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path44 {
-  &:before {
-    content: $icon-flag_en-path44;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path45 {
-  &:before {
-    content: $icon-flag_en-path45;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path46 {
-  &:before {
-    content: $icon-flag_en-path46;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path47 {
-  &:before {
-    content: $icon-flag_en-path47;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path48 {
-  &:before {
-    content: $icon-flag_en-path48;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path49 {
-  &:before {
-    content: $icon-flag_en-path49;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path50 {
-  &:before {
-    content: $icon-flag_en-path50;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path51 {
-  &:before {
-    content: $icon-flag_en-path51;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path52 {
-  &:before {
-    content: $icon-flag_en-path52;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path53 {
-  &:before {
-    content: $icon-flag_en-path53;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path54 {
-  &:before {
-    content: $icon-flag_en-path54;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path55 {
-  &:before {
-    content: $icon-flag_en-path55;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path56 {
-  &:before {
-    content: $icon-flag_en-path56;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path57 {
-  &:before {
-    content: $icon-flag_en-path57;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path58 {
-  &:before {
-    content: $icon-flag_en-path58;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path59 {
-  &:before {
-    content: $icon-flag_en-path59;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path60 {
-  &:before {
-    content: $icon-flag_en-path60;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path61 {
-  &:before {
-    content: $icon-flag_en-path61;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path62 {
-  &:before {
-    content: $icon-flag_en-path62;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path63 {
-  &:before {
-    content: $icon-flag_en-path63;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-flag_en .path64 {
-  &:before {
-    content: $icon-flag_en-path64;  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
@@ -852,14 +298,14 @@
 .icon-flag_kr .path1 {
   &:before {
     content: $icon-flag_kr-path1;  
-    color: rgb(255, 255, 255);
+    color: rgb(249, 249, 249);
   }
 }
 .icon-flag_kr .path2 {
   &:before {
     content: $icon-flag_kr-path2;  
     margin-left: -1em;  
-    color: rgb(187, 26, 48);
+    color: rgb(186, 26, 48);
   }
 }
 .icon-flag_kr .path3 {
@@ -872,125 +318,6 @@
 .icon-flag_kr .path4 {
   &:before {
     content: $icon-flag_kr-path4;  
-    margin-left: -1em;  
-    color: rgb(4, 0, 0);
-  }
-}
-.icon-flag_kr .path5 {
-  &:before {
-    content: $icon-flag_kr-path5;  
-    margin-left: -1em;  
-    color: rgb(4, 0, 0);
-  }
-}
-.icon-flag_kr .path6 {
-  &:before {
-    content: $icon-flag_kr-path6;  
-    margin-left: -1em;  
-    color: rgb(4, 0, 0);
-  }
-}
-.icon-flag_kr .path7 {
-  &:before {
-    content: $icon-flag_kr-path7;  
-    margin-left: -1em;  
-    color: rgb(4, 0, 0);
-  }
-}
-.icon-flag_kr .path8 {
-  &:before {
-    content: $icon-flag_kr-path8;  
-    margin-left: -1em;  
-    color: rgb(4, 0, 0);
-  }
-}
-.icon-flag_kr .path9 {
-  &:before {
-    content: $icon-flag_kr-path9;  
-    margin-left: -1em;  
-    color: rgb(4, 0, 0);
-  }
-}
-.icon-flag_kr .path10 {
-  &:before {
-    content: $icon-flag_kr-path10;  
-    margin-left: -1em;  
-    color: rgb(4, 0, 0);
-  }
-}
-.icon-flag_kr .path11 {
-  &:before {
-    content: $icon-flag_kr-path11;  
-    margin-left: -1em;  
-    color: rgb(4, 0, 0);
-  }
-}
-.icon-flag_kr .path12 {
-  &:before {
-    content: $icon-flag_kr-path12;  
-    margin-left: -1em;  
-    color: rgb(4, 0, 0);
-  }
-}
-.icon-flag_kr .path13 {
-  &:before {
-    content: $icon-flag_kr-path13;  
-    margin-left: -1em;  
-    color: rgb(4, 0, 0);
-  }
-}
-.icon-flag_kr .path14 {
-  &:before {
-    content: $icon-flag_kr-path14;  
-    margin-left: -1em;  
-    color: rgb(4, 0, 0);
-  }
-}
-.icon-flag_kr .path15 {
-  &:before {
-    content: $icon-flag_kr-path15;  
-    margin-left: -1em;  
-    color: rgb(4, 0, 0);
-  }
-}
-.icon-flag_kr .path16 {
-  &:before {
-    content: $icon-flag_kr-path16;  
-    margin-left: -1em;  
-    color: rgb(4, 0, 0);
-  }
-}
-.icon-flag_kr .path17 {
-  &:before {
-    content: $icon-flag_kr-path17;  
-    margin-left: -1em;  
-    color: rgb(4, 0, 0);
-  }
-}
-.icon-flag_kr .path18 {
-  &:before {
-    content: $icon-flag_kr-path18;  
-    margin-left: -1em;  
-    color: rgb(4, 0, 0);
-  }
-}
-.icon-flag_kr .path19 {
-  &:before {
-    content: $icon-flag_kr-path19;  
-    margin-left: -1em;  
-    color: rgb(4, 0, 0);
-  }
-}
-.icon-flag_kr .path20 {
-  &:before {
-    content: $icon-flag_kr-path20;  
-    margin-left: -1em;  
-    color: rgb(4, 0, 0);
-  }
-}
-.icon-flag_kr .path21 {
-  &:before {
-    content: $icon-flag_kr-path21;  
     margin-left: -1em;  
     color: rgb(4, 0, 0);
   }
@@ -1030,17 +357,9 @@
     content: $icon-handsoap; 
   }
 }
-.icon-hotelphoto .path1 {
+.icon-hotelphoto {
   &:before {
-    content: $icon-hotelphoto-path1;  
-    color: rgb(26, 26, 26);
-  }
-}
-.icon-hotelphoto .path2 {
-  &:before {
-    content: $icon-hotelphoto-path2;  
-    margin-left: -1em;  
-    color: rgb(0, 0, 0);
+    content: $icon-hotelphoto; 
   }
 }
 .icon-hotspring {
@@ -1048,38 +367,9 @@
     content: $icon-hotspring; 
   }
 }
-.icon-humidififier .path1 {
+.icon-humidifier {
   &:before {
-    content: $icon-humidififier-path1;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-humidififier .path2 {
-  &:before {
-    content: $icon-humidififier-path2;  
-    margin-left: -1em;  
-    color: rgb(249, 249, 249);
-  }
-}
-.icon-humidififier .path3 {
-  &:before {
-    content: $icon-humidififier-path3;  
-    margin-left: -1em;  
-    color: rgb(249, 249, 249);
-  }
-}
-.icon-humidififier .path4 {
-  &:before {
-    content: $icon-humidififier-path4;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-humidififier .path5 {
-  &:before {
-    content: $icon-humidififier-path5;  
-    margin-left: -1em;  
-    color: rgb(249, 249, 247);
+    content: $icon-humidifier; 
   }
 }
 .icon-icemachine {
@@ -1102,24 +392,9 @@
     content: $icon-in-roommassage; 
   }
 }
-.icon-insta .path1 {
+.icon-insta {
   &:before {
-    content: $icon-insta-path1;  
-    color: rgb(0, 0, 0);
-  }
-}
-.icon-insta .path2 {
-  &:before {
-    content: $icon-insta-path2;  
-    margin-left: -1em;  
-    color: rgb(0, 0, 0);
-  }
-}
-.icon-insta .path3 {
-  &:before {
-    content: $icon-insta-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
+    content: $icon-insta; 
   }
 }
 .icon-japanesepublicbath {
@@ -1193,66 +468,9 @@
     content: $icon-microwaveoven; 
   }
 }
-.icon-mini-fridge .path1 {
+.icon-mini-fridge.svg {
   &:before {
-    content: $icon-mini-fridge-path1;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-mini-fridge .path2 {
-  &:before {
-    content: $icon-mini-fridge-path2;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-mini-fridge .path3 {
-  &:before {
-    content: $icon-mini-fridge-path3;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-mini-fridge .path4 {
-  &:before {
-    content: $icon-mini-fridge-path4;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-mini-fridge .path5 {
-  &:before {
-    content: $icon-mini-fridge-path5;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-mini-fridge .path6 {
-  &:before {
-    content: $icon-mini-fridge-path6;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-mini-fridge .path7 {
-  &:before {
-    content: $icon-mini-fridge-path7;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-mini-fridge .path8 {
-  &:before {
-    content: $icon-mini-fridge-path8;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-mini-fridge .path9 {
-  &:before {
-    content: $icon-mini-fridge-path9;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
+    content: $icon-mini-fridge.svg; 
   }
 }
 .icon-modularbathroom {
@@ -1356,122 +574,9 @@
     content: $icon-sauna; 
   }
 }
-.icon-seniaororientedroom .path1 {
+.icon-seniororientedroom {
   &:before {
-    content: $icon-seniaororientedroom-path1;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-seniaororientedroom .path2 {
-  &:before {
-    content: $icon-seniaororientedroom-path2;  
-    margin-left: -1em;  
-    color: rgb(0, 0, 0);
-  }
-}
-.icon-seniaororientedroom .path3 {
-  &:before {
-    content: $icon-seniaororientedroom-path3;  
-    margin-left: -1em;  
-    color: rgb(0, 0, 0);
-  }
-}
-.icon-seniaororientedroom .path4 {
-  &:before {
-    content: $icon-seniaororientedroom-path4;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-seniaororientedroom .path5 {
-  &:before {
-    content: $icon-seniaororientedroom-path5;  
-    margin-left: -1em;  
-    color: rgb(0, 0, 0);
-  }
-}
-.icon-seniaororientedroom .path6 {
-  &:before {
-    content: $icon-seniaororientedroom-path6;  
-    margin-left: -1em;  
-    color: rgb(0, 0, 0);
-  }
-}
-.icon-seniaororientedroom .path7 {
-  &:before {
-    content: $icon-seniaororientedroom-path7;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-seniaororientedroom .path8 {
-  &:before {
-    content: $icon-seniaororientedroom-path8;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-seniaororientedroom .path9 {
-  &:before {
-    content: $icon-seniaororientedroom-path9;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-seniaororientedroom .path10 {
-  &:before {
-    content: $icon-seniaororientedroom-path10;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-seniaororientedroom .path11 {
-  &:before {
-    content: $icon-seniaororientedroom-path11;  
-    margin-left: -1em;  
-    color: rgb(51, 51, 51);
-  }
-}
-.icon-seniaororientedroom .path12 {
-  &:before {
-    content: $icon-seniaororientedroom-path12;  
-    margin-left: -1em;  
-    color: none;
-  }
-}
-.icon-seniaororientedroom .path13 {
-  &:before {
-    content: $icon-seniaororientedroom-path13;  
-    margin-left: -1em;  
-    color: none;
-  }
-}
-.icon-seniaororientedroom .path14 {
-  &:before {
-    content: $icon-seniaororientedroom-path14;  
-    margin-left: -1em;  
-    color: none;
-  }
-}
-.icon-seniaororientedroom .path15 {
-  &:before {
-    content: $icon-seniaororientedroom-path15;  
-    margin-left: -1em;  
-    color: none;
-  }
-}
-.icon-seniaororientedroom .path16 {
-  &:before {
-    content: $icon-seniaororientedroom-path16;  
-    margin-left: -1em;  
-    color: none;
-  }
-}
-.icon-seniaororientedroom .path17 {
-  &:before {
-    content: $icon-seniaororientedroom-path17;  
-    margin-left: -1em;  
-    color: none;
+    content: $icon-seniororientedroom; 
   }
 }
 .icon-shampoo {
