@@ -752,6 +752,8 @@
     .grown-up label,
     .room label {
       padding: 25px 10px;
+      font-weight: 700;
+      font-family: 'YuGo';
     }
   }
 
@@ -897,7 +899,7 @@
               line-height: 1.4;
               padding: 8px 12px;
               color: $default-color;
-
+              font-weight: 700;
               &.active,
               &:focus,
               &:hover {
@@ -1288,7 +1290,7 @@
                 line-height: 1.4;
                 padding: 8px 12px;
                 color: $default-color;
-
+                font-weight: 700;
                 &.active,
                 &:focus,
                 &:hover {
@@ -1338,7 +1340,7 @@
 
   .input-popup {
     border: 2px solid #eeeeee;
-    padding: 33px;
+    padding: 25px 30px;
     margin-bottom: 20px;
 
     .title {
@@ -1349,11 +1351,13 @@
       text-align: left;
       color: $default-color;
       margin-bottom: 12px;
+      font-weight:700;
     }
 
     ul li {
       @include font-size(12px);
       list-style: disc;
+      font-weight: 700;
     }
   }
 
@@ -1361,6 +1365,7 @@
     button {
       margin: 0;
       border: none;
+      line-height: 1;
     }
 
     .clear {
@@ -1369,6 +1374,7 @@
       cursor: pointer;
       background-color: #eeeeee;
       float: left;
+      color: #000;
       @include md {
         width: 190px;
       }
