@@ -32,11 +32,9 @@
 
 @font-face {
     font-family: 'YuMin';
-    src: local('Yu Mincho Medium'),
-    local('游明朝 Medium'),
-    local(YuMincho),
-    local('游明朝体'),
-    local('YuMin'),
+    src: local('Yu Mincho'),
+    local('Yu Gothic'),
+    local('hiragino kaku gothic')
     local('Sawarabi Mincho'),
     local('ヒラギノ角ゴ Pro W3'),
     local('メイリオ'),
@@ -47,12 +45,8 @@
 
 @font-face {
     font-family: 'YuGo';
-    src: local('Yu Gothic Medium'),
-    local('游ゴシック Medium'),
-    local(YuGothic),
-    local('游ゴシック体'),
-    local('YuMin'),
-    local('YuGo'),
+    src: local('Yu Gothic'),
+    local('Yu Mincho'),
     local('ヒラギノ角ゴ Pro W3'),
     local('メイリオ'),
     local(メイリオ);
