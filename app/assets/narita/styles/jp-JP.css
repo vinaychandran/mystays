@@ -30,6 +30,15 @@
     font-style: normal;
 }
 
+
+/* $default-font: 'Lato';
+$mi-regular:'Yu Mincho Regular';
+$mi-semibold:'Yu Mincho Demibold';
+$go-regular: 'Yu Gothic Regular';
+$go-semibold: 'Yu Gothic Medium';
+$go-bold: 'Yu Gothic Bold';  */
+
+
 @font-face {
     font-family: 'YuMin';
     src: local('Yu Mincho'),
@@ -39,8 +48,8 @@
     local('ヒラギノ角ゴ Pro W3'),
     local('メイリオ'),
     local(メイリオ);
-    font-weight: 500;
     font-style: normal;
+    font-weight: 400;
 }
 
 @font-face {
@@ -50,6 +59,5 @@
     local('ヒラギノ角ゴ Pro W3'),
     local('メイリオ'),
     local(メイリオ);
-    font-weight: 500;
     font-style: normal;
 }
