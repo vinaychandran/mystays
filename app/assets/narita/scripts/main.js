@@ -237,36 +237,35 @@ const FE = {
         },
 
         googleMap: () => {
-            let selectorMapElement = document.getElementById('gmap_canvas');
 
-            let latlng = new google.maps.LatLng(selectorMapElement.dataset.lat, selectorMapElement.dataset.lan);
-            let myOptions = {
+            let selectorMapElement = document.getElementById('gmap_canvas');
+            var map;
+            map = new google.maps.Map(document.getElementById('gmap_canvas'), {
                 zoom: 13,
-                center: latlng,
+                center: new google.maps.LatLng(selectorMapElement.dataset.lat, selectorMapElement.dataset.lan),
                 mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            let map = new google.maps.Map(selectorMapElement, myOptions);
-            let marker = new google.maps.Marker({
-                position: latlng,
-                title: 'Hotel Mystays',
-                icon: selectorMapElement.dataset.src,
-                map: map
             });
+            let mapMarker = [{
+                position: new google.maps.LatLng(selectorMapElement.dataset.lat, selectorMapElement.dataset.lan),
+                icon: selectorMapElement.dataset.src
+            }];
             let mapElem = (document.querySelector('.attractions-list')) ? document.querySelector('.attractions-list') : '';
             var inputs = (mapElem) ? mapElem.getElementsByTagName('li') : '';
             if (inputs.length) {
-                let marker;
-                let map = new google.maps.Map(selectorMapElement, myOptions);
                 for (var i = 0; i < inputs.length; i += 1) {
-                    //console.log(inputs[i].dataset.lat, inputs[i].dataset.long)
-                    marker = new google.maps.Marker({
+                    mapMarker.push({
                         position: new google.maps.LatLng(inputs[i].dataset.lat, inputs[i].dataset.long),
-                        title: 'Hotel Mystays',
-                        icon: inputs[i].dataset.src,
-                        map: map
-                    });
+                        icon: inputs[i].dataset.src
+                    })
                 }
             }
+            mapMarker.forEach(function(list) {
+                var marker = new google.maps.Marker({
+                    position: list.position,
+                    icon: list.icon,
+                    map: map
+                });
+            });
 
         },
 
