@@ -151,7 +151,6 @@
   .tabs-content {
     @extend %clearfix;
     background: $secondary-color;
-    height: 196px;
     padding: 40px 60px;
     @include mobile {
       padding: 20px;
@@ -762,6 +761,7 @@
     width: 100%;
     clear: both;
     padding: 0;
+
     @include md {
       float: left;
       width: auto;
@@ -783,6 +783,7 @@
       border: none;
       height: 66px;
       width: 100%;
+      margin: 0; 
       @include md {
         padding: 0;
         width: 182px;

@@ -10,14 +10,7 @@
 }
 
 .main-banner {
-    position: relative;
-    padding-top: 56px;
-    @include md {
-        padding-top: 94px;
-    }
-    @include tablet {
-      padding-top: 56px;
-    }
+    position: relative;    
     .banner-image{
         img{
             width: 100%;
@@ -37,7 +30,7 @@
             letter-spacing: 3.8px;
             text-align: center;
             margin: 0 0 15px;
-            @include font-size(32px);
+            @include font-size(24px); 
             @include md {
                 margin: 0 0 20px;
                 @include font-size(32px);
