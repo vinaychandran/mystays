@@ -237,50 +237,37 @@ const FE = {
         },
 
         googleMap: () => {
-            let mapElem = document.querySelector('.attractions-list');
-            //Attractions page map - TODO this if condition needs to be removed and aligned to match all pages
-            if (mapElem !== null) {
-                var inputs = mapElem.getElementsByTagName('li');
-                let selectorMapElement = document.getElementById('gmap_canvas');
-                if (typeof(selectorMapElement) != 'undefined' && selectorMapElement != null) {
-                    let latlng = new google.maps.LatLng(12.9716, 77.5946);
-                    let myOptions = {
-                        zoom: 13,
-                        center: latlng,
-                        mapTypeId: google.maps.MapTypeId.ROADMAP
-                    };
-                    let marker;
-                    let map = new google.maps.Map(selectorMapElement, myOptions);
-                    for (var i = 0; i < inputs.length; i += 1) {
-                        console.log(inputs[i].dataset.lat, inputs[i].dataset.long)
-                        marker = new google.maps.Marker({
-                            position: new google.maps.LatLng(inputs[i].dataset.lat, inputs[i].dataset.long),
-                            title: 'Hotel Mystays',
-                            icon: inputs[i].dataset.src,
-                            map: map
-                        });
-                    }
-                }
-            } else {
-                //Home page
-                let selectorMapElement = document.getElementById('gmap_canvas');
-                if (typeof(selectorMapElement) != 'undefined' && selectorMapElement != null) {
-                    let latlng = new google.maps.LatLng(35.784248, 140.351513);
+            let selectorMapElement = document.getElementById('gmap_canvas');
 
-                    let myOptions = {
-                        zoom: 16,
-                        center: latlng,
-                        mapTypeId: google.maps.MapTypeId.ROADMAP
-                    };
-                    let map = new google.maps.Map(selectorMapElement, myOptions);
-                    let marker = new google.maps.Marker({
-                        position: latlng,
+            let latlng = new google.maps.LatLng(selectorMapElement.dataset.lat, selectorMapElement.dataset.lan);
+            let myOptions = {
+                zoom: 13,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            let map = new google.maps.Map(selectorMapElement, myOptions);
+            let marker = new google.maps.Marker({
+                position: latlng,
+                title: 'Hotel Mystays',
+                icon: selectorMapElement.dataset.src,
+                map: map
+            });
+            let mapElem = (document.querySelector('.attractions-list')) ? document.querySelector('.attractions-list') : '';
+            var inputs = (mapElem) ? mapElem.getElementsByTagName('li') : '';
+            if (inputs.length) {
+                let marker;
+                let map = new google.maps.Map(selectorMapElement, myOptions);
+                for (var i = 0; i < inputs.length; i += 1) {
+                    //console.log(inputs[i].dataset.lat, inputs[i].dataset.long)
+                    marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(inputs[i].dataset.lat, inputs[i].dataset.long),
                         title: 'Hotel Mystays',
-                        icon: '../assets/narita/images/marker-icon.png',
+                        icon: inputs[i].dataset.src,
                         map: map
                     });
                 }
             }
+
         },
 
         scroll: () => {
