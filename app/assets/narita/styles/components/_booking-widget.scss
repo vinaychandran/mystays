@@ -152,7 +152,7 @@
     @extend %clearfix;
     background: $secondary-color;
     height: 196px;
-    padding: 50px 60px;
+    padding: 40px 60px;
     @include mobile {
       padding: 20px;
     }
@@ -180,51 +180,51 @@
       margin-right: 11px;
       padding: 0;
     }
+  }
 
-    .form-group {
-      margin: 0;
-      width: 100%;
-      @include md {
-        width: 200px;
-      }
+  label {
+    font-family: $secondary-font;
+    @include font-size(14px);
+    font-weight: 500;
+    letter-spacing: 1.1px;
+    text-align: left;
+    color: $default-color;
+    padding: 5px 10px;
+  }
 
-      label {
-        font-family: $secondary-font;
-        @include font-size(14px);
-        font-weight: 500;
-        letter-spacing: 1.1px;
-        text-align: left;
+  .form-group {
+    margin: 0;
+    width: 100%;
+    @include md {
+      width: 200px;
+    }     
+
+    .input-custom {
+      position: relative;
+
+      input,
+      input::placeholder {
+        font-family: $primary-font;
+        background-size: 6px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        border-radius: 4px;
+        margin: 0;
+        height: 66px;
+        border: 2px solid #eeeeee;
+        @include font-size(12px);
+        letter-spacing: 0.9px;
+        padding: 0 11px;
         color: $default-color;
-        padding: 5px 10px;
+        font-weight: 700;
+        &:focus {
+          border: 2px solid #eeeeee;
+        }
       }
 
-      .input-custom {
-        position: relative;
-
-        input,
-        input::placeholder {
-          font-family: $primary-font;
-          background-size: 6px;
-          background-repeat: no-repeat;
-          cursor: pointer;
-          border-radius: 4px;
-          margin: 0;
-          height: 66px;
-          border: 2px solid #eeeeee;
-          @include font-size(12px);
-          letter-spacing: 0.9px;
-          padding: 0 11px;
-          color: $default-color;
-
-          &:focus {
-            border: 2px solid #eeeeee;
-          }
-        }
-
-        input::placeholder {
-          border: 0;
-          padding-left: 0;
-        }
+      input::placeholder {
+        border: 0;
+        padding-left: 0;
       }
     }
   }
@@ -289,6 +289,7 @@
       // padding-left: 45px;
       // background-size: 20px;
       //width: 164px;
+      font-weight: 700;
       @include mobile {
         width: 100%;
         padding-left: 15px;
@@ -377,10 +378,11 @@
 
     .daysFromTo {
       font-family: $primary-font;
-      @include font-size(12px);
+      @include font-size(14px);
       letter-spacing: normal;
       text-align: center;
       color: rgba(0, 0, 0, 0.6);
+      font-weight: 700;
     }
 
     .values {
@@ -496,16 +498,18 @@
         cursor: pointer;
         @extend .use-iconmoon;
         color: #000;
+        font-weight: bold;
+        @include font-size(12px);
       }
 
       .button-prev {
         @extend .icon-prev;
-        left: 20px;
+        left: 30px;
       }
 
       .button-next {
         @extend .icon-next;
-        right: 30px;
+        right: 40px;
       }
 
       .close {
@@ -546,6 +550,7 @@
             text-align: center;
             color: $default-color;
             padding-bottom: 12px;
+            font-weight: 700;
           }
 
           th {
@@ -559,19 +564,20 @@
             color: $default-color;
             padding: 10px 0;
             border: none;
+            font-weight: 700;
           }
 
           td {
             width: 40px;
             height: 40px;
-            @include font-size(15px);
+            @include font-size(14px);
             line-height: 33px;
             box-sizing: border-box;
             padding: 0;
             text-align: center;
             border: none;
             border: 5px solid $secondary-color;
-
+            font-family: 'Lato-B';
             span {
               display: block;
               border: 1px solid #eeeeee;
@@ -646,6 +652,7 @@
           text-align: center;
           color: $default-color;
           margin: 0 0 10px;
+          font-weight: 700;
         }
 
         .closePopup {
@@ -700,6 +707,7 @@
       letter-spacing: 0.9px;
       color: $default-color;
       //padding: 15px 0;
+      font-weight: 700;
       &:before {
         @extend .use-iconmoon;
         float: left;
@@ -759,11 +767,12 @@
     }
 
     label {
-      text-decoration: underline;
-      background: url("../icons/forma-1.svg") left center;
-      background-repeat: no-repeat;
       padding: 5px 10px 5px 20px;
       clear: both;
+    }
+
+    span{
+      text-decoration: underline;
     }
 
     button {

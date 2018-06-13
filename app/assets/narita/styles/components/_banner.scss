@@ -40,7 +40,7 @@
             @include font-size(32px);
             @include md {
                 margin: 0 0 20px;
-                @include font-size(40px);
+                @include font-size(32px);
             }
         }
         span {
@@ -80,10 +80,15 @@
             display: block;
             margin-bottom: 1px;
             text-align: left;
-            color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+        }
+        i{
+            @include font-size(19px);
         }
         span{
-            margin-right: 5px;
+            margin-left: 5px;
+            color: rgba(0, 0, 0, 0.6);
         }
     }
     .photos-link-mobile {
