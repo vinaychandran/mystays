@@ -27,7 +27,7 @@ gulp.task('views', () => {
 
 gulp.task('styles', () => {
     var option = args.locale;
-    console.log('locale >>>' + 'app/assets/narita/styles/' + option + '.css');
+    console.log('locale >>>' + 'app/assets/narita/styles/_' + option + '.css');
     return gulp.src(['app/assets/narita/styles/**/*.scss', 'app/assets/narita/styles/' + option + '.css'])
         // .src('app/assets/narita/styles/' + option + '.css')
         .pipe($.plumber())
