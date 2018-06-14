@@ -25,8 +25,8 @@ gulp.task('views', () => {
 
 
 gulp.task('styles', () => {
-  return gulp.src('app/assets/narita/styles/**/*.scss')
-    .pipe($.plumber())
+  return gulp.src(['app/assets/narita/styles/_jp.scss','app/assets/narita/styles/**/*.scss'])
+    .pipe($.plumber()) 
     .pipe($.sourcemaps.init())
     .pipe($.sass.sync({
       outputStyle: 'expanded',
