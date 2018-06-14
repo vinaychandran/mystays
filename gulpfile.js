@@ -5,6 +5,8 @@ const browserSync = require('browser-sync').create();
 const del = require('del');
 const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
+var replace = require('gulp-replace');
+
 // const svgSprite = require("gulp-svg-sprites");
 // const spritesmith = require('gulp.spritesmith');
 var args = require('yargs').argv;
@@ -22,14 +24,13 @@ gulp.task('views', () => {
         .pipe(reload({ stream: true }));
 });
 
-
-
-
 gulp.task('styles', () => {
-    var option = args.locale;
-    console.log('locale >>>' + 'app/assets/narita/styles/_' + option + '.css');
-    return gulp.src(['app/assets/narita/styles/**/*.scss', 'app/assets/narita/styles/' + option + '.css'])
-        // .src('app/assets/narita/styles/' + option + '.css')
+    var locale = args.locale;
+    console.log('locale >>>' + locale);
+    var bowerPath = args.locale;
+    return gulp.src('app/assets/narita/styles/**/*.scss')
+        .pipe(replace('$locale', locale))
+        //.pipe(header('$bowerPath: ' + bowerPath + ';\n'))
         .pipe($.plumber())
         .pipe($.sourcemaps.init())
         .pipe($.sass.sync({
