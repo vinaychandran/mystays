@@ -63,6 +63,10 @@ block append content
 								span
 									i.down
 		section.resturant-timing-wrap
+			p 
+				| 翔び立つ飛行機、空港のまばゆい夜景 - 刻々と変化する雄大な長めが寄り添い、 
+				br
+				| 3つの飲食店と1つのバーで食事を味わう豊潤な一時を。
 			h2.higlight 
 				i
 				span 営業時間
@@ -70,16 +74,19 @@ block append content
 			.resturant-timing
 				.timings
 					.slot 朝食
-					.time 7:00 ~ 9:30
-					.lo LO 9:00
+					.time-wrap
+						.time 7:00 ~ 9:30
+						.lo LO 9:00
 				.timings
 					.slot 朝食
-					.time 7:00 ~ 9:30
-					.lo LO 9:00
+					.time-wrap
+						.time 7:00 ~ 9:30
+						.lo LO 9:00
 				.timings
 					.slot 朝食
-					.time 7:00 ~ 9:30
-					.lo LO 9:00
+					.time-wrap
+						.time 7:00 ~ 9:30
+						.lo LO 9:00
 		section.resturamt-food-wrap
 			include ../components/inner-page-food-menu.pug
 		section.inner-page-slider-wrap.resturant-detail-slider
@@ -177,7 +184,7 @@ block append content
 					span 営業時間
 					i
 			.map-container
-				#gmap_canvas
+				#gmap_canvas(data-lat='12.9316' data-lan='77.7946' data-src='../assets/narita/images/marker-icon.png')
 				.map-info-wrap
 					h3 HOW TO FIND US
 					ul

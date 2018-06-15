@@ -1,7 +1,17 @@
 .resturant-detail-page{
   background: #fafafa;
+  .see-more{
+    margin-bottom: 0;
+  }
   .inner-page-slider-wrap{
     background: #fafafa;
+    padding: 75px 0 50px;
+    @include md {
+      padding: 75px 0 75px;
+    }
+  }
+  .btn-map{
+    margin-bottom: 25px;
   }
 }
 .resturant-detail-menu-wrap{
@@ -16,9 +26,11 @@
     display: inline-block;
     padding: 15px 40px;
     width: 50%;
+    float: right;
     @include md {
       padding: 20px 50px;
       width: auto;
+      float: none;
     }
   }
   .cta{
@@ -112,41 +124,50 @@
     }
 
     a {
-      @include font-size(14px);
+      @include font-size(13.6px);
       display: block;
       letter-spacing: 1.6px;
       text-align: center;
-      padding: 20px 30px;
+      padding: 20px 40px 20px 30px;
       border-bottom: 1px solid #eeeeee;
+      position: relative;
+      font-family: $go-bold;
+      font-weight: 700;
       @include md {
-        padding: 0 25px 0 10px;
+        padding: 0 35px 0 20px;
         text-align: left;
-        border-bottom: 0;
+        border-bottom: 0; 
       }
-
       i {
         border: solid black;
-        border-width: 0 3px 3px 0;
+        border-width: 0 2px 2px 0;  
         display: inline-block;
         padding: 3px;
-        float: right;
-        @include md {
-          border: none;
-        }
-      }
-
-      .down {
         transform: rotate(45deg);
-        -webkit-transform: rotate(45deg);
-      }
+        position: absolute;
+        right: 15px;
+        top: 22px;
+      }      
     }
   }
 }
 
 .resturant-timing-wrap{
   background: linear-gradient(#fafafa, #ffffff 5%);
-  padding: 60px 0 0;
+  padding: 50px 0 0;
   text-align: center;
+  p{
+    font-weight: 500;
+    font-family: $mi-regular;
+    line-height: 2;
+    letter-spacing: 1.4px;
+    margin-bottom: 55px;
+    padding: 0 25px;
+    @include md {
+      padding: 0;
+      margin-bottom: 75px;
+    }
+  }
   h2.higlight span{
     background: #fff;
   }
@@ -160,10 +181,22 @@
     background: #fff;
   }
   .timings{
-    width: 33.33%;
-    float: left; 
-    padding: 50px 25px;
+    width: 100%;    
     position: relative;
+    display: flex;
+    align-items:center;
+    background-color: #fafafa;
+    padding: 25px 35px;
+    &:nth-child(2){
+      background: #fff;
+    }
+    @include md {
+      width: 33.33%;
+      float: left; 
+      padding: 50px 25px;
+      display: block;
+      background: none;
+    }
     &:before{ 
       content:"";
       width: 1px;
@@ -184,18 +217,41 @@
     letter-spacing: 2.8px;
     color: #000000;
     line-height: 1;
+    font-family: $go-semibold;
+    font-weight: 500; 
+    padding-right: 35px;
+    @include md {
+      padding-right: 0;
+    }   
+    
+  }
+  .time-wrap{
+    float: right;
+    border-left: 1px solid #eeeeee;
+    padding-left: 60px;
+    @include md {
+      float: none;
+      border-left: 0px;
+      padding-left: 0;
+    }
   }
   .time{
     @include font-size(24px);
     letter-spacing: 0.6px;
     color: #000000;
-    font-weight: 700;
-    padding: 25px 0;
+    font-weight: 700;    
+    font-family: $go-bold;
+    padding: 10px 0;
+    @include md {
+      padding: 25px 0;
+    }
   }
   .lo{
     opacity: 0.6;
     color: rgba(0, 0, 0, 0.6);
     line-height: 1;
+    font-weight: 500;
+    font-family: $go-semibold;
   }
 }
 
@@ -234,7 +290,7 @@
   li{
     float: left;
     position: relative;
-    margin-bottom: 160px;
+    margin-bottom: 140px;
     @include md {
       margin-bottom: 72px;
     }    
@@ -268,12 +324,13 @@
     h2{
       @include font-size(20px);
       letter-spacing: 0.5px;
-      font-family: 'YuMin';
+      font-family: $go-bold;
       margin:0 0 25px;
       text-align: center;
+      font-weight: 700;
       @include md {
         @include font-size(20px);
-        margin:0 0 35px;
+        margin:0 0 15px;
       }
     } 
     .see-more {
