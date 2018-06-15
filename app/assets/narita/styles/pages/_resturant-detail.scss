@@ -16,7 +16,7 @@
 }
 .resturant-detail-menu-wrap{
   overflow: hidden;
-  background: #fff;
+  background: $secondary-color;
 }
 .resturant-detail-cta-wrap{ 
   @include md {
@@ -47,7 +47,7 @@
       float: left;
       margin-right: 10px;
       &:before{
-        color: #000;
+        color: $default-color;
       }
     }
     @include md {
@@ -109,7 +109,7 @@
   @include md {
     float: left;
     padding-left: 70px;
-    background: #fff;
+    background: $secondary-color;
     clear:none;
   }
 
@@ -169,16 +169,16 @@
     }
   }
   h2.higlight span{
-    background: #fff;
+    background: $secondary-color;
   }
   .resturant-timing{
     max-width: 940px;
     margin:0 auto;
-    background: #fff;
+    background: $secondary-color;
     overflow: hidden;
     position: relative;
     z-index: 1;
-    background: #fff;
+    background: $secondary-color;
   }
   .timings{
     width: 100%;    
@@ -215,7 +215,7 @@
   }
   .slot{
     letter-spacing: 2.8px;
-    color: #000000;
+    color: $default-color;
     line-height: 1;
     font-family: $go-semibold;
     font-weight: 500; 
@@ -245,6 +245,10 @@
     @include md {
       padding: 25px 0;
     }
+
+    color: $default-color;
+    font-weight: 700;
+    padding: 25px 0;
   }
   .lo{
     opacity: 0.6;
@@ -303,10 +307,10 @@
     }
   }
   .resturant-list-info{
-    background: #fff;
+    background: $secondary-color;
     padding: 40px;      
     opacity: 0.95;
-    color: #000;
+    color: $default-color;
     text-align: center;
     box-shadow: 14.1px 14.1px 90px 0 rgba(0, 0, 0, 0.2);
     position: absolute;
@@ -345,7 +349,7 @@
         left: 0;
         right: 0;
         height: 1px;
-        background-color: #000;
+        background-color: $default-color;
         top: 8px;
       }
 
@@ -355,12 +359,12 @@
         left: 0;
         right: 0;
         height: 1px;
-        background-color: #000;
+        background-color: $default-color;
         top: 10px;
       }
 
       span {
-        background: #fff;
+        background: $secondary-color;
         font-weight: 700;
         color: #c5ad6c;
         padding: 0 35px;
