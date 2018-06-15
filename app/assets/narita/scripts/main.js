@@ -50,7 +50,7 @@ const FE = {
                 open: 0
             });
             if (document.getElementById('tablink') && isMobile) {
-                let tabLink = document.getElementById('tablink');
+                let tabLink = document.getElementById('tablink');                
                 tabLink.addEventListener('click', FE.global.openTab);
             }
         },
@@ -68,12 +68,22 @@ const FE = {
 
         },
         openTab: (e) => {
-            if (document.getElementById('tabs-header') !== null)
+            if (document.getElementById('tabs-header') !== null && document.getElementById('gallery-mask') !== null) {
                 document.getElementById('tabs-header').style.display = 'block';
-            if (document.getElementById('room-types') !== null)
+                document.getElementById('gallery-mask').style.display = 'block';
+                e.target.classList.add('tablink');
+            }
+                
+            if (document.getElementById('room-types') !== null && document.getElementById('gallery-mask') !== null) {
                 document.getElementById('room-types').style.display = 'block';
-            if (document.getElementById('venue-types') !== null)
+                document.getElementById('gallery-mask').style.display = 'block';
+                e.target.classList.add('tablink');
+            }
+            if (document.getElementById('venue-types') !== null && document.getElementById('gallery-mask') !== null) {
                 document.getElementById('venue-types').style.display = 'block';
+                document.getElementById('gallery-mask').style.display = 'block';
+                e.target.classList.add('tablink');
+            }
             e.preventDefault();
         },
 
@@ -384,9 +394,14 @@ const FE = {
                     beforeShow: (instance) => {
                         let body = document.body;
                         body.dataset.form = elem.getAttribute('data-show-id');
+                        $('body').addClass('modal-open');
                     },
                     afterClose: (instance) => {
                         $('.gallery-nav').slick('unslick');
+                        $('body').removeClass('modal-open');
+                    },
+                    beforeClose: (instance) => {
+                        
                     }
                 }).show
             })
@@ -395,8 +410,9 @@ const FE = {
                 setTimeout(() => {
                     $('.basicLightbox').remove();
                     //$('.roomPopup .room-info-slider').slick('unslick');
-                    $('body').removeClass('modal-open');
-                }, 410)
+                    
+                }, 410);
+                $('body').removeClass('modal-open');
             });
 
         },
@@ -580,9 +596,13 @@ const FE = {
         filterRooms: (targetElement) => {
             if (isMobile && (document.getElementById('room-types') !== null)) {
                 document.getElementById('room-types').style.display = 'none';
+                document.getElementById('gallery-mask').style.display = 'none';
+                document.getElementById('tablink').classList.remove('tablink');
             }
             if (isMobile && (document.getElementById('venue-types') !== null)) {
                 document.getElementById('venue-types').style.display = 'none';
+                document.getElementById('gallery-mask').style.display = 'none';
+                document.getElementById('tablink').classList.remove('tablink');
             }
 
             function showFilterRoom(el) {
@@ -594,9 +614,13 @@ const FE = {
                 }
                 if (isMobile && (document.getElementById('room-types') !== null)) {
                     document.getElementById('room-types').style.display = 'none';
+                    document.getElementById('gallery-mask').style.display = 'none';
+                    document.getElementById('tablink').classList.remove('tablink');
                 }
                 if (isMobile && (document.getElementById('venue-types') !== null)) {
                     document.getElementById('venue-types').style.display = 'none';
+                    document.getElementById('gallery-mask').style.display = 'none';
+                    document.getElementById('tablink').classList.remove('tablink');
                 }
                 document.querySelectorAll('[data-rooms]').forEach(function(e) {
                     let string = e.getAttribute('data-rooms');

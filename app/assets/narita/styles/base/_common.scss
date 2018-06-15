@@ -167,3 +167,17 @@ h2.higlight{
     z-index: 1;
   }
 }
+
+.gallery-mask {
+  position: fixed;
+  background: rgba(0,0,0,0.3);
+  width: 100%;
+  /* height: 100vh; */
+  top: 0;
+  bottom: 0;
+  z-index: 99999;
+  display: none;
+  @include sm {
+    display: none;
+  }
+}
