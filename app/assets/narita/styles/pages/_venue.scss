@@ -9,7 +9,7 @@
 }
 
 .inner-menu-wrap {
-  background: #fff;
+  background: $secondary-color;
   overflow: hidden;
 
   .inner-menu {
@@ -17,7 +17,7 @@
     @include md {
       float: left;
       padding-left: 70px;
-      background: #fff;
+      background: $secondary-color;
     }
 
     ul {
@@ -79,7 +79,7 @@
       @include font-size(20px);
       padding-right: 10px;
       &:before{
-        color: #000;
+        color: $default-color;
       }
     }
     @include md {
@@ -103,7 +103,7 @@
   }
 
   .pdf-download {
-    background: #000;
+    background: $default-color;
     margin-right: -5px;
     height: 61px;
     display: none;
@@ -190,9 +190,9 @@
     h4 {
       @include font-size(16px);
       letter-spacing: 0.8px;
-      color: #fff;
+      color: $secondary-color;
       @include md {
-        color: #fff;
+        color: $secondary-color;
       }
     }
 
@@ -224,11 +224,11 @@
     h4 {
       text-align: center;
       margin-top: 20px;
-      color: #000;
+      color: $default-color;
       @include md {
         text-align: left;
         margin-top: 0;
-        color: #fff;
+        color: $secondary-color;
       }
     }
 
@@ -239,7 +239,7 @@
       line-height: 1.79;
       margin-top: 20px;
       @include md {
-        color: #fff;
+        color: $secondary-color;
       }
     }
   }
@@ -261,7 +261,7 @@
       content: "";
       width: 68px;
       height: 68px;
-      border: 1px solid #000;
+      border: 1px solid $default-color;
       border-radius: 50%;
       position: absolute;
       left: 3px;
@@ -423,7 +423,7 @@ ul.venue-list {
         align-items: center;
 
         span {
-          border: solid 1px #000000;
+          border: solid 1px $default-color;
           width: 122px;
           line-height: 1;
           padding: 15px 5px;
@@ -450,7 +450,7 @@ ul.venue-list {
         left: 0;
         right: 0;
         height: 1px;
-        background-color: #000;
+        background-color: $default-color;
         top: 8px;
       }
 
@@ -460,12 +460,12 @@ ul.venue-list {
         left: 0;
         right: 0;
         height: 1px;
-        background-color: #000;
+        background-color: $default-color;
         top: 10px;
       }
 
       span {
-        background: #fff;
+        background: $secondary-color;
         font-weight: 700;
         color: #c5ad6c;
         padding: 0 35px;
@@ -494,7 +494,7 @@ ul.venue-list {
     @include font-size(18px);
     margin-right: 10px;
     &:before{
-      color: #000;
+      color: $default-color;
     }
   }
 }
@@ -540,7 +540,7 @@ ul.venue-list {
 
 .venue-overview {
   h5 {
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid $default-color;
     font-weight: bold;
   }
 
@@ -569,7 +569,7 @@ ul.venue-list {
     }
 
     .btn-download {
-      background: $default-color;
+      background: $default-color;;
       position: relative;
 
       span {
@@ -883,7 +883,7 @@ ul.venue-list {
     @extend %clearfix;
     background: url('../images/benefits-img.png') no-repeat;
     padding: 14px;
-    color: $secondary-color;
+    color: $secondary-color;;
     background-size: cover;
 
     .meeting-benefits,

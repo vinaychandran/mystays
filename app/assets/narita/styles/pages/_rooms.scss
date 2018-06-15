@@ -63,7 +63,7 @@ ul.room-types{
         margin: 0;
       }
       &.selected {
-        color: $default-color;
+        color: $default-color;;
         &:after {
           @include sm {
             content: "";
@@ -85,7 +85,7 @@ ul.room-types{
             margin-left: -4px;
             border-left: 6px solid transparent;
             border-right: 6px solid transparent;          
-            border-top: 6px solid $default-color;
+            border-top: 6px solid $default-color;;
           }
         }
       }      
@@ -225,7 +225,7 @@ ul.rooms-list{
     border-width: 1px 1px 0 0;
     border-style: solid;
     margin: 0 15px;
-    border-color: #000;
+    border-color: $default-color;
     vertical-align: middle;
     box-sizing: border-box;
     transform: rotate(45deg);
@@ -277,7 +277,7 @@ ul.rooms-list{
   top: 0;
   left: 0;
   right: 0;
-  background: $secondary-color;
+  background: $secondary-color;;
   z-index: 99;
   height: 55px;
   .room-price{
@@ -305,7 +305,7 @@ ul.rooms-list{
     }
   }
   .close-room{
-    color: $secondary-color;
+    color: $secondary-color;;
     background:$primary-bg;
     width: 55px;
     height: 55px;
@@ -327,7 +327,7 @@ ul.rooms-list{
     float: right;
     margin-right: 55px;
     background-color: #c5ad6c;
-    color: #ffffff;
+    color: $secondary-color;
     @include font-size(14px);
     font-family: 'YuGo';
     padding: 21px 25px 20px;
@@ -381,7 +381,7 @@ ul.rooms-list{
     bottom: 15px;
     @include font-size(12px);
     font-family: 'YuGo';
-    color: $secondary-color;
+    color: $secondary-color;;
     display: none;
     @include sm {
       display: block;
@@ -438,7 +438,7 @@ ul.rooms-list{
 }
 
 .room-overview{
-  background: #fff;
+  background: $secondary-color;
   padding: 40px 20px;
   text-align: left;
   margin: 20px 15px;  
@@ -451,7 +451,7 @@ ul.rooms-list{
     font-weight: 500;
     line-height: 1.25;
     letter-spacing: 3.2px;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid $default-color;
     padding-bottom: 15px;
     text-align: center;
   }
@@ -506,7 +506,7 @@ ul.rooms-list{
     }
     li{
       display: inline-block;
-      border: 1px solid #000;
+      border: 1px solid $default-color;
       padding: 5px 15px;
       margin-right: 10px; 
       @include font-size(12px);
@@ -533,7 +533,7 @@ ul.rooms-list{
         @include font-size(12px);
         margin-left: 8px;
         letter-spacing: 2.4px;
-        border-bottom: 1px solid #000;
+        border-bottom: 1px solid $default-color;
       }
     }
     i{
@@ -541,7 +541,7 @@ ul.rooms-list{
     }
     .icon-download{
       &:before{
-        color: #000;
+        color: $default-color;
       }
     }
   }
@@ -581,7 +581,7 @@ ul.rooms-list{
 }
 
 .room-features{
-  background:#fff;
+  background:$secondary-color;
   padding: 50px 20px 20px;
   margin: 0 15px;
   @include md {
