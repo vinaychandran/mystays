@@ -50,7 +50,7 @@ const FE = {
                 open: 0
             });
             if (document.getElementById('tablink') && isMobile) {
-                let tabLink = document.getElementById('tablink');                
+                let tabLink = document.getElementById('tablink');
                 tabLink.addEventListener('click', FE.global.openTab);
             }
         },
@@ -73,7 +73,7 @@ const FE = {
                 document.getElementById('gallery-mask').style.display = 'block';
                 e.target.classList.add('tablink');
             }
-                
+
             if (document.getElementById('room-types') !== null && document.getElementById('gallery-mask') !== null) {
                 document.getElementById('room-types').style.display = 'block';
                 document.getElementById('gallery-mask').style.display = 'block';
@@ -381,7 +381,8 @@ const FE = {
                 // elem.onclick = basicLightbox.create(html).show;
                 elem.onclick = basicLightbox.create(html, {
                     afterShow: (instance) => {
-                        FE.global.datePickerInit('.date-picker-venue-rpf', false)
+                        FE.global.datePickerInit('.basicLightbox--visible .date-picker-venue-rpf', false);
+                        //FE.global.datePickerInit('.date-picker-venue-rpf', false)
                         let SlideNumber = elem.getAttribute('data-slide')
                         FE.global.lazyLoad();
                         FE.global.sliderImage('.gallery-nav', 1, false, true);
@@ -401,7 +402,7 @@ const FE = {
                         $('body').removeClass('modal-open');
                     },
                     beforeClose: (instance) => {
-                        
+
                     }
                 }).show
             })
@@ -410,7 +411,7 @@ const FE = {
                 setTimeout(() => {
                     $('.basicLightbox').remove();
                     //$('.roomPopup .room-info-slider').slick('unslick');
-                    
+
                 }, 410);
                 $('body').removeClass('modal-open');
             });
@@ -827,7 +828,7 @@ const FE = {
             FE.global.datePickerInit('.date-picker-tab1', false);
             FE.global.datePickerInit('.date-picker-tab2-single', true);
             FE.global.datePickerInit('.date-picker-tab3', false);
-            FE.global.datePickerInit('.basicLightbox--visible .date-picker-venue-rpf', false);
+            //FE.global.datePickerInit('.basicLightbox--visible .date-picker-venue-rpf', false);
             FE.global.pageScroll();
             FE.global.sliderImage('.inner-page-slider', 1, false, true);
             FE.global.submitForm();
