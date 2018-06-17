@@ -25,11 +25,11 @@ gulp.task('views', () => {
 });
 
 gulp.task('styles', () => {
-    var locale = args.locale;
+    var locale = (args.locale) ? args.locale : 'jp';
     console.log('locale >>>' + locale);
-    var bowerPath = args.locale;
     return gulp.src('app/assets/narita/styles/**/*.scss')
         .pipe(replace('$locale', locale))
+        .pipe(replace('$enLocale', 'en'))
         //.pipe(header('$bowerPath: ' + bowerPath + ';\n'))
         .pipe($.plumber())
         .pipe($.sourcemaps.init())
