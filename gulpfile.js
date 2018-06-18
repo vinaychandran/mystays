@@ -26,8 +26,7 @@ gulp.task('views', () => {
         .pipe(reload({ stream: true }));
 });
 
-gulp.task('styles', () => {
-
+gulp.task('createCSS', () => {
     var data = ['main-en', 'main-jp', 'main-kr', 'main-tw', 'main-cn'];
     var streams = [];
     data.forEach(function(name) {
@@ -43,8 +42,13 @@ gulp.task('styles', () => {
         streams.push(stream);
     });
 
+    return merge(streams);
+});
+
+gulp.task('styles', ['createCSS'], () => {
+
     var locale = (args.locale) ? args.locale : 'jp';
-    return gulp.src('app/assets/narita/styles/**/*.scss')
+    var cssFile = gulp.src('app/assets/narita/styles/**/*.scss')
         .pipe(replace('$locale', locale))
         .pipe($.plumber())
         .pipe($.sourcemaps.init())
@@ -57,6 +61,7 @@ gulp.task('styles', () => {
         .pipe($.sourcemaps.write())
         .pipe(gulp.dest('.tmp/assets/narita/styles'))
         .pipe(reload({ stream: true }));
+    return cssFile;
 
 });
 
