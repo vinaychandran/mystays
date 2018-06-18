@@ -77,7 +77,7 @@
 
   h5,
   p {
-    font-family: 'YuGo';
+    font-family: $go-bold;
     @include font-size(24px);
     font-weight: bold;
     line-height: 1.04;
@@ -90,17 +90,19 @@
     @include font-size(14px);
     line-height: 1.43;
     padding-bottom: 0;
+    font-family: $mi-regular;
+    font-weight: 500;
   }
 
   label {
-    font-family: $secondary-font;
+    font-family: $go-bold;
     @include font-size(14px);
-    font-weight: 500;
+    font-weight: 700;
     font-style: normal;
     letter-spacing: 1.1px;
     text-align: left;
     color: $default-color;;
-    padding: 15px 0 10px;
+    padding: 20px 0 10px;
     margin: 0;
     float: left;
     display: block;
@@ -234,10 +236,11 @@
 
     span {
       background: $secondary-color;
-      font-weight: 700;
+      font-weight: 500;
       padding: 0 15px;
       position: relative;
       z-index: 1;
+      font-family: $go-semibold;
     }
   }
 

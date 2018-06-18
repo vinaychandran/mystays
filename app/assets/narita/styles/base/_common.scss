@@ -133,11 +133,14 @@ h2.higlight{
 .see-more {
   text-align: center;
   position: relative;
-  margin-top: 50px;
+  margin-top: 50px; 
   display: block;
   width: 100%;
   float: left; 
   margin-bottom: 80px;
+  font-family: $go-bold;
+  font-weight: 700; 
+  cursor: pointer;
   @include md { 
     margin-top: 60px;
     margin-bottom: 0;
@@ -182,6 +185,12 @@ h2.higlight{
   z-index: 99999;
   display: none;
   @include sm {
+    display: none;
+  }
+}
+
+body[data-form="rfp-form"], body[data-form="news-form"]{
+  .basicLightbox:before{
     display: none;
   }
 }
