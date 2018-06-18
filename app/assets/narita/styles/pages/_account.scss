@@ -518,6 +518,9 @@
               margin-top: 39px;
               background: #fff;
               padding: 30px 5px;
+              @include md{
+                padding: 30px 60px;
+              };
             }
           }
         }
