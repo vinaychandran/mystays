@@ -310,7 +310,22 @@ const FE = {
                 });
             }
         },
+        selectPromoCoupon: () => {
+            let couponElem = event.currentTarget.parentElement.parentElement;
+            if (couponElem.className.indexOf("selected") >= 0) {
+                couponElem.classList.remove('selected');
+                event.currentTarget.classList.remove('icon-checked');
+            } else {
+                let input = document.querySelectorAll('.promo-coupon li');
+                for (var i = 0; i < input.length; i++) {
+                    input[i].classList.remove('selected');
+                    input[i].getElementsByTagName('span')[0].classList.remove('icon-checked');
+                }
+                event.currentTarget.classList.add('icon-checked');
+                couponElem.classList.add('selected');
+            }
 
+        },
         scroll: () => {
             const scroll = new SmoothScroll('.scroll', {
                 speed: 2000,
