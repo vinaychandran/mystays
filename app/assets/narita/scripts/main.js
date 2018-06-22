@@ -266,7 +266,8 @@ const FE = {
                     for (var i = 0; i < inputs.length; i += 1) {
                         mapMarker.push({
                             position: new google.maps.LatLng(inputs[i].dataset.lat, inputs[i].dataset.long),
-                            icon: inputs[i].dataset.src
+                            icon: inputs[i].dataset.src,
+                            num: inputs[i].dataset.num
                         })
                     }
                 }
@@ -274,8 +275,16 @@ const FE = {
                     var marker = new google.maps.Marker({
                         position: list.position,
                         icon: list.icon,
-                        map: map
+                        map: map,
+                        label: {
+                            text: list.num,
+                            color: "black",
+                            fontWeight: "bold",
+                            fontSize: "16px"
+                        }
+
                     });
+
                 });
             }
         },
