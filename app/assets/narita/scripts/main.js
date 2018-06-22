@@ -74,6 +74,12 @@ const FE = {
                 e.target.classList.add('tablink');
             }
 
+            if (document.getElementById('resturant-tabs-header') !== null && document.getElementById('gallery-mask') !== null) {
+                document.getElementById('resturant-tabs-header').style.display = 'block';
+                document.getElementById('gallery-mask').style.display = 'block';
+                e.target.classList.add('tablink');
+            }
+
             if (document.getElementById('room-types') !== null && document.getElementById('gallery-mask') !== null) {
                 document.getElementById('room-types').style.display = 'block';
                 document.getElementById('gallery-mask').style.display = 'block';
@@ -408,10 +414,9 @@ const FE = {
                     },
                     afterClose: (instance) => {
                         $('.gallery-nav').slick('unslick');
-                        $('body').removeClass('modal-open');
                     },
                     beforeClose: (instance) => {
-
+                        $('body').removeClass('modal-open');
                     }
                 }).show
             })
@@ -454,13 +459,14 @@ const FE = {
                     className: 'roomPopup',
                     closable: true,
                     beforeShow: (instance) => {
-                        $('body').addClass('modal-open');
+                        
                     },
                     afterShow: (instance) => {
                         FE.global.sliderImage('.roomPopup .room-info-slider', 1, false, true);
                         //FE.global.tabs('layout-tabs');
                         FE.global.openModalTab('layout-tabs');
                         FE.global.openModalTab('resturant-tabs');
+                        $('body').addClass('modal-open');
                         let checkSlider = true;
                     },
                     beforeClose: (instance) => {
@@ -475,8 +481,9 @@ const FE = {
                 setTimeout(() => {
                     $('.roomPopup').remove();
                     $('.roomPopup .room-info-slider').slick('unslick');
-                    $('body').removeClass('modal-open');
-                }, 410)
+                    
+                }, 410);
+                $('body').removeClass('modal-open');
             });
         },
         autocomplatePopup: () => {

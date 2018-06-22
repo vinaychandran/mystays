@@ -1,7 +1,7 @@
 .gallery {
     margin-bottom: 75px;
     @include md {
-        margin-bottom: 175px;
+        margin-bottom: 100px;
     }
 }
 
@@ -142,7 +142,7 @@
     padding: 16px 20px;
     border: 2px solid #000;
     position: relative;
-    z-index: 9999999;
+    z-index: 99;
     &.tablink {
         background: #eee;
         border: none;
