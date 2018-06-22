@@ -273,10 +273,12 @@ const FE = {
                         mapMarker.push({
                             position: new google.maps.LatLng(inputs[i].dataset.lat, inputs[i].dataset.long),
                             icon: inputs[i].dataset.src,
-                            num: inputs[i].dataset.num
+                            num: inputs[i].dataset.num,
+                            content: inputs[i].dataset.content
                         })
                     }
                 }
+
                 mapMarker.forEach(function(list) {
                     var marker = new google.maps.Marker({
                         position: list.position,
@@ -284,11 +286,16 @@ const FE = {
                         map: map,
                         label: {
                             text: list.num,
-                            color: "black",
-                            fontWeight: "bold",
-                            fontSize: "16px"
+                            color: "black"
                         }
+                    });
+                    var infowindow = new google.maps.InfoWindow({
+                        content: list.content
+                    });
 
+                    marker.addListener('click', function() {
+                        infowindow.open(map, marker);
+                        FE.global.sliderImage('.map-slider', 1, false, true);
                     });
 
                 });
@@ -459,7 +466,7 @@ const FE = {
                     className: 'roomPopup',
                     closable: true,
                     beforeShow: (instance) => {
-                        
+
                     },
                     afterShow: (instance) => {
                         FE.global.sliderImage('.roomPopup .room-info-slider', 1, false, true);
@@ -481,7 +488,7 @@ const FE = {
                 setTimeout(() => {
                     $('.roomPopup').remove();
                     $('.roomPopup .room-info-slider').slick('unslick');
-                    
+
                 }, 410);
                 $('body').removeClass('modal-open');
             });
