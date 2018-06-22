@@ -286,13 +286,12 @@ const FE = {
                         position: list.position,
                         icon: list.icon,
                         map: map,
-                        id: list.num,
-                        label: {
-                            text: (list.num) ? list.num : "0",
-                            color: "black"
-                        }
+                        id: list.num
                     });
-                    marker.set("id", list.num);
+                    if (list.num) {
+                        marker.set("id", list.num);
+                        marker.set("label", list.num);
+                    }
                     var infowindow = new google.maps.InfoWindow({
                         content: list.content
                     });
