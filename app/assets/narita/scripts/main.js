@@ -271,7 +271,6 @@ const FE = {
                 if (inputs.length) {
                     for (var i = 0; i < inputs.length; i += 1) {
                         let mapContent = (inputs[i].getElementsByClassName('map-locator')) ? inputs[i].getElementsByClassName('map-locator') : '';
-                        //FE.global.sliderImage('.' + mapContent[0].getAttribute('class') + ' .map-slider', 1, false, true);
                         mapMarker.push({
                             position: new google.maps.LatLng(inputs[i].dataset.lat, inputs[i].dataset.long),
                             icon: inputs[i].dataset.src,
