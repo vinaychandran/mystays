@@ -270,11 +270,13 @@ const FE = {
                 var inputs = (mapElem) ? mapElem.getElementsByTagName('li') : '';
                 if (inputs.length) {
                     for (var i = 0; i < inputs.length; i += 1) {
+                        let mapContent = (inputs[i].getElementsByClassName('map-locator')) ? inputs[i].getElementsByClassName('map-locator') : '';
+                        //FE.global.sliderImage('.' + mapContent[0].getAttribute('class') + ' .map-slider', 1, false, true);
                         mapMarker.push({
                             position: new google.maps.LatLng(inputs[i].dataset.lat, inputs[i].dataset.long),
                             icon: inputs[i].dataset.src,
                             num: inputs[i].dataset.num,
-                            content: inputs[i].dataset.content
+                            content: mapContent[0].innerHTML
                         })
                     }
                 }
@@ -284,18 +286,27 @@ const FE = {
                         position: list.position,
                         icon: list.icon,
                         map: map,
+                        id: list.num,
                         label: {
-                            text: list.num,
+                            text: (list.num) ? list.num : "0",
                             color: "black"
                         }
                     });
+                    marker.set("id", list.num);
                     var infowindow = new google.maps.InfoWindow({
                         content: list.content
                     });
-
                     marker.addListener('click', function() {
                         infowindow.open(map, marker);
-                        FE.global.sliderImage('.map-slider', 1, false, true);
+                        if (inputs.length) {
+                            for (var i = 0; i < inputs.length; i += 1) {
+                                if (marker.get('id') == i + 1) {
+                                    FE.global.sliderImage('.' + inputs[i].className, 1, false, true);
+                                }
+
+                            }
+                        }
+
                     });
 
                 });
