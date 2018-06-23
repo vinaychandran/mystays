@@ -74,6 +74,12 @@ const FE = {
                 e.target.classList.add('tablink');
             }
 
+            if (document.getElementById('resturant-tabs-header') !== null && document.getElementById('gallery-mask') !== null) {
+                document.getElementById('resturant-tabs-header').style.display = 'block';
+                document.getElementById('gallery-mask').style.display = 'block';
+                e.target.classList.add('tablink');
+            }
+
             if (document.getElementById('room-types') !== null && document.getElementById('gallery-mask') !== null) {
                 document.getElementById('room-types').style.display = 'block';
                 document.getElementById('gallery-mask').style.display = 'block';
@@ -264,22 +270,62 @@ const FE = {
                 var inputs = (mapElem) ? mapElem.getElementsByTagName('li') : '';
                 if (inputs.length) {
                     for (var i = 0; i < inputs.length; i += 1) {
+                        let mapContent = (inputs[i].getElementsByClassName('map-locator')) ? inputs[i].getElementsByClassName('map-locator') : '';
                         mapMarker.push({
                             position: new google.maps.LatLng(inputs[i].dataset.lat, inputs[i].dataset.long),
-                            icon: inputs[i].dataset.src
+                            icon: inputs[i].dataset.src,
+                            num: inputs[i].dataset.num,
+                            content: mapContent[0].innerHTML
                         })
                     }
                 }
+
                 mapMarker.forEach(function(list) {
                     var marker = new google.maps.Marker({
                         position: list.position,
                         icon: list.icon,
-                        map: map
+                        map: map,
+                        id: list.num
                     });
+                    if (list.num) {
+                        marker.set("id", list.num);
+                        marker.set("label", list.num);
+                    }
+                    var infowindow = new google.maps.InfoWindow({
+                        content: list.content
+                    });
+                    marker.addListener('click', function() {
+                        infowindow.open(map, marker);
+                        if (inputs.length) {
+                            for (var i = 0; i < inputs.length; i += 1) {
+                                if (marker.get('id') == i + 1) {
+                                    FE.global.sliderImage('.' + inputs[i].className, 1, false, true);
+                                }
+
+                            }
+                        }
+
+                    });
+
                 });
             }
         },
+        selectPromoCoupon: () => {
+            let couponElem = event.currentTarget.parentElement.parentElement;
+            if (couponElem.className.indexOf("selected") >= 0) {
+                couponElem.classList.remove('selected');
+                event.currentTarget.classList.remove('icon-checked');
+            } else {
+                let input = document.querySelectorAll('.promo-coupon li');
+                for (var i = 0; i < input.length; i++) {
+                    input[i].classList.remove('selected');
+                    input[i].getElementsByTagName('span')[0].classList.remove('icon-checked');
+                }
+                event.currentTarget.classList.add('icon-checked');
+                couponElem.classList.add('selected');
+            }
 
+        },
         scroll: () => {
             const scroll = new SmoothScroll('.scroll', {
                 speed: 2000,
@@ -444,7 +490,7 @@ const FE = {
                     className: 'roomPopup',
                     closable: true,
                     beforeShow: (instance) => {
-                        
+
                     },
                     afterShow: (instance) => {
                         FE.global.sliderImage('.roomPopup .room-info-slider', 1, false, true);
@@ -466,7 +512,7 @@ const FE = {
                 setTimeout(() => {
                     $('.roomPopup').remove();
                     $('.roomPopup .room-info-slider').slick('unslick');
-                    
+
                 }, 410);
                 $('body').removeClass('modal-open');
             });
