@@ -53,6 +53,14 @@ const FE = {
                 let tabLink = document.getElementById('tablink');
                 tabLink.addEventListener('click', FE.global.openTab);
             }
+            if (document.getElementById('resturant-timing-tablink') && isMobile) {
+                let tabLink = document.getElementById('resturant-timing-tablink');
+                tabLink.addEventListener('click', FE.global.openResturantTab);
+            }    
+            if (document.getElementById('gallery-mask') && isMobile) {
+                let tabLink = document.getElementById('gallery-mask');
+                tabLink.addEventListener('click', FE.global.closeGalleryMask);
+            }          
         },
         openModalTab: (element) => {
             var tabs = new Tabs({
@@ -91,6 +99,45 @@ const FE = {
                 e.target.classList.add('tablink');
             }
             e.preventDefault();
+        },
+
+        openResturantTab: (e) => {
+            if (document.getElementById('resturant-timing-tabs-header') !== null && document.getElementById('gallery-mask') !== null) {
+                document.getElementById('resturant-timing-tabs-header').style.display = 'block';
+                document.getElementById('gallery-mask').style.display = 'block';
+                e.target.classList.add('resturant-timing-tablink');
+            }
+            e.preventDefault();
+        },
+
+        closeGalleryMask: (e) => {
+            if (document.getElementById('tabs-header') !== null && document.getElementById('gallery-mask') !== null) {
+                document.getElementById('tabs-header').style.display = 'none';
+                document.getElementById('gallery-mask').style.display = 'none';
+                document.getElementById('tablink').classList.remove('tablink');
+            }
+
+            if (document.getElementById('resturant-tabs-header') !== null && document.getElementById('gallery-mask') !== null) {
+                document.getElementById('resturant-tabs-header').style.display = 'none';
+                document.getElementById('gallery-mask').style.display = 'none';
+                document.getElementById('tablink').classList.remove('tablink');
+            }
+
+            if (document.getElementById('room-types') !== null && document.getElementById('gallery-mask') !== null) {
+                document.getElementById('room-types').style.display = 'none';
+                document.getElementById('gallery-mask').style.display = 'none';
+                document.getElementById('tablink').classList.remove('tablink');
+            }
+            if (document.getElementById('venue-types') !== null && document.getElementById('gallery-mask') !== null) {
+                document.getElementById('venue-types').style.display = 'none';
+                document.getElementById('gallery-mask').style.display = 'none';
+                document.getElementById('tablink').classList.remove('tablink');
+            }
+            if (document.getElementById('resturant-timing-tabs-header') !== null && document.getElementById('gallery-mask') !== null) {
+                document.getElementById('resturant-timing-tabs-header').style.display = 'none';
+                document.getElementById('gallery-mask').style.display = 'none';
+                document.getElementById('resturant-timing-tablink').classList.remove('resturant-timing-tablink');
+            }
         },
 
         checkValidationRules: (x) => {
@@ -854,6 +901,7 @@ const FE = {
             FE.global.tabs('booking-tabs');
             FE.global.tabs('layout-tabs');
             FE.global.tabs('profile-tabs');
+            FE.global.tabs('resturant-timing-tabs');
             FE.global.instaFeed();
             FE.global.googleMap();
             FE.global.scroll();
