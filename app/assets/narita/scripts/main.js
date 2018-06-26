@@ -341,19 +341,11 @@ const FE = {
                     var infowindow = new google.maps.InfoWindow({
                         content: list.content
                     });
-                    marker.addListener('click', function() {
-                        infowindow.open(map, marker);
-                        // if (inputs.length) {
-                        //     for (var i = 0; i < inputs.length; i += 1) {
-                        //         if (marker.get('id') == i + 1) {
-                        //             FE.global.sliderImage('.' + inputs[i].className, 1, false, true);
-                        //         }
-                        //
-                        //     }
-                        // }
-
-                    });
-
+                    if(list.num!=undefined){
+                      marker.addListener('click', function() {
+                          infowindow.open(map, marker);
+                      });
+                    }
                 });
             }
         },
