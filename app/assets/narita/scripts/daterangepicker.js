@@ -91,8 +91,11 @@
         function init() {
             checkButtonClear();
             var now = getDateLocale(new Date());
+            var tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            var nextDay = getDateLocale(tomorrow);
             containerValues.find('span.date_at').html(now);
-            containerValues.find('span.date_to').html(now);
+            containerValues.find('span.date_to').html(nextDay);
 
             if (opts.date_at == '') {
                 containerValues.find('span.date_at').text(opts.l.at);
