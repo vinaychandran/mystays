@@ -4,7 +4,7 @@
         var opts = $.extend({}, $.DateRangePicker.defaults, options),
             mobile = false;
 
-        var days, dateLocale, opts;
+        var days, dateLocale, opts, nights;
 
         if (opts.locale === 'tw') {
             days = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
@@ -13,7 +13,8 @@
                     '七月', '八月', '九月', '十月', '十一月', '十二月'
                 ],
                 days: ['日', '一', '二', '三', '四', '五', '六'],
-                yearSuffix: '年'
+                yearSuffix: '年',
+                nights: 'nights**'
             }
             opts.l = dateLocale;
         } else if (opts.locale === 'ja') {
@@ -23,7 +24,8 @@
                     '7月', '8月', '9月', '10月', '11月', '12月'
                 ],
                 days: ['日', '月', '火', '水', '木', '金', '土'],
-                yearSuffix: '年'
+                yearSuffix: '年',
+                nights: 'nights**'
             }
             opts.l = dateLocale;
         } else
@@ -34,7 +36,8 @@
                     '7월', '8월', '9월', '10월', '11월', '12월'
                 ],
                 days: ['일', '월', '화', '수', '목', '금', '토'],
-                yearSuffix: '년'
+                yearSuffix: '년',
+                nights: 'nights**'
             }
             opts.l = dateLocale;
         } else if (opts.locale === 'cn') {
@@ -45,7 +48,8 @@
                     '七月', '八月', '九月', '十月', '十一月', '十二月'
                 ],
                 days: ['日', '一', '二', '三', '四', '五', '六'],
-                yearSuffix: '年'
+                yearSuffix: '年',
+                nights: 'nights**'
             }
             opts.l = dateLocale;
         } else {
@@ -379,7 +383,7 @@
                     var date2 = new Date(date_to_);
                     var timeDiff = Math.abs(date2.getTime() - date1.getTime());
                     var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-                    container.find('.nights').html(diffDays + ' nights');
+                    container.find('.nights').html(diffDays + ' ' + dateLocale.nights);
                     closeCalendarAndEmpty();
 
                 }
