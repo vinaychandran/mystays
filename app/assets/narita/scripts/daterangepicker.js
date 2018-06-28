@@ -383,7 +383,7 @@
                     var date2 = new Date(date_to_);
                     var timeDiff = Math.abs(date2.getTime() - date1.getTime());
                     var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-                    container.find('.nights').html(diffDays + ' ' + dateLocale.nights);
+                    container.find('.nights').html(diffDays + ' ' + opts.l.nights);
                     closeCalendarAndEmpty();
 
                 }
