@@ -14,6 +14,7 @@
                 ],
                 days: ['日', '一', '二', '三', '四', '五', '六'],
                 yearSuffix: '年',
+                dateSuffix: '日',
                 nights: 'nights**'
             }
             opts.l = dateLocale;
@@ -25,6 +26,7 @@
                 ],
                 days: ['日', '月', '火', '水', '木', '金', '土'],
                 yearSuffix: '年',
+                dateSuffix: '日',
                 nights: 'nights**'
             }
             opts.l = dateLocale;
@@ -37,6 +39,7 @@
                 ],
                 days: ['일', '월', '화', '수', '목', '금', '토'],
                 yearSuffix: '년',
+                dateSuffix: '日',
                 nights: 'nights**'
             }
             opts.l = dateLocale;
@@ -49,6 +52,7 @@
                 ],
                 days: ['日', '一', '二', '三', '四', '五', '六'],
                 yearSuffix: '年',
+                dateSuffix: '日',
                 nights: 'nights**'
             }
             opts.l = dateLocale;
@@ -66,7 +70,8 @@
             var day = value.getDay();
             var thisMonth = opts.l.months[value.getMonth()];
             var dayName = days[value.getDay()];
-
+            var yearSuffix = opts.l.yearSuffix;
+            var dateSuffix = opts.l.dateSuffix;        
             var year = value.getFullYear(),
                 month = value.getMonth() + 1,
                 day = value.getDate();
@@ -86,7 +91,7 @@
                 if ($(window).width() < 769) {
                     dateText = '<div class="day"> ' + day + '</div><div class="month"> ' + thisMonth + '</div><div class="dayoftheweek">' + dayName + '</div>';
                 } else {
-                    dateText = '<div class="year"> ' + year + '</div><div class="month"> ' + thisMonth + '</div><div class="day"> ' + day + '</day><div class="dayoftheweek">' + dayName + '</div>';
+                    dateText = '<div class="year"> ' + year + yearSuffix +  '</div><div class="month"> ' + thisMonth + '</div><div class="day"> ' + day + dateSuffix + '</day><div class="dayoftheweek">' + dayName + '</div>';
                 }
             }
             return dateText;
