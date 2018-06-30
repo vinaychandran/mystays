@@ -15,7 +15,8 @@
                 days: ['日', '一', '二', '三', '四', '五', '六'],
                 yearSuffix: '年',
                 dateSuffix: '日',
-                nights: 'nights**'
+                nights: 'nights**',
+                night: 'night'
             }
             opts.l = dateLocale;
         } else if (opts.locale === 'ja') {
@@ -27,7 +28,8 @@
                 days: ['日', '月', '火', '水', '木', '金', '土'],
                 yearSuffix: '年',
                 dateSuffix: '日',
-                nights: 'nights**'
+                nights: 'nights**',
+                night: 'night'
             }
             opts.l = dateLocale;
         } else
@@ -40,7 +42,8 @@
                 days: ['일', '월', '화', '수', '목', '금', '토'],
                 yearSuffix: '년',
                 dateSuffix: '日',
-                nights: 'nights**'
+                nights: 'nights**',
+                night: 'night'
             }
             opts.l = dateLocale;
         } else if (opts.locale === 'cn') {
@@ -53,7 +56,8 @@
                 days: ['日', '一', '二', '三', '四', '五', '六'],
                 yearSuffix: '年',
                 dateSuffix: '日',
-                nights: 'nights**'
+                nights: 'nights**',
+                night: 'night'
             }
             opts.l = dateLocale;
         } else {
@@ -71,7 +75,7 @@
             var thisMonth = opts.l.months[value.getMonth()];
             var dayName = days[value.getDay()];
             var yearSuffix = opts.l.yearSuffix;
-            var dateSuffix = opts.l.dateSuffix;        
+            var dateSuffix = opts.l.dateSuffix;
             var year = value.getFullYear(),
                 month = value.getMonth() + 1,
                 day = value.getDate();
@@ -79,7 +83,7 @@
                 if (month < 10) month = '0' + month;
                 if (day < 10) day = '0' + day;
                 var dateText = day + '.' + month + '.' + year;
-            } else if (opts.locale == 'en-US') {
+            } else if (opts.locale == 'en') {
                 var dateText;
                 if ($(window).width() < 769) {
                     dateText = '<div class="day"> ' + day + '</div><div class="month"> ' + thisMonth + '</div><div class="dayoftheweek">' + dayName + '</div>';
@@ -91,7 +95,7 @@
                 if ($(window).width() < 769) {
                     dateText = '<div class="day"> ' + day + '</div><div class="month"> ' + thisMonth + '</div><div class="dayoftheweek">' + dayName + '</div>';
                 } else {
-                    dateText = '<div class="year"> ' + year + yearSuffix +  '</div><div class="month"> ' + thisMonth + '</div><div class="day"> ' + day + dateSuffix + '</day><div class="dayoftheweek">' + dayName + '</div>';
+                    dateText = '<div class="year"> ' + year + yearSuffix + '</div><div class="month"> ' + thisMonth + '</div><div class="day"> ' + day + dateSuffix + '</day><div class="dayoftheweek">' + dayName + '</div>';
                 }
             }
             return dateText;
@@ -278,6 +282,7 @@
 
         // Assign a date
         containerCalendar.on('click', 'td.valid', function() {
+            debugger
 
             var year = Number($(this).data('year')),
                 month = Number($(this).data('month'));
@@ -291,22 +296,15 @@
             }
             console.log('opts.inputActive ' + opts.inputActive)
             if (opts.inputActive == 'date_at') {
-
-
                 containerCalendar.find('td.valid').removeClass('hovered');
-
-
-                console.log('first ' + opts.inputActive)
                 var start = $(this).text();
                 containerCalendar.find('td.valid').removeClass('start');
                 $(this).addClass('start');
 
                 opts.date_at = year + '-' + ('0' + month).slice(-2) + '-' + ('0' + $(this).text()).slice(-2);
-                var date_at_ = new Date(opts.date_at),
-                    date_to_ = new Date(opts.date_to);
-                // if(date_at_ = ''){
-                //   date_at_ = date_to_;
-                // }
+                var date_at_ = new Date(opts.date_at);
+                var checkoutDate = new Date(opts.date_at);
+                var date_to_ = (opts.date_to) ? new Date(opts.date_to) : new Date(checkoutDate.setDate(checkoutDate.getDate() + 1));
                 if (singleDatePicker) {
                     date_to_ = date_at_;
                     closeCalendarAndEmpty();
@@ -314,13 +312,15 @@
                 }
 
                 if (date_at_ > date_to_) {
-                    date_to_ = '';
-                    opts.date_to = '';
+                    date_to_ = new Date(checkoutDate.setDate(checkoutDate.getDate() + 1));
+                    opts.date_to = new Date(checkoutDate.setDate(checkoutDate.getDate() + 1));
+                    //date_to_ = (opts.date_to) ? new Date(opts.date_to) : new Date(checkoutDate.setDate(checkoutDate.getDate() + 1));
                     opts.inputActive = 'date_to';
                     //opts.date_at = year + '-' + ('0' + month).slice(-2) + '-' + ('0' + $(this).text()).slice(-2);
                     container.find('input.date_to').val('');
                     container.find('.value').removeClass('active');
                     container.find('span.date_at').html(getDateLocale(date_at_));
+                    container.find('span.date_to').html(getDateLocale(date_to_));
                     //container.find('span.daysFromTo').html(getDateLocale(date_at_) + ' to ' + getDateLocale(date_to_));
                     containerValues.find('span.date_to').text(opts.l.to);
                     containerCalendar.find('td.valid').removeClass('end');
@@ -329,7 +329,9 @@
                     container.find('span.date_at').html(getDateLocale(date_at_));
                     //container.find('span.daysFromTo').html(getDateLocale(date_at_) + ' to ' + getDateLocale(date_to_));
                     opts.inputActive = 'date_to';
-
+                    if (!opts.date_to) {
+                        container.find('span.date_to').html(getDateLocale(date_to_));
+                    }
                     container.find('.value').removeClass('active');
                     container.find('.value.date_to').addClass('active');
                 }
@@ -372,13 +374,8 @@
                 } else {
 
                     if (opts.inputActive == 'date_at') {
-
                         containerCalendar.find('td.valid').removeClass('intermediate');
                         checkHover(containerCalendar.find('td.valid.end'), 'click');
-
-
-
-
                     }
 
                     container.find('span.date_to').html(getDateLocale(date_to_));
@@ -388,23 +385,17 @@
                     var date2 = new Date(date_to_);
                     var timeDiff = Math.abs(date2.getTime() - date1.getTime());
                     var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-                    container.find('.nights').html(diffDays + ' ' + opts.l.nights);
+                    if (diffDays == 1) {
+                        container.find('.nights').html(diffDays + ' ' + opts.l.night);
+                    } else {
+                        container.find('.nights').html(diffDays + ' ' + opts.l.nights);
+                    }
+
                     closeCalendarAndEmpty();
 
                 }
                 //  closeCalendarAndEmpty();
                 checkHover(containerCalendar.find('td.valid.start'), 'click');
-                // if (opts.date_at != '' && opts.date_to) {
-                //     //closeCalendarAndEmpty();
-                // } else if (opts.date_at == '') {
-                //     opts.inputActive = 'date_at';
-                //     container.find('.value').removeClass('active');
-                //     container.find('.value.date_at').addClass('active');
-                // } else {
-                //     opts.inputActive = 'date_to';
-                //     container.find('.value').removeClass('active');
-                //     container.find('.value.date_to').addClass('active');
-                // }
             }
 
             if (opts.date_at != '' && opts.date_to != '' && containerCalendar.is(':hidden')) {
@@ -430,8 +421,9 @@
             containerValues.find('span.date_to').text(opts.l.to);
 
 
-            opts.date_at = '';
-            opts.date_to = '';
+            // opts.date_at = '';
+            // opts.date_to = '';
+            //date_at_ > date_to_
 
             containerCalendar.find('td').removeClass('start intermediate end');
 
@@ -535,10 +527,6 @@
         date_at: '',
         date_to: '',
         locale: '',
-        l: {
-            label: 'Close',
-            days: ['MON', 'TUE', 'WED', 'THUR', 'FRI', 'SAT', 'SUN'],
-            months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-        }
+        l: {}
     };
 })(jQuery);
