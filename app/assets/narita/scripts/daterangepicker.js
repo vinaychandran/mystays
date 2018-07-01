@@ -62,6 +62,16 @@
             opts.l = dateLocale;
         } else {
             days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            dateLocale = {
+                months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                days: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                yearSuffix: '',
+                dateSuffix: '',
+                nights: 'nights**',
+                night: 'night'
+            }
+
+            opts.l = dateLocale;
         }
         var container = $(opts.container),
             singleDatePicker = opts.singleDatePicker,
@@ -79,11 +89,7 @@
             var year = value.getFullYear(),
                 month = value.getMonth() + 1,
                 day = value.getDate();
-            if (opts.locale == 'ru-RU') {
-                if (month < 10) month = '0' + month;
-                if (day < 10) day = '0' + day;
-                var dateText = day + '.' + month + '.' + year;
-            } else if (opts.locale == 'en') {
+            if (opts.locale == 'en') {
                 var dateText;
                 if ($(window).width() < 769) {
                     dateText = '<div class="day"> ' + day + '</div><div class="month"> ' + thisMonth + '</div><div class="dayoftheweek">' + dayName + '</div>';

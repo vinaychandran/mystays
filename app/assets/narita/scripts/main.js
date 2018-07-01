@@ -327,6 +327,7 @@ const FE = {
                     }
                 }
 
+                var infoWindow = new google.maps.InfoWindow;
                 mapMarker.forEach(function(list) {
                     var marker = new google.maps.Marker({
                         position: list.position,
@@ -338,13 +339,16 @@ const FE = {
                         marker.set("id", list.num);
                         marker.set("label", list.num);
                     }
-                    var infowindow = new google.maps.InfoWindow({
-                        content: list.content
+                    infoWindow.set('content', list.content);
+                    google.maps.event.addListener(map, "click", function(event) {
+                        for (var i = 0; i < mapMarker.length; i++) {
+                            infoWindow.close();
+                        }
                     });
-                    if(list.num!=undefined){
-                      marker.addListener('click', function() {
-                          infowindow.open(map, marker);
-                      });
+                    if (list.num != undefined) {
+                        marker.addListener('click', function() {
+                            infoWindow.open(map, marker);
+                        });
                     }
                 });
             }
