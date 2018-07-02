@@ -1,4 +1,11 @@
 
+.access-page{
+    .location{
+        margin-bottom: 100px;  
+    }
+}
+
+
 .access-map{
     margin-bottom: 100px;
     text-align: center;
@@ -24,7 +31,7 @@ $box-height:90;
 
 .shuttle-bus{
     max-width: 1280px;
-    margin: 0 auto;
+    margin: 0 auto 100px;
     background: #fafafa;
     padding: 60px 90px;
     display: flex;
@@ -118,35 +125,91 @@ $box-height:90;
     }
 }
 
+.access-time-table-wrap{
+    max-width: 880px;
+    margin: 0 auto 100px; 
+    text-align: center; 
+    h2{
+        font-family: $go-semibold;
+        font-weight: 500;    
+        @include font-size(24px);   
+        margin-bottom: 40px;  
+    } 
+    h3{
+        font-family: $go-bold;
+        font-weight: 700;   
+        @include font-size(14px);
+        text-align: left;
+        margin-bottom: 20px;
+    }
+    p{
+        clear: both;  
+        font-family: $mi-regular;
+        font-weight: 500;
+        line-height: 2;
+        letter-spacing: 1.4px;
+        @include font-size(14px);
+        text-align: left;
+        margin-bottom: 0;
+    }
+    ul.notes{
+        li{
+            line-height: 1.67;
+            letter-spacing: normal;
+            font-family: $go-semibold;
+            font-weight: 500;   
+            @include font-size(12px);
+            text-align: left;
+        }
+    }
+}
+
 
 .access-time-table{
     max-width: 428px;
+    float: left;
+    &:nth-child(3){
+        float: right;        
+    } 
     .table{ 
         display: table;
         width: 100%;
         border: 1px solid black;
         border-collapse: collapse;
         text-align: center;
+        margin-bottom: 20px;
         .table-row{
             display: table-row;
         }
         .table-head, .table-column {
-            border: 1px solid black;
-            text-align: center;
+            border: 1px solid rgba(0,0,0,0.1);
+            text-align: center; 
             display: table-cell;
         }
         .table-head{
-            width: 30%;
+            width: 29%;
+            background: #eeeeee;
+            height: 80px;
+            font-family: $go-bold;
+            font-weight: 700;
+            vertical-align: middle;
+            padding: 10px;
+            @include font-size(14px);
             &:first-child{
-                width: 10%;
+                width: 13%; 
             }
         }
         .table-column{
             padding: 0;
+            background: #fafafa;
+            line-height: 39px;
+            vertical-align: middle;
             span{
                 display: block;
                 float: left; 
-                border-right:1px solid #000;
+                border-right:1px solid rgba(0,0,0,0.1);
+                font-family: $go-semibold;
+                font-weight: 500;  
                 &:last-child{
                     border-right: 0px; 
                 }
@@ -174,12 +237,15 @@ $box-height:90;
             }
         }
     }
+
 }
+
+
 
 .parking-space{
     margin-bottom: 100px;
     .container{
-        max-width: 980px;
+        max-width: 980px; 
     }
     h2{
         @include font-size(24px);
