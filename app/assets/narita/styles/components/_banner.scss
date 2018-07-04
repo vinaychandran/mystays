@@ -16,7 +16,7 @@
 .main-banner {
     position: relative;    
     padding-top: 56px;
-    @include md {
+    @include sm {
         padding-top: 80px;
     }
     .banner-image{
