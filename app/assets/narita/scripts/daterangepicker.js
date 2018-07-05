@@ -519,16 +519,17 @@
         function closeCalendarAndEmpty() {
             container.find('input.date_at').val(opts.date_at);
             container.find('input.date_to').val(opts.date_to);
-            var date_at_ = new Date(opts.date_at);
-            var checkoutDate = new Date(opts.date_at);
 
-            var date_to_ = (opts.date_to) ? new Date(opts.date_to) : new Date(checkoutDate.setDate(checkoutDate.getDate() + 1));
+            if (opts.date_at !== '') {
+              var date_at_ = new Date(opts.date_at);
+              var checkoutDate = new Date(opts.date_at);
+              var date_to_ = (opts.date_to) ? new Date(opts.date_to) : new Date(checkoutDate.setDate(checkoutDate.getDate() + 1));
+
+            }
+
             if (!opts.date_to) {
-                //containerCalendar.find('td').removeClass('end');
                 container.find('span.date_to').html(getDateLocale(date_to_));
-                // $(this).next().addClass('end');
                 containerCalendar.find('td.start').next().addClass('end');
-                //container.find('.value.date_to').addClass('active');
             }
 
             container.removeClass('active').find('.value').removeClass('active');
