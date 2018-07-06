@@ -476,6 +476,7 @@ const FE = {
                         FE.global.lazyLoad();
                         FE.global.sliderImage('.gallery-nav', 1, false, true);
                         $('.gallery-nav').slick('slickGoTo', SlideNumber, true);
+                        
                         FE.global.submitForm();
                         FE.global.openModalTab('loginForm');
                         FE.global.openModalTab('resturant-tabs');
@@ -730,17 +731,36 @@ const FE = {
                             e.className += ' ' + className;
                         }
                     }
+
+
                 });
                 document.querySelectorAll('[data-room-type]').forEach(function(e) {
                     e.classList.remove(classNa);
                 })
                 el.classList.add(classNa);
+
+                
+                fillGalleryNav();
             };
             document.querySelectorAll('[data-room-type]').forEach(function(elem) {
                 elem.addEventListener('click', function() {
                     showFilterRoom(elem);
                 }, false);
             })
+            fillGalleryNav();
+            function fillGalleryNav() {
+                document.getElementById('gallery-nav').innerHTML = '';
+                Array.from(document.getElementsByClassName('show')).forEach(function(item, index) {
+                    item.children[0].setAttribute('data-slide', index);
+                    var galleryImageSrc = item.children[0].src.replace('-small', '-big');
+                    var galleryImage = document.createElement('img');
+                        galleryImage.setAttribute('src', galleryImageSrc);
+                    var galleryNavDiv = document.createElement('div');
+                        galleryNavDiv.appendChild(galleryImage);
+                        document.getElementById('gallery-nav').appendChild(galleryNavDiv);
+                });
+                FE.global.lightBox(true);
+            }            
         },
         filter: (targetElement) => {
             // get all of our list items
