@@ -109,7 +109,6 @@
 
         function init() {
             checkButtonClear();
-            debugger
             var now = getDateLocale(new Date());
             var tomorrow = new Date();
             tomorrow.setDate(tomorrow.getDate() + 1);
