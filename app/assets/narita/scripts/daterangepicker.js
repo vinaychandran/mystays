@@ -109,6 +109,7 @@
 
         function init() {
             checkButtonClear();
+            debugger
             var now = getDateLocale(new Date());
             var tomorrow = new Date();
             tomorrow.setDate(tomorrow.getDate() + 1);
@@ -339,6 +340,7 @@
                     $(this).next().addClass('end');
                     container.find('.value.date_to').addClass('active');
                 } else {
+                    debugger
                     container.find('span.date_at').html(getDateLocale(date_at_));
                     //container.find('span.daysFromTo').html(getDateLocale(date_at_) + ' to ' + getDateLocale(date_to_));
                     opts.inputActive = 'date_to';
@@ -521,13 +523,15 @@
             container.find('input.date_to').val(opts.date_to);
 
             if (opts.date_at !== '') {
-              var date_at_ = new Date(opts.date_at);
-              var checkoutDate = new Date(opts.date_at);
-              var date_to_ = (opts.date_to) ? new Date(opts.date_to) : new Date(checkoutDate.setDate(checkoutDate.getDate() + 1));
+                var date_at_ = new Date(opts.date_at);
+                var checkoutDate = new Date(opts.date_at);
+                var date_to_ = (opts.date_to) ? new Date(opts.date_to) : new Date(checkoutDate.setDate(checkoutDate.getDate() + 1));
 
             }
 
             if (!opts.date_to) {
+                var checkoutDate = new Date(opts.date_at);
+                var date_to_ = (opts.date_to) ? new Date(opts.date_to) : new Date(checkoutDate.setDate(checkoutDate.getDate() + 1));
                 container.find('span.date_to').html(getDateLocale(date_to_));
                 containerCalendar.find('td.start').next().addClass('end');
             }
