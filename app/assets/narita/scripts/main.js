@@ -476,7 +476,7 @@ const FE = {
                         FE.global.lazyLoad();
                         FE.global.sliderImage('.gallery-nav', 1, false, true);
                         $('.gallery-nav').slick('slickGoTo', SlideNumber, true);
-                        
+
                         FE.global.submitForm();
                         FE.global.openModalTab('loginForm');
                         FE.global.openModalTab('resturant-tabs');
@@ -585,9 +585,9 @@ const FE = {
             $(document).on('click', '.people-list-popup .btn-group .done', function(e) {
                 var popup = $(this).parents('.popup-wrap');
                 //let getText = '大人' + popup.find('.grown-up .input-custom button').text() + ' 名, 子供' + popup.find('.children .input-custom button').text() + ' 名 <span>' + popup.find('.room .input-custom button').text() + ' 部屋 </span>';
-                var adults_string=popup.find('.grown-up .input-custom button').text();
+                var adults_string = popup.find('.grown-up .input-custom button').text();
                 var adults_split_string = adults_string.split(/(\d+)/);
-                var child_string=popup.find('.children .input-custom button').text();
+                var child_string = popup.find('.children .input-custom button').text();
                 var child_split_string = child_string.split(/(\d+)/);
                 $('.people .people-list p span.adults').html(adults_split_string[1]);
                 $('.people .people-list p span.child').html(child_split_string[1]);
@@ -744,7 +744,7 @@ const FE = {
                 })
                 el.classList.add(classNa);
 
-                
+
                 fillGalleryNav();
             };
             document.querySelectorAll('[data-room-type]').forEach(function(elem) {
@@ -753,19 +753,22 @@ const FE = {
                 }, false);
             })
             fillGalleryNav();
+
             function fillGalleryNav() {
-                document.getElementById('gallery-nav').innerHTML = '';
+                if (document.getElementById('gallery-nav')) {
+                    document.getElementById('gallery-nav').innerHTML = '';
+                }
                 Array.from(document.getElementsByClassName('show')).forEach(function(item, index) {
                     item.children[0].setAttribute('data-slide', index);
                     var galleryImageSrc = item.children[0].src.replace('-small', '-big');
                     var galleryImage = document.createElement('img');
-                        galleryImage.setAttribute('src', galleryImageSrc);
+                    galleryImage.setAttribute('src', galleryImageSrc);
                     var galleryNavDiv = document.createElement('div');
-                        galleryNavDiv.appendChild(galleryImage);
-                        document.getElementById('gallery-nav').appendChild(galleryNavDiv);
+                    galleryNavDiv.appendChild(galleryImage);
+                    document.getElementById('gallery-nav').appendChild(galleryNavDiv);
                 });
                 FE.global.lightBox(true);
-            }            
+            }
         },
         filter: (targetElement) => {
             // get all of our list items
