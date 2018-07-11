@@ -540,6 +540,7 @@
                 var checkoutDate = new Date(opts.date_at);
                 var date_to_ = (opts.date_to) ? new Date(opts.date_to) : new Date(checkoutDate.setDate(checkoutDate.getDate() + 1));
                 container.find('span.date_to').html(getDateLocale(date_to_));
+                opts.date_to = date_to_.toISOString().split("T")[0];
                 containerCalendar.find('td.start').next().addClass('end');
             }
 
