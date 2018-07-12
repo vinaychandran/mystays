@@ -796,7 +796,7 @@ const FE = {
                 }
                 Array.from(document.getElementsByClassName('show')).forEach(function(item, index) {
                     item.children[0].setAttribute('data-slide', index);
-                    var galleryImageSrc = item.children[0].src.replace('-small', '-big');
+                    var galleryImageSrc = item.children[0].src;
                     var galleryImage = document.createElement('img');
                     galleryImage.setAttribute('src', galleryImageSrc);
                     var galleryNavDiv = document.createElement('div');
