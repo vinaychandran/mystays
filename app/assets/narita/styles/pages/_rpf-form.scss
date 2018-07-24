@@ -1,8 +1,14 @@
 .rfp-form-details {
   background: $secondary-color;
   height: 100vh;
-  overflow-y: scroll;
-  position: relative;
+  overflow-y: auto;
+  position: static !important;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  -webkit-overflow-scrolling: touch;
   @include md {
     height: auto;
     //overflow-y: hidden;
@@ -23,10 +29,12 @@
 
 .closeBtn {
   position: absolute;
+  //position: static !important;
   right: 15px;
   top: 0;
   width: 56px;
   height: 56px;
+  transform: translate(0,0);
   background: $default-color;
   @include md {
     right: 0;
@@ -65,6 +73,9 @@
     padding: 90px 28px 28px;
     clear: both;
     margin-bottom: 0;
+    z-index: 9999;
+    height: 100vh;
+    position: relative;
     @include md {
       padding: 94px 78px 78px;
     };
