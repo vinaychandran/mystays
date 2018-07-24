@@ -24,15 +24,15 @@
 // }
 
 .closeBtn {
-  position: fixed;
-  right: 0;
+  //position: fixed;
+  right: 15px;
   z-index: 99999;
   top: 0;
   width: 56px;
   height: 56px;
   background: $default-color;
   @include md {
-    right: -20px;
+    right: 0;
     width: 94px;
     height: 94px;
   };
