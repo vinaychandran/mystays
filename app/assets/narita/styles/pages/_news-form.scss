@@ -3,6 +3,7 @@
   height: 100vh;
   overflow-y: scroll;
   position: relative;
+  -webkit-overflow-scrolling: touch;
   @include md {
     height: auto;
     //overflow-y: hidden;
