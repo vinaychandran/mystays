@@ -276,7 +276,8 @@ const FE = {
                         div.appendChild(arrow);
                         node.appendChild(div);
                         node.id = 'more-link';
-                        node.href = 'gallery.html';
+                        node.href = "https://www.instagram.com/explore/tags/hotelmystays/";
+                        node.target = '_blank';
                         let feed = document.getElementById('instafeed');
                         feed.appendChild(node);
                         FE.global.lazyLoad();
@@ -1021,7 +1022,7 @@ const FE = {
                 let imgWidth = element.offsetWidth;
                 let imgMinWidth = imgWidth - content.offsetWidth;
                 //document.getElementById('experience-content-padder').style.height = blockHeight + 'px';
-                $('#news-banner').css('width', imgMinWidth);
+                //$('#news-banner').css('width', imgMinWidth);
 
                 function scrollNews() {
                     // let scrollTopPos = $(document).scrollTop();
@@ -1032,7 +1033,7 @@ const FE = {
                     // } else {
                     //     $('#news-banner').css('width', imgMinWidth);
                     // }
-                    $('#news-banner').css('width', imgMinWidth);
+                   //$('#news-banner').css('width', imgMinWidth);
                 };
                 $(window).scroll(function() {
                     scrollNews();
