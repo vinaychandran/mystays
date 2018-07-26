@@ -119,7 +119,7 @@
             }
             if (!containerValues.find('span.date_to').html()) {
                 containerValues.find('span.date_to').html(nextDay);
-                container.find('span.daysFromTo').html(now + ' ~ ' +  nextDay);
+                container.find('span.daysFromTo').html(now + ' ~ ' + nextDay);
             }
 
             if (opts.date_at == '') {
@@ -143,9 +143,8 @@
 
         function createCalendar(year, month, direction, max_m = 3) {
 
-            if((opts.date_at != "") && (opts.date_to != "") )
-            {
-              container.find('span.daysFromTo').html(getDateLocale(new Date(opts.date_at))+ ' ~ ' + getDateLocale(new Date(opts.date_to)));
+            if ((opts.date_at != "") && (opts.date_to != "")) {
+                container.find('span.daysFromTo').html(getDateLocale(new Date(opts.date_at)) + ' ~ ' + getDateLocale(new Date(opts.date_to)));
             }
             var html;
 
@@ -336,7 +335,7 @@
                     closeCalendarAndEmpty();
                     clearAll();
                 }
-                if (date_at_ > date_to_) {
+                if (date_at_ >= date_to_) {
                     date_to_ = new Date(checkoutDate.setDate(checkoutDate.getDate() + 1));
                     opts.date_to = new Date(checkoutDate.setDate(checkoutDate.getDate() + 1));
                     opts.inputActive = 'date_to';
@@ -371,7 +370,7 @@
                     date_to_ = new Date(opts.date_to);
 
 
-                if (date_at_ > date_to_) {
+                if (date_at_ >= date_to_) {
                     console.log('greater ')
                     opts.date_at = date_to_;
                     //date_at_ = date_to_;
