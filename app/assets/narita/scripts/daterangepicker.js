@@ -15,7 +15,7 @@
                 days: ['日', '一', '二', '三', '四', '五', '六'],
                 yearSuffix: '年',
                 dateSuffix: '日',
-                nights: 'nights**',
+                nights: 'nights',
                 night: 'night'
             }
             opts.l = dateLocale;
@@ -28,7 +28,7 @@
                 days: ['日', '月', '火', '水', '木', '金', '土'],
                 yearSuffix: '年',
                 dateSuffix: '日',
-                nights: 'nights**',
+                nights: 'nights',
                 night: 'night'
             }
             opts.l = dateLocale;
@@ -42,7 +42,7 @@
                 days: ['일', '월', '화', '수', '목', '금', '토'],
                 yearSuffix: '년',
                 dateSuffix: '日',
-                nights: 'nights**',
+                nights: 'nights',
                 night: 'night'
             }
             opts.l = dateLocale;
@@ -56,7 +56,7 @@
                 days: ['日', '一', '二', '三', '四', '五', '六'],
                 yearSuffix: '年',
                 dateSuffix: '日',
-                nights: 'nights**',
+                nights: 'nights',
                 night: 'night'
             }
             opts.l = dateLocale;
@@ -67,7 +67,7 @@
                 days: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
                 yearSuffix: '',
                 dateSuffix: '',
-                nights: 'nights**',
+                nights: 'nights',
                 night: 'night'
             }
 
@@ -113,11 +113,13 @@
             var tomorrow = new Date();
             tomorrow.setDate(tomorrow.getDate() + 1);
             var nextDay = getDateLocale(tomorrow);
+
             if (!containerValues.find('span.date_at').html()) {
                 containerValues.find('span.date_at').html(now);
             }
             if (!containerValues.find('span.date_to').html()) {
                 containerValues.find('span.date_to').html(nextDay);
+                container.find('span.daysFromTo').html(now + ' ~ ' +  nextDay);
             }
 
             if (opts.date_at == '') {
@@ -140,6 +142,11 @@
         init();
 
         function createCalendar(year, month, direction, max_m = 3) {
+
+            if((opts.date_at != "") && (opts.date_to != "") )
+            {
+              container.find('span.daysFromTo').html(getDateLocale(new Date(opts.date_at))+ ' ~ ' + getDateLocale(new Date(opts.date_to)));
+            }
             var html;
 
             var start = 1;
@@ -311,8 +318,8 @@
                 opts.inputActive = 'date_at'
 
             }
+
             console.log('opts.inputActive ' + opts.inputActive)
-            debugger
             if (opts.inputActive == 'date_at') {
                 containerCalendar.find('td.valid').removeClass('hovered');
                 var start = $(this).text();
