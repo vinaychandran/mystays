@@ -81,7 +81,7 @@
             containerCalendarContainer = container.find('.calendarContainer'),
             backdrop = container.find('.calendar-backdrop');
 
-        function getDateLocale(value) {
+        function getDateLocale(value, thiru) {
             var day = value.getDay();
             var thisMonth = opts.l.months[value.getMonth()];
             var dayName = days[value.getDay()];
@@ -93,14 +93,22 @@
             if (opts.locale == 'en') {
                 var dateText;
                 if ($(window).width() < 769) {
-                    dateText = '<div class="day"> ' + day + '</div><div class="month"> ' + thisMonth + '</div><div class="dayoftheweek">' + dayName + '</div>';
+                  if(thiru){
+                    dateText = '<div class="year"> ' + year + '</div><div class="month"> ' + thisMonth + '</div><div class="day"> ' + day + '</day><div class="dayoftheweek">' + dayName + '</div>';
+
+                  }else
+                    {dateText = '<div class="day"> ' + day + '</div><div class="month"> ' + thisMonth + '</div><div class="dayoftheweek">' + dayName + '</div>';}
                 } else {
                     dateText = '<div class="year"> ' + year + '</div><div class="month"> ' + thisMonth + '</div><div class="day"> ' + day + '</day><div class="dayoftheweek">' + dayName + '</div>';
                 }
             } else {
                 var dateText;
                 if ($(window).width() < 769) {
-                    dateText = '<div class="day"> ' + day + '</div><div class="month"> ' + thisMonth + '</div><div class="dayoftheweek">' + dayName + '</div>';
+                  if(thiru){
+                    dateText = '<div class="year">' + year + yearSuffix + '</div><div class="month">' + thisMonth + '</div><div class="day">' + day + dateSuffix + '</day><div class="dayoftheweek">' + dayName + '</div>';
+
+                  }else
+                  {  dateText = '<div class="day"> ' + day + '</div><div class="month"> ' + thisMonth + '</div><div class="dayoftheweek">' + dayName + '</div>';}
                 } else {
                     dateText = '<div class="year">' + year + yearSuffix + '</div><div class="month">' + thisMonth + '</div><div class="day">' + day + dateSuffix + '</day><div class="dayoftheweek">' + dayName + '</div>';
                 }
@@ -120,7 +128,9 @@
             }
             if (!containerValues.find('span.date_to').html()) {
                 containerValues.find('span.date_to').html(nextDay);
-                container.find('span.daysFromTo').html(now + ' ~ ' + nextDay);
+
+                container.find('span.daysFromTo').html(getDateLocale(new Date(), true) + ' ~ ' +  getDateLocale(tomorrow, true));
+
             }
 
             if (opts.date_at == '') {
@@ -144,8 +154,11 @@
 
         function createCalendar(year, month, direction, max_m = 3) {
 
-            if ((opts.date_at != "") && (opts.date_to != "")) {
-                container.find('span.daysFromTo').html(getDateLocale(new Date(opts.date_at)) + ' ~ ' + getDateLocale(new Date(opts.date_to)));
+
+            if((opts.date_at != "") && (opts.date_to != "") )
+            {
+              container.find('span.daysFromTo').html(getDateLocale(new Date(opts.date_at), true)+ ' ~ ' + getDateLocale(new Date(opts.date_to), true));
+
             }
             var html;
 
@@ -398,7 +411,7 @@
                     }
 
                     container.find('span.date_to').html(getDateLocale(date_to_));
-                    container.find('span.daysFromTo').html(getDateLocale(date_at_) + ' ~ ' + getDateLocale(date_to_));
+                    container.find('span.daysFromTo').html(getDateLocale(date_at_, true) + ' ~ ' + getDateLocale(date_to_, true));
 
                     var date1 = new Date(date_at_);
                     var date2 = new Date(date_to_);
