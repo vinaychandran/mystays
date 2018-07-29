@@ -1,6 +1,10 @@
 .input-custom {
   position: relative;
 
+  input[type='text'], textarea{
+    font-size: 16px;
+  }
+
   input,
   input::placeholder {
     font-family: $go-bold;
@@ -188,5 +192,12 @@
 
   &:focus {
     border: 2px solid #eeeeee;
+  }
+}
+
+
+.rfp-form-details{
+  .thanks-you{
+    padding: 94px 78px 78px;  
   }
 }
