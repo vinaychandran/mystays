@@ -385,12 +385,12 @@ const FE = {
                         } else {
                             return -150;
                         }
-                    }                                              
-                },                
+                    }
+                },
                 header: 'header',
                 clip: true,
                 before: function(anchor, toggle) {
-                    console.log(toggle.className.split(' ')[0]);                    
+                    console.log(toggle.className.split(' ')[0]);
                     [].forEach.call(
                         anchor.querySelectorAll('.tabs-title'),
                         function(el) {
@@ -553,7 +553,7 @@ const FE = {
                     className: 'roomPopup',
                     closable: true,
                     beforeShow: (instance) => {
-                        
+
                     },
                     afterShow: (instance) => {
                         FE.global.sliderImage('.roomPopup .room-info-slider', 1, false, true);
@@ -568,7 +568,7 @@ const FE = {
                         $('.roomPopup .room-info-slider').slick('unslick');
                         $('body').removeClass('modal-open');
                     }
-                }).show                
+                }).show
             })
             $(document).on('click', '.room-detail .close-room', function() {
                 $('.roomPopup .room-info-slider').slick('unslick');
@@ -579,7 +579,7 @@ const FE = {
 
                 }, 410);
                 $('body').removeClass('modal-open');
-            });           
+            });
         },
         autocomplatePopup: () => {
             $(document).on('click', '.input-custom button', function() {
@@ -824,7 +824,7 @@ const FE = {
                     });
                     FE.global.lightBox(true);
                 }
-                
+
             }
         },
         filter: (targetElement) => {
@@ -968,11 +968,12 @@ const FE = {
         },
 
         init: () => {
-            
+          var hdpkr = new HotelDatepicker(document.getElementById('input-id'), { maxNights: 30});
         },
 
         loaded: function loaded() {
             //Functions inside loaded execute when window loaded
+
             if (isMobile) {
                 FE.global.sliderImage('.home-slider-nav', 1, true, false);
             } else {
