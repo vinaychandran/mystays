@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="2.css">
+</head>
+
+<body>
+
+    <div class="page">
+
+
+        <div class="demo">
+            <h3>Demo</h3>
+
+            <div class="demo__item">
+                <div class="demo__input" id="demo1-input-parent">
+                    <input type="text" value="">
+                </div>
+                <div class="demo__config">
+                </div>
+            </div>
+
+
+            <script type="text/javascript" src="1.js"></script>
+            <script type="text/javascript" src="3.js"></script>
+
+            <script type="text/javascript">
+                (function() {
+                    // ------------------- DEMO 1 ------------------- //
+
+                    var today = new Date();
+                    var tomorrow = new Date();
+                    tomorrow.setDate(tomorrow.getDate() + 1);
+                    var input1 = document.querySelector('#demo1-input-parent input');
+                    input1.value = fecha.format(today, 'YYYY-MM-DD') + ' - ' + fecha.format(tomorrow, 'YYYY-MM-DD');
+
+                    var demo1 = new HotelDatepicker(input1);
+
+
+
+                })();
+            </script>
+</body>
+
+</html>
