@@ -32,7 +32,7 @@ section.booking-widget.visible-desktop#booking-widget
           .popup-wrap.popup-create
                 //.overlay
                 .big-popup.people-list-popup
-                  .head-popup
+                  //.head-popup
                     section.grown-up
                       .form-group
                         label.form-label(for='') 大人
@@ -81,15 +81,28 @@ section.booking-widget.visible-desktop#booking-widget
                                   span(target='Tochigi', names='Tochigi') 2
                                 li
                                   span(target='Tokyo', names='Tokyo') 3
-                  .input-popup
+                  //.input-popup
                       .title 小学生の添い寝について
                       ul
                         li 大人1名様に対し、添い寝のお子様1名までとします。
                         li 小学生の添い寝希望のお客様がご朝食をご希望の場合、現地にて別途1,030円頂戴いたします。（未就学児は無料）
                         li 小学生の添い寝の場合、幼児欄の「食事・布団不要」に人数をご入力の上、予約画面下の備考欄にお子様の年齢をご記載ください。
-                  .btn-group
+                  //.btn-group
                       button.clear クリア
                       button.done 完了
+                  //div
+                    input#roomMinus(type='button' value='-' onclick='FE.global.minus(id)')
+                    input#counterRoom(type='text' size='5' value='1')
+                    input#roomPlus(type='button' value='+' onclick='FE.global.plus(id)')
+                  //div
+                    input#adultMinus(type='button' value='-' onclick='FE.global.minus(id)')
+                    input#counterAdult(type='text' size='5' value='1')
+                    input#adultPlus(type='button' value='+' onclick='FE.global.plus(id)')
+                  div
+                    input#childMinus(type='button' value='-' onclick='FE.global.minus(id)')
+                    input#counterChild(type='text' size='5' value='0')
+                    input#childPlus(type='button' value='+' onclick='FE.global.plus(id)')
+                  #container
         .promo-code
           section
             .form-group

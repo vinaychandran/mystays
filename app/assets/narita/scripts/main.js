@@ -9,8 +9,102 @@ const isDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/
 const isMobile = $(window).width() <= mobileWidth;
 const isIpad = $(window).width() <= deviceWidth;
 var sticky, pageOffset;
+
+var counterRoom = 1;
+var counterAdult = 1;
+var counterChild = 0;
+var countRoom = document.getElementById("counterRoom");
+var countAdult = document.getElementById("counterAdult");
+var countChild = document.getElementById("counterChild");
+
 const FE = {
     global: {
+
+          plus: (id) => {
+          if (id == 'roomPlus') {
+            counterRoom++;
+            countRoom.value = counterRoom;
+          } else if (id == 'adultPlus') {
+            counterAdult++;
+            countAdult.value = counterAdult;
+          } else {
+            counterChild++;
+            countChild.value = counterChild;
+            FE.global.addFields();
+          }
+        },
+        minus: (id) => {
+          if (id == 'roomMinus') {
+            if (counterRoom > 1) {
+              counterRoom--;
+              countRoom.value = counterRoom;
+            }
+          } else if (id == 'adultMinus') {
+            if (counterAdult > 1) {
+              counterAdult--;
+              countAdult.value = counterAdult;
+            }
+          } else {
+            if (counterChild > 0) {
+              counterChild--;
+              countChild.value = counterChild;
+              FE.global.removeFields();
+            }
+          }
+        },
+
+        addFields: () => {
+          var number = document.getElementById("counterChild").value;
+          var container = document.getElementById("container");
+          while (container.hasChildNodes()) {
+            container.removeChild(container.lastChild);
+          }
+          for (var i = 0; i < number; i++) {
+            var sec = document.createElement("section");
+            var formgroup = sec.appendChild(document.createElement("form-group"));
+
+            var dropdownCustom = document.createElement("div");
+            dropdownCustom.className = "dropdown-custom";
+            var inputCustom = document.createElement("div");
+            dropdownCustom.innerHTML = 'label' + (i + 1);
+
+            inputCustom.className = "input-custom";
+            dropdownCustom.appendChild(inputCustom);
+            var btn = document.createElement("BUTTON");
+
+            inputCustom.appendChild(btn);
+            var popupMenu = document.createElement("div");
+            popupMenu.className = "popup-menu";
+            inputCustom.appendChild(popupMenu);
+
+            var popupContentInput = document.createElement("div");
+            popupContentInput.className = "popup-content-input"
+            popupMenu.appendChild(popupContentInput);
+
+            var ul = document.createElement("ul");
+            let names = ['<1', '1', '2', '3', '4'];
+            names.forEach((name) => {
+              let li = document.createElement('li');
+              let lispan = document.createElement("span");
+              li.appendChild(lispan);
+              lispan.innerText = name;
+              ul.appendChild(li);
+            })
+            popupContentInput.appendChild(ul);
+            formgroup.appendChild(dropdownCustom);
+            formgroup.appendChild(document.createElement("br"));
+            container.appendChild(formgroup);
+          }
+        },
+
+        removeFields: () =>{
+          var number = document.getElementById("counterChild").value;
+          console.log(number);
+          if(number){
+            container.removeChild(container.lastChild);
+          }
+        },
+
         lazyLoad: () => {
             const myLazyLoad = new LazyLoad({
                 elements_selector: '.lazy',
