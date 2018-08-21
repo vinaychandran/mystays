@@ -16,7 +16,8 @@ var counterChild = 0;
 var countRoom = document.getElementById("counterRoom");
 var countAdult = document.getElementById("counterAdult");
 var countChild = document.getElementById("counterChild");
-
+document.getElementById("childListLable").style.visibility = "hidden";
+countRoom.readOnly = true;
 const FE = {
     global: {
 
@@ -55,6 +56,11 @@ const FE = {
 
         addFields: () => {
           var number = document.getElementById("counterChild").value;
+          if(number!=0){
+            document.getElementById("childListLable").style.visibility = "visible";
+          }else{
+            document.getElementById("childListLable").style.visibility = "hidden";
+          }
           var container = document.getElementById("container");
           while (container.hasChildNodes()) {
             container.removeChild(container.lastChild);
@@ -62,11 +68,12 @@ const FE = {
           for (var i = 0; i < number; i++) {
             var sec = document.createElement("section");
             var formgroup = sec.appendChild(document.createElement("form-group"));
+            formgroup.className="formgroup";
 
             var dropdownCustom = document.createElement("div");
             dropdownCustom.className = "dropdown-custom";
             var inputCustom = document.createElement("div");
-            dropdownCustom.innerHTML = 'label' + (i + 1);
+            //dropdownCustom.innerHTML = 'label' + (i + 1);
 
             inputCustom.className = "input-custom";
             dropdownCustom.appendChild(inputCustom);
@@ -99,7 +106,11 @@ const FE = {
 
         removeFields: () =>{
           var number = document.getElementById("counterChild").value;
-          console.log(number);
+          if(number!=0){
+            document.getElementById("childListLable").style.visibility = "visible";
+          }else{
+            document.getElementById("childListLable").style.visibility = "hidden";
+          }
           if(number){
             container.removeChild(container.lastChild);
           }

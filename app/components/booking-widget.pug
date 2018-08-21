@@ -90,19 +90,26 @@ section.booking-widget.visible-desktop#booking-widget
                   //.btn-group
                       button.clear クリア
                       button.done 完了
-                  div
-                    input#roomMinus(type='button' value='-' onclick='FE.global.minus(id)')
-                    input#counterRoom(type='text' size='5' value='1')
-                    input#roomPlus(type='button' value='+' onclick='FE.global.plus(id)')
-                  div
-                    input#adultMinus(type='button' value='-' onclick='FE.global.minus(id)')
-                    input#counterAdult(type='text' size='5' value='1')
-                    input#adultPlus(type='button' value='+' onclick='FE.global.plus(id)')
-                  div
-                    input#childMinus(type='button' value='-' onclick='FE.global.minus(id)')
-                    input#counterChild(type='text' size='5' value='0')
-                    input#childPlus(type='button' value='+' onclick='FE.global.plus(id)')
-                  #container
+                  #crPeople
+                    .roomContainer
+                      input#counterRoom(type='text' size='2' value='1')
+                      label Room
+                      img(id='roomMinus' class='iconPlusMinus' src='/assets/narita/icons/minus.png' onclick='FE.global.minus(id)')
+                      img(id='roomPlus' class='iconPlusMinus' src='/assets/narita/icons/plus.png' onclick='FE.global.plus(id)')
+                      //input#roomMinus(type='button' value='-' onclick='FE.global.minus(id)')
+                      //input#roomPlus(type='button' value='+' onclick='FE.global.plus(id)')
+                    .adultContainer
+                      input#counterAdult(type='text' size='2' value='1')
+                      label Adults
+                      img(id='adultMinus' class='iconPlusMinus' src='/assets/narita/icons/minus.png' onclick='FE.global.minus(id)')
+                      img(id='adultPlus' class='iconPlusMinus' src='/assets/narita/icons/plus.png' onclick='FE.global.plus(id)')
+                    .childContainer
+                      input#counterChild(type='text' size='2' value='0')
+                      label Child
+                      img(id='childMinus' class='iconPlusMinus' src='/assets/narita/icons/minus.png' onclick='FE.global.minus(id)')
+                      img(id='childPlus' class='iconPlusMinus' src='/assets/narita/icons/plus.png' onclick='FE.global.plus(id)')
+                    label#childListLable Please include each child’s age so we can find you best room, bed configuration and deals.
+                    #container
         .promo-code
           section
             .form-group
