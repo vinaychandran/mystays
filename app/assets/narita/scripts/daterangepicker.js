@@ -8,12 +8,12 @@
         var isMobile = $(window).width() <= 767;
 
         if (opts.locale === 'tw') {
-            days = ['星期日','星期六', '星期一', '星期二', '星期三', '星期四', '星期五'];
+            days = ['星期日', '星期六', '星期一', '星期二', '星期三', '星期四', '星期五'];
             dateLocale = {
                 months: ['一月', '二月', '三月', '四月', '五月', '六月',
                     '七月', '八月', '九月', '十月', '十一月', '十二月'
                 ],
-                days: ['一','二', '三', '四', '五', '六', '日' ],
+                days: ['一', '二', '三', '四', '五', '六', '日'],
                 yearSuffix: '年',
                 dateSuffix: '日',
                 nights: '晚',
@@ -21,12 +21,12 @@
             }
             opts.l = dateLocale;
         } else if (opts.locale === 'ja') {
-            days = [ '日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'];
+            days = ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'];
             dateLocale = {
                 months: ['1月', '2月', '3月', '4月', '5月', '6月',
                     '7月', '8月', '9月', '10月', '11月', '12月'
                 ],
-                days: [ '月', '火', '水', '木', '金', '土', '日'],
+                days: ['月', '火', '水', '木', '金', '土', '日'],
                 yearSuffix: '年',
                 dateSuffix: '日',
                 nights: '泊',
@@ -35,12 +35,12 @@
             opts.l = dateLocale;
         } else
         if (opts.locale === 'ko') {
-            days = [ '일요일','월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
+            days = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
             dateLocale = {
                 months: ['1월', '2월', '3월', '4월', '5월', '6월',
                     '7월', '8월', '9월', '10월', '11월', '12월'
                 ],
-                days: [ '월', '화', '수', '목', '금', '토', '일'],
+                days: ['월', '화', '수', '목', '금', '토', '일'],
                 yearSuffix: '년',
                 dateSuffix: '日',
                 nights: '박',
@@ -49,12 +49,12 @@
             opts.l = dateLocale;
         } else if (opts.locale === 'cn') {
 
-            days = [ '星期日','星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            days = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
             dateLocale = {
                 months: ['一月', '二月', '三月', '四月', '五月', '六月',
                     '七月', '八月', '九月', '十月', '十一月', '十二月'
                 ],
-                days: [ '一', '二', '三', '四', '五', '六', '日'],
+                days: ['一', '二', '三', '四', '五', '六', '日'],
                 yearSuffix: '年',
                 dateSuffix: '日',
                 nights: '晚',
@@ -93,22 +93,20 @@
             if (opts.locale == 'en') {
                 var dateText;
                 if ($(window).width() < 769) {
-                  if(thiru){
-                    dateText = '<div class="year"> ' + year + '</div><div class="month"> ' + thisMonth + '</div><div class="day"> ' + day + '</day><div class="dayoftheweek">' + dayName + '</div>';
+                    if (thiru) {
+                        dateText = '<div class="year"> ' + year + '</div><div class="month"> ' + thisMonth + '</div><div class="day"> ' + day + '</day><div class="dayoftheweek">' + dayName + '</div>';
 
-                  }else
-                    {dateText = '<div class="day"> ' + day + '</div><div class="month"> ' + thisMonth + '</div><div class="dayoftheweek">' + dayName + '</div>';}
+                    } else { dateText = '<div class="day"> ' + day + '</div><div class="month"> ' + thisMonth + '</div><div class="dayoftheweek">' + dayName + '</div>'; }
                 } else {
                     dateText = '<div class="year"> ' + year + '</div><div class="month"> ' + thisMonth + '</div><div class="day"> ' + day + '</day><div class="dayoftheweek">' + dayName + '</div>';
                 }
             } else {
                 var dateText;
                 if ($(window).width() < 769) {
-                  if(thiru){
-                    dateText = '<div class="year">' + year + yearSuffix + '</div><div class="month">' + thisMonth + '</div><div class="day">' + day + dateSuffix + '</day><div class="dayoftheweek">' + dayName + '</div>';
+                    if (thiru) {
+                        dateText = '<div class="year">' + year + yearSuffix + '</div><div class="month">' + thisMonth + '</div><div class="day">' + day + dateSuffix + '</day><div class="dayoftheweek">' + dayName + '</div>';
 
-                  }else
-                  {  dateText = '<div class="day"> ' + day + '</div><div class="month"> ' + thisMonth + '</div><div class="dayoftheweek">' + dayName + '</div>';}
+                    } else { dateText = '<div class="day"> ' + day + '</div><div class="month"> ' + thisMonth + '</div><div class="dayoftheweek">' + dayName + '</div>'; }
                 } else {
                     dateText = '<div class="year">' + year + yearSuffix + '</div><div class="month">' + thisMonth + '</div><div class="day">' + day + dateSuffix + '</day><div class="dayoftheweek">' + dayName + '</div>';
                 }
@@ -129,7 +127,7 @@
             if (!containerValues.find('span.date_to').html()) {
                 containerValues.find('span.date_to').html(nextDay);
 
-                container.find('span.daysFromTo').html(getDateLocale(new Date(), true) + ' ~ ' +  getDateLocale(tomorrow, true));
+                container.find('span.daysFromTo').html(getDateLocale(new Date(), true) + ' ~ ' + getDateLocale(tomorrow, true));
 
             }
 
@@ -155,9 +153,8 @@
         function createCalendar(year, month, direction, max_m = 3) {
 
 
-            if((opts.date_at != "") && (opts.date_to != "") )
-            {
-              container.find('span.daysFromTo').html(getDateLocale(new Date(opts.date_at), true)+ ' ~ ' + getDateLocale(new Date(opts.date_to), true));
+            if ((opts.date_at != "") && (opts.date_to != "")) {
+                container.find('span.daysFromTo').html(getDateLocale(new Date(opts.date_at), true) + ' ~ ' + getDateLocale(new Date(opts.date_to), true));
 
             }
             var html;
@@ -297,10 +294,21 @@
 
         // Turn over the calendar back
         containerCalendar.on('click', '.button-prev', function() {
-            var year = containerCalendarContainer.find('table:first').data('year'),
-                month = parseFloat(containerCalendarContainer.find('table:first').data('month')) - 1,
-                m_max = 1;
-            createCalendar(year, month, 'prev', m_max);
+            if (!isMobile) {
+                var year = containerCalendarContainer.find('table:first').data('year'),
+                    month = parseFloat(containerCalendarContainer.find('table:first').data('month')) - 1,
+                    m_max = 1;
+                createCalendar(year, month, 'prev', m_max);
+            } else {
+                var x = containerCalendarContainer.find('table')[0];
+                var year;
+                var month = parseFloat(x.getAttribute('data-month')) - 1;
+                year = x.getAttribute('data-year');
+                var m_max = 1;
+                console.log('next' + year);
+                createCalendar(year, month, 'prev', m_max);
+            }
+
         });
 
         containerCalendar.on('click', '.closePopup', function() {
@@ -310,10 +318,21 @@
 
         // Turn over the calendar next
         containerCalendar.on('click', '.button-next', function() {
-            var year = containerCalendarContainer.find('table:last').data('year');
-            var month = parseFloat(containerCalendarContainer.find('table:last').data('month')) + 1;
-            var m_max = 1;
-            createCalendar(year, month, 'next', m_max);
+            if (!isMobile) {
+                var year = containerCalendarContainer.find('table:last').data('year');
+                var month = parseFloat(containerCalendarContainer.find('table:last').data('month')) + 1;
+                var m_max = 1;
+                createCalendar(year, month, 'next', m_max);
+            } else {
+                var x = containerCalendarContainer.find('table')[0];
+                var year;
+                var month = parseFloat(x.getAttribute('data-month')) + 2;
+                year = x.getAttribute('data-year');
+                var m_max = 1;
+                console.log('next' + year);
+                createCalendar(year, month, 'next', m_max);
+            }
+
         });
 
 
