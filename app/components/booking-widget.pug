@@ -7,32 +7,54 @@ section.booking-widget.visible-desktop#booking-widget
     .tabs#booking-tabs
       ul.tabs-header
         li
-          a.tabs-title(href='#') お部屋
+          a.tabs-title(href='#') Room
         li
-          a.tabs-title(href='#') レストラン
+          a.tabs-title(href='#') Resturants
         li
           a.tabs-title(href='#') お部屋+航空券
       #booking-tab1.tabs-content(onclick='FE.global.bookingWidgetClick()')
         .date-picker-tab1
-          label チェックイン
+          label Day of Use
           .date-picker-tab1-container
-            input#input-id(type='text')
+            .values 
+              .startDateContainer 
+                //label チェックイン
+                .startDate
+                  .value.date_at
+                    span.date_at
+                    input#date_at.date_at(type='hidden')
+              .to ~
+              .endDateContainer
+                //label チェックアウト
+                .endDate
+                  .value.date_to
+                    span.date_to
+                    input#date_to.date_to(type='hidden')
+            //.calendar-backdrop
+            .calendar
+              //img.clear(src='/assets/narita/images/clear.svg' )
+              .button.button-prev
+              .button.button-next
+              .calendarContainer
+              .bottomLayer
+                span.daysFromTo 2018年00月00日 金曜日 ~ 2018年00月00日 金曜日
+                .nights 1 金曜日
+                //.button.closePopup &#x5B8C;&#x4E86;
         .people
-          label ご利用人数
+          label Number of Guests
           .people-list
             p
-              | 大人
-              span.adults 0
-              | 名, 子供
-              span.child 0
-              | 名
+              span.adults 2
+              | adult(s),
+              span.child 1
+              | child(ren)
               span.container
                 span.room 0
-                span.roomText 部屋
+                span.roomText room(s)
           .popup-wrap.popup-create
                 //.overlay
                 .big-popup.people-list-popup
-                  //.head-popup
+                  .head-popup
                     section.grown-up
                       .form-group
                         label.form-label(for='') 大人
@@ -81,45 +103,25 @@ section.booking-widget.visible-desktop#booking-widget
                                   span(target='Tochigi', names='Tochigi') 2
                                 li
                                   span(target='Tokyo', names='Tokyo') 3
-                  //.input-popup
+                  .input-popup
                       .title 小学生の添い寝について
                       ul
                         li 大人1名様に対し、添い寝のお子様1名までとします。
                         li 小学生の添い寝希望のお客様がご朝食をご希望の場合、現地にて別途1,030円頂戴いたします。（未就学児は無料）
                         li 小学生の添い寝の場合、幼児欄の「食事・布団不要」に人数をご入力の上、予約画面下の備考欄にお子様の年齢をご記載ください。
-                  //.btn-group
+                  .btn-group
                       button.clear クリア
                       button.done 完了
-                  #crPeople
-                    .roomContainer
-                      input#counterRoom(type='text' size='2' value='1')
-                      label Room
-                      img(id='roomMinus' class='iconPlusMinus' src='/assets/narita/icons/minus.png' onclick='FE.global.minus(id)')
-                      img(id='roomPlus' class='iconPlusMinus' src='/assets/narita/icons/plus.png' onclick='FE.global.plus(id)')
-                      //input#roomMinus(type='button' value='-' onclick='FE.global.minus(id)')
-                      //input#roomPlus(type='button' value='+' onclick='FE.global.plus(id)')
-                    .adultContainer
-                      input#counterAdult(type='text' size='2' value='1')
-                      label Adults
-                      img(id='adultMinus' class='iconPlusMinus' src='/assets/narita/icons/minus.png' onclick='FE.global.minus(id)')
-                      img(id='adultPlus' class='iconPlusMinus' src='/assets/narita/icons/plus.png' onclick='FE.global.plus(id)')
-                    .childContainer
-                      input#counterChild(type='text' size='2' value='0')
-                      label Child
-                      img(id='childMinus' class='iconPlusMinus' src='/assets/narita/icons/minus.png' onclick='FE.global.minus(id)')
-                      img(id='childPlus' class='iconPlusMinus' src='/assets/narita/icons/plus.png' onclick='FE.global.plus(id)')
-                    label#childListLable Please include each child’s age so we can find you best room, bed configuration and deals.
-                    #container
         .promo-code
           section
             .form-group
-              label.form-label(for='') プロモコード
+              label.form-label(for='') Promo Code
               .input-custom
-                input.form-control(type='text', placeholder='プロモコード)')
+                input.form-control(type='text', placeholder='Promo Code')
         .find-button
           label.visible-desktop
             i.icon-info
-            span 最低価格保証
+            span Best Price Guarantee
           button(name='submit', type='submit', value='空室を検索') 空室を検索
           label.visible-device
             i.icon-info

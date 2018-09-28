@@ -259,7 +259,7 @@
             line-height: 66px;
             font-weight: 700;
             //padding-top: 18px;
-            padding: 20px 10px 20px 15px;
+            padding: 20px 0 20px 15px;
             width: 100%;
             @include md {
                 padding-top: 0;
@@ -668,7 +668,7 @@
             span.room {
                 display: block;
                 float: left;
-                opacity: 0.5;
+                opacity: 1;
                 font-family: $go-bold;
                 @include font-size(12px);
                 letter-spacing: 0.9px;
@@ -703,7 +703,7 @@
             clear: none;
         }
         label {
-            padding: 5px 10px 5px 10px;
+            padding: 5px 0;
             clear: both;
             text-align: center;
             cursor: pointer;
@@ -1323,91 +1323,4 @@
 
 #bookingForm {
     margin-bottom: 0;
-}
-
-#crPeople {
-  .adultContainer,
-  .childContainer,
-  .roomContainer {
-    display: table;
-    border-bottom: 1px solid #8e8e8e;
-    padding: 20px 0;
-    width: 100%;
-
-    .iconPlusMinus {
-      width: 30px;
-      height: 30px;
-      cursor: pointer;
-      float: left;
-      margin-left: 40px;
-    }
-  }
-
-  .childContainer {
-    border: 0;
-  }
-
-  #counterAdult,
-  #counterChild,
-  #counterRoom {
-    border: none;
-    float: left;
-    width: auto;
-    margin: 0;
-    font-family: $go-bold;
-    font-size: 44px;
-    font-weight: bold;
-    color: #000000;
-    text-align: right;
-  }
-
-  label {
-    float: left;
-    padding-right: 60px !important;
-    font-family: $go-bold;
-    font-size: 16px;
-    font-weight: bold;
-    letter-spacing: 0.6px;
-    color: #000000;
-    width: 120px;
-    display: block!important;
-  }
-
-  .dropdown-custom .input-custom {
-    width: 60px;
-
-    button {
-      font-size: 24px;
-      height: 40px;
-      border: solid 1px #979797;
-      border-radius: 0;
-    }
-
-    &:after {
-      //border: 0;
-      border: solid black;
-      border-width: 0 1px 1px 0;
-      display: inline-block;
-      padding: 3px;
-      top: 35%;
-      transform: rotate(45deg);
-      -webkit-transform: rotate(45deg);
-    }
-  }
-  #childListLable{
-    font-family: $go-semibold;
-    font-size: 14px;
-    font-weight: normal;
-    color: #666666;
-    width: auto;
-    padding: 10px 0;
-  }
-  #container {
-    .formgroup {
-      @extend %clearfix;
-      //width: 100px;
-      float: left;
-      margin: 0 10px 10px 0;
-    }
-  }
 }

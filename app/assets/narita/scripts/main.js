@@ -9,113 +9,8 @@ const isDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/
 const isMobile = $(window).width() <= mobileWidth;
 const isIpad = $(window).width() <= deviceWidth;
 var sticky, pageOffset;
-
-var counterRoom = 1;
-var counterAdult = 1;
-var counterChild = 0;
-var countRoom = document.getElementById("counterRoom");
-var countAdult = document.getElementById("counterAdult");
-var countChild = document.getElementById("counterChild");
-document.getElementById("childListLable").style.visibility = "hidden";
-countRoom.readOnly = true;
 const FE = {
     global: {
-
-          plus: (id) => {
-          if (id == 'roomPlus') {
-            counterRoom++;
-            countRoom.value = counterRoom;
-          } else if (id == 'adultPlus') {
-            counterAdult++;
-            countAdult.value = counterAdult;
-          } else {
-            counterChild++;
-            countChild.value = counterChild;
-            FE.global.addFields();
-          }
-        },
-        minus: (id) => {
-          if (id == 'roomMinus') {
-            if (counterRoom > 1) {
-              counterRoom--;
-              countRoom.value = counterRoom;
-            }
-          } else if (id == 'adultMinus') {
-            if (counterAdult > 1) {
-              counterAdult--;
-              countAdult.value = counterAdult;
-            }
-          } else {
-            if (counterChild > 0) {
-              counterChild--;
-              countChild.value = counterChild;
-              FE.global.removeFields();
-            }
-          }
-        },
-
-        addFields: () => {
-          var number = document.getElementById("counterChild").value;
-          if(number!=0){
-            document.getElementById("childListLable").style.visibility = "visible";
-          }else{
-            document.getElementById("childListLable").style.visibility = "hidden";
-          }
-          var container = document.getElementById("container");
-          while (container.hasChildNodes()) {
-            container.removeChild(container.lastChild);
-          }
-          for (var i = 0; i < number; i++) {
-            var sec = document.createElement("section");
-            var formgroup = sec.appendChild(document.createElement("form-group"));
-            formgroup.className="formgroup";
-
-            var dropdownCustom = document.createElement("div");
-            dropdownCustom.className = "dropdown-custom";
-            var inputCustom = document.createElement("div");
-            //dropdownCustom.innerHTML = 'label' + (i + 1);
-
-            inputCustom.className = "input-custom";
-            dropdownCustom.appendChild(inputCustom);
-            var btn = document.createElement("BUTTON");
-
-            inputCustom.appendChild(btn);
-            var popupMenu = document.createElement("div");
-            popupMenu.className = "popup-menu";
-            inputCustom.appendChild(popupMenu);
-
-            var popupContentInput = document.createElement("div");
-            popupContentInput.className = "popup-content-input"
-            popupMenu.appendChild(popupContentInput);
-
-            var ul = document.createElement("ul");
-            let names = ['<1', '1', '2', '3', '4'];
-            names.forEach((name) => {
-              let li = document.createElement('li');
-              let lispan = document.createElement("span");
-              li.appendChild(lispan);
-              lispan.innerText = name;
-              ul.appendChild(li);
-            })
-            popupContentInput.appendChild(ul);
-            formgroup.appendChild(dropdownCustom);
-            formgroup.appendChild(document.createElement("br"));
-            container.appendChild(formgroup);
-          }
-        },
-
-        removeFields: () =>{
-          var number = document.getElementById("counterChild").value;
-          if(number!=0){
-            document.getElementById("childListLable").style.visibility = "visible";
-          }else{
-            document.getElementById("childListLable").style.visibility = "hidden";
-          }
-          if(number){
-            container.removeChild(container.lastChild);
-          }
-        },
-
         lazyLoad: () => {
             const myLazyLoad = new LazyLoad({
                 elements_selector: '.lazy',
@@ -384,7 +279,7 @@ const FE = {
                         div.appendChild(arrow);
                         node.appendChild(div);
                         node.id = 'more-link';
-                        node.href = "https://www.instagram.com/explore/tags/hotelmystays/";
+                        node.href = 'https://www.instagram.com/explore/tags/hotelmystays/';
                         node.target = '_blank';
                         let feed = document.getElementById('instafeed');
                         feed.appendChild(node);
@@ -445,11 +340,11 @@ const FE = {
                         id: list.num
                     });
                     if (list.num) {
-                        marker.set("id", list.num);
-                        marker.set("label", list.num);
+                        marker.set('id', list.num);
+                        marker.set('label', list.num);
                     }
                     infoWindow.set('content', list.content);
-                    google.maps.event.addListener(map, "click", function(event) {
+                    google.maps.event.addListener(map, 'click', function(event) {
                         for (var i = 0; i < mapMarker.length; i++) {
                             infoWindow.close();
                         }
@@ -464,7 +359,7 @@ const FE = {
         },
         selectPromoCoupon: () => {
             let couponElem = event.currentTarget.parentElement.parentElement;
-            if (couponElem.className.indexOf("selected") >= 0) {
+            if (couponElem.className.indexOf('selected') >= 0) {
                 couponElem.classList.remove('selected');
                 event.currentTarget.classList.remove('icon-checked');
             } else {
@@ -490,12 +385,12 @@ const FE = {
                         } else {
                             return -150;
                         }
-                    }
-                },
+                    }                                              
+                },                
                 header: 'header',
                 clip: true,
                 before: function(anchor, toggle) {
-                    console.log(toggle.className.split(' ')[0]);
+                    console.log(toggle.className.split(' ')[0]);                    
                     [].forEach.call(
                         anchor.querySelectorAll('.tabs-title'),
                         function(el) {
@@ -658,7 +553,7 @@ const FE = {
                     className: 'roomPopup',
                     closable: true,
                     beforeShow: (instance) => {
-
+                        
                     },
                     afterShow: (instance) => {
                         FE.global.sliderImage('.roomPopup .room-info-slider', 1, false, true);
@@ -673,7 +568,7 @@ const FE = {
                         $('.roomPopup .room-info-slider').slick('unslick');
                         $('body').removeClass('modal-open');
                     }
-                }).show
+                }).show                
             })
             $(document).on('click', '.room-detail .close-room', function() {
                 $('.roomPopup .room-info-slider').slick('unslick');
@@ -684,7 +579,7 @@ const FE = {
 
                 }, 410);
                 $('body').removeClass('modal-open');
-            });
+            });           
         },
         autocomplatePopup: () => {
             $(document).on('click', '.input-custom button', function() {
@@ -815,7 +710,7 @@ const FE = {
             });
         },
         pauseVideo: () => {
-            var videos = document.getElementsByTagName("video"),
+            var videos = document.getElementsByTagName('video'),
                 fraction = 0.5;
 
             function checkScroll() {
@@ -929,7 +824,7 @@ const FE = {
                     });
                     FE.global.lightBox(true);
                 }
-
+                
             }
         },
         filter: (targetElement) => {
@@ -1073,12 +968,11 @@ const FE = {
         },
 
         init: () => {
-          var hdpkr = new HotelDatepicker(document.getElementById('input-id'), { maxNights: 30});
+            
         },
 
         loaded: function loaded() {
             //Functions inside loaded execute when window loaded
-
             if (isMobile) {
                 FE.global.sliderImage('.home-slider-nav', 1, true, false);
             } else {
